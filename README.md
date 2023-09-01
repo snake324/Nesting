@@ -3,7 +3,7 @@ El objetivo principal del proyecto es desarrollar un portal en línea que permit
 
 Core team
 
-Francisco
+Francisco Saavedra
 Product Owner 
 
 
