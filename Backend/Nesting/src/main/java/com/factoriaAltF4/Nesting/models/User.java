@@ -1,14 +1,12 @@
 package com.factoriaAltF4.Nesting.models;
 
 import jakarta.persistence.*;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
 @Entity
 @Table(name = "users")
-@NoArgsConstructor
-
-
-public class Users {
+@Data
+public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,11 +21,8 @@ public class Users {
     @Column(name = "role")
     public String role;
 
-    public Users(String mail, String password, String role) {
-        this.mail = mail;
-        this.password = password;
-        this.role = role;
-    }
+    @OneToOne(mappedBy = "user")
+    private UserProfile userProfile;
 
 
 }
