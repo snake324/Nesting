@@ -1,10 +1,14 @@
 package com.factoriaAltF4.Nesting.models;
 
+import java.util.List;
+
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "users_profiles")
-public class UsersProfile {
+@Data
+public class UserProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,18 +24,13 @@ public class UsersProfile {
     @Column(name = "address")
     private String address;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
-    private Users user;
+    private User user;
 
-    
+    @OneToOne(mappedBy = "userProfile")
+    public Card card;
 
-    public UsersProfile() {
-    }
-
-    public UsersProfile(String name, String lastname, String address, Users user) {
-        this.name = name;
-        this.lastname = lastname;
-        this.address = address;
-        this.user = user;
-    }}
+    @ManyToMany(mappedBy = "userProfiles")
+    public List<Property> properties;
+}

@@ -2,10 +2,12 @@ package com.factoriaAltF4.Nesting.models;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "banned_users")
-public class BannedUsers {
+@Data
+public class BannedUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,12 +22,4 @@ public class BannedUsers {
 
     @Column(name = "role")
     private String role;
-
-    public BannedUsers() {
-    }
-
-    public BannedUsers(String email, String password, String role) {
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }}
+}

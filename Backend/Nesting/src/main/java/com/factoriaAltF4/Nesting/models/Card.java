@@ -1,10 +1,14 @@
 package com.factoriaAltF4.Nesting.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "cards")
-public class Cards {
+@Data
+public class Card {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,17 +27,8 @@ public class Cards {
     @Column(name = "cvv")
     private String cvv;
 
-    @ManyToOne
-    @JoinColumn(name = "user_profile_id") 
-    private UsersProfile userProfile; 
-
-    public Cards() {
-    }
-
-    public Cards(String owner, String number, String expdate, String cvv, UsersProfile userProfile) {
-        this.owner = owner;
-        this.number = number;
-        this.expdate = expdate;
-        this.cvv = cvv;
-        this.userProfile = userProfile;
-    }}
+    @OneToOne
+    @JoinColumn(name = "user_profile_id")
+    @JsonIgnore
+    private UserProfile userProfile; 
+}
