@@ -1,11 +1,17 @@
 package com.factoriaAltF4.Nesting.models;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDate;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "properties")
-public class Properties {
+@Data
+public class Property {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,19 +43,14 @@ public class Properties {
     private Integer size; 
 
     @Column(name = "price")
-    private Integer price; 
+    private Integer price;
 
-    public Properties() {
-    }
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="properties_profile", joinColumns = @JoinColumn(name="property_id"), inverseJoinColumns = @JoinColumn(name= "profile_id"))
+    public List<UserProfile> userProfiles;
 
-    public Properties(String title, String description, LocalDate publishDate, String city, Integer postalCode, Integer rooms, Integer baths, Integer size, Integer price) {
-        this.title = title;
-        this.description = description;
-        this.publishDate = publishDate;
-        this.city = city;
-        this.postalCode = postalCode;
-        this.rooms = rooms;
-        this.baths = baths;
-        this.size = size;
-        this.price = price;
-    }}
+    @OneToMany(mappedBy = "property")
+    public List<Image> images;
+
+}
