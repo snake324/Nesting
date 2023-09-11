@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/5FH4Scj.png" alt="project-screenshot" width="400" height="400/">
+<img src="https://i.imgur.com/5FH4Scj.png" alt="project-screenshot" width="100" height="400/">
 
 <p id="description">The project is an online real estate portal that offers users the ability to browse and manage properties available for sale and rent. It is designed to be a comprehensive and user-friendly platform that provides access to a wide variety of housing options.</p>
 
