@@ -1,4 +1,4 @@
-.prueba{
+.container-navbar{
   display: flex;
   justify-content: space-around;
   margin-top:-10px ;
@@ -11,7 +11,6 @@
   width: 94px;
   height: 64px;
   display: flex;
-  float: left;
   margin-left: -480%;
 
 }
@@ -20,18 +19,22 @@
 .nav-link{
   display: inline-block;
   color: white;
-  float: none;
 
 
 }
 
-
+.nav-link{
+  display: inline-block;
+  color: white;
+  float:none;}
 
 .bi{
   display:flex;
-  justify-content:space-around;
   font-size:25px !important ;
   color: #006D7A;
+}
 
-
+i{
+display: flex;
+justify-content: center;
 }
