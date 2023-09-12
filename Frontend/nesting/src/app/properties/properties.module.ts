@@ -14,6 +14,7 @@ import { HomeComponent } from './views/home/home.component';
 import { RentComponent } from './views/rent/rent.component';
 import { ModalcontactComponent } from './components/modalcontact/modalcontact.component';
 import { ContactBtnComponent } from './components/contactbtn/contactbtn.component';
+import { ImghomeComponent } from './components/imghome/imghome.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ContactBtnComponent } from './components/contactbtn/contactbtn.componen
     RentcardsComponent,
     ModalcontactComponent,
     ContactBtnComponent,
+    ImghomeComponent,
 
   ],
   imports: [
