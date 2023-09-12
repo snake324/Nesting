@@ -12,6 +12,7 @@ import { BuyComponent } from './views/buy/buy.component';
 import { DetailsComponent } from './views/details/details.component';
 import { HomeComponent } from './views/home/home.component';
 import { RentComponent } from './views/rent/rent.component';
+import { ImghomeComponent } from './components/imghome/imghome.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { RentComponent } from './views/rent/rent.component';
     BuycardsComponent,
     HomecardsComponent,
     RentcardsComponent,
+    ImghomeComponent,
 
   ],
   imports: [
