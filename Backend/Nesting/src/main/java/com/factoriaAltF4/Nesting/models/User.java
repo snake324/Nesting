@@ -15,7 +15,7 @@ public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long user_id;
+    public Long iduser;
 
     @Column(name = "mail")
     public String mail;
@@ -26,7 +26,7 @@ public class User {
     @Column(name = "status")
     public boolean status;
 
-    @Column(name="register_date")
+    @Column(name="register_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     public Timestamp registerDate;
 
     @OneToOne(mappedBy = "user")
