@@ -20,3 +20,9 @@ VALUES ('Country Cottage', 'A charming cottage in the countryside.', 'Countrysid
 
 -- Inserting both roles
 INSERT INTO roles (idrole, role) VALUES (1, 'ROLE_ADMIN'),(2, 'ROLE_USER');
+
+-- Inserting ADMIN user
+INSERT INTO users (status, iduser, mail, password) VALUES (true, 1, 'admin@nesting.com', 'password');
+
+-- Inserting relation into role_users
+INSERT INTO roles_users (roles_id, user_id) VALUES (1,1);
