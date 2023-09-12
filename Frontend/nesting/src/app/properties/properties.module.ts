@@ -12,6 +12,8 @@ import { BuyComponent } from './views/buy/buy.component';
 import { DetailsComponent } from './views/details/details.component';
 import { HomeComponent } from './views/home/home.component';
 import { RentComponent } from './views/rent/rent.component';
+import { ModalcontactComponent } from './components/modalcontact/modalcontact.component';
+import { ContactBtnComponent } from './components/contactbtn/contactbtn.component';
 import { ImghomeComponent } from './components/imghome/imghome.component';
 
 
@@ -27,6 +29,8 @@ import { ImghomeComponent } from './components/imghome/imghome.component';
     BuycardsComponent,
     HomecardsComponent,
     RentcardsComponent,
+    ModalcontactComponent,
+    ContactBtnComponent,
     ImghomeComponent,
 
   ],
