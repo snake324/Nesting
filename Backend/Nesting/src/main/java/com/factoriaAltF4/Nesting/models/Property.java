@@ -29,7 +29,7 @@ public class Property {
     private String city;
 
     @Column(name = "postal_code")
-    private Integer postalCode;
+    private String postalCode;
 
     @Column(name = "rooms")
     private int rooms;
@@ -38,30 +38,32 @@ public class Property {
     private int baths;
 
     @Column(name = "size")
-    private Double size; 
+    private Double size;
 
     @Column(name = "price")
     private Double price;
 
-    @Column(name="type")
+    @Column(name = "type")
     private String type;
 
-    @Column(name="status")
+    @Column(name = "status")
     private boolean status;
 
-    @Column(name="house_type")
+    @Column(name = "house_type")
     private String houseType;
 
     @Column(name = "publish_date")
     private LocalDate publishDate;
 
-    @Column(name="modification_date")
+    @Column(name = "modification_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp modificationDate;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="contacts", joinColumns = @JoinColumn(name="property_id"), inverseJoinColumns = @JoinColumn(name= "profile_id"))
+    @JoinTable(name = "contacts", joinColumns = @JoinColumn(name = "property_id"), inverseJoinColumns = @JoinColumn(name = "profile_id"))
     public List<UserProfile> userProfiles;
+
+    //TODO contact_date as field of the generated table.
 
     @OneToMany(mappedBy = "property")
     public List<Image> images;
