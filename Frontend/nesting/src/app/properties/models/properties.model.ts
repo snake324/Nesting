@@ -4,7 +4,7 @@ export interface Properties {
     description: string;
     city: string;
     postalcode: string;
-    roms: string;
+    rooms: string;
     baths: string;
     size: string;
     price: string;

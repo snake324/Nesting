@@ -9,7 +9,7 @@ import { PropertiesService } from '../../service/properties.service';
   styleUrls: ['./homecards.component.scss']
 })
 export class HomecardsComponent implements OnInit{
-  propertydata: Properties[]=[];
+  propertyData: Properties[]=[];
   constructor (private router: Router, private propertiesService: PropertiesService) {}
 
   ngOnInit() {
@@ -19,7 +19,7 @@ export class HomecardsComponent implements OnInit{
   fetchPropertyData() {
     this.propertiesService.getProperties().subscribe(
      (data:Properties[]) => {
-      this.propertydata = data;
+      this.propertyData = data;
      },
      (error) => {
       console.log('Error fetching properties data: ', error);
