@@ -12,12 +12,14 @@ import { BuycardsComponent } from './properties/components/buycards/buycards.com
 import { RentcardsComponent } from './properties/components/rentcards/rentcards.component';
 import { HeaderComponent } from './global/header/header.component';
 import { FooterComponent } from './global/footer/footer.component';
+import { BtnLoginComponent } from './global/btn-login/btn-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    BtnLoginComponent,
   ],
   imports: [
     BrowserModule,

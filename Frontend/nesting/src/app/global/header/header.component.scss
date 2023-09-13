@@ -1,0 +1,34 @@
+.header{
+  display: flex;
+  background-color: #8BBFBD;
+
+}
+
+.navbar-nav{
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-brand{
+  width: 94px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+
+}
+
+
+.nav-link{
+  color: white;
+  font-family:'Roboto', sans-serif ;
+  margin: 10px;
+}
+
+
+.svg-user{
+  display:flex;
+  font-size:25px !important ;
+  color: #006D7A;
+  justify-content: right;
+}
+
