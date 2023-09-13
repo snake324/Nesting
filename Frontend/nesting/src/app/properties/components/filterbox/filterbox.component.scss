@@ -1,46 +1,74 @@
-.navbar {
-        margin-top: -10em;
-        margin: 0 auto;
-        background-color: #F5B665; 
-        border-radius: 10px;
-        width: 100vh;
-        height: 12vh;
+.container {
+        display: flex;
         justify-content: center;
+        align-items: center;
+        background-color: #F5B665;
+        width: 100vh;
+        height: 15vh;
+        z-index: 1;
+        border-radius: 10px;
+        margin-top: -5em;
+        flex-direction: column;
 
-        .collapse{
-                display: flex;
+        .list-group {
                 flex-direction: row;
-                justify-content: center;
-                align-items:center;
-                margin: auto;
-                position: relative;
+        }
+
+        .list-group-item {
+                background: none;
+                border: 0;
+                color: white;
                 font-weight: bold;
                 font-size: large;
         }
-
-        .navbar-nav{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items:center;
-                margin: auto;
-                position: relative;
-                justify-content: space-around;
-                color: #006D7A;
-        }
-
-        .nav-link {
-                color: white;
-        }
-
-        .nav-link:hover{
-                text-decoration: underline;
-        }
-
+        
         .btn{
                 background-color: white;
                 color: #006D7A;
                 border: 0;
                 font-weight: 500;
+                margin-right: 5vh;
         }
 }
+
+@media (max-width: 768px) { 
+        .container {
+                margin-top: 0;
+                height: 30vh;
+                width: 50vh;
+                flex-direction: column;
+        }
+
+        .dropdown {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+        }
+
+        .btn {
+                margin-top: 10px;
+                margin-left: 30px;
+        }
+}
+
+@media (max-width: 480px) { 
+        .container {
+                margin-top: 0;
+                height: 30vh;
+                width: 38vh;
+                flex-direction: column;
+        }
+
+        .dropdown {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+        }
+
+        .btn {
+                margin-top: 10px;
+                margin-left: 30px;
+        }
+ }
