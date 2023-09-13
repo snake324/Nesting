@@ -1,7 +1,7 @@
 .header{
   display: flex;
   background-color: #8BBFBD;
-
+  margin-bottom: 5rem;
 }
 
 .navbar-nav{
@@ -22,13 +22,17 @@
   color: white;
   font-family:'Roboto', sans-serif ;
   margin: 10px;
+  position:relative;
+  right: -500px;
 }
 
 
 .svg-user{
   display:flex;
+  position: absolute;
+  left: 1555px;
   font-size:25px !important ;
   color: #006D7A;
-  justify-content: right;
+
 }
 
