@@ -8,7 +8,7 @@ import { Properties } from '../models/properties.model';
 })
 export class PropertiesService {
 
-  private apiUrl = 'http://localhost:4000/nesting';
+  private apiUrl = 'http://localhost:4000/properties';
 
   constructor(private http: HttpClient) { }
 
