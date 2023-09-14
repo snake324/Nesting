@@ -1,5 +1,12 @@
 .card{
     background-color: #ededed;
+    width: 18rem; 
+  margin-right: 10px; 
+  margin-bottom: 10px;
+  margin-top: 2em;
+  margin-left: 4em;
+  border: 0px;
+  box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
 }
 
 .btn{
@@ -38,3 +45,11 @@ p{
     font-family: 'Inter', sans-serif;
 }
 
+.row {
+    margin-left: -10px; 
+    margin-right: -10px;
+  }
+
+#maincards {
+    padding-top: 2em;
+  }
