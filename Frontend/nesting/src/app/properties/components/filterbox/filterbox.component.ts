@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Properties } from '../../models/properties.model';
-import { Router } from '@angular/router';
 import { PropertiesService } from '../../service/properties.service';
 
 @Component({
@@ -8,27 +6,20 @@ import { PropertiesService } from '../../service/properties.service';
   templateUrl: './filterbox.component.html',
   styleUrls: ['./filterbox.component.scss']
 })
-export class FilterboxComponent /*implements OnInit*/{
-/*
-  properties: Properties[] = [];
+export class FilterboxComponent implements OnInit {
+  cities: string[] = [];
+  postalCodes: string[] = [];
 
-  constructor(private router: Router, private propertiesService: PropertiesService) {}
+  constructor(private propertiesService: PropertiesService) {}
 
   ngOnInit() {
-    this.getProperties();
+    this.getPropertiesData();
   }
 
-  getProperties() {
-    this.propertiesService.getProperties().subscribe(
-      (properties: Properties[]) => {
-        this.properties = properties
-      },
-      (error) => {
-        console.log('Error al obtener las propiedades:', error);
-      }
-    );
+  getPropertiesData() {
+    this.propertiesService.getProperties().subscribe((properties) => {
+      this.cities = Array.from(new Set(properties.map((property) => property.city)));
+      this.postalCodes = Array.from(new Set(properties.map((property) => property.postalCode)));
+    });
   }
- 
-*/
-  
 }
