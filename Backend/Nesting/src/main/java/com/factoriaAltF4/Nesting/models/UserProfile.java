@@ -33,4 +33,7 @@ public class UserProfile {
 
     @ManyToMany(mappedBy = "userProfiles")
     public List<Property> properties;
+
+    @OneToMany(mappedBy = "profilePublished")
+    public List<Property> propertiesPublished;
 }
