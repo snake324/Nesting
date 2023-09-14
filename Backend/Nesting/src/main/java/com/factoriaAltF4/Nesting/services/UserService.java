@@ -60,4 +60,10 @@ public class UserService {
     public void deleteUser(User user) {
         repo.delete(user);
     }
+
+    public User updateStatus(Long id, boolean newStatus){
+        User u = getUserById(id);
+        u.setStatus(newStatus);
+        return updateUser(u);
+    }
 }
