@@ -3,6 +3,7 @@ package com.factoriaAltF4.Nesting.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -24,31 +25,45 @@ public class Property {
     @Column(name = "description", length = 3000)
     private String description;
 
-    @Column(name = "publish_date")
-    private LocalDate publishDate;
-
     @Column(name = "city")
     private String city;
 
     @Column(name = "postal_code")
-    private Integer postalCode;
+    private String postalCode;
 
     @Column(name = "rooms")
-    private Integer rooms;
+    private int rooms;
 
     @Column(name = "baths")
-    private Integer baths;
+    private int baths;
 
     @Column(name = "size")
-    private Integer size; 
+    private Double size;
 
     @Column(name = "price")
-    private Integer price;
+    private Double price;
+
+    @Column(name = "type")
+    private String type;
+
+    @Column(name = "status")
+    private boolean status;
+
+    @Column(name = "house_type")
+    private String houseType;
+
+    @Column(name = "publish_date")
+    private LocalDate publishDate;
+
+    @Column(name = "modification_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp modificationDate;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="properties_profile", joinColumns = @JoinColumn(name="property_id"), inverseJoinColumns = @JoinColumn(name= "profile_id"))
+    @JoinTable(name = "contacts", joinColumns = @JoinColumn(name = "property_id"), inverseJoinColumns = @JoinColumn(name = "profile_id"))
     public List<UserProfile> userProfiles;
+
+    //TODO contact_date as field of the generated table.
 
     @OneToMany(mappedBy = "property")
     public List<Image> images;

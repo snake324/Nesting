@@ -24,9 +24,6 @@ public class Card {
     @Column(name = "expdate")
     private String expdate;
 
-    @Column(name = "cvv")
-    private String cvv;
-
     @OneToOne
     @JoinColumn(name = "user_profile_id")
     @JsonIgnore
