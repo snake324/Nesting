@@ -1,1 +1,45 @@
-<p>homecards works!</p>
+
+   
+      <div class="card" style="width: 18rem;" *ngFor="let properties of propertyData">
+      
+ 
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="#detalles" target="_blank"><img src="../../../../assets/images/Image20230911120115.jpg" class="d-block w-100 " alt="casa1"></a>
+          </div>
+          <div class="carousel-item">
+            <img src="../../../../assets/images/Image20230911120141.jpg" class="d-block w-100 " alt="casa2">
+          </div>
+          <div class="carousel-item">
+            <img src="../../../../assets/images/Image20230911120147.jpg" class="d-block w-100 " alt="casa3">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> 
+       
+        <div class="card-body">
+        
+          &nbsp;<span > {{properties.baths}}</span> <span class="iconify" data-icon="mdi:bed" style="color: #006d7a;"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span >{{properties.rooms}}</span><span class="iconify" data-icon="majesticons:bath-shower" style="color: #006d7a;"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+         <span> {{properties.size}} <sup></sup></span>&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bounding-box-circles" viewBox="0 0 16 16">
+            <path d="M2 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM0 2a2 2 0 0 1 3.937-.5h8.126A2 2 0 1 1 14.5 3.937v8.126a2 2 0 1 1-2.437 2.437H3.937A2 2 0 1 1 1.5 12.063V3.937A2 2 0 0 1 0 2zm2.5 1.937v8.126c.703.18 1.256.734 1.437 1.437h8.126a2.004 2.004 0 0 1 1.437-1.437V3.937A2.004 2.004 0 0 1 12.063 2.5H3.937A2.004 2.004 0 0 1 2.5 3.937zM14 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM2 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+          </svg> 
+          <h2 class="card-title">{{properties.price + '€'}}</h2>
+          <p class="card-text" color>{{properties.description}} <a href="#detalles" id="mas">... [leer más]</a></p>
+          <a href="#modal-contacto" class="btn">Contactar</a>
+        </div>
+      
