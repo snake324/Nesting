@@ -1,5 +1,7 @@
 package com.factoriaAltF4.Nesting.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,7 +18,8 @@ public class Image {
     @Column(name = "img")
     private String img;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "properties_id")
     private Property property;
 }

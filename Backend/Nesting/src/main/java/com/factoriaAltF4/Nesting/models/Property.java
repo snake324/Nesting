@@ -68,4 +68,11 @@ public class Property {
     @OneToMany(mappedBy = "property")
     public List<Image> images;
 
+   
+    @ManyToOne
+    @JoinColumn(name="fk_user_profile_published")
+    @JsonIgnore
+    public UserProfile profilePublished;
+
+
 }
