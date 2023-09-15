@@ -15,7 +15,7 @@ public class AuthController {
 
     @PostMapping(path = "/login")
     public ResponseEntity<Map<String, String>> login() {
-        // System.out.println("Received login request"); // Agregar este registro
+        System.out.println("Received login request"); // Agregar este registro
         SecurityContext contextHolder = SecurityContextHolder.getContext();
         Authentication auth = contextHolder.getAuthentication();
         Map<String, String> json = new HashMap<>();

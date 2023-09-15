@@ -19,7 +19,7 @@ public class Image {
     private String img;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "properties_id")
     private Property property;
 }
