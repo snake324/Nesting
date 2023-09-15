@@ -1,17 +1,17 @@
 -- Inserting a property with basic information
+-- -- Inserting profiles of user1 and user2
+INSERT INTO users_profiles (address, lastname, name) VALUES ('C/Admin', 'Admin', 'Admin'), ('C/Address','Buzz','Fizz'),('C/La plata', 'Foo', 'Jean');
+
 
 -- Inserting both roles
 INSERT INTO roles (idrole, role) VALUES (1, 'ROLE_ADMIN'),(2, 'ROLE_USER');
 
 -- Inserting users and admin user
-INSERT INTO users (status, iduser, mail, password) VALUES (true, 1, 'admin@nesting.com', 'passwordAdmin'),
-(true,2,'user1@nesting.com', 'password1'),(true,3,'user2@nesting.com','password2');
+INSERT INTO users (status, iduser, mail, password,profile_id) VALUES (true, 1, 'admin@nesting.com', 'passwordAdmin',1),
+(true,2,'user1@nesting.com', 'password1',2),(true,3,'user2@nesting.com','password2',3);
 
 -- Inserting relation into role_users
 INSERT INTO roles_users (roles_id, user_id) VALUES (1,1),(2,2),(2,3);
-
--- Inserting profiles of user1 and user2
-INSERT INTO users_profiles (address, lastname, name, user_id) VALUES ('C/La plata', 'Foo', 'Jean', 2), ('C/Address','Buzz','Fizz',3);
 
 INSERT INTO properties (title, description, city, postal_code, rooms, baths, size, price, type, status, house_type, publish_date,fk_user_profile_published)
 VALUES ('Cozy Apartment in Downtown', 'A comfortable apartment with a great view.', 'New York', '10001', 2, 1, 800.0, 1500.0, 'Alquiler', true, 'Piso', '2023-09-12',2);
