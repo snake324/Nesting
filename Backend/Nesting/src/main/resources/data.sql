@@ -18,7 +18,7 @@ VALUES ('Cozy Apartment in Downtown', 'A comfortable apartment with a great view
 
 -- Inserting a property with user profiles
 INSERT INTO properties (title, description, city, postal_code, rooms, baths, size, price, type, status, house_type, publish_date,fk_user_profile_published)
-VALUES ('Spacious Family Home', 'Perfect for a family with kids.', 'Los Angeles', '90001', 3, 2, 2000.0, 350000.0, 'Venta', true, 'Casa', '2023-09-12',1);
+VALUES ('Spacious Family Home', 'Perfect for a family with kids.', 'Los Angeles', '90001', 3, 2, 2000.0, 350000.0, 'Venta', true, 'Casa', '2023-09-12',3);
 
 -- Inserting a property with images
 INSERT INTO properties (title, description, city, postal_code, rooms, baths, size, price, type, status, house_type, publish_date,fk_user_profile_published)
@@ -26,11 +26,11 @@ VALUES ('Luxury Villa with Pool', 'A luxurious villa with a private pool.', 'Mia
 
 -- Inserting a property with both user profiles and images
 INSERT INTO properties (title, description, city, postal_code, rooms, baths, size, price, type, status, house_type, publish_date,fk_user_profile_published)
-VALUES ('Modern Loft in the Arts District', 'An artistic loft in a vibrant neighborhood.', 'Los Angeles', '90002', 1, 1, 1000.0, 200000.0, 'Venta', true, 'Piso', '2023-09-12',1);
+VALUES ('Modern Loft in the Arts District', 'An artistic loft in a vibrant neighborhood.', 'Los Angeles', '90002', 1, 1, 1000.0, 200000.0, 'Venta', true, 'Piso', '2023-09-12',3);
 
 -- Inserting a property with default modification date
 INSERT INTO properties (title, description, city, postal_code, rooms, baths, size, price, type, status, house_type, publish_date,fk_user_profile_published)
-VALUES ('Country Cottage', 'A charming cottage in the countryside.', 'Countryside', '12345', 2, 1, 1200.0, 1200.0, 'Alquiler', true, 'Casa', '2023-09-12',1);
+VALUES ('Country Cottage', 'A charming cottage in the countryside.', 'Countryside', '12345', 2, 1, 1200.0, 1200.0, 'Alquiler', true, 'Casa', '2023-09-12',3);
 
 
 -- -- Inserting profiles on properties published
