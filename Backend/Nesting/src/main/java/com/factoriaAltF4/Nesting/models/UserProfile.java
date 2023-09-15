@@ -1,6 +1,9 @@
 package com.factoriaAltF4.Nesting.models;
 
+import java.io.Serializable;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -8,7 +11,7 @@ import lombok.Data;
 @Entity
 @Table(name = "users_profiles")
 @Data
-public class UserProfile {
+public class UserProfile{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,8 +27,7 @@ public class UserProfile {
     @Column(name = "address")
     private String address;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne(mappedBy = "userProfile")
     private User user;
 
     @OneToOne(mappedBy = "userProfile")

@@ -48,6 +48,9 @@ public class PropertyService {
         return updateProperty(prop);
     }
 
+    public Optional<List<Property>> getPropertyByType(String type){
+        return repo.findBytype(type);
+    }
 
 
 }
