@@ -1,4 +1,4 @@
-<p>admin works!</p>
+
 <!-- <div class="search-engine">
     <div class="search">
         <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" SEARCH  ">
@@ -9,10 +9,19 @@
         </li>
     </ul>
 </div> -->
-
-
-<div  id="table-admin" class="table-responsive">
-<table class="table table-bordered" >
+<div class="search">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Buscar...">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+<div  id="table-admin" class="table-responsive" clas="table-striped">
+        <table class="table table-bordered" >
           <thead>
           <tr>
             <th scope="col">Id</th>
@@ -193,5 +202,7 @@
               </div></td>
           </tr>
         </tbody>
- </table>
+        </table>
+        </div>
+    </div>
 </div>
