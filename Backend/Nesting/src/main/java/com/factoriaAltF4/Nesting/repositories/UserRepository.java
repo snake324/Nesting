@@ -8,6 +8,6 @@ import com.factoriaAltF4.Nesting.models.User;
 
 public interface UserRepository extends JpaRepository<User,Long>{
     
-    Optional<User> findBymail(String mail);
+    Optional<User> findByMail(String mail);
 
 }

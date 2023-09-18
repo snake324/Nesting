@@ -40,12 +40,12 @@ public class UserController {
         return ResponseEntity.ok(userToUpdate);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/delete")
     public void deleteUser(@RequestBody User user){
         service.deleteUser(user);
     }
 
-    @PutMapping("/updateStatus/{id}")
+     @PutMapping("/updateStatus/{id}")
     public ResponseEntity<User> updateStatus(@PathVariable Long id, @RequestParam boolean newStatus){
         User updatedUser = service.updateStatus(id, newStatus);
         return ResponseEntity.ok(updatedUser);

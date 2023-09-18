@@ -1,7 +1,6 @@
 package com.factoriaAltF4.Nesting.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,11 +33,6 @@ public class PropertyController {
     @GetMapping("/{id}")
     public Property getPropertyById(@PathVariable Long id){
         return service.getPropertyById(id);
-    }
-
-    @GetMapping("/type")
-    public Optional<List<Property>> getPropertyByType(@RequestParam String type){
-        return service.getPropertyByType(type);
     }
     
     @PostMapping("/create")

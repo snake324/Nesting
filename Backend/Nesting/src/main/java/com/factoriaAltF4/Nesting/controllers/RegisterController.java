@@ -25,6 +25,7 @@ public class RegisterController {
 
     @PostMapping
     public ResponseEntity<User> addUser(@RequestBody User user) throws Throwable {
+
         User savedUser = service.addUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
