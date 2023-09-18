@@ -16,8 +16,8 @@ export class PropertiesService {
     return this.http.get<Properties[]>(this.apiUrl);
   }
 
-  getProperty(propertyId: string): Observable<Properties> {
-    const url = `${this.apiUrl}/${propertyId}`; 
+  getProperty(propertyId: number): Observable<Properties> {
+    const url = `${this.apiUrl}/${propertyId}`;
     return this.http.get<Properties>(url);
   }
 
@@ -25,7 +25,8 @@ export class PropertiesService {
     return this.http.post<Properties>(`${this.apiUrl}/create`, propertyData);
   }
 
-  deleteProperty(propertyId: string): Observable<Properties> {
-    return this.http.delete<Properties>(`${this.apiUrl}/delete/${propertyId}`);
+  deleteProperty(propertyId: number): Observable<void> {
+    const url = `${this.apiUrl}/delete/${propertyId}`;
+    return this.http.delete<void>(url);
   }
 }

@@ -15,6 +15,7 @@ import { RentComponent } from './views/rent/rent.component';
 import { ModalcontactComponent } from './components/modalcontact/modalcontact.component';
 import { ContactBtnComponent } from './components/contactbtn/contactbtn.component';
 import { ImghomeComponent } from './components/imghome/imghome.component';
+import { HorizontalcardsComponent } from './components/horizontalcards/horizontalcards.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ImghomeComponent } from './components/imghome/imghome.component';
     ModalcontactComponent,
     ContactBtnComponent,
     ImghomeComponent,
+    HorizontalcardsComponent,
 
   ],
   imports: [
