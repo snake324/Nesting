@@ -15,6 +15,8 @@ import { RentComponent } from './views/rent/rent.component';
 import { ModalcontactComponent } from './components/modalcontact/modalcontact.component';
 import { ContactBtnComponent } from './components/contactbtn/contactbtn.component';
 import { ImghomeComponent } from './components/imghome/imghome.component';
+import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
+import { SaleRentComponent } from './components/sale-rent/sale-rent.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { ImghomeComponent } from './components/imghome/imghome.component';
     ModalcontactComponent,
     ContactBtnComponent,
     ImghomeComponent,
+    SaleRentformComponent,
+    SaleRentComponent,
 
   ],
   imports: [
