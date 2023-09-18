@@ -16,6 +16,7 @@ import { ModalcontactComponent } from './components/modalcontact/modalcontact.co
 import { ContactBtnComponent } from './components/contactbtn/contactbtn.component';
 import { ImghomeComponent } from './components/imghome/imghome.component';
 import { HorizontalcardsComponent } from './components/horizontalcards/horizontalcards.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { HorizontalcardsComponent } from './components/horizontalcards/horizonta
   ],
   imports: [
     CommonModule,
-    PropertiesRoutingModule
+    PropertiesRoutingModule,
+    FormsModule
   ]
 })
 export class PropertiesModule { }
