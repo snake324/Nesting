@@ -33,5 +33,6 @@ INSERT INTO properties (title, description, city, postal_code, rooms, baths, siz
 VALUES ('Country Cottage', 'A charming cottage in the countryside.', 'Countryside', '12345', 2, 1, 1200.0, 1200.0, 'Alquiler', true, 'Casa', '2023-09-12',3);
 
 
--- -- Inserting profiles on properties published
--- INSERT INTO properties (fk_user_profile_published) VALUES (2),(1),(1),(1),(2);
+-- Inserting propertie's images
+INSERT INTO images (id, properties_id, img) VALUES (1,1,'/img1.jpg'), (2,1,'/img2.jpg'),(3,1,'/img3.jpg'),(4,2,'/img1.jpg'), (5,2,'/img2.jpg'),(6,2,'/img3.jpg'),
+(7,3,'/img1.jpg'), (8,3,'/img2.jpg'),(9,3,'/img3.jpg');
