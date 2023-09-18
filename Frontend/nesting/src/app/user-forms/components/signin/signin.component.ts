@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -11,7 +12,7 @@ export class SigninComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   onSubmit() {
     if (this.email && this.password) {
@@ -19,6 +20,7 @@ export class SigninComponent {
         .subscribe(
           (user) => {
             console.log('Inicio de sesión exitoso:', user);
+            this.router.navigate(['/properties/home']);
           },
           (error) => {
             console.error('Error al iniciar sesión:', error);
