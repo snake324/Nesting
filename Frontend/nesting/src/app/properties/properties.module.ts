@@ -16,6 +16,7 @@ import { ModalcontactComponent } from './components/modalcontact/modalcontact.co
 import { ContactBtnComponent } from './components/contactbtn/contactbtn.component';
 import { ImghomeComponent } from './components/imghome/imghome.component';
 import { HorizontalcardsComponent } from './components/horizontalcards/horizontalcards.component';
+import { AdminComponent } from './views/admin/admin.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { HorizontalcardsComponent } from './components/horizontalcards/horizonta
     ContactBtnComponent,
     ImghomeComponent,
     HorizontalcardsComponent,
+    AdminComponent,
 
   ],
   imports: [

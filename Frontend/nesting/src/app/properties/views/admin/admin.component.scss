@@ -1,0 +1,27 @@
+#table-admin {
+    display: flex;
+    justify-content: center;
+}
+table {
+    max-width: 80%;
+    border: #006D7A;
+}
+
+th {
+    background-color: #D0EAE9;
+    color: #006D7A;
+    white-space: nowrap;
+    width: 1%;
+}
+
+td {
+    background-color: #D0EAE9;
+}
+
+.col {
+    color: #006D7A;
+}
+
+#flexCheckDefault  {
+background-color: #F5B665;
+}
