@@ -1,16 +1,22 @@
 export interface Properties {
-    idproperties: number;
+    id: number;
     title: string;
     description: string;
     city: string;
     postalCode: string;
-    rooms: string;
-    baths: string;
-    size: string;
-    price: string;
+    rooms: number;
+    baths: number;
+    size: number;
+    price: number;
     type: string;
-    status: string;
-    house_type: string;
-    publish_Date: string;
-    modification_date: string;
-}
+    status: boolean;
+    houseType: string;
+    publishDate: string;
+    modificationDate: string;
+    images: Image[];
+  }
+  
+  interface Image {
+    id: number;
+    img: string;
+  }
