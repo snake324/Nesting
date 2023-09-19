@@ -16,6 +16,8 @@ import { ModalcontactComponent } from './components/modalcontact/modalcontact.co
 import { ContactBtnComponent } from './components/contactbtn/contactbtn.component';
 import { ImghomeComponent } from './components/imghome/imghome.component';
 import { HorizontalcardsComponent } from './components/horizontalcards/horizontalcards.component';
+import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
+import { SaleRentComponent } from './components/sale-rent/sale-rent.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { HorizontalcardsComponent } from './components/horizontalcards/horizonta
     ContactBtnComponent,
     ImghomeComponent,
     HorizontalcardsComponent,
+    SaleRentformComponent,
+    SaleRentComponent,
 
   ],
   imports: [
