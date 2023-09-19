@@ -1,3 +1,103 @@
+<div id="showDiv" class="container-fluid">
+  <div id="card-h"  class="card mb-3" style="max-width: 60%;" *ngFor="let property of propertyData; let i = index">
+    <div id="mainDiv" class="row g-0">
+      <div class="col-md-4" style="max-width: 20%;">
+        <div [id]="'carouselExampleIndicators' + i" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + i" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + i" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + i" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item" *ngFor="let image of property.images; let j = index" [class.active]="j === 0">
+              <a href="#detalles" target="_blank"><img [src]="'../assets/images/' + image.img" class="d-block w-100" [alt]="'Image ' + (j + 1)"></a>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + i" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + i" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <!-- <img src="" class="img-fluid rounded-start" alt="..."> -->
+      </div>
+      <div id="infomaindiv" class="col-md-8" style="max-width: 100%;">
+        <div id="textDiv" class="card-body">
+          <nav id="infoNav" class="navbar navbar-custom">
+            <div class="container-fluid">
+              <span id="titletext" class="navbar-brand mb-0 h1">{{ property.title }}</span>
+              <span id="titletext" class="navbar-brand mb-0 h1">{{ property.houseType }} en {{ property.postalCode }}, {{ property.city }}.</span>
+            </div>
+          </nav>
+          <div id="infoDiv" class="container-fluid">
+            <div id="pricediv" class="container-fluid">
+            <h5 id="price" class="card-title">{{ property.price }}€</h5>
+          </div>
+            <div id="icondetails" class="container-fluid">
+              <h5 id="icontext" >{{ property.rooms }} <span class="iconify" data-icon="mdi:bed" style="color: #006d7a;"></span></h5>
+              <h5 id="icontext">{{ property.baths }} <span class="iconify" data-icon="majesticons:bath-shower" style="color: #006d7a;"></span></h5>
+              <h5 id="icontext">{{ property.size }} m² <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bounding-box-circles" viewBox="0 0 16 16">
+                <path d="M2 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM0 2a2 2 0 0 1 3.937-.5h8.126A2 2 0 1 1 14.5 3.937v8.126a2 2 0 1 1-2.437 2.437H3.937A2 2 0 1 1 1.5 12.063V3.937A2 2 0 0 1 0 2zm2.5 1.937v8.126c.703.18 1.256.734 1.437 1.437h8.126a2.004 2.004 0 0 1 1.437-1.437V3.937A2.004 2.004 0 0 1 12.063 2.5H3.937A2.004 2.004 0 0 1 2.5 3.937zM14 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM2 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+              </svg> </h5>
+          </div>
+
+          </div>
+          <p id="description" class="card-text">{{ property.description }}</p>
+        </div>
+        <div id="btndiv" class="container-fluid">
+          <app-contactbtn></app-contactbtn>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="maincards" class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let property of propertyData">
+      <div class="card" style="width: 18rem;">
+        <div id="carouselExampleIndicators{{property.idproperties}}" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + property.idproperties" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + property.idproperties" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + property.idproperties" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <a href="#detalles" target="_blank"><img src="../../../../assets/images/Image20230911120115.jpg" class="d-block w-100 " alt="casa1"></a>
+            </div>
+            <div class="carousel-item">
+              <img src="../../../../assets/images/Image20230911120141.jpg" class="d-block w-100 " alt="casa2">
+            </div>
+            <div class="carousel-item">
+              <img src="../../../../assets/images/Image20230911120147.jpg" class="d-block w-100 " alt="casa3">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + property.idproperties" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + property.idproperties" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
 
    
       <div class="card" style="width: 18rem;" *ngFor="let properties of propertyData">

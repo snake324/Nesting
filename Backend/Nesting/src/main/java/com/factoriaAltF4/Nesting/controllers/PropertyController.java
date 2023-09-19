@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.factoriaAltF4.Nesting.models.Image;
 import com.factoriaAltF4.Nesting.models.Property;
+import com.factoriaAltF4.Nesting.services.ImageService;
 import com.factoriaAltF4.Nesting.services.PropertyService;
 
 @RestController
@@ -24,6 +26,9 @@ public class PropertyController {
     
     @Autowired
     PropertyService service;
+
+    @Autowired
+    ImageService imgService;
 
     @GetMapping
     public List<Property> getAllProperties(){
@@ -57,5 +62,11 @@ public class PropertyController {
     public ResponseEntity<Property> updateStatus(@PathVariable Long id, @RequestParam boolean newStatus){
         Property updatedProp = service.updateStatus(id, newStatus);
         return ResponseEntity.ok(updatedProp);
+    }
+
+    @PostMapping("/{id}/addimage")
+    public Property addImageToPorperty(@PathVariable Long id, @RequestParam String img, @RequestBody Image image){
+        imgService.addImage(image);
+        return service.addImageToProp(img, id, image);
     }
 }
