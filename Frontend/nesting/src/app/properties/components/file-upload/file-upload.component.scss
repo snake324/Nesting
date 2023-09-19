@@ -1,0 +1,30 @@
+.mb-3 {
+  color: #F5B665;
+
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 1rem;
+  margin: 2rem;
+}
+
+
+input[type="file"] {
+  display: none;
+}
+
+
+label[for="formFileMultiple"]::after {
+  content: "Seleccionar Archivo";
+  padding: 5px 15px;
+  background-color: #8BBFBD;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+

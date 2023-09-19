@@ -17,6 +17,7 @@ import { ContactBtnComponent } from './components/contactbtn/contactbtn.componen
 import { ImghomeComponent } from './components/imghome/imghome.component';
 import { HorizontalcardsComponent } from './components/horizontalcards/horizontalcards.component';
 import { PreviewbtnComponent } from './components/previewbtn/previewbtn.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { PreviewbtnComponent } from './components/previewbtn/previewbtn.componen
     ImghomeComponent,
     HorizontalcardsComponent,
     PreviewbtnComponent,
+    FileUploadComponent,
 
   ],
   imports: [
