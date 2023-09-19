@@ -16,7 +16,12 @@ import { ModalcontactComponent } from './components/modalcontact/modalcontact.co
 import { ContactBtnComponent } from './components/contactbtn/contactbtn.component';
 import { ImghomeComponent } from './components/imghome/imghome.component';
 import { HorizontalcardsComponent } from './components/horizontalcards/horizontalcards.component';
+<<<<<<< HEAD
 import { PreviewbtnComponent } from './components/previewbtn/previewbtn.component';
+=======
+import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
+import { SaleRentComponent } from './components/sale-rent/sale-rent.component';
+>>>>>>> e912b051273c07bf63cd2e9b96fdc768aa29531a
 
 
 @NgModule({
@@ -35,7 +40,12 @@ import { PreviewbtnComponent } from './components/previewbtn/previewbtn.componen
     ContactBtnComponent,
     ImghomeComponent,
     HorizontalcardsComponent,
+<<<<<<< HEAD
     PreviewbtnComponent,
+=======
+    SaleRentformComponent,
+    SaleRentComponent,
+>>>>>>> e912b051273c07bf63cd2e9b96fdc768aa29531a
 
   ],
   imports: [
