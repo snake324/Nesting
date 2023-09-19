@@ -1,0 +1,28 @@
+.form-label {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #F5B665;
+  text-transform: uppercase;
+  margin-left: 2rem;
+}
+
+
+input[type="file"] {
+  display: none;
+}
+
+label[for="formFileMultiple"]::after {
+  content: "Seleccionar Archivos";
+  display: inline-block;
+  padding: 5px 15px;
+  background-color: #8BBFBD;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+
+
