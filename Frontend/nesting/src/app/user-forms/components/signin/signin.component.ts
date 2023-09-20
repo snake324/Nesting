@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -13,9 +14,13 @@ export class SigninComponent {
   formlogin!: FormGroup;
   submitted = false;
   loading = false;
-  errorMessage: string | null = null; // Variable para mostrar mensajes de error
-  
-  constructor(private usersService: UserService, private formBuilder: FormBuilder) {}
+  errorMessage: string | null = null;
+
+  constructor(
+    private usersService: UserService, 
+    private formBuilder: FormBuilder,
+    private router: Router
+    ) {}
 
   ngOnInit() {
     this.formlogin = this.formBuilder.group({
@@ -40,6 +45,7 @@ export class SigninComponent {
     this.usersService.loginUser(username, password, headers).subscribe(
       (data) => {
         console.log(data);
+        this.router.navigate(['/properties/home']);
       },
       (error) => {
         console.error('Login error:', error);

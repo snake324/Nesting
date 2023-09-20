@@ -17,8 +17,9 @@ export class UserService {
     return this.httpClient.post(`${this.baseUrl}/register`, user);
   }
   public loginUser(email: string, password: string, headers: HttpHeaders): Observable<any> {
-    return this.httpClient.post<any>(`${this.baseUrl}/login`, {}, { headers });
+    return this.httpClient.post<any>(`${this.baseUrl}/login`, {}, { headers, withCredentials: true  });
   }
+
   setUser(user: any) {
     this.actualUser = user;
   }
