@@ -24,7 +24,7 @@ export class SignupComponent {
       const mail = this.formregister.get('mail')?.value;
       const password = this.formregister.get('password')?.value;
 
-      this.userService.registerUser({ mail, password })
+      this.userService.registerUser(mail, password)
         .subscribe(
           (response) => {
             console.log('Usuario registrado con éxito', response);
