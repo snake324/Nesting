@@ -1,5 +1,25 @@
+
+<div id="filterSection" class="container">
+  <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+    <input type="radio" class="btn-check" name="propertyType" id="all" autocomplete="off" [(ngModel)]="filters.propertyType" value="Todos">
+    <label class="btn btn-outline-primary" for="all">Todos</label>
+
+    <input type="radio" class="btn-check" name="propertyType" id="buy" autocomplete="off" [(ngModel)]="filters.propertyType" value="Venta">
+    <label class="btn btn-outline-primary" for="buy">Compra</label>
+
+    <input type="radio" class="btn-check" name="propertyType" id="rent" autocomplete="off" [(ngModel)]="filters.propertyType" value="Alquiler">
+    <label class="btn btn-outline-primary" for="rent">Alquiler</label>
+  </div>
+
+  
+
+  <button id="applyFiltersButton" class="btn btn-primary" (click)="applyFilters()">Aplicar Filtros</button>
+</div>
+
+
+
 <div id="showDiv" class="container-fluid">
-  <div id="card-h"  class="card mb-3" style="max-width: 60%;" *ngFor="let property of propertyData; let i = index">
+  <div id="card-h"  class="card mb-3" style="max-width: 60%;" *ngFor="let property of filteredPropertyData; let i = index">
     <div id="mainDiv" class="row g-0">
       <div class="col-md-4" style="max-width: 20%;">
         <div [id]="'carouselExampleIndicators' + i" class="carousel slide">

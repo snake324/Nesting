@@ -2,6 +2,7 @@ package com.factoriaAltF4.Nesting.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -25,7 +26,9 @@ public class UserProfile{
     @Column(name = "address")
     private String address;
 
-    @OneToOne(mappedBy = "userProfile")
+    @OneToOne
+    @JoinColumn(name="user_id")
+    @JsonIgnore
     private User user;
 
     @OneToOne(mappedBy = "userProfile")

@@ -39,9 +39,7 @@ public class User{
     @Column(name="register_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     public LocalDate registerDate;
 
-    @OneToOne
-    @JoinColumn(name="profile_id")
-    @JsonIgnore
+    @OneToOne(mappedBy = "user")
     private UserProfile userProfile;
 
     
