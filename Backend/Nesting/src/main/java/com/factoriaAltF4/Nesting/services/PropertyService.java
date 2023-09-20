@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.factoriaAltF4.Nesting.models.Image;
 import com.factoriaAltF4.Nesting.models.Property;
 import com.factoriaAltF4.Nesting.repositories.PropertyRepository;
 
@@ -15,6 +16,8 @@ public class PropertyService {
 
     @Autowired
     PropertyRepository repo;
+
+    
 
     public List<Property> getAllProperties() {
         return repo.findAll();
@@ -50,6 +53,14 @@ public class PropertyService {
 
     public Optional<List<Property>> getPropertyByType(String type){
         return repo.findBytype(type);
+    }
+
+    public Property addImageToProp(String img, Long propId, Image image){
+        Property prop = getPropertyById(propId);
+        image.setImg(img);
+        image.setProperty(prop);
+        prop.getImages().add(image);
+        return repo.save(prop);
     }
 
 

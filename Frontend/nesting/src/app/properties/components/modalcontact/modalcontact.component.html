@@ -1,3 +1,32 @@
-<div *ngIf="isVisible" class="modal1">
-  <p>This is a modal</p>
+<div class="modal1" *ngIf="isVisible" tabindex="-1">
+
+  <div class="modal-body">
+    <img src="../../../../assets/img/nesting.png" alt="" class="img_house" />
+    <p class="owner">Propietario</p>
+
+    <div class="icons">
+      <p class="number">3</p>
+      <span class="iconify" data-icon="mingcute:bed-fill" data-width="30" data-height="30"
+        style="color: #006d7a"></span>
+      <p class="number">2</p>
+      <span class="iconify" data-icon="majesticons:bath-shower" style="color: #006d7a" data-width="30"
+        data-height="30"></span>
+      <p class="number">150 m2</p>
+      <span class="iconify" data-icon="gis:square-pt" style="color: #006d7a" data-width="25" data-height="25"></span>
+    </div>
+
+    <div class="price">
+      <p>12.666€</p>
+    </div>
+
+    <div class="textarea"><textarea cols="50" rows="20" placeholder="Hola! Estoy interesado."></textarea></div>
+
+  </div>
+  <div class="modal-footer"></div>
+  <button class="send">Enviar</button>
+
+  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()">
+    <i class="bi bi-x-lg"></i>
+  </button>
+
 </div>

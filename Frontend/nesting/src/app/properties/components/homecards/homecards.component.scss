@@ -1,55 +1,76 @@
-.card{
-    background-color: #ededed;
-    width: 18rem; 
-  margin-right: 10px; 
-  margin-bottom: 10px;
-  margin-top: 2em;
-  margin-left: 4em;
-  border: 0px;
-  box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+#card-h {
+    display: flex; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+    border: 4px solid #f4f4f2;
+    border-radius: 10px;
+    
 }
 
-.btn{
-   background-color: #F5B665;
-   margin-left: 70px;
-   color: white;
-   font-weight: bold;
+img {
+    min-height: 200px;
 }
 
-svg{
-    color: #006D7A;
+#textDiv {
+    padding: 0px;
+    
 }
 
-h2{
-    color: #F5B665;
+#infoDiv {
+    display: flex;
+    flex-direction: row;
+    background-color: #f4f4f2;
+    padding-top: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#infomaindiv {
+   
+    flex: 2;
+    background-color: #f4f4f2;
+}
+
+#mainDiv {
+   
+     
+}
+
+#showDiv {
+    height: 100%;
+}
+
+#infoNav {
+    background-color: #8cbfbc;
+}
+
+#titletext {
+    color: #055f5b;
+}
+
+#price {
+    color: #055f5b;
     font-weight: bold;
-    text-align: center;
-    margin-top: 30px;
+    font-size: 24px;
 }
 
-.card-text{
-    font-family: Roboto;
-    color: #006D7A;
-  
+#icontext {
+    color: #055f5b;
 }
 
-#mas{
-    color: #F5B665;
+#description {
+    color: #055f5b;
+    padding-left: 0.5em;
 }
 
-span{
-    color: #006D7A;
+#icondetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
-p{
-    font-family: 'Inter', sans-serif;
+#btndiv {
+    margin: 1em;
 }
-
-.row {
-    margin-left: -10px; 
-    margin-right: -10px;
-  }
-
-#maincards {
-    padding-top: 2em;
-  }
