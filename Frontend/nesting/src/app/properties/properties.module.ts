@@ -16,6 +16,11 @@ import { ModalcontactComponent } from './components/modalcontact/modalcontact.co
 import { ContactBtnComponent } from './components/contactbtn/contactbtn.component';
 import { ImghomeComponent } from './components/imghome/imghome.component';
 import { HorizontalcardsComponent } from './components/horizontalcards/horizontalcards.component';
+import { FormsModule } from '@angular/forms';
+import { PreviewbtnComponent } from './components/previewbtn/previewbtn.component';
+import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
+import { SaleRentComponent } from './components/sale-rent/sale-rent.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 
 @NgModule({
@@ -34,11 +39,17 @@ import { HorizontalcardsComponent } from './components/horizontalcards/horizonta
     ContactBtnComponent,
     ImghomeComponent,
     HorizontalcardsComponent,
+    PreviewbtnComponent,
+    SaleRentformComponent,
+    SaleRentComponent,
+    FileUploadComponent,
+
 
   ],
   imports: [
     CommonModule,
-    PropertiesRoutingModule
+    PropertiesRoutingModule,
+    FormsModule
   ]
 })
 export class PropertiesModule { }

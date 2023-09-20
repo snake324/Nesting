@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-modalcontact',
@@ -6,13 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./modalcontact.component.scss']
 })
 export class ModalcontactComponent {
-  isVisible = false;
+  isVisible: boolean = false;
 
-  openModal() {
-    this.isVisible = true;
-  }
+  
 
-  closeModal() {
-    this.isVisible = false;
-  }
+   openModal() {
+     this.isVisible = true;
+ }
+
+
+   closeModal() {
+   this.isVisible = false;
+ }
+
 }
