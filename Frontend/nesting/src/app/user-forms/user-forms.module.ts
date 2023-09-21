@@ -8,6 +8,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { UserdataComponent } from './components/userdata/userdata.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SignupComponent } from './components/signup/signup.component';
     LoginComponent,
     RegisterComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    UserdataComponent
   ],
   imports: [
     CommonModule,
