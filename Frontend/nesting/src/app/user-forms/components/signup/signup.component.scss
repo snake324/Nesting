@@ -1,0 +1,33 @@
+.card {
+    background-color: rgba(208, 234, 233, 0.5);
+    color: #F5B665;
+    padding: 20%;
+    margin-bottom: 30%;
+    box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+    border: none;
+}
+
+.card-header{
+    background: transparent;
+}
+
+.card-body {
+    text-align: center; 
+}
+
+.form-control {
+    background-color: #8BBFBD;
+    box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+    border: none;
+}
+
+.form-control::placeholder {
+    color: #ffffff;
+    text-align: center;
+}
+
+#register-btn {
+    background-color: #F5B665; 
+    border: none;
+    box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+}
