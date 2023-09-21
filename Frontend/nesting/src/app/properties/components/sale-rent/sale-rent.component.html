@@ -1,37 +1,97 @@
-<div class="container justify-content-center align-items-center">
 <h1>Formulario de venta/alquiler</h1>
-<form action="#">
-    <select  class="election"    name="select" id="select">
-        <option value="selecciona">Selecciona una opción</option>
-        <option value="casa">Casa</option>
-        <option value="piso">Piso</option>
-        <option value="terreno">Terreno</option>
-        <option value="solar">Solar</option>
-    </select>
+<div class="d-flex flex-row">
+  <form>
+    <div class="form-floating">
+      <select
+        class="form-select"
+        id="floatingSelect"
+        aria-label="Floating label select example"
+      >
+        <option selected>Selecciona una opción</option>
+        <option value="1">Casa</option>
+        <option value="2">Piso</option>
+        <option value="3">Terreno</option>
+        <option value="4">Solar</option>
+      </select>
+    </div>
+
+    <div class="form-floating">
+      <select
+        class="form-select"
+        id="floatingSelect"
+        aria-label="Floating label select example"
+      >
+        <option selected>Selecciona una opción</option>
+        <option value="1">Venta</option>
+        <option value="2">Alquiler</option>
+      </select>
+    </div>
+
+    <div class="form-floating">
+      <select
+        class="form-select"
+        id="floatingSelect"
+        aria-label="Floating label select example"
+      >
+        <option selected>Baños</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <div class="form-floating">
+      <select
+        class="form-select"
+        id="floatingSelect"
+        aria-label="Floating label select example"
+      >
+        <option selected>Habitaciones</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+    </div>
+
+    <div class="form-floating">
+      <textarea
+        class="form-control"
+        placeholder="Superficie"
+        id="floatingTextarea"
+      ></textarea>
+      <label for="floatingTextarea">Superficie</label>
+    </div>
+
+    <div class="form-floating">
+      <textarea
+        class="form-control"
+        placeholder="Importe €"
+        id="floatingTextarea"
+      ></textarea>
+      <label for="floatingTextarea">Importe €</label>
+    </div>
+  </form>
+
+  <div class="container">
+    <p><label for="description">Descripción:</label></p>
+
+    <textarea
+      id="description"
+      name="description"
+      rows="20"
+      cols="120"
+    ></textarea>
+    <div class="d-flex flex-row-reverse">
+    <app-previewbtn></app-previewbtn>
     
-    <select class="election" name="venta" id="venta">
-            <option value="selecciona">Venta</option>
-            <option value="casa">Alquiler</option>
-    </select>
-         
-            <input type="number" id="bath" name="baños" placeholder="Baños" min="0" max="10" >
-            <input type="number" id="rooms" name="rooms" placeholder="Habitaciones" min="0" max="10" >
-            <input type="number" id="surface" name="surface" placeholder="Superficie" min="0" max="" >
-            <input type="price" id="price" name="price" placeholder="Importe">
-   </form>
-<div class="container">
-   
-<p><label for="description">Descripción:</label></p>
-
-<textarea id="description" name="description" rows="20" cols="100" ></textarea>    
-<app-previewbtn></app-previewbtn>
-<app-file-upload></app-file-upload>
-
-
-
+    <app-file-upload></app-file-upload>
+  </div>
+  </div>
 </div>
-
-
-</div>
-
-

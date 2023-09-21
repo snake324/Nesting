@@ -1,7 +1,7 @@
 .btn {
   width: 160px;
   height: 35px;
-  // flex-shrink: 0;
+  flex-shrink: 0;
   border-radius: 5px;
   border: none;
   background: var(--colores-hover, #F5B665);
@@ -13,8 +13,10 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: normal;
-  margin-left: 500px;
+  // line-height: normal;
+  margin-left: 440px;
+  margin-right: 40px;
+  margin-top: 3.4rem;
   
 }
 
