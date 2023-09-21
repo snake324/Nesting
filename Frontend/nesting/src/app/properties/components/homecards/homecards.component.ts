@@ -17,6 +17,11 @@ export class HomecardsComponent implements OnInit {
     postalCode: 'Todos'
   };
 
+  cities: string[] = []; // Lista de ciudades únicas
+  postalCodes: string[] = []; // Lista de códigos postales únicos
+  selectedCity: string = 'Ciudad'; // Variable de selección para la ciudad
+  selectedPostalCode: string = 'Codigo Postal'; // Variable de selección para el código postal
+
   constructor(private router: Router, private propertiesService: PropertiesService) {}
 
   ngOnInit() {
@@ -27,6 +32,7 @@ export class HomecardsComponent implements OnInit {
     this.propertiesService.getProperties().subscribe(
       (data: Properties[]) => {
         this.propertyData = data;
+        this.extractUniqueCitiesAndPostalCodes(); // Llama a la función para obtener las ciudades y códigos postales únicos
         this.applyFilters();
       },
       (error) => {
@@ -40,8 +46,8 @@ export class HomecardsComponent implements OnInit {
     this.filteredPropertyData = this.propertyData.filter((property) => {
       return (
         (this.filters.propertyType === 'Todos' || property.type === this.filters.propertyType) &&
-        (this.filters.city === 'Todas' || property.city === this.filters.city) &&
-        (this.filters.postalCode === 'Todos' || property.postalCode === this.filters.postalCode)
+        (this.selectedCity === 'Ciudad' || property.city === this.selectedCity) &&
+        (this.selectedPostalCode === 'Codigo Postal' || property.postalCode === this.selectedPostalCode)
       );
     });
   }
@@ -52,12 +58,15 @@ export class HomecardsComponent implements OnInit {
   }
 
   updateCityFilter(city: string) {
-    this.filters.city = city;
-    this.applyFilters();
+    this.selectedCity = city;
   }
 
   updatePostalCodeFilter(postalCode: string) {
-    this.filters.postalCode = postalCode;
-    this.applyFilters();
+    this.selectedPostalCode = postalCode;
+  }
+
+  extractUniqueCitiesAndPostalCodes() {
+    this.cities = [...new Set(this.propertyData.map((property) => property.city))];
+    this.postalCodes = [...new Set(this.propertyData.map((property) => property.postalCode))];
   }
 }
