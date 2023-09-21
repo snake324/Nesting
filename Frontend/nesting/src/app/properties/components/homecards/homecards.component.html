@@ -12,18 +12,24 @@
   </div>
 </div>
   <div id="dropfilterDiv" class="container">
-      <button id="dropbutton" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Selecciona una ciudad
-      </button>
-      <ul id="dropUl" class="dropdown-menu">
-        <li id="dropLi" ><a id="listitem" class="dropdown-item" href="#">Ciudad</a></li>
-      </ul>
-      <button id="dropbutton" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Selecciona un código postal
-      </button>
-      <ul id="dropUl" class="dropdown-menu">
-        <li id="dropLi" ><a id="listitem" class="dropdown-item" href="#">Codigo Postal</a></li>
-      </ul>
+    <button id="dropbutton" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      {{ selectedCity }}
+    </button>
+    <ul id="dropUl" class="dropdown-menu">
+      <li id="dropLi" *ngFor="let city of cities">
+        <span id="listitem" class="dropdown-item" (click)="updateCityFilter(city)">{{ city }}</span>
+      </li>
+    </ul>
+    
+    <!-- Dropdown para seleccionar un código postal -->
+    <button id="dropbutton" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      {{ selectedPostalCode }}
+    </button>
+    <ul id="dropUl" class="dropdown-menu">
+      <li id="dropLi" *ngFor="let postalCode of postalCodes">
+        <span id="listitem" class="dropdown-item" (click)="updatePostalCodeFilter(postalCode)">{{ postalCode }}</span>
+      </li>
+    </ul>
 
     
 
