@@ -1,5 +1,6 @@
 package com.factoriaAltF4.Nesting.services;
 
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -46,9 +47,12 @@ public class UserService {
     public User addUser(User user) throws Throwable {
         BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
         String encodedPw = pwEncoder.encode(user.getPassword());
+
         user.setPassword(encodedPw);
 
         this.assignDefaultRole(user);
+
+        user.setRegisterDate(new Timestamp(System.currentTimeMillis()));
 
         return repo.save(user);
     }

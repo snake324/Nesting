@@ -1,20 +1,44 @@
+<div id="filterBox" class="container">
+  <div id="filterSection" class="container">
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check" name="propertyType" id="all" autocomplete="off" [(ngModel)]="filters.propertyType" value="Todos">
+      <label id="label" class="btn btn-outline-primary" for="all">Todos</label>
 
-<div id="filterSection" class="container">
-  <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-    <input type="radio" class="btn-check" name="propertyType" id="all" autocomplete="off" [(ngModel)]="filters.propertyType" value="Todos">
-    <label class="btn btn-outline-primary" for="all">Todos</label>
+      <input type="radio" class="btn-check" name="propertyType" id="buy" autocomplete="off" [(ngModel)]="filters.propertyType" value="Venta">
+      <label id="label" class="btn btn-outline-primary" for="buy">Compra</label>
 
-    <input type="radio" class="btn-check" name="propertyType" id="buy" autocomplete="off" [(ngModel)]="filters.propertyType" value="Venta">
-    <label class="btn btn-outline-primary" for="buy">Compra</label>
+      <input type="radio" class="btn-check" name="propertyType" id="rent" autocomplete="off" [(ngModel)]="filters.propertyType" value="Alquiler">
+      <label id="label" class="btn btn-outline-primary" for="rent">Alquiler</label>
+  </div>
+</div>
+  <div id="dropfilterDiv" class="container">
+    <button id="dropbutton" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      {{ selectedCity }}
+    </button>
+    <ul id="dropUl" class="dropdown-menu">
+      <li id="dropLi" *ngFor="let city of cities">
+        <span id="listitem" class="dropdown-item" (click)="updateCityFilter(city)">{{ city }}</span>
+      </li>
+    </ul>
+    
+    <!-- Dropdown para seleccionar un código postal -->
+    <button id="dropbutton" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      {{ selectedPostalCode }}
+    </button>
+    <ul id="dropUl" class="dropdown-menu">
+      <li id="dropLi" *ngFor="let postalCode of postalCodes">
+        <span id="listitem" class="dropdown-item" (click)="updatePostalCodeFilter(postalCode)">{{ postalCode }}</span>
+      </li>
+    </ul>
 
-    <input type="radio" class="btn-check" name="propertyType" id="rent" autocomplete="off" [(ngModel)]="filters.propertyType" value="Alquiler">
-    <label class="btn btn-outline-primary" for="rent">Alquiler</label>
+    
+
+    <button id="applyFiltersButton" class="btn btn-primary" (click)="applyFilters()">Aplicar Filtros</button>
   </div>
 
-  
-
-  <button id="applyFiltersButton" class="btn btn-primary" (click)="applyFilters()">Aplicar Filtros</button>
 </div>
+
+
 
 
 
