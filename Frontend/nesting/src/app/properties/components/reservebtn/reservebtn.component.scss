@@ -1,8 +1,8 @@
-.btn {
+#btn-reservar {
   width: 160px;
   height: 35px;
   flex-shrink: 0;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   background: var(--colores-hover, #F5B665);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
@@ -10,14 +10,8 @@
 
   color: #FFF;
   font-family: 'Inter', sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 600;
-  // line-height: normal;
-  margin-left: 440px;
-  margin-right: 40px;
-  margin-top: 3.4rem;
-  
+  line-height: normal;
 }
-
-

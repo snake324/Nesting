@@ -1,45 +1,27 @@
 #header {
   display: flex;
   background-color: #8bbfbd;
-}
-
-.navbar-nav {
-  display: flex;
-  justify-content: left
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-brand {
-  height: 64px;
+  height: 6vh;
   display: flex;
-
-
 }
 
 .nav-link {
-  justify-content: center;
-  margin-left: 62px;
   color: white;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
-  font-size: 24px;
+  font-size: x-large;
   position: relative;
-  right: -400px;
-}
-.active{
-  color: #006d7a;
-  margin-right: 80px;
-  margin-left: 60px;
+  margin-left: 140vh;
 }
 
 #svg-login {
-  display: flex;
-  position: absolute;
-  left: 1855px;
+  margin-left: 8vh;
   .bi {
     color: #006d7a;
   }
-}
-
-.btn {
-  color: #8bbfbd;
 }
