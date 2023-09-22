@@ -21,6 +21,8 @@ import { PreviewbtnComponent } from './components/previewbtn/previewbtn.componen
 import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
 import { SaleRentComponent } from './components/sale-rent/sale-rent.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { ReservebtnComponent } from './components/reservebtn/reservebtn.component';
+import { ReservemodalComponent } from './components/reservemodal/reservemodal.component';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     SaleRentformComponent,
     SaleRentComponent,
     FileUploadComponent,
+    ReservebtnComponent,
+    ReservemodalComponent
 
 
   ],
