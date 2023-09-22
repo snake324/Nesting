@@ -31,7 +31,8 @@ export class UserService {
   setUser(user: any) {
     this.actualUser = user;
   }
-  getUser(): User {
-    return this.actualUser;
+  getUser(userId: string): Observable<User> {
+    const url = `${this.baseUrl}/users/${userId}`; 
+    return this.httpClient.get<User>(url);
   }
 }
