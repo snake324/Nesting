@@ -45,7 +45,10 @@ export class SigninComponent {
     this.usersService.loginUser(username, password, headers).subscribe(
       (data) => {
         console.log(data);
-        this.router.navigate(['/properties/home']);
+        this.getUserIdByEmail(username).subscribe((userId) => {
+          console.log(userId);
+          this.router.navigate(['/user-forms/profile', userId]);
+        });
       },
       (error) => {
         console.error('Login error:', error);
@@ -56,6 +59,9 @@ export class SigninComponent {
         }
       }
     );
+  }
+  getUserIdByEmail(mail: string){
+    return this.usersService.getUserIdByEmail(mail);
   }
   }
   
