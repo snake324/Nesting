@@ -46,6 +46,10 @@ import { GalleryuploadComponent } from './components/galleryupload/galleryupload
     SaleRentformComponent,
     SaleRentComponent,
     FileUploadComponent,
+    ReservebtnComponent,
+    ReservemodalComponent,
+    GalleryuploadComponent
+
 
 
   ],
