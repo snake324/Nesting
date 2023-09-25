@@ -21,6 +21,8 @@ import { PreviewbtnComponent } from './components/previewbtn/previewbtn.componen
 import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
 import { SaleRentComponent } from './components/sale-rent/sale-rent.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { ReservebtnComponent } from './components/reservebtn/reservebtn.component';
+import { ReservemodalComponent } from './components/reservemodal/reservemodal.component';
 import { GalleryuploadComponent } from './components/galleryupload/galleryupload.component';
 
 
@@ -44,7 +46,6 @@ import { GalleryuploadComponent } from './components/galleryupload/galleryupload
     SaleRentformComponent,
     SaleRentComponent,
     FileUploadComponent,
-    GalleryuploadComponent,
 
 
   ],
