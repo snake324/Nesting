@@ -1,14 +1,12 @@
--- Inserting a property with basic information
--- -- Inserting profiles of user1 and user2
-INSERT INTO users_profiles (address, lastname, name) VALUES ('C/Admin', 'Admin', 'Admin'), ('C/Address','Buzz','Fizz'),('C/La plata', 'Foo', 'Jean');
-
-
 -- Inserting both roles
 INSERT INTO roles (idrole, role) VALUES (1, 'ROLE_ADMIN'),(2, 'ROLE_USER');
 
 -- Inserting users and admin user
-INSERT INTO users (status, iduser, mail, password,profile_id) VALUES (true, 1, 'admin@nesting.com', 'passwordAdmin',1),
-(true,2,'user1@nesting.com', 'password1',2),(true,3,'user2@nesting.com','password2',3);
+INSERT INTO users (status, iduser, mail, password) VALUES (true, 1, 'admin@nesting.com', '$2a$12$yIi.e/Dv/aJC6D7KNjVz/O3JAenUSF2n0I/c52Tb3xq6SF1HsRcLW'),
+(true,2,'user1@nesting.com', '$2a$12$Gb4yKjA1sAhh8TAWE2beTudwFrdYcX9osoYZzVyypiBnfiQDLGhV.'),(true,3,'user2@nesting.com','$2a$12$WYGHiNAszcko0FBf3cSj.epOR9W7acTgKNtfKyvyKYgBabGupkcNG');
+
+ -- Inserting profiles of user1 and user2
+INSERT INTO users_profiles (address, lastname, name,user_id) VALUES ('C/Admin', 'Admin', 'Admin',1), ('C/Address','Buzz','Fizz',2),('C/La plata', 'Foo', 'Jean',3);
 
 -- Inserting relation into role_users
 INSERT INTO roles_users (roles_id, user_id) VALUES (1,1),(2,2),(2,3);

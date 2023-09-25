@@ -1,6 +1,6 @@
 package com.factoriaAltF4.Nesting.models;
 
-import java.time.LocalDate;
+import java.sql.Timestamp;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -37,11 +37,9 @@ public class User{
     public boolean status;
 
     @Column(name="register_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    public LocalDate registerDate;
+    public Timestamp registerDate;
 
-    @OneToOne
-    @JoinColumn(name="profile_id")
-    @JsonIgnore
+    @OneToOne(mappedBy = "user")
     private UserProfile userProfile;
 
     
