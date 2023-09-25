@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProfileService } from '../../service/profile.service';
 import { ActivatedRoute } from '@angular/router';
 import { Profile } from '../../models/profile.model';
+import { PropertiesPublishedService } from '../../service/properties-published.service';
 
 @Component({
   selector: 'app-properties-published-list',
@@ -14,6 +15,7 @@ export class PropertiesPublishedListComponent {
 
   constructor(
     private profileService: ProfileService,
+    private propertiesPublishedService: PropertiesPublishedService,
     private route: ActivatedRoute
   ) { }
 
@@ -32,4 +34,20 @@ export class PropertiesPublishedListComponent {
     });
   }
 
+  editarPropiedad(index: number): void {
+    if (this.profile && this.profile.propertiesPublished && this.profile.propertiesPublished[index]) {
+      const propertyId = this.profile.propertiesPublished[index].id;
+    }
+  }
+
+  eliminarPropiedad(index: number): void {
+    if (this.profile && this.profile.propertiesPublished && this.profile.propertiesPublished[index]) {
+      const propertyId = this.profile.propertiesPublished[index].id;
+      this.propertiesPublishedService.deleteProperty(propertyId.toString()).subscribe(() => {
+        if (this.profile && this.profile.propertiesPublished) {
+          this.profile.propertiesPublished.splice(index, 1);
+        }
+      });
+    }
+  }
 }

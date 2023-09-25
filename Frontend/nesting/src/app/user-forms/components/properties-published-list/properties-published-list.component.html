@@ -10,10 +10,10 @@
         </thead>
         <tbody>
             <ng-container *ngIf="profile.propertiesPublished">
-                <tr *ngFor="let property of profile.propertiesPublished">
+                <tr *ngFor="let property of profile.propertiesPublished; let i = index">
                     <td>{{ property.title }}</td>
-                    <td><a href="#" class="btn btn-primary">Editar</a></td>
-                    <td><a href="#" class="btn btn-danger">Eliminar</a></td>
+                    <td><a href="#" class="btn btn-primary" (click)="editarPropiedad(i)">Editar</a></td>
+                    <td><a href="#" class="btn btn-danger" (click)="eliminarPropiedad(i)">Eliminar</a></td>
                 </tr>
             </ng-container>
         </tbody>
