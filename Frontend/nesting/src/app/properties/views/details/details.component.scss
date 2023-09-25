@@ -1,0 +1,90 @@
+#house {
+    position: absolute;
+    top: 52px;
+    left: 23px;
+    width: 377px;
+    height: 371px;
+    border-radius: 20px;
+  }
+  
+  .row {
+    border: none;
+    padding-top: 3px;
+    margin-left: 0%;
+  }
+  
+  .iconify {
+    margin-right: 30px;
+  }
+  
+  p {
+    display: inline-block;
+    color: #006d7a;
+    margin-right: 10px;
+  }
+  
+  #house {
+    position: absolute;
+    top: 123px;
+    left: 23px;
+    width: 377px;
+    height: 371px;
+    border-radius: 20px;
+    transform: none;
+  }
+  
+  .row img {
+    border: none;
+    padding-top: 3px;
+    margin-left: 0%;
+  }
+  
+  
+  .row img:hover {
+  transform: scale(1.5);
+  }
+  
+  
+  .iconify {
+    margin-right: 30px;
+  }
+  
+  p {
+    display: inline-block;
+    color: #006d7a;
+    margin-right: 10px;
+  }
+  
+  #price {
+    width: 263px;
+    height: 45px;
+    color: #f3a139;
+    font-style: normal;
+    line-height: normal;
+    display: flex;
+    margin-left: 110px;
+    font-size: 3.5em;
+    font-weight: bold;
+    font-family: Helvetica;
+    text-shadow: 0 1px 0 #d69a3a, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+      0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+      0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+      0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+      0 20px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  #description {
+   margin-top: 23px;
+    margin-left: 103px;
+    border-radius: 10px;
+    background: rgba(208, 234, 233, 0.5);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    margin-right: 150px;
+  }
+
+  #contactbtn {
+    margin-left: 550px;
+    
+  }
+  
