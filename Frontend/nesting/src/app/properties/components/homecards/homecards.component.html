@@ -1,93 +1,431 @@
+<!-- filterBox para la vista principal -->
+
 <div id="filterBox" class="container">
   <div id="filterSection" class="container">
-    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-      <input type="radio" class="btn-check" name="propertyType" id="all" autocomplete="off" [(ngModel)]="filters.propertyType" value="Todos">
+    <div
+      class="btn-group"
+      role="group"
+      aria-label="Basic radio toggle button group"
+    >
+      <input
+        type="radio"
+        class="btn-check"
+        name="propertyType"
+        id="all"
+        autocomplete="off"
+        [(ngModel)]="filters.propertyType"
+        value="Todos"
+      />
       <label id="label" class="btn btn-outline-primary" for="all">Todos</label>
 
-      <input type="radio" class="btn-check" name="propertyType" id="buy" autocomplete="off" [(ngModel)]="filters.propertyType" value="Venta">
+      <input
+        type="radio"
+        class="btn-check"
+        name="propertyType"
+        id="buy"
+        autocomplete="off"
+        [(ngModel)]="filters.propertyType"
+        value="Venta"
+      />
       <label id="label" class="btn btn-outline-primary" for="buy">Compra</label>
 
-      <input type="radio" class="btn-check" name="propertyType" id="rent" autocomplete="off" [(ngModel)]="filters.propertyType" value="Alquiler">
-      <label id="label" class="btn btn-outline-primary" for="rent">Alquiler</label>
+      <input
+        type="radio"
+        class="btn-check"
+        name="propertyType"
+        id="rent"
+        autocomplete="off"
+        [(ngModel)]="filters.propertyType"
+        value="Alquiler"
+      />
+      <label id="label" class="btn btn-outline-primary" for="rent"
+        >Alquiler</label
+      >
+    </div>
   </div>
-</div>
   <div id="dropfilterDiv" class="container">
-    <button id="dropbutton" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button
+      id="dropbutton"
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
       {{ selectedCity }}
     </button>
     <ul id="dropUl" class="dropdown-menu">
       <li id="dropLi" *ngFor="let city of cities">
-        <span id="listitem" class="dropdown-item" (click)="updateCityFilter(city)">{{ city }}</span>
+        <span
+          id="listitem"
+          class="dropdown-item"
+          (click)="updateCityFilter(city)"
+          >{{ city }}</span
+        >
       </li>
     </ul>
-    
-    <!-- Dropdown para seleccionar un código postal -->
-    <button id="dropbutton" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+    <button
+      id="dropbutton"
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
       {{ selectedPostalCode }}
     </button>
     <ul id="dropUl" class="dropdown-menu">
       <li id="dropLi" *ngFor="let postalCode of postalCodes">
-        <span id="listitem" class="dropdown-item" (click)="updatePostalCodeFilter(postalCode)">{{ postalCode }}</span>
+        <span
+          id="listitem"
+          class="dropdown-item"
+          (click)="updatePostalCodeFilter(postalCode)"
+          >{{ postalCode }}</span
+        >
       </li>
     </ul>
 
-    
-
-    <button id="applyFiltersButton" class="btn btn-primary" (click)="applyFilters()">Aplicar Filtros</button>
+    <button
+      id="applyFiltersButton"
+      class="btn btn-primary"
+      (click)="applyFilters()"
+    >
+      Aplicar Filtros
+    </button>
   </div>
-
 </div>
 
+<div id="filterBox2" class="container">
+  <button
+    id="dropbutton2"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedType }}
+  </button>
+  <ul id="dropUl2" class="dropdown-menu">
+    <li id="dropLi2" *ngFor="let type of propertyTypes">
+      <span
+        id="listitem2"
+        class="dropdown-item"
+        (click)="updateTypeFilter(type)"
+        >{{ type }}</span
+      >
+    </li>
+  </ul>
 
+  <button
+    id="dropbutton2"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedCity }}
+  </button>
+  <ul id="dropUl2" class="dropdown-menu">
+    <li id="dropLi2" *ngFor="let city of cities">
+      <span
+        id="listitem2"
+        class="dropdown-item"
+        (click)="updateCityFilter(city)"
+        >{{ city }}</span
+      >
+    </li>
+  </ul>
 
+  <button
+    id="dropbutton2"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedPostalCode }}
+  </button>
+  <ul id="dropUl2" class="dropdown-menu">
+    <li id="dropLi2" *ngFor="let postalCode of postalCodes">
+      <span
+        id="listitem2"
+        class="dropdown-item"
+        (click)="updatePostalCodeFilter(postalCode)"
+        >{{ postalCode }}</span
+      >
+    </li>
+  </ul>
 
+  <button
+    id="dropbutton2"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedHouseType }}
+  </button>
+  <ul id="dropUl2" class="dropdown-menu">
+    <li id="dropLi2" *ngFor="let houseType of houseTypes">
+      <span
+        id="listitem2"
+        class="dropdown-item"
+        (click)="updateHouseTypeFilter(houseType)"
+        >{{ houseType }}</span
+      >
+    </li>
+  </ul>
+
+  <button
+    id="dropbutton2"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedPrice }}
+  </button>
+  <ul id="dropUl2" class="dropdown-menu">
+    <li id="dropLi2">
+      <span
+        id="listitem2"
+        class="dropdown-item"
+        (click)="updatePriceFilter(0, 100000)"
+        >0 - 100000€</span
+      >
+    </li>
+    <li id="dropLi2">
+      <span
+        id="listitem2"
+        class="dropdown-item"
+        (click)="updatePriceFilter(100000, 200000)"
+        >100000 - 200000€</span
+      >
+    </li>
+    <li id="dropLi2">
+      <span
+        id="listitem2"
+        class="dropdown-item"
+        (click)="updatePriceFilter(200000, 300000)"
+        >200000 - 300000€</span
+      >
+    </li>
+  </ul>
+
+  <button
+    id="dropbutton2"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedSize }}
+  </button>
+  <ul id="dropUl2" class="dropdown-menu">
+    <li id="dropLi2">
+      <span
+        id="listitem2"
+        class="dropdown-item"
+        (click)="updateSizeFilter(0, 50)"
+        >0 - 50 m²</span
+      >
+    </li>
+    <li id="dropLi2">
+      <span
+        id="listitem2"
+        class="dropdown-item"
+        (click)="updateSizeFilter(50, 100)"
+        >50 - 100 m²</span
+      >
+    </li>
+    <li id="dropLi2">
+      <span
+        id="listitem2"
+        class="dropdown-item"
+        (click)="updateSizeFilter(100, 150)"
+        >100 - 150 m²</span
+      >
+    </li>
+  </ul>
+
+  <button
+    id="dropbutton2"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedRooms }}
+  </button>
+  <ul id="dropUl2" class="dropdown-menu">
+    <li id="dropLi2">
+      <span id="listitem2" class="dropdown-item" (click)="updateRoomsFilter(1)"
+        >1 habitación</span
+      >
+    </li>
+    <li id="dropLi2">
+      <span id="listitem2" class="dropdown-item" (click)="updateRoomsFilter(2)"
+        >2 habitaciones</span
+      >
+    </li>
+    <li id="dropLi2">
+      <span id="listitem2" class="dropdown-item" (click)="updateRoomsFilter(3)"
+        >3 habitaciones</span
+      >
+    </li>
+  </ul>
+
+  <button
+    id="dropbutton2"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedBaths }}
+  </button>
+  <ul id="dropUl2" class="dropdown-menu">
+    <li id="dropLi2">
+      <span id="listitem2" class="dropdown-item" (click)="updateBathsFilter(1)"
+        >1 baño</span
+      >
+    </li>
+    <li id="dropLi2">
+      <span id="listitem2" class="dropdown-item" (click)="updateBathsFilter(2)"
+        >2 baños</span
+      >
+    </li>
+    <li id="dropLi2">
+      <span id="listitem2" class="dropdown-item" (click)="updateBathsFilter(3)"
+        >3 baños</span
+      >
+    </li>
+  </ul>
+
+  <button
+    id="applyFiltersButton2"
+    class="btn btn-primary"
+    (click)="applyFilters()"
+  >
+    Aplicar Filtros
+  </button>
+</div>
 
 <div id="showDiv" class="container-fluid">
-  <div id="card-h"  class="card mb-3" style="max-width: 60%;" *ngFor="let property of filteredPropertyData; let i = index">
+  <div
+    id="card-h"
+    class="card mb-3"
+    style="max-width: 60%"
+    *ngFor="let property of filteredPropertyData; let i = index"
+  >
     <div id="mainDiv" class="row g-0">
-      <div class="col-md-4" style="max-width: 20%;">
+      <div class="col-md-4" style="max-width: 20%">
         <div [id]="'carouselExampleIndicators' + i" class="carousel slide">
           <div class="carousel-indicators">
-            <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + i" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + i" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + i" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
           </div>
           <div class="carousel-inner">
-            <div class="carousel-item" *ngFor="let image of property.images; let j = index" [class.active]="j === 0">
-              <a href="#detalles" target="_blank"><img [src]="'../assets/images/' + image.img" class="d-block w-100" [alt]="'Image ' + (j + 1)"></a>
+            <div
+              class="carousel-item"
+              *ngFor="let image of property.images; let j = index"
+              [class.active]="j === 0"
+            >
+              <a href="#detalles" target="_blank"
+                ><img
+                  [src]="'../assets/images/' + image.img"
+                  class="d-block w-100"
+                  [alt]="'Image ' + (j + 1)"
+              /></a>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + i" data-bs-slide="prev">
+          <button
+            class="carousel-control-prev"
+            type="button"
+            [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+            data-bs-slide="prev"
+          >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + i" data-bs-slide="next">
+          <button
+            class="carousel-control-next"
+            type="button"
+            [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+            data-bs-slide="next"
+          >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <!-- <img src="" class="img-fluid rounded-start" alt="..."> -->
       </div>
-      <div id="infomaindiv" class="col-md-8" style="max-width: 100%;">
+      <div id="infomaindiv" class="col-md-8" style="max-width: 100%">
         <div id="textDiv" class="card-body">
           <nav id="infoNav" class="navbar navbar-custom">
             <div class="container-fluid">
-              <span id="titletext" class="navbar-brand mb-0 h1">{{ property.title }}</span>
-              <span id="titletext" class="navbar-brand mb-0 h1">{{ property.houseType }} en {{ property.postalCode }}, {{ property.city }}.</span>
+              <span id="titletext" class="navbar-brand mb-0 h1">{{
+                property.title
+              }}</span>
+              <span id="titletext" class="navbar-brand mb-0 h1"
+                >{{ property.houseType }} en {{ property.postalCode }},
+                {{ property.city }}.</span
+              >
             </div>
           </nav>
           <div id="infoDiv" class="container-fluid">
             <div id="pricediv" class="container-fluid">
-            <h5 id="price" class="card-title">{{ property.price }}€</h5>
-          </div>
+              <h5 id="price" class="card-title">{{ property.price }}€</h5>
+            </div>
             <div id="icondetails" class="container-fluid">
-              <h5 id="icontext" >{{ property.rooms }} <span class="iconify" data-icon="mdi:bed" style="color: #006d7a;"></span></h5>
-              <h5 id="icontext">{{ property.baths }} <span class="iconify" data-icon="majesticons:bath-shower" style="color: #006d7a;"></span></h5>
-              <h5 id="icontext">{{ property.size }} m² <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bounding-box-circles" viewBox="0 0 16 16">
-                <path d="M2 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM0 2a2 2 0 0 1 3.937-.5h8.126A2 2 0 1 1 14.5 3.937v8.126a2 2 0 1 1-2.437 2.437H3.937A2 2 0 1 1 1.5 12.063V3.937A2 2 0 0 1 0 2zm2.5 1.937v8.126c.703.18 1.256.734 1.437 1.437h8.126a2.004 2.004 0 0 1 1.437-1.437V3.937A2.004 2.004 0 0 1 12.063 2.5H3.937A2.004 2.004 0 0 1 2.5 3.937zM14 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM2 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-              </svg> </h5>
-          </div>
-
+              <h5 id="icontext">
+                {{ property.rooms }}
+                <span
+                  class="iconify"
+                  data-icon="mdi:bed"
+                  style="color: #006d7a"
+                ></span>
+              </h5>
+              <h5 id="icontext">
+                {{ property.baths }}
+                <span
+                  class="iconify"
+                  data-icon="majesticons:bath-shower"
+                  style="color: #006d7a"
+                ></span>
+              </h5>
+              <h5 id="icontext">
+                {{ property.size }} m²
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-bounding-box-circles"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M2 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM0 2a2 2 0 0 1 3.937-.5h8.126A2 2 0 1 1 14.5 3.937v8.126a2 2 0 1 1-2.437 2.437H3.937A2 2 0 1 1 1.5 12.063V3.937A2 2 0 0 1 0 2zm2.5 1.937v8.126c.703.18 1.256.734 1.437 1.437h8.126a2.004 2.004 0 0 1 1.437-1.437V3.937A2.004 2.004 0 0 1 12.063 2.5H3.937A2.004 2.004 0 0 1 2.5 3.937zM14 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM2 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                  />
+                </svg>
+              </h5>
+            </div>
           </div>
           <p id="description" class="card-text">{{ property.description }}</p>
         </div>
@@ -100,14 +438,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
