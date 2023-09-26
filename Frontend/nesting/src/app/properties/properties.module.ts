@@ -48,10 +48,8 @@ import { ReservemodalComponent } from './components/reservemodal/reservemodal.co
     SaleRentComponent,
     FileUploadComponent,
     ReservebtnComponent,
-    ReservemodalComponent
-
-
-  ],
+    ReservemodalComponent,
+],
   imports: [
     CommonModule,
     PropertiesRoutingModule,
