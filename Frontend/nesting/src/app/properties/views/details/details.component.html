@@ -1,1 +1,88 @@
-<p>details works!</p>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-3">
+        <!-- Imagen principal a la izquierda -->
+        <img src="../../../../assets/images/img2.jpg" class="img-fluid" alt="Imagen Principal" id="house">
+      </div>
+      <div class="col-md-9">
+        <!-- Miniaturas de imágenes a la derecha -->
+        <div class="row">
+          <div class="col-3 mb-2">
+            <img src="../../../../assets/images/cocina.png" class="img-fluid thumbnail" alt="Imagen 1">
+          </div>
+          <div class="col-3 mb-2">
+            <img src="../../../../assets/images/salon.png" class="img-fluid thumbnail" alt="Imagen 2">
+          </div>
+          <div class="col-3 mb-2">
+            <img src="../../../../assets/images/dormitorio.png" class="img-fluid thumbnail" alt="Imagen 3">
+          </div>
+          <div class="col-3 mb-2">
+            <img src="../../../../assets/images/dormitorio 2.png" class="img-fluid thumbnail" alt="Imagen 4">
+          </div>
+          <div class="col-3 mb-2">
+            <img src="../../../../assets/images/dormitorio 3.png" class="img-fluid thumbnail" alt="Imagen 5">
+          </div>
+          <div class="col-3 mb-2">
+            <img src="../../../../assets/images/dormitorio 4.png" class="img-fluid thumbnail" alt="Imagen 6">
+          </div>
+          <div class="col-3 mb-2">
+            <img src="../../../../assets/images/baño.png" class="img-fluid thumbnail" alt="Imagen 7">
+          </div>
+          <div class="col-3 mb-2">
+            <img src="../../../../assets/images/baño2.png" class="img-fluid thumbnail" alt="Imagen 8">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="icons">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="icons mx-auto">
+
+                <p>3</p>
+                <span class="iconify" data-icon="mingcute:bed-fill" style="color: #006d7a;" data-width="39"
+                    data-height="41"></span>
+                <p>2</p>
+                <span class="iconify" data-icon="fa:bathtub" style="color: #006d7a;" data-width="36"
+                    data-height="33"></span>
+                <p>150m<sup>2</sup></p>
+                <span class="iconify" data-icon="gis:square-pt" style="color: #006d7a;" data-width="35"
+                    data-height="40"></span>
+                <span class="iconify" data-icon="fa-solid:car-alt" style="color: #006d7a;" data-width="34"
+                    data-height="80"></span>
+                <span class="iconify" data-icon="game-icons:elevator" style="color: #006d7a;" data-width="46"
+                    data-height="80"></span>
+            </div>
+        </div>
+    </div>
+</div>
+  
+<div>
+  <p id="price">256.369€</p>
+</div>
+
+
+<p id="description">Magnífico chalet a la venta ubicado en Granda - Siero, a tan sólo 5 km de Oviedo, a un precio increíble.<br><br>
+
+  El chalet encuentra dentro de una zona tranquila, y con una ubicación privilegiada, en las proximidades de Colloto y
+  a tan solo10 minutos de Oviedo, muy próximo al Colegio Laude Palacio de Granda y cerca del centro comercial Parque
+  Principado.<br><br>
+
+  Este magnífico chalet cuenta con una parcela con jardín de 1.300 m2, con una superficie construida de 354 m2 sobre
+  rasante: 191 m2 en planta baja y 163 en primera planta, y 261 m2 en planta.<br><br>
+
+  Cálido y acogedor apartamento tipo dúplex de 92,50 m2, ubicado en el pueblo de Unha distribuido en dos niveles y con
+  impecables acabados en madera.<br><br>
+
+  Ubicado en una tercera planta, cuenta en esta primera planta con zona de estar-comedor, salida hacia un balcón,
+  chimenea de piedra, cocina abierta, dormitorio doble que comparte un baño completo y dormitorio suite con baño
+  completo en el interior.<br><br>
+
+  En la parte del altillo y totalmente abuhardillado, encontramos otro amplio dormitorio suite con baño incorporado.
+</p>
+
+<app-modalcontact #contactmodal></app-modalcontact>
+<app-contactbtn (openModalEvent)="contactmodal.openModal()" id="contactbtn"></app-contactbtn>

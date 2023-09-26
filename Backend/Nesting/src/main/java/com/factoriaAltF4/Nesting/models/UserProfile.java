@@ -35,7 +35,7 @@ public class UserProfile{
     public Card card;
 
     @ManyToMany(mappedBy = "userProfiles")
-    public List<Property> properties;
+    public List<Property> propertiesContact;
 
     @OneToMany(mappedBy = "profilePublished")
     public List<Property> propertiesPublished;

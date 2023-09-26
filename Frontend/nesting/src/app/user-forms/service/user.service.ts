@@ -35,4 +35,9 @@ export class UserService {
     const url = `${this.baseUrl}/users/${userId}`; 
     return this.httpClient.get<User>(url);
   }
+
+  getUserIdByEmail(mail: string) {
+    const url = `${this.baseUrl}/users/getid?mail=${mail}`;
+    return this.httpClient.get<number>(url);
+  }
 }

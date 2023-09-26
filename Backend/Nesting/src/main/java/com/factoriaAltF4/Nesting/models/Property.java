@@ -65,7 +65,7 @@ public class Property {
 
     //TODO contact_date as field of the generated table.
 
-    @OneToMany(mappedBy = "property")
+    @OneToMany(mappedBy = "property", cascade = CascadeType.REMOVE)
     public List<Image> images;
 
    
