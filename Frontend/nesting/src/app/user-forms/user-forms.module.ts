@@ -9,6 +9,7 @@ import { RegisterComponent } from './views/register/register.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserdataComponent } from './components/userdata/userdata.component';
+import { PropertiesPublishedListComponent } from './components/properties-published-list/properties-published-list.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { UserdataComponent } from './components/userdata/userdata.component';
     RegisterComponent,
     SigninComponent,
     SignupComponent,
-    UserdataComponent
+    UserdataComponent,
+    PropertiesPublishedListComponent
   ],
   imports: [
     CommonModule,
