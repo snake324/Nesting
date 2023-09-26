@@ -14,8 +14,10 @@
                 <tr *ngFor="let property of profile.propertiesPublished; let i = index">
                     <ng-container *ngIf="property.status !== false">
                         <td class="property-image">
-                            <img [src]="'../assets/images/' + property.images[0].img" alt="Imagen de propiedad" class="img-fluid">
-                        </td>                                            
+                            <ng-container *ngIf="property.images && property.images.length > 0">
+                                <img [src]="'../assets/images/' + property.images[0].img" alt="Imagen de propiedad" class="property-image custom-property-image">
+                            </ng-container>
+                        </td>                                                                                                                        
                         <td class="property-title" >{{ property.title }}</td>
                         <td><a href="#" class="btn btn-primary" (click)="editProperty(i)">Editar</a></td>
                         <td><a href="javascript:void(0);" class="btn btn-danger" (click)="updateStatus(i, false)">Eliminar</a></td>
