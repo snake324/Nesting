@@ -7,42 +7,46 @@
       role="group"
       aria-label="Basic radio toggle button group"
     >
-      <input
-        type="radio"
-        class="btn-check"
-        name="propertyType"
-        id="all"
-        autocomplete="off"
-        [(ngModel)]="filters.propertyType"
-        value="Todos"
-      />
-      <label id="label" class="btn btn-outline-primary" for="all">Todos</label>
-
-      <input
-        type="radio"
-        class="btn-check"
-        name="propertyType"
-        id="buy"
-        autocomplete="off"
-        [(ngModel)]="filters.propertyType"
-        value="Venta"
-      />
-      <label id="label" class="btn btn-outline-primary" for="buy">Compra</label>
-
-      <input
-        type="radio"
-        class="btn-check"
-        name="propertyType"
-        id="rent"
-        autocomplete="off"
-        [(ngModel)]="filters.propertyType"
-        value="Alquiler"
-      />
-      <label id="label" class="btn btn-outline-primary" for="rent"
-        >Alquiler</label
-      >
+    <input
+    type="radio"
+    class="btn-check"
+    name="propertyType"
+    id="all"
+    autocomplete="off"
+    [(ngModel)]="filters.propertyType"
+    value="Todos"
+    (ngModelChange)="applyFilters()"
+  />
+  <label id="label" class="btn btn-outline-primary" for="all">Todos</label>
+  
+  <input
+    type="radio"
+    class="btn-check"
+    name="propertyType"
+    id="buy"
+    autocomplete="off"
+    [(ngModel)]="filters.propertyType"
+    value="Venta"
+    (ngModelChange)="applyFilters()"
+  />
+  <label id="label" class="btn btn-outline-primary" for="buy">Compra</label>
+  
+  <input
+    type="radio"
+    class="btn-check"
+    name="propertyType"
+    id="rent"
+    autocomplete="off"
+    [(ngModel)]="filters.propertyType"
+    value="Alquiler"
+    (ngModelChange)="applyFilters()"
+  />
+  <label id="label" class="btn btn-outline-primary" for="rent"
+    >Alquiler</label
+  >
     </div>
   </div>
+  <div class="container-fluid" id="secFilters">
   <div id="dropfilterDiv" class="container">
     <button
       id="dropbutton"
@@ -85,78 +89,7 @@
     </ul>
 
     <button
-      id="applyFiltersButton"
-      class="btn btn-primary"
-      (click)="applyFilters()"
-    >
-      Aplicar Filtros
-    </button>
-  </div>
-</div>
-
-<div id="filterBox2" class="container">
-  <button
-    id="dropbutton2"
-    class="btn btn-secondary dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    {{ selectedType }}
-  </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2" *ngFor="let type of propertyTypes">
-      <span
-        id="listitem2"
-        class="dropdown-item"
-        (click)="updateTypeFilter(type)"
-        >{{ type }}</span
-      >
-    </li>
-  </ul>
-
-  <button
-    id="dropbutton2"
-    class="btn btn-secondary dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    {{ selectedCity }}
-  </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2" *ngFor="let city of cities">
-      <span
-        id="listitem2"
-        class="dropdown-item"
-        (click)="updateCityFilter(city)"
-        >{{ city }}</span
-      >
-    </li>
-  </ul>
-
-  <button
-    id="dropbutton2"
-    class="btn btn-secondary dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    {{ selectedPostalCode }}
-  </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2" *ngFor="let postalCode of postalCodes">
-      <span
-        id="listitem2"
-        class="dropdown-item"
-        (click)="updatePostalCodeFilter(postalCode)"
-        >{{ postalCode }}</span
-      >
-    </li>
-  </ul>
-
-  <button
-    id="dropbutton2"
+    id="dropbutton"
     class="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
@@ -164,10 +97,10 @@
   >
     {{ selectedHouseType }}
   </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2" *ngFor="let houseType of houseTypes">
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi" *ngFor="let houseType of houseTypes">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updateHouseTypeFilter(houseType)"
         >{{ houseType }}</span
@@ -176,7 +109,7 @@
   </ul>
 
   <button
-    id="dropbutton2"
+    id="dropbutton"
     class="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
@@ -184,26 +117,26 @@
   >
     {{ selectedPrice }}
   </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2">
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updatePriceFilter(0, 100000)"
         >0 - 100000€</span
       >
     </li>
-    <li id="dropLi2">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updatePriceFilter(100000, 200000)"
         >100000 - 200000€</span
       >
     </li>
-    <li id="dropLi2">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updatePriceFilter(200000, 300000)"
         >200000 - 300000€</span
@@ -212,7 +145,7 @@
   </ul>
 
   <button
-    id="dropbutton2"
+    id="dropbutton"
     class="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
@@ -220,26 +153,26 @@
   >
     {{ selectedSize }}
   </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2">
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updateSizeFilter(0, 50)"
         >0 - 50 m²</span
       >
     </li>
-    <li id="dropLi2">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updateSizeFilter(50, 100)"
         >50 - 100 m²</span
       >
     </li>
-    <li id="dropLi2">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updateSizeFilter(100, 150)"
         >100 - 150 m²</span
@@ -248,7 +181,7 @@
   </ul>
 
   <button
-    id="dropbutton2"
+    id="dropbutton"
     class="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
@@ -256,9 +189,9 @@
   >
     {{ selectedRooms }}
   </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2">
-      <span id="listitem2" class="dropdown-item" (click)="updateRoomsFilter(1)"
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateRoomsFilter(1)"
         >1 habitación</span
       >
     </li>
@@ -267,15 +200,15 @@
         >2 habitaciones</span
       >
     </li>
-    <li id="dropLi2">
-      <span id="listitem2" class="dropdown-item" (click)="updateRoomsFilter(3)"
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateRoomsFilter(3)"
         >3 habitaciones</span
       >
     </li>
   </ul>
 
   <button
-    id="dropbutton2"
+    id="dropbutton"
     class="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
@@ -283,32 +216,55 @@
   >
     {{ selectedBaths }}
   </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2">
-      <span id="listitem2" class="dropdown-item" (click)="updateBathsFilter(1)"
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateBathsFilter(1)"
         >1 baño</span
       >
     </li>
-    <li id="dropLi2">
-      <span id="listitem2" class="dropdown-item" (click)="updateBathsFilter(2)"
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateBathsFilter(2)"
         >2 baños</span
       >
     </li>
-    <li id="dropLi2">
-      <span id="listitem2" class="dropdown-item" (click)="updateBathsFilter(3)"
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateBathsFilter(3)"
         >3 baños</span
       >
     </li>
   </ul>
-
-  <button
-    id="applyFiltersButton2"
-    class="btn btn-primary"
-    (click)="applyFilters()"
-  >
-    Aplicar Filtros
-  </button>
 </div>
+
+<div class="container-fluid" id="secBtn">
+    <button
+      id="applyFiltersButton"
+      class="btn btn-primary"
+      (click)="applyFilters()"
+    ><span
+    class="iconify"
+    data-icon="iconamoon:enter-bold"
+    style="color: #006d7a"
+  ></span>
+      Aplicar
+    </button>
+
+    <button
+  id="resetFiltersButton"
+  class="btn btn-secondary"
+  (click)="resetFilters()"
+><span
+class="iconify"
+data-icon="fluent:arrow-reset-24-filled"
+style="color: #006d7a"
+></span>
+  Restablecer
+</button>
+
+</div>
+  </div>
+</div>
+
+
 
 <div id="showDiv" class="container-fluid">
   <div
