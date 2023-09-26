@@ -120,27 +120,27 @@ export class HomecardsComponent implements OnInit {
 
   updateHouseTypeFilter(houseType: string) {
     this.selectedHouseType = houseType;
-    this.applyFilters();
+    // this.applyFilters();
   }
 
   updateSizeFilter(minSize: number, maxSize: number) {
     this.selectedSize = `${minSize} - ${maxSize} m²`;
-    this.applyFilters();
+    // this.applyFilters();
   }
 
   updateRoomsFilter(rooms: number) {
     this.selectedRooms = `${rooms} habitación${rooms > 1 ? 'es' : ''}`;
-    this.applyFilters();
+    // this.applyFilters();
   }
 
   updatePriceFilter(minPrice: number, maxPrice: number) {
     this.selectedPrice = `${minPrice} - ${maxPrice}€`;
-    this.applyFilters();
+    // this.applyFilters();
   }
 
   updateBathsFilter(baths: number) {
     this.selectedBaths = `${baths} baño${baths > 1 ? 's' : ''}`;
-    this.applyFilters();
+    // this.applyFilters();
   }
 
   isPriceInRange(price: number): boolean {
@@ -157,5 +157,18 @@ export class HomecardsComponent implements OnInit {
     const maxSize = parseFloat(maxSizeStr);
 
     return size >= minSize && size <= maxSize;
+  }
+
+  resetFilters() {
+    this.filters.propertyType = 'Todos';
+    this.selectedCity = 'Ciudad';
+    this.selectedPostalCode = 'Codigo Postal';
+    this.selectedType = 'Tipo';
+    this.selectedHouseType = 'Tipo de Vivienda';
+    this.selectedPrice = 'Precio';
+    this.selectedSize = 'Tamaño';
+    this.selectedRooms = 'Habitaciones';
+    this.selectedBaths = 'Baños';
+    this.applyFilters(); // Aplicar los filtros restablecidos
   }
 }
