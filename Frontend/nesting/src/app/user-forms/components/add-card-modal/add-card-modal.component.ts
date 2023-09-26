@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CardService } from '../../service/card.service';
 
 @Component({
   selector: 'app-add-card-modal',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-card-modal.component.scss']
 })
 export class AddCardModalComponent {
+
+  constructor(private cardService: CardService) {}
+
+  onSaveCard() {
+    this.cardService.cardSavedSuccessfully();
+  }
 
   formatCardNumber(event: Event) {
     const inputElement = event.target as HTMLInputElement;

@@ -1,4 +1,5 @@
 <app-userdata></app-userdata>
-<app-add-card-button></app-add-card-button>
+<app-add-card-button *ngIf="!showCardAdded"></app-add-card-button>
 <app-add-card-modal></app-add-card-modal>
+<app-card-added *ngIf="showCardAdded" (close)="hideCardAdded()"></app-card-added>
 <app-properties-published-list></app-properties-published-list>
