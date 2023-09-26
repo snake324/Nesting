@@ -12,6 +12,7 @@ import { UserdataComponent } from './components/userdata/userdata.component';
 import { PropertiesPublishedListComponent } from './components/properties-published-list/properties-published-list.component';
 import { AddCardButtonComponent } from './components/add-card-button/add-card-button.component';
 import { AddCardModalComponent } from './components/add-card-modal/add-card-modal.component';
+import { CardAddedComponent } from './components/card-added/card-added.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AddCardModalComponent } from './components/add-card-modal/add-card-moda
     UserdataComponent,
     PropertiesPublishedListComponent,
     AddCardButtonComponent,
-    AddCardModalComponent
+    AddCardModalComponent,
+    CardAddedComponent
   ],
   imports: [
     CommonModule,

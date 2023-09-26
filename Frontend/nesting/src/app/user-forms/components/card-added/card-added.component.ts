@@ -1,0 +1,10 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-card-added',
+  templateUrl: './card-added.component.html',
+  styleUrls: ['./card-added.component.scss']
+})
+export class CardAddedComponent {
+
+}
