@@ -18,14 +18,14 @@ textarea {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
-  p{
+p{
     color: #F3A139;
   }
 
   
 
   .form-select{
-    width: 210px;
+    width: 200px;
     padding: 5px;
     background-color: #D0EAE9;
     color: #006D7A;
@@ -72,6 +72,11 @@ textarea {
     }
 
    form{
+    margin-top: 40px;
+   }
+
+
+   .container-fluid{
     margin-top: 40px;
    }
 
