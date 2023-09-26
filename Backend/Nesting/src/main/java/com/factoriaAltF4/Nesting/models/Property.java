@@ -6,6 +6,7 @@ import lombok.Data;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -58,21 +59,22 @@ public class Property {
     @Column(name = "modification_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp modificationDate;
 
-    @JsonIgnore
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "contacts", joinColumns = @JoinColumn(name = "property_id"), inverseJoinColumns = @JoinColumn(name = "profile_id"))
-    public List<UserProfile> userProfiles;
-
-    //TODO contact_date as field of the generated table.
+    // @JsonIgnore
+    // @ManyToMany(fetch = FetchType.EAGER)
+    // @JoinTable(name = "contacts", joinColumns = @JoinColumn(name =
+    // "property_id"), inverseJoinColumns = @JoinColumn(name = "profile_id"))
+    // public List<UserProfile> userProfiles;
+    // TODO contact_date as field of the generated table.
 
     @OneToMany(mappedBy = "property", cascade = CascadeType.REMOVE)
     public List<Image> images;
 
-   
+    @OneToMany(mappedBy = "property")
+    private Set<Contacts> propertiesContact;
+
     @ManyToOne
-    @JoinColumn(name="fk_user_profile_published")
+    @JoinColumn(name = "fk_user_profile_published")
     @JsonIgnore
     public UserProfile profilePublished;
-
 
 }

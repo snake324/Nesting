@@ -1,6 +1,6 @@
 <h1>Formulario de Venta/Alquiler</h1>
 <div class="d-flex flex-row">
-  <form>
+  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
     <div class="form-floating">
       <select
         class="form-select"
@@ -56,29 +56,43 @@
         <option value="8">8</option>
       </select>
     </div>
+
+
+
     <div class="form-floating">
       <select
         class="form-select"
         id="citySelect"
         aria-label="Ciudad"
+        formControlName="city"
+        (change)="onCitySelect()"
+
       >
         <option selected>Selecciona una ciudad</option>
-        <option value="madrid">Madrid</option>
-        <option value="barcelona">Barcelona</option>
-        <option value="valencia">Valencia</option>
-        <option value="oviedo">Oviedo</option>
+        <option value="Madrid">Madrid</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Valencia">Valencia</option>
+        <option value="Oviedo">Oviedo</option>
         </select>
       </div>
+
+
       <div class="form-floating">
         <select
           class="form-select"
           id="postalCodeSelect"
           aria-label="Código Postal"
+          formControlName="postalCode"
+
         >
-          <option selected>Código postal</option>
+        <option value="">Código postal</option>
+        <option *ngFor="let code of filteredPostalCodes" [value]="code">{{ code }}</option>
+
         </select>
+
       </div>
-  </form>
+      <button type="submit" class="btn">Enviar</button>
+  </form >
   <div class="container-fluid">
   <div class="form-floating">
     <textarea

@@ -78,26 +78,49 @@ img {
 
 #filterBox {
   background-color: #f5b665;
-  width: 100vh;
-  height: 16vh;
+  width: 50%;
   border-radius: 10px;
   z-index: 1;
   margin-top: -5em;
   margin-bottom: 0em;
+  height: 14em;
+  // border: 2px solid blue
 }
 
 #filterSection {
-  height: 50%;
+  height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
+  // border: 2px solid greenyellow
+}
+
+#secFilters {
+  // border: 2px solid red;
+  display: flex;
+  height: 60%;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #dropfilterDiv {
   height: 50%;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
+  // border: 2px solid rgb(255, 0, 242);
+}
+
+#secBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 50%;
+  margin-bottom: 0.5em;
+  // border: 2px solid rgb(0, 225, 255);
 }
 
 #label {
@@ -114,6 +137,7 @@ img {
   border: 0px;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
   margin-left: 1em;
+  
 }
 
 #applyFiltersButton {
@@ -122,6 +146,7 @@ img {
   border: 0px;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
   margin-right: 2em;
+  height: 80%;
 }
 
 #resetFiltersButton {
@@ -129,7 +154,13 @@ img {
   color: #055f5b;
   border: 0px;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  height: 80%;
 }
+
+
+
+
+
 
 #dropUl {
   background-color: #f4f4f2;
@@ -160,11 +191,48 @@ img {
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
+// Media Querys
 
-#secBtn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 1em;
+@media (max-width: 767px) {
+  #dropfilterDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #filterBox{
+    width: 100%;
+    height: 50%;
+    margin-top: -4em;
+  }
+
+  #secFilters {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    
+  }
+
+  #secBtn {
+    flex-direction: column-reverse;
+    align-items: space-between;
+  }
+
+  #dropbutton {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 90%;
+  }
+
+  #applyFiltersButton {
+    width: 8em;
+    height: 4em;
+    margin-right: 0em;
+    margin-top: 2em;
+  }
+
+  #resetFiltersButton {
+    width: 8em;
+    height: 4em;
+  }
 }
 
