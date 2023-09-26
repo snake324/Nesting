@@ -1,15 +1,18 @@
-.form-label {
-  font-weight: bold;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  color: #F5B665;
-  text-transform: uppercase;
-  margin-left: 2rem;
-}
+// .form-label {
+//   font-weight: bold;
+//   font-size: 1rem;
+//   margin-bottom: 0.5rem;
+//   color: #F5B665;
+//   // text-transform: uppercase;
+//   margin-left: 2rem;
+
+// }
 
 
 input[type="file"] {
   display: none;
+
+
 }
 
 label[for="formFileMultiple"]::after {
@@ -22,7 +25,11 @@ label[for="formFileMultiple"]::after {
   cursor: pointer;
   margin-top: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+
 }
+
+
 
 // .container{
 //   margin-left: 1000px;

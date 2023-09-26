@@ -1,27 +1,27 @@
 export interface Profile {
+  id: number;
+  name: string;
+  lastname: string;
+  address: string;
+  card: string | null;
+  propertiesPublished: {
     id: number;
-    name: string;
-    lastname: string;
-    address: string;
-    card: string | null;
-    propertiesPublished: {
+    title: string;
+    description: string;
+    city: string;
+    postalCode: string;
+    rooms: number;
+    baths: number;
+    size: number;
+    price: number;
+    type: string;
+    status: boolean;
+    houseType: string;
+    publishDate: string;
+    modificationDate: string;
+    images: {
       id: number;
-      title: string;
-      description: string;
-      city: string;
-      postalCode: string;
-      rooms: number;
-      baths: number;
-      size: number;
-      price: number;
-      type: string;
-      status: boolean;
-      houseType: string;
-      publishDate: string;
-      modificationDate: string;
-      images: {
-        id: number;
-        img: string;
-      }[];
+      img: string;
     }[];
-  }  
+  }[];
+}  

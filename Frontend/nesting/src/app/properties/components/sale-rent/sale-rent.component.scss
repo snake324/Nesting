@@ -7,9 +7,10 @@ h1{
 
 textarea {
     resize:none ;
-    border-color: #8BBFBD;
+    border-color: #D0EAE9;
     border-radius: 5px;
     background-color: D0EAE9;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
   }
 
@@ -22,7 +23,7 @@ textarea {
     color: #F3A139;
   }
 
-  
+
 
   .form-select{
     width: 210px;
@@ -30,17 +31,20 @@ textarea {
     background-color: #D0EAE9;
     color: #006D7A;
     margin: 10px;
-    
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
 }
 
 .form-floating{
     display: inline-block;
+
 }
 
 #surface {
         background-color:#8BBFBD ;
         border-color:#8BBFBD;
-     
+
+
     }
 
     .form-control{
@@ -51,16 +55,16 @@ textarea {
         margin: 10px;
         float: right;
         padding: 5px;
-       
-    
-        
+
+
+
     }
 
 
     form{
         justify-content: center;
         align-items: center;
-        
+
     }
 
     .container{
