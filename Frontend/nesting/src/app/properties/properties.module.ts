@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 
 import { PropertiesRoutingModule } from './properties-routing.module';
 import { PropertyFormComponent } from './views/property-form/property-form.component';
@@ -47,11 +47,13 @@ import { ReservemodalComponent } from './components/reservemodal/reservemodal.co
     FileUploadComponent,
     ReservebtnComponent,
     ReservemodalComponent,
+   
 ],
   imports: [
     CommonModule,
     PropertiesRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class PropertiesModule { }
