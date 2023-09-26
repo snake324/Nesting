@@ -8,8 +8,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './sale-rent.component.html',
   styleUrls: ['./sale-rent.component.scss']
 })
-export class SaleRentComponent {
-
+export class SaleRentComponent  {
+  
+  
   propertyForm: FormGroup;
 
   
@@ -20,7 +21,7 @@ export class SaleRentComponent {
     { name: 'Oviedo', postalCodes: ['33001', '33002', '33003'] }
   ];
 
-  filteredpostalCodes: string[] = [];
+  filteredPostalCodes: string[] = [];
 
   constructor(private formBuilder: FormBuilder) {
     
@@ -39,16 +40,17 @@ export class SaleRentComponent {
 
   
   onCitySelect() {
+    console.log('onCitySelect called');
     const selectedCity = this.propertyForm.get('city')?.value;
     const city = this.cities.find(c => c.name === selectedCity);
 
     if (city) {
-      this.filteredpostalCodes = city.postalCodes;
+      this.filteredPostalCodes = city.postalCodes;
     } else {
-      this.filteredpostalCodes = [];
+      this.filteredPostalCodes = [];
     }
 
-    console.log('postalCodes:', this.filteredpostalCodes);
+  
     this.propertyForm.patchValue({ postalCode: '' });
   }
 
@@ -57,5 +59,7 @@ export class SaleRentComponent {
     const formData = this.propertyForm.value;
     
   }
+
+ 
 
 }
