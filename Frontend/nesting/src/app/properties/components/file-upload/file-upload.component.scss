@@ -3,7 +3,7 @@
   font-size: 1rem;
   margin-bottom: 0.5rem;
   color: #F5B665;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   margin-left: 2rem;
 }
 
@@ -13,7 +13,7 @@ input[type="file"] {
 }
 
 label[for="formFileMultiple"]::after {
-  content: "Seleccionar Archivos";
+  content: "Selecciona tus fotos";
   display: inline-block;
   padding: 5px 15px;
   background-color: #D0EAE9;

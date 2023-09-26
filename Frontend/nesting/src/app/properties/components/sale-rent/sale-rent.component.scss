@@ -1,64 +1,52 @@
-h1{
-    color: #F3A139;
-    text-align: center;
+h1 {
+  color: #F3A139;
+  text-align: center;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+
+
+select.form-select {
+  width: 210px;
+  background-color: #D0EAE9;
+  color: #006D7A;
+  margin: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+div.form-floating {
+  width: calc(33.33% - 10px);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 
 textarea {
-    resize:none ;
-    border-color: #D0EAE9;
-    border-radius: 5px;
-    background-color: D0EAE9;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  resize: none;
+  border-color: #D0EAE9;
+  border-radius: 5px;
+  background-color: #D0EAE9;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
-  }
-
-  #description{
-    background-color: #D0EAE9;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  }
-
-  p{
-    color: #F3A139;
-  }
-
-
-
-  .form-select{
-    width: 210px;
-    padding: 5px;
-    background-color: #D0EAE9;
-    color: #006D7A;
-    margin: 10px;
 
 }
 
-.form-floating{
-  margin-right: 10px;
-  width: calc(33.33% - 10px);
+#description {
+  background-color: #D0EAE9;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-left: 13rem;
 
 }
 
-#surface {
-        background-color:#8BBFBD ;
-        border-color:#8BBFBD;
 
-    }
-
-    .form-control{
-        background-color: #D0EAE9;
-        color: #006D7A;
-        width: 210px;
-        padding: 5px;
-        margin: 10px;
-        // float: right;
-
-    }
-
-    label{
-        color: #006D7A;
-    }
+p {
+  color: #F3A139;
+  margin-left: 13rem;
+  margin-top: 2rem;
+}
 
 
-
-
+.d-flex{
+  margin-left: 13.5rem;
+  margin-bottom: 2rem;
+}
