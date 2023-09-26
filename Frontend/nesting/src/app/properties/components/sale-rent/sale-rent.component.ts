@@ -50,6 +50,9 @@ export class SaleRentComponent  {
       this.filteredPostalCodes = [];
     }
 
+    const isDisabled = !selectedCity;
+    console.log('Disabled:', isDisabled);
+
   
     this.propertyForm.patchValue({ postalCode: '' });
   }
