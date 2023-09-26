@@ -54,7 +54,7 @@ public class PropertyController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteProperty(@RequestBody Property property, @PathVariable Long id){
+    public void deleteProperty(Property property, @PathVariable Long id){
         service.deleteProperty(property, id);
     }
 
