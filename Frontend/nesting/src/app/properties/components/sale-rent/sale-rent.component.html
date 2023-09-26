@@ -1,36 +1,34 @@
-<h1>Formulario de venta/alquiler</h1>
+<h1>Formulario de Venta/Alquiler</h1>
 <div class="d-flex flex-row">
   <form>
     <div class="form-floating">
       <select
         class="form-select"
-        id="floatingSelect"
+        id="propertyTypeSelect"
         aria-label="Floating label select example"
       >
-        <option selected>Selecciona una opción</option>
+        <option selected>Tipo propiedad</option>
         <option value="1">Casa</option>
         <option value="2">Piso</option>
         <option value="3">Terreno</option>
         <option value="4">Solar</option>
       </select>
     </div>
-
     <div class="form-floating">
       <select
         class="form-select"
-        id="floatingSelect"
+        id="transactionTypeSelect"
         aria-label="Floating label select example"
       >
-        <option selected>Selecciona una opción</option>
+        <option selected>Tipo transacción</option>
         <option value="1">Venta</option>
         <option value="2">Alquiler</option>
       </select>
     </div>
-
     <div class="form-floating">
       <select
         class="form-select"
-        id="floatingSelect"
+        id="bathroomsSelect"
         aria-label="Floating label select example"
       >
         <option selected>Baños</option>
@@ -41,11 +39,10 @@
         <option value="5">5</option>
       </select>
     </div>
-
     <div class="form-floating">
       <select
         class="form-select"
-        id="floatingSelect"
+        id="bedroomsSelect"
         aria-label="Floating label select example"
       >
         <option selected>Habitaciones</option>
@@ -59,29 +56,49 @@
         <option value="8">8</option>
       </select>
     </div>
-
     <div class="form-floating">
-      <textarea
-        class="form-control"
-        placeholder="Superficie"
-        id="floatingTextarea"
-      ></textarea>
-      <label for="floatingTextarea">Superficie</label>
-    </div>
-
-    <div class="form-floating">
-      <textarea
-        class="form-control"
-        placeholder="Importe €"
-        id="floatingTextarea"
-      ></textarea>
-      <label for="floatingTextarea">Importe €</label>
-    </div>
+      <select
+        class="form-select"
+        id="citySelect"
+        aria-label="Ciudad"
+      >
+        <option selected>Selecciona una ciudad</option>
+        <option value="madrid">Madrid</option>
+        <option value="barcelona">Barcelona</option>
+        <option value="valencia">Valencia</option>
+        <option value="oviedo">Oviedo</option>
+        </select>
+      </div>
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="postalCodeSelect"
+          aria-label="Código Postal"
+        >
+          <option selected>Código postal</option>
+        </select>
+      </div>
   </form>
-
+  <div class="container-fluid">
+  <div class="form-floating">
+    <textarea
+      class="form-control"
+      placeholder="Superficie"
+      id="surfaceTextarea"
+    ></textarea>
+    <label for="floatingTextarea">Superficie</label>
+  </div>
+  <div class="form-floating">
+    <textarea
+      class="form-control"
+      placeholder="Importe €"
+      id="priceTextarea"
+    ></textarea>
+    <label for="floatingTextarea">Importe €</label>
+  </div>
+</div>
   <div class="container">
     <p><label for="description">Descripción:</label></p>
-
     <textarea
       id="description"
       name="description"
@@ -90,7 +107,6 @@
     ></textarea>
     <div class="d-flex flex-row-reverse">
     <app-previewbtn></app-previewbtn>
-    
     <app-file-upload></app-file-upload>
   </div>
   </div>
