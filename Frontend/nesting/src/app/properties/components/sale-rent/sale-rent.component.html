@@ -71,30 +71,33 @@
         (change)="onCitySelect()"
        
       >
-        <option selected>Selecciona una ciudad</option>
-        <option value="madrid">Madrid</option>
-        <option value="barcelona">Barcelona</option>
-        <option value="valencia">Valencia</option>
-        <option value="oviedo">Oviedo</option>
+        <option value>Selecciona una ciudad</option>
+        <option value="Madrid">Madrid</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Balencia">Valencia</option>
+        <option value="Oviedo">Oviedo</option>
         </select>
       </div>
 
 
       <div class="form-floating">
         <select
-          class="form-select"
+        class="form-select custom-select-for-cp"
           id="postalCodeSelect"
           aria-label="Código Postal"
           formControlName="postalCode"
+          [ngClass]="{'disabled': !propertyForm.get('city')?.value}"
+
+          
           
         >
-        <option value="">Código postal</option>
+        <option value=""  [disabled]="!propertyForm.get('city')?.value">Código postal</option>
         <option *ngFor="let code of filteredPostalCodes" [value]="code">{{ code }}</option>
         
         </select>
         
       </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="submit" class="btn">Enviar</button>
   </form >
   <div class="container-fluid">
   <div class="form-floating">
