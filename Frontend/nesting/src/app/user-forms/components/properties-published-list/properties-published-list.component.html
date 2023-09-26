@@ -11,9 +11,11 @@
         <tbody>
             <ng-container *ngIf="profile.propertiesPublished">
                 <tr *ngFor="let property of profile.propertiesPublished; let i = index">
-                    <td>{{ property.title }}</td>
-                    <td><a href="#" class="btn btn-primary" (click)="editarPropiedad(i)">Editar</a></td>
-                    <td><a href="#" class="btn btn-danger" (click)="eliminarPropiedad(i)">Eliminar</a></td>
+                    <ng-container *ngIf="property.status !== false">
+                        <td>{{ property.title }}</td>
+                        <td><a href="#" class="btn btn-primary" (click)="editProperty(i)">Editar</a></td>
+                        <td><a href="javascript:void(0);" class="btn btn-danger" (click)="updateStatus(i, false)">Eliminar</a></td>
+                    </ng-container>
                 </tr>
             </ng-container>
         </tbody>

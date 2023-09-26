@@ -34,31 +34,25 @@ export class PropertiesPublishedListComponent {
     });
   }
 
-  editarPropiedad(index: number): void {
+  editProperty(index: number): void {
     if (this.profile && this.profile.propertiesPublished && this.profile.propertiesPublished[index]) {
       const propertyId = this.profile.propertiesPublished[index].id;
     }
   }
 
-  eliminarPropiedad(index: number): void {
+  updateStatus(index: number, newStatus: boolean): void {
     if (this.profile && this.profile.propertiesPublished && this.profile.propertiesPublished[index]) {
-      const property = this.profile.propertiesPublished[index];
-      const confirmation = window.confirm(`¿Seguro que desea eliminar la propiedad "${property.title}"?`);
-      
-      if (confirmation) {
-        const propertyId = property.id;
-        this.propertiesPublishedService.deleteProperty(propertyId.toString()).subscribe(
-          () => {
-            if (this.profile && this.profile.propertiesPublished) {
-              this.profile.propertiesPublished.splice(index, 1);
-            }
-          },
-          (error) => {
-            console.error('Error al eliminar la propiedad:', error);
-            // Aquí puedes manejar el error, por ejemplo, mostrar un mensaje de error al usuario.
+      const propertyId = this.profile.propertiesPublished[index].id;
+      this.propertiesPublishedService.updatePropertyStatus(propertyId.toString(), newStatus).subscribe(
+        () => {
+          if (this.profile && this.profile.propertiesPublished) {
+            this.profile.propertiesPublished[index].status = newStatus;
           }
-        );
-      }
+        },
+        (error) => {
+          console.error('Error al cambiar el estado de la propiedad:', error);
+        }
+      );
     }
   }
   

@@ -53,4 +53,14 @@ export class PropertiesPublishedService {
       })
     );
   }
+
+  updatePropertyStatus(propertyId: string, newStatus: boolean): Observable<any> {
+    const url = `${this.apiUrl}/updateStatus/${propertyId}?newStatus=${newStatus}`;
+    return this.http.put(url, {}).pipe(
+      catchError((error: any) => {
+        return error;
+      })
+    );
+  }
+  
 }
