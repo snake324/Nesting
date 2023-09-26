@@ -86,5 +86,11 @@ p{
     background-color:#D0EAE9;
    }
 
+   .custom-select-for-cp.disabled {
+    background-color: #f8f9fa; 
+    color: #6c757d; 
+    pointer-events: none; 
+    cursor: not-allowed;
+  }
 
 
