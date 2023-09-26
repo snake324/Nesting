@@ -1,159 +1,193 @@
 // Cards CSS
 
-
 #card-h {
-    display: flex; 
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2em;
-    box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
-    border: 4px solid #f4f4f2;
-    border-radius: 10px;
-    
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 4px solid #f4f4f2;
+  border-radius: 10px;
 }
 
 img {
-    min-height: 200px;
+  min-height: 200px;
 }
 
 #textDiv {
-    padding: 0px;
-    
+  padding: 0px;
 }
 
 #infoDiv {
-    display: flex;
-    flex-direction: row;
-    background-color: #f4f4f2;
-    padding-top: 0.5em;
-    padding-left: 1em;
-    padding-right: 1em;
+  display: flex;
+  flex-direction: row;
+  background-color: #f4f4f2;
+  padding-top: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 #infomaindiv {
-   
-    flex: 2;
-    background-color: #f4f4f2;
+  flex: 2;
+  background-color: #f4f4f2;
 }
 
 #mainDiv {
-   
-     
+  height: 44%;
 }
 
 #showDiv {
-    height: 100%;
+  height: 100%;
 }
 
 #infoNav {
-    background-color: #8cbfbc;
+  background-color: #8cbfbc;
 }
 
 #titletext {
-    color: #055f5b;
+  color: #055f5b;
 }
 
 #price {
-    color: #055f5b;
-    font-weight: bold;
-    font-size: 24px;
+  color: #055f5b;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 #icontext {
-    color: #055f5b;
+  color: #055f5b;
 }
 
 #description {
-    color: #055f5b;
-    padding-left: 0.5em;
+  color: #055f5b;
+  padding-left: 0.5em;
 }
 
 #icondetails {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 #btndiv {
-    margin: 1em;
+  margin: 1em;
+  height: 20%;
 }
-
 
 //Filterbox CSS
 
 #filterBox {
-    background-color: #F5B665;
-    width: 100vh;
-    height: 15vh;
-    border-radius: 10px;
-    z-index: 1;
-    margin-top: -5em;
+  background-color: #f5b665;
+  width: 100vh;
+  height: 15vh;
+  border-radius: 10px;
+  z-index: 1;
+  margin-top: -5em;
 }
 
 #filterSection {
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #dropfilterDiv {
-    height: 50%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  height: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 #label {
-    height: 40%;
-    font-size: 2em;
-    border: 0px;
-    color: white;
-    border-radius: 10px;
+  height: 40%;
+  font-size: 2em;
+  border: 0px;
+  color: white;
+  border-radius: 10px;
 }
 
 #dropbutton {
-    height: 40%;
-    background-color: #f4f4f2;
-    color: #055f5b;
-    border: 0px;
-    box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+  background-color: #f4f4f2;
+  color: #055f5b;
+  border: 0px;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 #applyFiltersButton {
-    height: 40%;
-    background-color: #f4f4f2;
-    color: #055f5b;
-    border: 0px;
-    box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+  background-color: #f4f4f2;
+  color: #055f5b;
+  border: 0px;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 #dropUl {
-    background-color: #f4f4f2;
-    color: #055f5b;
+  background-color: #f4f4f2;
+  color: #055f5b;
 }
 
 #dropLi {
-    background-color: #f4f4f2;
-    color: #055f5b;
+  background-color: #f4f4f2;
+  color: #055f5b;
 }
 
 #listitem {
-    background-color: #f4f4f2;
-    color: #055f5b;
+  background-color: #f4f4f2;
+  color: #055f5b;
 }
 
 #listitem:hover {
-    background-color: #8cbfbc;
-    color: white;
+  background-color: #8cbfbc;
+  color: white;
 }
-
 
 //Variables de Bootstrap
 .btn-outline-primary {
-    --bs-btn-focus-shadow-rgb: 13,110,253;
-    --bs-btn-active-color: #ffffff;
-    --bs-btn-active-bg: #ffffff38;
-    --bs-btn-active-border-color: #fff;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-focus-shadow-rgb: 13, 110, 253;
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: #ffffff38;
+  --bs-btn-active-border-color: #fff;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+//Filterbox 2
+
+#filterBox2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#dropbutton2 {
+  background-color: #f4f4f2;
+  color: #055f5b;
+  border: 0px;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+#applyFiltersButton2 {
+  background-color: #f4f4f2;
+  color: #055f5b;
+  border: 0px;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+#dropUl2 {
+  background-color: #f4f4f2;
+  color: #055f5b;
+}
+
+#dropLi2 {
+  background-color: #f4f4f2;
+  color: #055f5b;
+}
+
+#listitem2 {
+  background-color: #f4f4f2;
+  color: #055f5b;
+}
+
+#listitem2:hover {
+  background-color: #8cbfbc;
+  color: white;
 }

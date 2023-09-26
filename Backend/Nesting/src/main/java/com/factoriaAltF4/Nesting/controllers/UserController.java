@@ -51,4 +51,9 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
+    @GetMapping("/getid")
+    public Long getUserId(@RequestParam String mail){
+        return service.getUserId(mail);
+    }
+
 }
