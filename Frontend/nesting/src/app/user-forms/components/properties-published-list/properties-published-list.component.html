@@ -3,6 +3,7 @@
     <table class="table table-striped table-success table-hover">
         <thead>
             <tr>
+                <th></th>
                 <th>Nombre propiedades</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
@@ -12,7 +13,10 @@
             <ng-container *ngIf="profile.propertiesPublished">
                 <tr *ngFor="let property of profile.propertiesPublished; let i = index">
                     <ng-container *ngIf="property.status !== false">
-                        <td>{{ property.title }}</td>
+                        <td class="property-image">
+                            <img [src]="'../assets/images/' + property.images[0].img" alt="Imagen de propiedad" class="img-fluid">
+                        </td>                                            
+                        <td class="property-title" >{{ property.title }}</td>
                         <td><a href="#" class="btn btn-primary" (click)="editProperty(i)">Editar</a></td>
                         <td><a href="javascript:void(0);" class="btn btn-danger" (click)="updateStatus(i, false)">Eliminar</a></td>
                     </ng-container>
@@ -27,6 +31,7 @@
     <table class="table table-striped table-danger table-hover">
         <thead>
             <tr>
+                <th></th>
                 <th>Nombre propiedades</th>
                 <th>Editar</th>
                 <th>Activar</th>
@@ -36,7 +41,10 @@
             <ng-container *ngIf="profile.propertiesPublished">
                 <tr *ngFor="let property of profile.propertiesPublished; let i = index">
                     <ng-container *ngIf="property.status !== true">
-                        <td>{{ property.title }}</td>
+                        <td class="property-image">
+                            <img [src]="'../assets/images/' + property.images[0].img" alt="Imagen de propiedad" class="img-fluid">
+                        </td>  
+                        <td class="property-title">{{ property.title }}</td>
                         <td><a href="#" class="btn btn-primary" (click)="editProperty(i)">Editar</a></td>
                         <td><a href="javascript:void(0);" class="btn btn-success" (click)="updateStatus(i, true)">Activar</a></td>
                     </ng-container>
