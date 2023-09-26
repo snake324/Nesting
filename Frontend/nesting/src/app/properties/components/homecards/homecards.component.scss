@@ -131,6 +131,15 @@ img {
   border-radius: 10px;
 }
 
+#label:hover {
+  height: 40%;
+  font-size: 2em;
+  border: 0px;
+  color: white;
+  border-radius: 10px;
+  text-decoration: underline;
+}
+
 #dropbutton {
   background-color: #f4f4f2;
   color: #055f5b;
@@ -140,24 +149,61 @@ img {
   
 }
 
-#applyFiltersButton {
+#dropbutton:hover {
   background-color: #f4f4f2;
   color: #055f5b;
+  outline: 2px solid #8cbfbc;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-left: 1em;
+  
+}
+
+#applyFiltersButton {
+  background-color: #8cbfbc;
+  color: white;
   border: 0px;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
   margin-right: 2em;
   height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
 }
 
 #resetFiltersButton {
-  background-color: #f4f4f2;
-  color: #055f5b;
+  background-color: #8cbfbc;
+  color: white;
   border: 0px;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
   height: 80%;
+  font-weight: bold;
+}
+
+#applyFiltersButton:hover {
+  background-color: #055f5b;
+  color: white;
+  border: 0px;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-right: 2em;
+  height: 80%;
+  margin-bottom: 4px;
+}
+
+#resetFiltersButton:hover {
+  background-color: #055f5b;
+  color: white;
+  border: 0px;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  height: 80%;
+  margin-bottom: 4px;
 }
 
 
+#icon {
+  width: 0.5em;
+  height: 0.5em;
+}
 
 
 
