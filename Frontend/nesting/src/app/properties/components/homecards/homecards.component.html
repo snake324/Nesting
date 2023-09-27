@@ -1,5 +1,5 @@
 <!-- filterBox para la vista principal -->
-<section class="container-fluid" id="imgHomeDiv">
+<section class="container-fluid" *ngIf="showImgHomeDiv" id="imgHomeDiv">
   <img id="imgHome" class="img-fluid" src="assets/img/Slider.png" alt="vista de edificio y cielo">
 </section>
 <div id="filterBox" class="container">
@@ -238,13 +238,16 @@
 </div>
 
 <div class="container-fluid" id="secBtn">
-    <button
-      id="applyFiltersButton"
-      class="btn btn-primary"
-      (click)="applyFilters()"
-    ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 4h10v14a2 2 0 0 1-2 2H9m3-5l3-3m0 0l-3-3m3 3H5"/></svg>
-      Aplicar
-    </button>
+  <button
+  id="applyFiltersAndShowImageButton"
+  class="btn btn-primary"
+  (click)="applyFiltersAndShowImage()"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <!-- Icono de aplicar filtros -->
+  </svg>
+  Aplicar Filtros y Mostrar Imagen
+</button>
 
     <button
   id="resetFiltersButton"

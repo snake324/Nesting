@@ -30,6 +30,8 @@ export class HomecardsComponent implements OnInit {
   selectedSize: string = 'Tamaño';
   selectedBaths: string = 'Baños';
 
+  showImgHomeDiv: boolean = true;
+
   
 
   constructor(
@@ -41,6 +43,11 @@ export class HomecardsComponent implements OnInit {
     this.fetchPropertyData();
    
     
+  }
+
+  ngAfterViewInit() {
+    // Aplicar filtros después de que la vista se haya inicializado completamente
+    this.applyFilters();
   }
 
   fetchPropertyData() {
@@ -55,6 +62,10 @@ export class HomecardsComponent implements OnInit {
       },
       (error) => {
         console.log('Error fetching properties data: ', error);
+      },
+      () => {
+        // Llamado después de que se hayan cargado los datos
+        this.applyFilters();
       }
     );
   }
@@ -81,6 +92,7 @@ export class HomecardsComponent implements OnInit {
           property.baths === parseInt(this.selectedBaths))
       );
     });
+    this.showImgHomeDiv = this.filteredPropertyData.length > 0;
   }
 
   extractUniqueTypes() {
@@ -164,6 +176,7 @@ export class HomecardsComponent implements OnInit {
   }
 
   resetFilters() {
+   
     this.filters.propertyType = 'Todos';
     this.selectedCity = 'Ciudad';
     this.selectedPostalCode = 'Codigo Postal';
@@ -178,5 +191,15 @@ export class HomecardsComponent implements OnInit {
 
   leerMas(propertyId: number) {
     this.router.navigate(['descripcion-completa', propertyId]);
+  }
+  applyFiltersAndShowImage() {
+    this.applyFilters();
+    this.showImgHomeDiv = false;
+  }
+
+  showImage() {
+    // Lógica para determinar si mostrar u ocultar la imagen
+    // Por ejemplo, podríamos basarnos en la longitud de filteredPropertyData
+    this.showImgHomeDiv = this.filteredPropertyData.length > 0;
   }
 }
