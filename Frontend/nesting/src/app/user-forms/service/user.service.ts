@@ -40,4 +40,8 @@ export class UserService {
     const url = `${this.baseUrl}/users/getid?mail=${mail}`;
     return this.httpClient.get<number>(url);
   }
+
+  public logout(): Observable<any> {
+    return this.httpClient.post<any>(`${this.baseUrl}/logout`, {}, { withCredentials: true });
+  }
 }
