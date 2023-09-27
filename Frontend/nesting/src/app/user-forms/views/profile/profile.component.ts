@@ -9,6 +9,7 @@ import { CardService } from '../../service/card.service';
 })
 export class ProfileComponent implements OnInit {
   showCardAdded: boolean = false;
+  cardData: any = {};
 
   constructor(private cardService: CardService) {}
 

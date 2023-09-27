@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardService } from '../../service/card.service';
 
 @Component({
@@ -6,24 +6,44 @@ import { CardService } from '../../service/card.service';
   templateUrl: './add-card-modal.component.html',
   styleUrls: ['./add-card-modal.component.scss']
 })
-export class AddCardModalComponent {
+export class AddCardModalComponent implements OnInit {
+  name: string = '';
+  surname: string = '';
+  cardnumber: string = '';
+  expiremonth: string = '';
+  expireyear: string = '';
+
+  cardData: any = {};
 
   constructor(private cardService: CardService) {}
 
-  onSaveCard() {
-    this.cardService.cardSavedSuccessfully();
+  ngOnInit() {
+    this.cardService.cardSavedSuccessfully$.subscribe(() => {
+      this.cardData = {
+        name: this.name,
+        surname: this.surname,
+        cardnumber: this.cardnumber,
+        expiremonth: this.expiremonth,
+        expireyear: this.expireyear
+      };
+      this.name = '';
+      this.surname = '';
+      this.cardnumber = '';
+      this.expiremonth = '';
+      this.expireyear = '';
+    });
   }
 
-  formatCardNumber(event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    let cleanedValue = inputElement.value.replace(/\D/g, '');
-    const formattedValue = cleanedValue.replace(/(\d{4})(?=\d)/g, '$1-');
+  onSaveCard() {
+    const cardData = {
+      name: this.name,
+      surname: this.surname,
+      cardnumber: this.cardnumber,
+      expiremonth: this.expiremonth,
+      expireyear: this.expireyear
+    };
     
-    if (formattedValue.length > 19) {
-      cleanedValue = cleanedValue.slice(0, 16);
-      inputElement.value = formattedValue.slice(0, 19);
-    } else {
-      inputElement.value = formattedValue;
-    }
+    console.log('Saving card data:', cardData);
+    this.cardService.saveCardData(cardData);
   }
 }
