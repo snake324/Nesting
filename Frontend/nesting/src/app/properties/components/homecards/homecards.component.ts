@@ -176,7 +176,7 @@ export class HomecardsComponent implements OnInit {
   }
 
   resetFilters() {
-   
+    
     this.filters.propertyType = 'Todos';
     this.selectedCity = 'Ciudad';
     this.selectedPostalCode = 'Codigo Postal';
@@ -186,7 +186,8 @@ export class HomecardsComponent implements OnInit {
     this.selectedSize = 'Tamaño';
     this.selectedRooms = 'Habitaciones';
     this.selectedBaths = 'Baños';
-    this.applyFilters(); // Aplicar los filtros restablecidos
+    this.applyFilters();
+    this.showImgHomeDiv = false; // Aplicar los filtros restablecidos
   }
 
   leerMas(propertyId: number) {
