@@ -2,7 +2,7 @@
 <section class="container-fluid" *ngIf="showImgHomeDiv" id="imgHomeDiv">
   <img id="imgHome" class="img-fluid" src="assets/img/Slider.png" alt="vista de edificio y cielo">
 </section>
-<div id="filterBox" class="container">
+<div id="filterBox" class="container" [ngStyle]="showImgHomeDiv ? filterBoxStylesVisible : filterBoxStylesHidden">
   <div id="filterSection" class="container">
     <div
       class="btn-group"
