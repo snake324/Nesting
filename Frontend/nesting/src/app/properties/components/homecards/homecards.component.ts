@@ -30,6 +30,8 @@ export class HomecardsComponent implements OnInit {
   selectedSize: string = 'Tamaño';
   selectedBaths: string = 'Baños';
 
+  
+
   constructor(
     private router: Router,
     private propertiesService: PropertiesService
@@ -37,6 +39,8 @@ export class HomecardsComponent implements OnInit {
 
   ngOnInit() {
     this.fetchPropertyData();
+   
+    
   }
 
   fetchPropertyData() {
@@ -170,5 +174,9 @@ export class HomecardsComponent implements OnInit {
     this.selectedRooms = 'Habitaciones';
     this.selectedBaths = 'Baños';
     this.applyFilters(); // Aplicar los filtros restablecidos
+  }
+
+  leerMas(propertyId: number) {
+    this.router.navigate(['descripcion-completa', propertyId]);
   }
 }

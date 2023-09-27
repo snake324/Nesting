@@ -1,5 +1,7 @@
 <!-- filterBox para la vista principal -->
-
+<section class="container-fluid" id="imgHomeDiv">
+  <img id="imgHome" class="img-fluid" src="assets/img/Slider.png" alt="vista de edificio y cielo">
+</section>
 <div id="filterBox" class="container">
   <div id="filterSection" class="container">
     <div
@@ -309,7 +311,7 @@
               [class.active]="j === 0"
             >
               <a href="#detalles" target="_blank"
-                ><img
+                ><img id="carImg"
                   [src]="'../assets/images/properties' + image.img"
                   class="d-block w-100"
                   [alt]="'Image ' + (j + 1)"
@@ -342,6 +344,8 @@
             <div class="container-fluid">
               <span id="titletext" class="navbar-brand mb-0 h1">{{
                 property.title
+              }} en {{
+                property.type
               }}</span>
               <span id="titletext" class="navbar-brand mb-0 h1"
                 >{{ property.houseType }} en {{ property.postalCode }},
@@ -387,13 +391,21 @@
               </h5>
             </div>
           </div>
-          <p id="description" class="card-text">{{ property.description }}</p>
-        </div>
-        <div id="btndiv" class="container-fluid">
-          <app-contactbtn></app-contactbtn>
-          <app-reservebtn></app-reservebtn>
-          <app-reservemodal></app-reservemodal>
-        </div>
+          <div class="container-fluid" id="btnDescMain">
+            <div class="container-fluid" id="descDiv">
+              <p id="description" class="card-text">
+                {{ property.description.length > 165 ? property.description.slice(0, 165) + '...' : property.description }}
+                <a id="more" *ngIf="property.description.length > 165" (click)="leerMas(property.id)">Leer Más</a>
+              </p>
+            </div>
+            <div id="btndiv" class="container-fluid">
+              <app-contactbtn></app-contactbtn>
+              <app-reservebtn></app-reservebtn>
+              <app-reservemodal></app-reservemodal>
+            </div>
+          </div>
+       
+      </div>
       </div>
     </div>
   </div>
