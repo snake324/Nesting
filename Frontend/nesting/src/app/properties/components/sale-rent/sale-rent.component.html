@@ -1,16 +1,11 @@
-<div class="container">
+
   <h1>Formulario de Venta/Alquiler</h1>
 
+  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="col-12 col-lg-3">
       <label for="propertyTypeSelect">Tipo de propiedad</label>
       <select class="form-select" id="propertyTypeSelect" aria-label="Tipo propiedad">
-  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
-    <div class="form-floating">
-      <select
-        class="form-select"
-        id="propertyTypeSelect"
-        aria-label="Floating label select example">
         <option selected>Tipo propiedad</option>
         <option value="1">Casa</option>
         <option value="2">Piso</option>
@@ -18,7 +13,6 @@
         <option value="4">Solar</option>
       </select>
     </div>
-
     <div class="col-12 col-lg-3">
       <label for="transactionTypeSelect">Tipo de transacción</label>
       <select
@@ -30,22 +24,21 @@
         <option value="2">Alquiler</option>
       </select>
     </div>
-
-    <div class="col-12 col-lg-3">
-      <label for="citySelect">Seleccionar una ciudad</label>
-      <select
-        class="form-select"
-        id="citySelect"
-        aria-label="Ciudad"
-        formControlName="city"
-        (change)="onCitySelect()">
-        <option value>Selecciona una ciudad</option>
-        <option value="Madrid">Madrid</option>
-        <option value="Barcelona">Barcelona</option>
-        <option value="Valencia">Valencia</option>
-        <option value="Oviedo">Oviedo</option>
-        </select>
-  </div>
+      <div class="col-12 col-lg-3">
+        <label for="citySelect">Seleccionar una ciudad</label>
+        <select
+          class="form-select"
+          id="citySelect"
+          aria-label="Ciudad"
+          formControlName="city"
+          (change)="onCitySelect()">
+          <option value>Selecciona una ciudad</option>
+          <option value="Madrid">Madrid</option>
+          <option value="Barcelona">Barcelona</option>
+          <option value="Valencia">Valencia</option>
+          <option value="Oviedo">Oviedo</option>
+          </select>
+    </div>
 
     <div class="col-12 col-lg-3">
       <label for="postalCodeSelect">Código Postal</label>
@@ -59,102 +52,77 @@
       <option *ngFor="let code of filteredPostalCodes" [value]="code">{{ code }}</option>
       </select>
     </div>
+  </div>
 
+    <div class="row">
+      <div class="col-12 col-lg-3">
+        <label for="bedroomsSelect">Habitaciones</label>
+        <select
+        class="form-select"
+        id="bedroomsSelect"
+        aria-label="Floating label select example"
+      >
+        <option selected>Habitaciones</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        </select>
+      </div>
 
-  <div class="row">
-    <div class="col-12 col-lg-3">
-      <label for="bedroomsSelect">Habitaciones</label>
-      <option selected>Habitaciones</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
+        <div class="col-12 col-lg-3">
+          <label for="bathroomsSelect">Baños</label>
+          <select class="form-select" id="bathroomsSelect" aria-label="Baños">
+            <option selected>Baños</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+      </div>
+      <div class="col-12 col-lg-3">
+        <label for="superficieInput">Superficie</label>
+        <input
+          type="text"
+          class="form-control custom-input"
+          placeholder="Superficie"
+          id="superficieInput"
+          style="color: #006D7A;">
+      </div>
 
       <div class="col-12 col-lg-3">
-        <label for="bathroomsSelect">Baños</label>
-        <select class="form-select" id="bathroomsSelect" aria-label="Baños">
-          <option selected>Baños</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+        <label for="importeInput">Importe €</label>
+        <input
+          type="text"
+          class="form-control custom-input"
+          placeholder="Importe €"
+          id="importeInput"
+          style="color: #006D7A;">
+      </div>
+   </div>
+  <div class="container-fluid">
+  <div class="btupload">
+    <app-file-upload></app-file-upload></div>
+    <div class="d-flex">
+      <app-previewbtn></app-previewbtn>
     </div>
-
-    <div class="col-12 col-lg-3">
-      <label for="superficieInput">Superficie</label>
-      <input
-        type="text"
-        class="form-control custom-input"
-        placeholder="Superficie"
-        id="superficieInput"
-        style="color: #006D7A;">
-    </div>
-
-    <div class="col-12 col-lg-3">
-      <label for="importeInput">Importe €</label>
-      <input
-        type="text"
-        class="form-control custom-input"
-        placeholder="Importe €"
-        id="importeInput"
-        style="color: #006D7A;">
-    </div>
-
-      <button type="submit" class="btn">Enviar</button>
-
-  <!-- <div class="container-fluid">
-  <div class="form-floating">
-    <textarea
-      class="form-control"
-      placeholder="Superficie"
-      id="surfaceTextarea"
-    ></textarea>
-    <label for="floatingTextarea">Superficie</label>
+    <button type="submit" class="btn">Enviar</button>
   </div>
-  <div class="form-floating">
-    <textarea
-      class="form-control"
-      placeholder="Importe €"
-      id="priceTextarea"
-    ></textarea>
-    <label for="floatingTextarea">Importe €</label>
-  </div>
-</div>
-  <div class="container">
     <p><label for="description">Descripción:</label></p>
     <textarea
       id="description"
       name="description"
-      rows="20"
-      cols="120"
+      rows="15"
+      cols="81"
     ></textarea>
-    <div class="d-flex flex-row-reverse">
-    <app-previewbtn></app-previewbtn>
-    <app-file-upload></app-file-upload>
-  </div>
-  </div>
-</div> -->
 
-<div class="container-fluid">
-<div class="btupload">
-  <app-file-upload></app-file-upload></div>
-  <div class="d-flex">
-    <app-previewbtn></app-previewbtn>
-  </div>
-</div>
+  </form>
 
-  <p><label for="description">Descripción:</label></p>
-  <textarea
-    id="description"
-    name="description"
-    rows="15"
-    cols="80"
-  ></textarea>
+
 
 

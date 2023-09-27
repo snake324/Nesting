@@ -31,8 +31,11 @@ textarea {
   border-radius: 5px;
   background-color: #D0EAE9;
   color: #F3A139;
+  margin-bottom: 2rem;
+  margin-top: -2rem;
   &:focus {
     border-color: #8BBFBD;
+
 
   }
 
@@ -41,12 +44,11 @@ textarea {
 #description {
   background-color: #D0EAE9;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin-left: 4.8rem;
-  margin-top: -2rem;
   &:focus {
     border-color: #006D7A;
     outline: 0;
     box-shadow: 0 0 0 0.1rem #D0EAE9;
+
   }
 
 }
@@ -54,25 +56,22 @@ textarea {
 
 p {
   color: #F3A139;
-  margin-left: 4.4rem;
   margin-bottom: 2.5rem;
-  margin-top: -9.7rem;
   font-weight: bold;
   font-size: large;
-
-
-
+  margin-top: -25rem;
 }
 
 
 .d-flex{
-  margin-left: 17.5rem;
+  margin-left: 10rem;
   margin-bottom: 2rem;
+
+
 }
 
 .custom-input {
   width: 13.5rem;
-  margin-top: 9.5px;
   border: 1px solid #D0EAE9;
   border-radius: 5px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -90,11 +89,37 @@ p {
 }
 
 .btupload{
-  margin-left: 45rem;
-  width: 20rem;
-  margin-top: 3rem;
+  margin-left: 41.5rem;
+  margin-top: 4rem;
+  margin-bottom: 14rem;
 }
 
 label{
   color: #F3A139;
 }
+
+.btn{
+  background-color:#F3A139;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-left: 41.5rem;
+  color: #FFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  width: 10.7rem;
+  height: 2.1rem;
+  border-radius: 5px;
+
+ }
+
+ .custom-select-for-cp.disabled {
+  background-color: #f8f9fa;
+  color: #006D7A;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+form{
+  margin-left: 8rem;
+}
+
