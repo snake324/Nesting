@@ -1,6 +1,7 @@
 package com.factoriaAltF4.Nesting.models;
 
 import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -10,7 +11,7 @@ import lombok.Data;
 @Entity
 @Table(name = "users_profiles")
 @Data
-public class UserProfile{
+public class UserProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,15 +28,18 @@ public class UserProfile{
     private String address;
 
     @OneToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
     @JsonIgnore
     private User user;
 
     @OneToOne(mappedBy = "userProfile")
     public Card card;
 
-    @ManyToMany(mappedBy = "userProfiles")
-    public List<Property> propertiesContact;
+    // @ManyToMany(mappedBy = "userProfiles")
+    // public List<Property> propertiesContact;
+
+    @OneToMany(mappedBy = "profile")
+    public Set<Contacts> profilContacts;
 
     @OneToMany(mappedBy = "profilePublished")
     public List<Property> propertiesPublished;
