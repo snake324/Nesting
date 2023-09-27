@@ -289,6 +289,18 @@
               data-bs-slide-to="2"
               aria-label="Slide 3"
             ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
           </div>
           <div class="carousel-inner">
             <div
@@ -298,7 +310,7 @@
             >
               <a href="#detalles" target="_blank"
                 ><img
-                  [src]="'../assets/images/' + image.img"
+                  [src]="'../assets/images/properties' + image.img"
                   class="d-block w-100"
                   [alt]="'Image ' + (j + 1)"
               /></a>
