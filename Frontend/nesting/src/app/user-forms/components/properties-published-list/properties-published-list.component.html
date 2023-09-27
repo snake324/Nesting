@@ -15,7 +15,7 @@
                     <ng-container *ngIf="property.status !== false">
                         <td class="property-image">
                             <ng-container *ngIf="property.images && property.images.length > 0">
-                                <img [src]="'../assets/images/' + property.images[0].img" alt="Imagen de propiedad" class="property-image custom-property-image">
+                                <img [src]="'../assets/images/properties' + property.images[0].img" alt="Imagen de propiedad" class="property-image custom-property-image">
                             </ng-container>
                         </td>                                                                                                                        
                         <td class="property-title" >{{ property.title }}</td>
@@ -45,7 +45,7 @@
                     <ng-container *ngIf="property.status !== true">
                         <td class="property-image">
                             <ng-container *ngIf="property.images && property.images.length > 0">
-                                <img [src]="'../assets/images/' + property.images[0].img" alt="Imagen de propiedad" class="property-image custom-property-image">
+                                <img [src]="'../assets/images/properties' + property.images[0].img" alt="Imagen de propiedad" class="property-image custom-property-image">
                             </ng-container>
                         </td> 
                         <td class="property-title">{{ property.title }}</td>
