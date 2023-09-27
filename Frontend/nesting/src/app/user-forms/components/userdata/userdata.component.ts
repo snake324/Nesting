@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from '../../service/profile.service';
 import { Profile } from '../../models/profile.model';
@@ -10,9 +10,16 @@ import { UserService } from '../../service/user.service';
   templateUrl: './userdata.component.html',
   styleUrls: ['./userdata.component.scss']
 })
-export class UserdataComponent {
+export class UserdataComponent implements OnInit {
 
-  profile: Profile | undefined;
+  profile: Profile = {
+    id: 0,
+    name: '',
+    lastname: '',
+    address: '',
+    card: null,
+    propertiesPublished: []
+  };
   user: User | undefined;
 
   constructor(
@@ -33,14 +40,33 @@ export class UserdataComponent {
 
   getProfileData(profileId: string): void {
     this.profileService.getProfile(profileId).subscribe(profile => {
-      this.profile = profile;
+      if (profile) {
+        this.profile = profile;
+      } else {
+        this.profile = {
+          id: 0,
+          name: '',
+          lastname: '',
+          address: '',
+          card: null,
+          propertiesPublished: []
+        };
+      }
     });
   }
+  
 
   getUserData(userId: string): void {
     this.userService.getUser(userId).subscribe(user => {
       this.user = user;
     });
   }
-}
 
+  saveProfile(): void {
+    if (this.profile) {
+      this.profileService.saveProfile(this.profile).subscribe(result => {
+        console.log('Perfil guardado exitosamente', result);
+      });
+    }
+  }
+}
