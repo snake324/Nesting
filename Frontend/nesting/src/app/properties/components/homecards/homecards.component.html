@@ -1,7 +1,7 @@
 <!-- filterBox para la vista principal -->
 
-<div id="filterBox" class="container-fluid">
-  <div id="filterSection" class="container-fluid">
+<div id="filterBox" class="container">
+  <div id="filterSection" class="container">
     <div
       class="btn-group"
       role="group"
@@ -240,11 +240,7 @@
       id="applyFiltersButton"
       class="btn btn-primary"
       (click)="applyFilters()"
-    ><span
-    class="iconify"
-    data-icon="iconamoon:enter-bold"
-    style="color: #006d7a"
-  ></span>
+    ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 4h10v14a2 2 0 0 1-2 2H9m3-5l3-3m0 0l-3-3m3 3H5"/></svg>
       Aplicar
     </button>
 
@@ -252,11 +248,7 @@
   id="resetFiltersButton"
   class="btn btn-secondary"
   (click)="resetFilters()"
-><span
-class="iconify"
-data-icon="fluent:arrow-reset-24-filled"
-style="color: #006d7a"
-></span>
+><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M7.207 2.543a1 1 0 0 1 0 1.414L5.414 5.75h7.836a8 8 0 1 1-8 8a1 1 0 1 1 2 0a6 6 0 1 0 6-6H5.414l1.793 1.793a1 1 0 0 1-1.414 1.414l-3.5-3.5a1 1 0 0 1 0-1.414l3.5-3.5a1 1 0 0 1 1.414 0Z"/></svg>
   Restablecer
 </button>
 
@@ -297,6 +289,18 @@ style="color: #006d7a"
               data-bs-slide-to="2"
               aria-label="Slide 3"
             ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
           </div>
           <div class="carousel-inner">
             <div
@@ -306,7 +310,7 @@ style="color: #006d7a"
             >
               <a href="#detalles" target="_blank"
                 ><img
-                  [src]="'../assets/images/' + image.img"
+                  [src]="'../assets/images/properties' + image.img"
                   class="d-block w-100"
                   [alt]="'Image ' + (j + 1)"
               /></a>
