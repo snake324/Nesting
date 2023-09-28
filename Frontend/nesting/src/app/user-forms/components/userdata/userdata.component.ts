@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from '../../service/profile.service';
-import { Profile } from '../../models/profile.model';
 import { User } from '../../models/user.model';
 import { UserService } from '../../service/user.service';
 
@@ -56,10 +55,8 @@ export class UserdataComponent implements OnInit {
   }
 
   saveProfile() {
-    // Llama al servicio para enviar los datos del perfil al servidor
     this.profileService.saveProfile(this.profile).subscribe(response => {
-      // Maneja la respuesta del servidor, por ejemplo, muestra un mensaje de éxito
-      console.log('Perfil registrado con éxito', response);
+      console.log('Datos introducidos con éxito', response);
     });
   }
 }

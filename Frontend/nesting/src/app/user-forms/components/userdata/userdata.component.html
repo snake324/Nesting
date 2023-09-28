@@ -16,22 +16,23 @@
             </li>
         </ul>
     </div>
-    <div *ngIf="!profile">
-        <form (submit)="saveProfile()">
+    <div *ngIf="profile && (profile.name === null || profile.lastname === null || profile.address === null)">
+        <form>
             <div class="form-group">
-              <label for="name">Nombre:</label>
-              <input type="text" class="form-control" id="name" name="name" [(ngModel)]="profile.name">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="profile.name">
             </div>
             <div class="form-group">
-              <label for="lastname">Apellidos:</label>
-              <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="profile.lastname">
+                <label for="lastname">Apellidos:</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="profile.lastname">
             </div>
             <div class="form-group">
                 <label for="address">Dirección:</label>
                 <input type="text" class="form-control" id="address" name="address" [(ngModel)]="profile.address">
             </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
-          </form>          
+            <button type="button" class="btn btn-primary" (click)="saveProfile()">Guardar</button>
+        </form>
     </div>
 </div>
+
 

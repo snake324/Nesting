@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from '../../user-forms/models/user.model';
-import { Profile } from '../models/profile.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,28 +24,7 @@ export class UserService {
       status: status
     };
 
-    // Send the registration request to create the user
-    return this.httpClient.post<any>(`${this.baseUrl}/register`, user)
-      .pipe(
-        // Handle the response and generate a userProfile
-        map((response: any) => {
-          // Assuming the response includes the newly created user's ID
-          const userId = response.userId;
-
-          // Generate a userProfile with the same ID as the user
-          const userProfile: Profile = {
-            id: userId,
-            name: 'Nombre',
-            lastname: 'Apellido',
-            address: 'Dirección',
-            card: null,
-            propertiesPublished: []
-          };
-
-          // Send a request to create the userProfile associated with the user
-          return this.httpClient.post<any>(`${this.baseUrl}/register/profile`, userProfile);
-        })
-      );
+    return this.httpClient.post<any>(`${this.baseUrl}/register`, user);
   }
   public loginUser(mail: string, password: string, headers: HttpHeaders): Observable<any> {
     this.isAuthenticated = true;
