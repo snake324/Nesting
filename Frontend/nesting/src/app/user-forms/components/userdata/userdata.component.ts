@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from '../../service/profile.service';
-import { Profile } from '../../models/profile.model';
 import { User } from '../../models/user.model';
 import { UserService } from '../../service/user.service';
 
@@ -12,14 +11,7 @@ import { UserService } from '../../service/user.service';
 })
 export class UserdataComponent implements OnInit {
 
-  profile: Profile = {
-    id: 0,
-    name: '',
-    lastname: '',
-    address: '',
-    card: null,
-    propertiesPublished: []
-  };
+  profile: any = { name: '', lastname: '', address: '' };
   user: User | undefined;
 
   constructor(
@@ -62,11 +54,9 @@ export class UserdataComponent implements OnInit {
     });
   }
 
-  saveProfile(): void {
-    if (this.profile) {
-      this.profileService.saveProfile(this.profile).subscribe(result => {
-        console.log('Perfil guardado exitosamente', result);
-      });
-    }
+  saveProfile() {
+    this.profileService.saveProfile(this.profile).subscribe(response => {
+      console.log('Datos introducidos con éxito', response);
+    });
   }
 }

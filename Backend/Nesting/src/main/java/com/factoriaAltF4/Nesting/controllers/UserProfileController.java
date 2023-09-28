@@ -1,15 +1,8 @@
 package com.factoriaAltF4.Nesting.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.factoriaAltF4.Nesting.models.UserProfile;
 import com.factoriaAltF4.Nesting.services.UserProfileService;
@@ -21,23 +14,41 @@ public class UserProfileController {
     @Autowired
     UserProfileService service;
 
-    @GetMapping
-    public List<UserProfile> getProfiles(){
-        return service.getAllProfiles();
-    }
-
     @GetMapping("/{id}")
-    public UserProfile getProfileById(@PathVariable Long id){
-        return service.getProfileById(id);
+    public ResponseEntity<UserProfile> getProfileById(@PathVariable Long id){
+        UserProfile profile = service.getProfileById(id);
+        if (profile != null) {
+            return ResponseEntity.ok(profile);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @PutMapping("/update")
-    public UserProfile updateProfile(@RequestBody UserProfile profile){
-        return service.updateProfile(profile);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<UserProfile> updateProfile(@PathVariable Long id, @RequestBody UserProfile updatedProfile){
+        UserProfile existingProfile = service.getProfileById(id);
+
+        if (existingProfile != null) {
+            existingProfile.setName(updatedProfile.getName());
+            existingProfile.setLastname(updatedProfile.getLastname());
+            existingProfile.setAddress(updatedProfile.getAddress());
+
+            UserProfile savedProfile = service.updateProfile(existingProfile);
+            return ResponseEntity.ok(savedProfile);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @DeleteMapping("/delete")
-    public void delteProfile(@RequestBody UserProfile profile){
-        service.deleteProfile(profile);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteProfile(@PathVariable Long id){
+        UserProfile profile = service.getProfileById(id);
+        if (profile != null) {
+            service.deleteProfile(profile);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
+

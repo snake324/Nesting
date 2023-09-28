@@ -48,9 +48,4 @@ export class UserService {
     return this.httpClient.get<number>(url);
   }
 
-  public logout(): Observable<any> {
-    this.actualUser = null;
-    this.isAuthenticated = false;
-    return this.httpClient.get<any>(`${this.baseUrl}/logout`, { withCredentials: true });
-  }  
 }

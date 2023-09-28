@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <h4>Mis Datos</h4>
-    <ng-container *ngIf="profile; else profileForm">
+    <div *ngIf="profile">
         <ul class="list-group">
             <li class="list-group-item">
                 <span class="label">Nombre:</span>
@@ -15,19 +15,21 @@
                 <span class="value">{{ user.mail }}</span>
             </li>
         </ul>
-    </ng-container>
-    <ng-template #profileForm>
-        <form (submit)="saveProfile()">
+    </div>
+    <div *ngIf="profile && (profile.name === null || profile.lastname === null || profile.address === null)">
+        <form #profileForm>
             <div class="form-group">
-              <label for="name">Nombre:</label>
-              <input type="text" class="form-control" id="name" name="name" [(ngModel)]="profile.name">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="profile.name">
             </div>
             <div class="form-group">
-              <label for="lastname">Apellidos:</label>
-              <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="profile.lastname">
+                <label for="lastname">Apellidos:</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="profile.lastname">
             </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
-          </form>          
-    </ng-template>
+            <button type="button" class="btn btn-primary" (click)="saveProfile()">Guardar</button>
+        </form>        
+    </div>
 </div>
+
+
 
