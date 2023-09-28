@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { Properties } from '../../models/properties.model';
 import { Router } from '@angular/router';
 import { PropertiesService } from '../../service/properties.service';
@@ -8,7 +8,7 @@ import { PropertiesService } from '../../service/properties.service';
   templateUrl: './homecards.component.html',
   styleUrls: ['./homecards.component.scss'],
 })
-export class HomecardsComponent implements OnInit {
+export class HomecardsComponent implements OnInit, AfterViewInit {
   propertyData: Properties[] = [];
   filteredPropertyData: Properties[] = [];
   filters = {
@@ -30,13 +30,46 @@ export class HomecardsComponent implements OnInit {
   selectedSize: string = 'Tamaño';
   selectedBaths: string = 'Baños';
 
+  showImgHomeDiv: boolean = true;
+
+  filterBoxStylesVisible: any = {
+    'background-color': '#f5b665',
+    'width': '50%',
+    'border-radius': '10px',
+    'z-index': '1',
+    'margin-top': '-5em',
+    'margin-bottom': '1em',
+    'height': '14em',
+  };
+  
+  filterBoxStylesHidden: any = {
+    'background-color': 'transparent', // O cualquier otro valor predeterminado cuando está oculto
+    'width': '50%',
+    'border-radius': '10px',
+    'z-index': '1',
+    'margin-top': '-5em',
+    'margin-bottom': '1em',
+    'height': '14em',
+  };
+
+  
+
   constructor(
     private router: Router,
-    private propertiesService: PropertiesService
+    private propertiesService: PropertiesService,
+    private cdr: ChangeDetectorRef 
   ) {}
 
   ngOnInit() {
     this.fetchPropertyData();
+   
+    
+  }
+
+  ngAfterViewInit() {
+    // Aplicar filtros después de que la vista se haya inicializado completamente
+    this.applyFilters();
+    this.cdr.detectChanges();
   }
 
   fetchPropertyData() {
@@ -51,6 +84,10 @@ export class HomecardsComponent implements OnInit {
       },
       (error) => {
         console.log('Error fetching properties data: ', error);
+      },
+      () => {
+        // Llamado después de que se hayan cargado los datos
+        this.applyFilters();
       }
     );
   }
@@ -77,6 +114,7 @@ export class HomecardsComponent implements OnInit {
           property.baths === parseInt(this.selectedBaths))
       );
     });
+    this.showImgHomeDiv = this.filteredPropertyData.length > 0;
   }
 
   extractUniqueTypes() {
@@ -160,6 +198,7 @@ export class HomecardsComponent implements OnInit {
   }
 
   resetFilters() {
+    
     this.filters.propertyType = 'Todos';
     this.selectedCity = 'Ciudad';
     this.selectedPostalCode = 'Codigo Postal';
@@ -169,6 +208,48 @@ export class HomecardsComponent implements OnInit {
     this.selectedSize = 'Tamaño';
     this.selectedRooms = 'Habitaciones';
     this.selectedBaths = 'Baños';
-    this.applyFilters(); // Aplicar los filtros restablecidos
+    this.applyFilters();
+    this.showImgHomeDiv = false; // Aplicar los filtros restablecidos
+  }
+
+  leerMas(propertyId: number) {
+    this.router.navigate(['descripcion-completa', propertyId]);
+  }
+  applyFiltersAndShowImage() {
+    this.applyFilters();
+    this.showImgHomeDiv = false; // Otra lógica para determinar si mostrar o no la imagen
+  
+    // Aplicar estilos condicionales a #filterBox
+    if (this.showImgHomeDiv) {
+      this.filterBoxStylesVisible = {
+        // Estilos cuando showImgHomeDiv es true
+        'background-color': '#f5b665',
+        'width': '50%',
+        'border-radius': '10px',
+        'z-index': '1',
+        'margin-top': '-5em',
+        'margin-bottom': '1em',
+        'height': '14em',
+      };
+    } else {
+      this.filterBoxStylesHidden = {
+        // Estilos cuando showImgHomeDiv es false
+        'background-color': 'transparent',
+        'width': '50%',
+        'border-radius': '10px',
+        'z-index': '1',
+        'margin-top': '-6em',
+        'margin-bottom': '1em',
+        'height': '14em',
+      };
+    }
+  
+    console.log('showImgHomeDiv:', this.showImgHomeDiv);
+  }
+
+  showImage() {
+    // Lógica para determinar si mostrar u ocultar la imagen
+    // Por ejemplo, podríamos basarnos en la longitud de filteredPropertyData
+    this.showImgHomeDiv = this.filteredPropertyData.length > 0;
   }
 }
