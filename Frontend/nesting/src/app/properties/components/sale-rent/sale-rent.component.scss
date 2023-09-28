@@ -5,53 +5,29 @@ h1 {
   margin-top: 2rem;
 }
 
+label{
+  color: #F3A139;
+}
 
-select.form-select {
+.form-select {
   width: 210px;
   background-color: #D0EAE9;
   color: #006D7A;
   margin: 10px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
   &:focus {
-    border-color: #006D7A;
+    border-color: #8cbfbc;
     box-shadow: 0 0 0 0.1rem #D0EAE9;
-
   }
 }
 
-
-div.form-floating {
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-
-textarea {
-  resize: none;
-  border-color: #D0EAE9;
-  border-radius: 5px;
+select.form-select:hover {
   background-color: #D0EAE9;
-  color: #F3A139;
-  margin-bottom: 2rem;
-  margin-top: -2rem;
-  &:focus {
-    border-color: #8BBFBD;
-
-
-  }
-
-}
-
-#description {
-  background-color: #D0EAE9;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  &:focus {
-    border-color: #006D7A;
-    outline: 0;
-    box-shadow: 0 0 0 0.1rem #D0EAE9;
-
-  }
-
-}
+  color: #055f5b;
+  outline: 2px solid #8cbfbc;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-left: 1em;}
 
 
 p {
@@ -66,29 +42,55 @@ p {
 .d-flex{
   margin-left: 10rem;
   margin-bottom: 2rem;
-
-
 }
 
 .custom-input {
   width: 13.5rem;
-  border: 1px solid #D0EAE9;
+  border: 0px solid #D0EAE9;
   border-radius: 5px;
   margin-top: 0.3rem;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background-color: #D0EAE9;
   margin-left: 0.5rem;
-    ::placeholder{
-      color: #006D7A;
-    }
 
   &:focus {
-    border-color: #006D7A;
-    outline: 0;
-    box-shadow: 0 0 0 0.1rem #D0EAE9;
-   
+    border-color: #8cbfbc;
+    box-shadow: 0 0 0 0.1rem #8cbfbc;
+
   }
 }
+
+.custom-input::placeholder {
+  color: #006D7A;
+}
+
+
+
+textarea {
+  resize: none;
+  border-color: #D0EAE9;
+  border-radius: 5px;
+  background-color: #D0EAE9;
+  color: #F3A139;
+  margin-bottom: 2rem;
+  margin-top: -2rem;
+  &:focus {
+    border-color: #8BBFBD;
+  }
+
+}
+
+#description {
+  background-color: #D0EAE9;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  &:focus {
+    border-color: #006D7A;
+    box-shadow: 0 0 0 0.1rem #D0EAE9;
+
+  }
+
+}
+
 
 .btupload{
   margin-left: 41.5rem;
@@ -96,9 +98,7 @@ p {
   margin-bottom: 14rem;
 }
 
-label{
-  color: #F3A139;
-}
+
 
 .btn{
   background-color:#F3A139;
@@ -114,6 +114,8 @@ label{
 
  }
 
+
+
  .custom-select-for-cp.disabled {
   background-color: #f8f9fa;
   color: #006D7A;
@@ -121,7 +123,11 @@ label{
   cursor: not-allowed;
 }
 
+
 form{
   margin-left: 8rem;
 }
+
+
+
 
