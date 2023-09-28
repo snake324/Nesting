@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <h4>Mis Datos</h4>
-    <ng-container *ngIf="profile; else profileForm">
+    <div *ngIf="profile">
         <ul class="list-group">
             <li class="list-group-item">
                 <span class="label">Nombre:</span>
@@ -15,8 +15,8 @@
                 <span class="value">{{ user.mail }}</span>
             </li>
         </ul>
-    </ng-container>
-    <ng-template #profileForm>
+    </div>
+    <div *ngIf="!profile">
         <form (submit)="saveProfile()">
             <div class="form-group">
               <label for="name">Nombre:</label>
@@ -26,8 +26,12 @@
               <label for="lastname">Apellidos:</label>
               <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="profile.lastname">
             </div>
+            <div class="form-group">
+                <label for="address">Dirección:</label>
+                <input type="text" class="form-control" id="address" name="address" [(ngModel)]="profile.address">
+            </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
           </form>          
-    </ng-template>
+    </div>
 </div>
 

@@ -12,14 +12,7 @@ import { UserService } from '../../service/user.service';
 })
 export class UserdataComponent implements OnInit {
 
-  profile: Profile = {
-    id: 0,
-    name: '',
-    lastname: '',
-    address: '',
-    card: null,
-    propertiesPublished: []
-  };
+  profile: any = { name: '', lastname: '', address: '' };
   user: User | undefined;
 
   constructor(
@@ -62,11 +55,11 @@ export class UserdataComponent implements OnInit {
     });
   }
 
-  saveProfile(): void {
-    if (this.profile) {
-      this.profileService.saveProfile(this.profile).subscribe(result => {
-        console.log('Perfil guardado exitosamente', result);
-      });
-    }
+  saveProfile() {
+    // Llama al servicio para enviar los datos del perfil al servidor
+    this.profileService.saveProfile(this.profile).subscribe(response => {
+      // Maneja la respuesta del servidor, por ejemplo, muestra un mensaje de éxito
+      console.log('Perfil registrado con éxito', response);
+    });
   }
 }
