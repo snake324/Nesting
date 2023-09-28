@@ -43,7 +43,7 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   };
   
   filterBoxStylesHidden: any = {
-    'background-color': 'transparent', // O cualquier otro valor predeterminado cuando está oculto
+    'background-color': 'transparent', 
     'width': '50%',
     'border-radius': '10px',
     'z-index': '1',
@@ -67,7 +67,7 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Aplicar filtros después de que la vista se haya inicializado completamente
+    
     this.applyFilters();
     this.cdr.detectChanges();
   }
@@ -86,7 +86,6 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
         console.log('Error fetching properties data: ', error);
       },
       () => {
-        // Llamado después de que se hayan cargado los datos
         this.applyFilters();
       }
     );
@@ -95,26 +94,35 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   applyFilters() {
     console.log('applyFilters() llamado');
     this.filteredPropertyData = this.propertyData.filter((property) => {
-      return (
-        (this.selectedType === 'Tipo' || property.type === this.selectedType) &&
-        (this.filters.propertyType === 'Todos' ||
-          property.type === this.filters.propertyType) &&
-        (this.selectedCity === 'Ciudad' ||
-          property.city === this.selectedCity) &&
-        (this.selectedPostalCode === 'Codigo Postal' ||
-          property.postalCode === this.selectedPostalCode) &&
-        (this.selectedHouseType === 'Tipo de Vivienda' ||
-          property.houseType === this.selectedHouseType) &&
-        (this.selectedPrice === 'Precio' ||
-          this.isPriceInRange(property.price)) &&
-        (this.selectedSize === 'Tamaño' || this.isSizeInRange(property.size)) &&
-        (this.selectedRooms === 'Habitaciones' ||
-          property.rooms === parseInt(this.selectedRooms)) &&
-        (this.selectedBaths === 'Baños' ||
-          property.baths === parseInt(this.selectedBaths))
-      );
+      const typeCondition = this.selectedType === 'Tipo' || property.type === this.selectedType;
+      const propertyTypeCondition = this.filters.propertyType === 'Todos' || property.type === this.filters.propertyType;
+      const cityCondition = this.selectedCity === 'Ciudad' || property.city === this.selectedCity;
+      const postalCodeCondition = this.selectedPostalCode === 'Codigo Postal' || property.postalCode === this.selectedPostalCode;
+      const houseTypeCondition = this.selectedHouseType === 'Tipo de Vivienda' || property.houseType === this.selectedHouseType;
+      const priceCondition = this.selectedPrice === 'Precio' || this.isPriceInRange(property.price);
+      const sizeCondition = this.selectedSize === 'Tamaño' || this.isSizeInRange(property.size);
+      const roomsCondition = this.selectedRooms === 'Habitaciones' || property.rooms === parseInt(this.selectedRooms);
+      const bathsCondition = this.selectedBaths === 'Baños' || property.baths === parseInt(this.selectedBaths);
+  
+      const result = typeCondition && propertyTypeCondition && cityCondition && postalCodeCondition &&
+        houseTypeCondition && priceCondition && sizeCondition && roomsCondition && bathsCondition;
+  
+      console.log('Type Condition:', typeCondition);
+      console.log('Property Type Condition:', propertyTypeCondition);
+      console.log('City Condition:', cityCondition);
+      console.log('Postal Code Condition:', postalCodeCondition);
+      console.log('House Type Condition:', houseTypeCondition);
+      console.log('Price Condition:', priceCondition);
+      console.log('Size Condition:', sizeCondition);
+      console.log('Rooms Condition:', roomsCondition);
+      console.log('Baths Condition:', bathsCondition);
+      console.log('Result:', result);
+  
+      return result;
     });
-    this.showImgHomeDiv = this.filteredPropertyData.length > 0;
+  
+    // this.showImgHomeDiv = this.filteredPropertyData.length > 0;
+    // console.log('showImgHomeDiv:', this.showImgHomeDiv);
   }
 
   extractUniqueTypes() {
@@ -209,7 +217,7 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
     this.selectedRooms = 'Habitaciones';
     this.selectedBaths = 'Baños';
     this.applyFilters();
-    this.showImgHomeDiv = false; // Aplicar los filtros restablecidos
+    this.showImgHomeDiv = false; 
   }
 
   leerMas(propertyId: number) {
@@ -217,12 +225,10 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   }
   applyFiltersAndShowImage() {
     this.applyFilters();
-    this.showImgHomeDiv = false; // Otra lógica para determinar si mostrar o no la imagen
-  
-    // Aplicar estilos condicionales a #filterBox
+    this.showImgHomeDiv = false;
     if (this.showImgHomeDiv) {
       this.filterBoxStylesVisible = {
-        // Estilos cuando showImgHomeDiv es true
+        
         'background-color': '#f5b665',
         'width': '50%',
         'border-radius': '10px',
@@ -233,7 +239,7 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
       };
     } else {
       this.filterBoxStylesHidden = {
-        // Estilos cuando showImgHomeDiv es false
+    
         'background-color': 'transparent',
         'width': '50%',
         'border-radius': '10px',
@@ -248,8 +254,6 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   }
 
   showImage() {
-    // Lógica para determinar si mostrar u ocultar la imagen
-    // Por ejemplo, podríamos basarnos en la longitud de filteredPropertyData
     this.showImgHomeDiv = this.filteredPropertyData.length > 0;
   }
 }
