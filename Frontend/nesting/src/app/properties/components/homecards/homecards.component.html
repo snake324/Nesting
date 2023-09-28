@@ -1,6 +1,8 @@
 <!-- filterBox para la vista principal -->
-
-<div id="filterBox" class="container">
+<section class="container-fluid" *ngIf="showImgHomeDiv" id="imgHomeDiv">
+  <img id="imgHome" class="img-fluid" src="assets/img/Slider.png" alt="vista de edificio y cielo">
+</section>
+<div id="filterBox" class="container" [ngStyle]="showImgHomeDiv ? filterBoxStylesVisible : filterBoxStylesHidden">
   <div id="filterSection" class="container">
     <div
       class="btn-group"
@@ -236,13 +238,14 @@
 </div>
 
 <div class="container-fluid" id="secBtn">
-    <button
-      id="applyFiltersButton"
-      class="btn btn-primary"
-      (click)="applyFilters()"
-    ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 4h10v14a2 2 0 0 1-2 2H9m3-5l3-3m0 0l-3-3m3 3H5"/></svg>
-      Aplicar
-    </button>
+  <button
+  id="applyFiltersAndShowImageButton"
+  class="btn btn-primary"
+  (click)="applyFiltersAndShowImage()"
+>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M7.207 2.543a1 1 0 0 1 0 1.414L5.414 5.75h7.836a8 8 0 1 1-8 8a1 1 0 1 1 2 0a6 6 0 1 0 6-6H5.414l1.793 1.793a1 1 0 0 1-1.414 1.414l-3.5-3.5a1 1 0 0 1 0-1.414l3.5-3.5a1 1 0 0 1 1.414 0Z"/></svg>
+  Aplicar
+</button>
 
     <button
   id="resetFiltersButton"
@@ -309,7 +312,7 @@
               [class.active]="j === 0"
             >
               <a href="#detalles" target="_blank"
-                ><img
+                ><img id="carImg"
                   [src]="'../assets/images/properties' + image.img"
                   class="d-block w-100"
                   [alt]="'Image ' + (j + 1)"
@@ -342,6 +345,8 @@
             <div class="container-fluid">
               <span id="titletext" class="navbar-brand mb-0 h1">{{
                 property.title
+              }} en {{
+                property.type
               }}</span>
               <span id="titletext" class="navbar-brand mb-0 h1"
                 >{{ property.houseType }} en {{ property.postalCode }},
@@ -387,13 +392,21 @@
               </h5>
             </div>
           </div>
-          <p id="description" class="card-text">{{ property.description }}</p>
-        </div>
-        <div id="btndiv" class="container-fluid">
-          <app-contactbtn></app-contactbtn>
-          <app-reservebtn></app-reservebtn>
-          <app-reservemodal></app-reservemodal>
-        </div>
+          <div class="container-fluid" id="btnDescMain">
+            <div class="container-fluid" id="descDiv">
+              <p id="description" class="card-text">
+                {{ property.description.length > 165 ? property.description.slice(0, 165) + '...' : property.description }}
+                <a id="more" *ngIf="property.description.length > 165" (click)="leerMas(property.id)">Leer Más</a>
+              </p>
+            </div>
+            <div id="btndiv" class="container-fluid">
+              <app-contactbtn></app-contactbtn>
+              <app-reservebtn></app-reservebtn>
+              <app-reservemodal></app-reservemodal>
+            </div>
+          </div>
+       
+      </div>
       </div>
     </div>
   </div>
