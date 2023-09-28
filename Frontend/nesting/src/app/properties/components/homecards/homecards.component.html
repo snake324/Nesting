@@ -400,9 +400,10 @@
               </p>
             </div>
             <div id="btndiv" class="container-fluid">
-              <app-contactbtn></app-contactbtn>
-              <app-reservebtn></app-reservebtn>
-              <app-reservemodal></app-reservemodal>
+              <div id="reserveDiv" *ngIf="property.type === 'Alquiler'"><app-reservebtn></app-reservebtn>
+                <app-reservemodal></app-reservemodal></div> 
+              <div id="contactDiv"><app-contactbtn></app-contactbtn></div> 
+              
             </div>
           </div>
        
