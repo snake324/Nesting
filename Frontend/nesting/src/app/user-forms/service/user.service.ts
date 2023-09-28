@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../../user-forms/models/user.model';
+import { Post } from 'src/app/interfaces/post.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,13 @@ export class UserService {
   getUserIdByEmail(mail: string) {
     const url = `${this.baseUrl}/users/getid?mail=${mail}`;
     return this.httpClient.get<number>(url);
+  }
+
+   getPosts() {
+    return this.httpClient.get('https://localhost:4000/properties/');
+  }
+
+  createPosts(post: Post) {
+    return this.httpClient.post('https://localhost:4000/properties/', post);
   }
 }
