@@ -25,7 +25,6 @@ export class HeaderComponent {
   logout() {
     this.userService.logout().subscribe(
       () => {
-        this.userService.setUser(null);
         this.router.navigate(['/properties/home']);
       },
       (error) => {

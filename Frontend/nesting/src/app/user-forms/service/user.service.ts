@@ -51,6 +51,6 @@ export class UserService {
   public logout(): Observable<any> {
     this.actualUser = null;
     this.isAuthenticated = false;
-    return this.httpClient.post<any>(`${this.baseUrl}/logout`, {}, { withCredentials: true });
-  }
+    return this.httpClient.get<any>(`${this.baseUrl}/logout`, { withCredentials: true });
+  }  
 }
