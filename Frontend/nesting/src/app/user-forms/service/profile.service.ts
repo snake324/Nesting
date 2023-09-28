@@ -22,7 +22,7 @@ export class ProfileService {
   }
 
   saveProfile(profileData: Profile): Observable<Profile> {
-    return this.http.post<Profile>(`${this.apiUrl}/update`, profileData);
+    return this.http.put<Profile>(`${this.apiUrl}/update/${profileData.id}`, profileData);
   }
 
   deleteProfile(profileId: string): Observable<Profile> {
