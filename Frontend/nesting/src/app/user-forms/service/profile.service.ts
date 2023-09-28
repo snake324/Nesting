@@ -22,7 +22,7 @@ export class ProfileService {
   }
 
   saveProfile(profileData: Profile): Observable<Profile> {
-    return this.http.post<Profile>(`${this.apiUrl}/create`, profileData);
+    return this.http.post<Profile>(`http://localhost:4000/register/profile`, profileData);
   }
 
   deleteProfile(profileId: string): Observable<Profile> {

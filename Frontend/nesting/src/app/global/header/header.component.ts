@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user-forms/service/user.service';
+import { LogoutService } from '../service/logout.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ export class HeaderComponent {
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private logoutService: LogoutService
     ) {}
 
     ngOnInit() {
@@ -23,7 +25,7 @@ export class HeaderComponent {
   }
 
   logout() {
-    this.userService.logout().subscribe(
+    this.logoutService.logout().subscribe(
       () => {
         this.router.navigate(['/properties/home']);
       },
