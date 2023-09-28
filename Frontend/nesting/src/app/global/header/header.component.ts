@@ -14,6 +14,10 @@ export class HeaderComponent {
     private userService: UserService
     ) {}
 
+    ngOnInit() {
+    }
+    
+
   isProfilePage(): boolean {
     return this.router.url.startsWith('/user-forms/profile/');
   }
@@ -28,6 +32,15 @@ export class HeaderComponent {
         console.error('Error durante el logout:', error);
       }
     );
+  }
+  
+  navigateToProfileOrLogin() {
+    const user = this.userService.isUserAuthenticated();
+    if (user) {
+      this.router.navigate(['/user-forms/profile', user.iduser]);
+    } else {
+      this.router.navigate(['/user-forms/login']);
+    }
   }
   
 }
