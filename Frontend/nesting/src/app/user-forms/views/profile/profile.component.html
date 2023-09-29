@@ -6,7 +6,7 @@
       <div class="col-md-6">
         <div class="d-flex align-items-center justify-content-center">
           <app-add-card-button *ngIf="!showCardAdded"></app-add-card-button>
-          <app-card-added *ngIf="showCardAdded" (close)="hideCardAdded()" [cardData]="cardData"></app-card-added>
+          <app-card-added *ngIf="showCardAdded" (close)="hideCardAdded()" [cards]="cards"></app-card-added>
         </div>
       </div>
     </div>
