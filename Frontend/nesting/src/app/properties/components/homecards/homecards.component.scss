@@ -9,7 +9,7 @@
   margin-top: 0em;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
   border: 4px solid #f4f4f2;
-  border-radius: 10px;
+  border-radius: 4px;
   // border: 2px solid rgb(255, 0, 221);
   height: 13em;
   background-color: #f4f4f2;
@@ -17,7 +17,7 @@
 
 #carImg {
   height: 12em;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .carousel {
@@ -59,7 +59,7 @@
 
 #infoNav {
   background-color: #8cbfbc;
-  border-radius: 10px;
+  border-radius: 4px;
   width: 98%;
   margin-left: 1em;
   
@@ -122,9 +122,19 @@
   margin-top: 1em;
   // border: 2px solid rgb(30, 255, 0);
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
+
+#reserveDiv {
+  // border: 2px solid red;
+}
+
+#contactDiv {
+  // border: 2px solid red;
+  margin-left: 2em;
+}
+
 
 //Filterbox CSS
 
@@ -293,6 +303,15 @@
   min-width: 100%;
   z-index: -2;
 }
+
+#aRouter {
+  color: #055f5b;
+}
+
+#aRouter:hover {
+  color: white;
+}
+
 
 
 //Variables de Bootstrap

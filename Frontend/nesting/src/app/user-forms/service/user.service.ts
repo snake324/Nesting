@@ -11,8 +11,10 @@ export class UserService {
   private apiUrl = 'http://localhost:4000/login';
   private baseUrl = 'http://localhost:4000';
 
-  private actualUser!: User;
+  private isAuthenticated: boolean = false;
+  private actualUser: User | null = null;
   constructor(private httpClient: HttpClient) {}
+
   public registerUser(mail: string, password: string): Observable<any> {
     const status = true;
 
@@ -25,7 +27,12 @@ export class UserService {
     return this.httpClient.post<any>(`${this.baseUrl}/register`, user);
   }
   public loginUser(mail: string, password: string, headers: HttpHeaders): Observable<any> {
+    this.isAuthenticated = true;
     return this.httpClient.post<any>(`${this.baseUrl}/login`, {}, { headers, withCredentials: true  });
+  }
+
+  public isUserAuthenticated(): User | null {
+    return this.isAuthenticated ? this.actualUser : null;
   }
 
   setUser(user: any) {
@@ -40,4 +47,5 @@ export class UserService {
     const url = `${this.baseUrl}/users/getid?mail=${mail}`;
     return this.httpClient.get<number>(url);
   }
+
 }

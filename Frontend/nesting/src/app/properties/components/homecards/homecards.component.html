@@ -341,19 +341,17 @@
       </div>
       <div id="infomaindiv" class="col-md-8" style="max-width: 100%">
         <div id="textDiv" class="card-body">
-          <nav id="infoNav" class="navbar navbar-custom">
-            <div class="container-fluid">
-              <span id="titletext" class="navbar-brand mb-0 h1">{{
-                property.title
-              }} en {{
-                property.type
-              }}</span>
-              <span id="titletext" class="navbar-brand mb-0 h1"
-                >{{ property.houseType }} en {{ property.postalCode }},
-                {{ property.city }}.</span
-              >
-            </div>
-          </nav>
+          <div id="textDiv" class="card-body">
+            <nav id="infoNav" class="navbar navbar-custom">
+              <div class="container-fluid">
+                <a id="aRouter" class="navbar-brand mb-0 h1" [routerLink]="['/properties/details', property.id, { images: property.images }]" [queryParamsHandling]="'preserve'" routerLinkActive="active">
+                  {{ property.title }} en {{ property.type }}
+                </a>
+                <span id="titletext" class="navbar-brand mb-0 h1">
+                  {{ property.houseType }} en {{ property.postalCode }}, {{ property.city }}.
+                </span>
+              </div>
+            </nav>
           <div id="infoDiv" class="container-fluid">
             <div id="pricediv" class="container-fluid">
               <h5 id="price" class="card-title">{{ property.price }}€</h5>
@@ -400,9 +398,10 @@
               </p>
             </div>
             <div id="btndiv" class="container-fluid">
-              <app-contactbtn></app-contactbtn>
-              <app-reservebtn></app-reservebtn>
-              <app-reservemodal></app-reservemodal>
+              <div id="reserveDiv" *ngIf="property.type === 'Alquiler'"><app-reservebtn></app-reservebtn>
+                <app-reservemodal></app-reservemodal></div> 
+              <div id="contactDiv"><app-contactbtn></app-contactbtn></div> 
+              
             </div>
           </div>
        

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from '../../service/profile.service';
-import { Profile } from '../../models/profile.model';
 import { User } from '../../models/user.model';
 import { UserService } from '../../service/user.service';
 
@@ -12,15 +11,9 @@ import { UserService } from '../../service/user.service';
 })
 export class UserdataComponent implements OnInit {
 
-  profile: Profile = {
-    id: 0,
-    name: '',
-    lastname: '',
-    address: '',
-    card: null,
-    propertiesPublished: []
-  };
+  profile: any = { name: '', lastname: '', address: '' };
   user: User | undefined;
+  showForm: boolean = false;
 
   constructor(
     private profileService: ProfileService,
@@ -42,18 +35,24 @@ export class UserdataComponent implements OnInit {
     this.profileService.getProfile(profileId).subscribe(profile => {
       if (profile) {
         this.profile = profile;
+        if (
+          !this.profile.name ||
+          !this.profile.lastname ||
+          !this.profile.address
+        ) {
+          this.showForm = true;
+        }
       } else {
         this.profile = {
-          id: 0,
           name: '',
           lastname: '',
-          address: '',
-          card: null,
-          propertiesPublished: []
+          address: ''
         };
+        this.showForm = true;
       }
     });
   }
+  
   
 
   getUserData(userId: string): void {
@@ -62,11 +61,10 @@ export class UserdataComponent implements OnInit {
     });
   }
 
-  saveProfile(): void {
-    if (this.profile) {
-      this.profileService.saveProfile(this.profile).subscribe(result => {
-        console.log('Perfil guardado exitosamente', result);
-      });
-    }
+  saveProfile() {
+    this.profileService.saveProfile(this.profile).subscribe(response => {
+      console.log('Datos introducidos con éxito', response);
+      window.location.reload();
+    });
   }
 }
