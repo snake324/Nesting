@@ -42,11 +42,11 @@ export class UserService {
     return this.httpClient.get<number>(url);
   }
 
-   getPosts() {
-    return this.httpClient.get('https://localhost:4000/properties/');
-  }
+  //  getPosts() {
+  //   return this.httpClient.get('https://localhost:4000/properties/');
+  // }
 
-  createPosts(post: Post) {
-    return this.httpClient.post('https://localhost:4000/properties/', post);
-  }
+  // createPosts(post: Post) {
+  //   return this.httpClient.post('https://localhost:4000/properties/', post);
+  // }
 }

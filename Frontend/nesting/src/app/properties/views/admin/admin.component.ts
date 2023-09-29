@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TablaService } from '../../../service/tabla.service';
 
 @Component({
   selector: 'app-admin',
@@ -6,47 +7,73 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  
-    ngOnInit(): void {
-      // this.getPosts();
-      // this.createPost();
-      // this.deletePost();
-    }
-  
-    getPosts() {
-      fetch('https://localhost:4000/properties/admin')
-      .then((response) => response.json())
-      .then((json) => console.log(json));
-    }
-  
-    createPost() {
-      fetch('https://localhost:4000/properties/', {
-      method: 'POST',
-      body: JSON.stringify({
-        id: 1,
-        nombre: 'paco',
-        apellidos: 'sanchez',
-        dni: '12345678a',
-        email: 'paco@email.es',
-        }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-      })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
-    }
+  tablaData: any[] = [];
 
-      deletePost() {
-        fetch('https://localhost:4000/properties/admin', {
-        method: 'DELETE',
-        });
-    }
+  constructor(private tablaService: TablaService) {}
 
+  ngOnInit(): void {
+    this.fetchTablaData();
   }
-      function deletePost() {
-        throw new Error('Function not implemented.');
-      }
+
+  fetchTablaData() {
+    this.tablaService.getTablaData().subscribe((data: any[]) => {
+      this.tablaData = data;
+    });
+  }
+}
+
+
+
+// import { Component, OnInit } from '@angular/core';
+
+// @Component({
+//   selector: 'app-admin',
+//   templateUrl: './admin.component.html',
+//   styleUrls: ['./admin.component.scss']
+// })
+// export class AdminComponent implements OnInit {
+  
+//     ngOnInit(): void {
+      
+//       this.getPosts();
+//       this.createPost();
+//       this.deletePost();
+//     }
+  
+//     getPosts() {
+//       fetch('https://localhost:4000/properties/admin')
+//       .then((response) => response.json())
+//       .then((json) => console.log(json));
+//     }
+  
+//     createPost() {
+//       fetch('https://localhost:4000/properties/', {
+//       method: 'POST',
+//       body: JSON.stringify({
+//         id: 1,
+//         nombre: 'paco',
+//         apellidos: 'sanchez',
+//         dni: '12345678a',
+//         email: 'paco@email.es',
+//         }),
+//       headers: {
+//         'Content-type': 'application/json; charset=UTF-8',
+//       },
+//       })
+//       .then((response) => response.json())
+//       .then((json) => console.log(json));
+//     }
+
+//       deletePost() {
+//         fetch('https://localhost:4000/properties/admin', {
+//         method: 'DELETE',
+//         });
+//     }
+
+//   }
+//       function deletePost() {
+//         throw new Error('Function not implemented.');
+//       }
 
       // getAllPosts() {
       //   this.requestService.getPosts().subscribe({
@@ -69,13 +96,13 @@ export class AdminComponent implements OnInit {
       // }     
 
 
-function getAllPosts() {
-  throw new Error('Function not implemented.');
-}
+// function getAllPosts() {
+//   throw new Error('Function not implemented.');
+// }
 
-function createPostWithAngular() {
-  throw new Error('Function not implemented.');
-}
+// function createPostWithAngular() {
+//   throw new Error('Function not implemented.');
+// }
 // filterpost = '';
 // posts = [
   
