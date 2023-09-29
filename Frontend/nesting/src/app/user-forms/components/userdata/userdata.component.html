@@ -10,14 +10,19 @@
                 <span class="label">Apellidos:</span>
                 <span class="value">{{ profile.lastname }}</span>
             </li>
+            <li class="list-group-item">
+                <span class="label">Dirección:</span>
+                <span class="value">{{ profile.address }}</span>
+            </li>
             <li class="list-group-item" *ngIf="user">
                 <span class="label">E-mail:</span>
                 <span class="value">{{ user.mail }}</span>
             </li>
         </ul>
     </div>
-    <div *ngIf="profile && (profile.name === null || profile.lastname === null || profile.address === null)">
+    <div *ngIf="showForm">
         <form #profileForm>
+            <h4>Completa tus datos</h4>
             <div class="form-group">
                 <label for="name">Nombre:</label>
                 <input type="text" class="form-control" id="name" name="name" [(ngModel)]="profile.name">
@@ -34,6 +39,3 @@
         </form>        
     </div>
 </div>
-
-
-
