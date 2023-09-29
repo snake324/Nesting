@@ -1,41 +1,30 @@
-#house {
-    position: absolute;
-    top: 52px;
-    left: 23px;
-    width: 377px;
-    height: 371px;
-    border-radius: 20px;
-  }
-  
   .row {
     border: none;
-    padding-top: 3px;
+    padding-top: 0.42613636363636365vh;
     margin-left: 0%;
   }
   
   .iconify {
-    margin-right: 30px;
+    margin-right: 4.261363636363637vh;
   }
   
   p {
     display: inline-block;
     color: #006d7a;
-    margin-right: 10px;
+    margin-right: 1.4204545454545454vh;
   }
   
   #house {
-    position: absolute;
-    top: 123px;
-    left: 23px;
-    width: 377px;
-    height: 371px;
-    border-radius: 20px;
+    margin-left: 6px;
+    width: 53.55113636363637vh;
+    height: 52.69886363636363vh;
+    border-radius: 2.840909090909091vh;
     transform: none;
   }
   
   .row img {
     border: none;
-    padding-top: 3px;
+    padding-top: 0.42613636363636365vh;
     margin-left: 0%;
   }
   
@@ -46,23 +35,23 @@
   
   
   .iconify {
-    margin-right: 30px;
+    margin-right: 4.261363636363637vh;
   }
   
   p {
     display: inline-block;
     color: #006d7a;
-    margin-right: 10px;
+    margin-right: 1.4204545454545454vh;
   }
   
   #price {
-    width: 263px;
-    height: 45px;
+    width: 37.35795454545455vh;
+    height: 6.392045454545454vh;
     color: #f3a139;
     font-style: normal;
     line-height: normal;
     display: flex;
-    margin-left: 110px;
+    margin-left: 15.625vh;
     font-size: 3.5em;
     font-weight: bold;
     font-family: Helvetica;
@@ -74,17 +63,26 @@
   }
   
   #description {
-   margin-top: 23px;
-    margin-left: 103px;
-    border-radius: 10px;
+   margin-top: 3.2670454545454546vh;
+    margin-left: 14.630681818181818vh;
+    border-radius: 1.4204545454545454vh;
     background: rgba(208, 234, 233, 0.5);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    padding: 24px;
-    margin-right: 150px;
+    padding: 3.409090909090909vh;
+    margin-right: 21.306818181818183vh;
   }
 
   #contactbtn {
-    margin-left: 550px;
-    
+    margin-left: 78.125vh;
   }
+
+#mainDiv {
+  width: 80%;
+  height: 80%;
+  margin-bottom: 4em;
+} 
+
+#gridImg {
+  border-radius: 8px;
+}
   

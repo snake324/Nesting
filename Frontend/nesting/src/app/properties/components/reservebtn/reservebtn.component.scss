@@ -1,18 +1,38 @@
+// #btn-reservar {
+//   width: 160px;
+//   height: 35px;
+//   flex-shrink: 0;
+//   border-radius: 10px;
+//   border: none;
+//   background: var(--colores-hover, #F5B665);
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+
+//   margin-left: 0px;
+
+//   color: #FFF;
+//   font-family: 'Inter', sans-serif;
+//   font-size: 24px;
+//   font-style: normal;
+//   font-weight: 600;
+//   line-height: normal;
+// }
+
 #btn-reservar {
-  width: 160px;
-  height: 35px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  border: none;
-  background: var(--colores-hover, #F5B665);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+ background-color: #F5B665;
+ color: white;
+ border: none;
+ 
+ font-size: 1.5em;
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 
-  margin-left: 10px;
-
-  color: #FFF;
-  font-family: 'Inter', sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 }
+
+#btn-reservar:hover {
+  background-color: #d19a53;
+  color: white;
+  border: none;
+  font-size: 1.5em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  margin-bottom: 4px;
+ 
+ }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { Properties } from '../../models/properties.model';
 import { Router } from '@angular/router';
 import { PropertiesService } from '../../service/properties.service';
@@ -8,7 +8,7 @@ import { PropertiesService } from '../../service/properties.service';
   templateUrl: './homecards.component.html',
   styleUrls: ['./homecards.component.scss'],
 })
-export class HomecardsComponent implements OnInit {
+export class HomecardsComponent implements OnInit, AfterViewInit {
   propertyData: Properties[] = [];
   filteredPropertyData: Properties[] = [];
   filters = {
@@ -30,13 +30,46 @@ export class HomecardsComponent implements OnInit {
   selectedSize: string = 'Tamaño';
   selectedBaths: string = 'Baños';
 
+  showImgHomeDiv: boolean = true;
+
+  filterBoxStylesVisible: any = {
+    'background-color': '#f5b665',
+    'width': '50%',
+    'border-radius': '10px',
+    'z-index': '1',
+    'margin-top': '-5em',
+    'margin-bottom': '1em',
+    'height': '14em',
+  };
+  
+  filterBoxStylesHidden: any = {
+    'background-color': 'transparent', 
+    'width': '50%',
+    'border-radius': '10px',
+    'z-index': '1',
+    'margin-top': '-5em',
+    'margin-bottom': '1em',
+    'height': '14em',
+  };
+
+  
+
   constructor(
     private router: Router,
-    private propertiesService: PropertiesService
+    private propertiesService: PropertiesService,
+    private cdr: ChangeDetectorRef 
   ) {}
 
   ngOnInit() {
     this.fetchPropertyData();
+   
+    
+  }
+
+  ngAfterViewInit() {
+    
+    this.applyFilters();
+    this.cdr.detectChanges();
   }
 
   fetchPropertyData() {
@@ -51,6 +84,9 @@ export class HomecardsComponent implements OnInit {
       },
       (error) => {
         console.log('Error fetching properties data: ', error);
+      },
+      () => {
+        this.applyFilters();
       }
     );
   }
@@ -58,25 +94,24 @@ export class HomecardsComponent implements OnInit {
   applyFilters() {
     console.log('applyFilters() llamado');
     this.filteredPropertyData = this.propertyData.filter((property) => {
-      return (
-        (this.selectedType === 'Tipo' || property.type === this.selectedType) &&
-        (this.filters.propertyType === 'Todos' ||
-          property.type === this.filters.propertyType) &&
-        (this.selectedCity === 'Ciudad' ||
-          property.city === this.selectedCity) &&
-        (this.selectedPostalCode === 'Codigo Postal' ||
-          property.postalCode === this.selectedPostalCode) &&
-        (this.selectedHouseType === 'Tipo de Vivienda' ||
-          property.houseType === this.selectedHouseType) &&
-        (this.selectedPrice === 'Precio' ||
-          this.isPriceInRange(property.price)) &&
-        (this.selectedSize === 'Tamaño' || this.isSizeInRange(property.size)) &&
-        (this.selectedRooms === 'Habitaciones' ||
-          property.rooms === parseInt(this.selectedRooms)) &&
-        (this.selectedBaths === 'Baños' ||
-          property.baths === parseInt(this.selectedBaths))
-      );
+      const typeCondition = this.selectedType === 'Tipo' || property.type === this.selectedType;
+      const propertyTypeCondition = this.filters.propertyType === 'Todos' || property.type === this.filters.propertyType;
+      const cityCondition = this.selectedCity === 'Ciudad' || property.city === this.selectedCity;
+      const postalCodeCondition = this.selectedPostalCode === 'Codigo Postal' || property.postalCode === this.selectedPostalCode;
+      const houseTypeCondition = this.selectedHouseType === 'Tipo de Vivienda' || property.houseType === this.selectedHouseType;
+      const priceCondition = this.selectedPrice === 'Precio' || this.isPriceInRange(property.price);
+      const sizeCondition = this.selectedSize === 'Tamaño' || this.isSizeInRange(property.size);
+      const roomsCondition = this.selectedRooms === 'Habitaciones' || property.rooms === parseInt(this.selectedRooms);
+      const bathsCondition = this.selectedBaths === 'Baños' || property.baths === parseInt(this.selectedBaths);
+  
+      const result = typeCondition && propertyTypeCondition && cityCondition && postalCodeCondition &&
+        houseTypeCondition && priceCondition && sizeCondition && roomsCondition && bathsCondition;
+  
+      return result;
     });
+  
+    // this.showImgHomeDiv = this.filteredPropertyData.length > 0;
+    // console.log('showImgHomeDiv:', this.showImgHomeDiv);
   }
 
   extractUniqueTypes() {
@@ -120,27 +155,27 @@ export class HomecardsComponent implements OnInit {
 
   updateHouseTypeFilter(houseType: string) {
     this.selectedHouseType = houseType;
-    this.applyFilters();
+    // this.applyFilters();
   }
 
   updateSizeFilter(minSize: number, maxSize: number) {
     this.selectedSize = `${minSize} - ${maxSize} m²`;
-    this.applyFilters();
+    // this.applyFilters();
   }
 
   updateRoomsFilter(rooms: number) {
     this.selectedRooms = `${rooms} habitación${rooms > 1 ? 'es' : ''}`;
-    this.applyFilters();
+    // this.applyFilters();
   }
 
   updatePriceFilter(minPrice: number, maxPrice: number) {
     this.selectedPrice = `${minPrice} - ${maxPrice}€`;
-    this.applyFilters();
+    // this.applyFilters();
   }
 
   updateBathsFilter(baths: number) {
     this.selectedBaths = `${baths} baño${baths > 1 ? 's' : ''}`;
-    this.applyFilters();
+    // this.applyFilters();
   }
 
   isPriceInRange(price: number): boolean {
@@ -157,5 +192,57 @@ export class HomecardsComponent implements OnInit {
     const maxSize = parseFloat(maxSizeStr);
 
     return size >= minSize && size <= maxSize;
+  }
+
+  resetFilters() {
+    
+    this.filters.propertyType = 'Todos';
+    this.selectedCity = 'Ciudad';
+    this.selectedPostalCode = 'Codigo Postal';
+    this.selectedType = 'Tipo';
+    this.selectedHouseType = 'Tipo de Vivienda';
+    this.selectedPrice = 'Precio';
+    this.selectedSize = 'Tamaño';
+    this.selectedRooms = 'Habitaciones';
+    this.selectedBaths = 'Baños';
+    this.applyFilters();
+    this.showImgHomeDiv = false; 
+  }
+
+  leerMas(propertyId: number) {
+    this.router.navigate(['descripcion-completa', propertyId]);
+  }
+  applyFiltersAndShowImage() {
+    this.applyFilters();
+    this.showImgHomeDiv = false;
+    if (this.showImgHomeDiv) {
+      this.filterBoxStylesVisible = {
+        
+        'background-color': '#f5b665',
+        'width': '50%',
+        'border-radius': '10px',
+        'z-index': '1',
+        'margin-top': '-5em',
+        'margin-bottom': '1em',
+        'height': '14em',
+      };
+    } else {
+      this.filterBoxStylesHidden = {
+    
+        'background-color': 'transparent',
+        'width': '50%',
+        'border-radius': '10px',
+        'z-index': '1',
+        'margin-top': '-6em',
+        'margin-bottom': '1em',
+        'height': '14em',
+      };
+    }
+  
+    console.log('showImgHomeDiv:', this.showImgHomeDiv);
+  }
+
+  showImage() {
+    this.showImgHomeDiv = this.filteredPropertyData.length > 0;
   }
 }

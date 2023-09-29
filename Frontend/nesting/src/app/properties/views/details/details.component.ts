@@ -1,10 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PropertiesService } from '../../service/properties.service';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
+  property: any;
+  images: any[] | undefined;
 
+  constructor(
+    private route: ActivatedRoute,
+    private propertiesService: PropertiesService
+  ) {}
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+
+      this.propertiesService.getProperty(id).subscribe(
+        (propertyDetails: any) => {
+          this.property = propertyDetails;
+        },
+        error => {
+          console.error('Error obteniendo detalles de la propiedad:', error);
+        }
+      );
+
+      this.images = params['images'];
+    });
+  }
 }
