@@ -13,6 +13,7 @@ export class UserdataComponent implements OnInit {
 
   profile: any = { name: '', lastname: '', address: '' };
   user: User | undefined;
+  showForm: boolean = false;
 
   constructor(
     private profileService: ProfileService,
@@ -34,18 +35,24 @@ export class UserdataComponent implements OnInit {
     this.profileService.getProfile(profileId).subscribe(profile => {
       if (profile) {
         this.profile = profile;
+        if (
+          !this.profile.name ||
+          !this.profile.lastname ||
+          !this.profile.address
+        ) {
+          this.showForm = true;
+        }
       } else {
         this.profile = {
-          id: 0,
           name: '',
           lastname: '',
-          address: '',
-          card: null,
-          propertiesPublished: []
+          address: ''
         };
+        this.showForm = true;
       }
     });
   }
+  
   
 
   getUserData(userId: string): void {
@@ -57,6 +64,7 @@ export class UserdataComponent implements OnInit {
   saveProfile() {
     this.profileService.saveProfile(this.profile).subscribe(response => {
       console.log('Datos introducidos con éxito', response);
+      window.location.reload();
     });
   }
 }
