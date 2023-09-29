@@ -11,12 +11,12 @@
   <div id="mainData" class="container-fluid">
     <div id="gridImg" class="container-fluid">
       <div id="row" class="container-fluid">
-        <img [src]="'../../../../assets/images/properties' + property.images[0].img" class="img-fluid" alt="Imagen Principal" id="miniHouse">
-        <img [src]="'../../../../assets/images/properties' + property.images[0].img" class="img-fluid" alt="Imagen Principal" id="miniHouse">
-      </div>
-      <div id="row" class="container-fluid">
-        <img [src]="'../../../../assets/images/properties' + property.images[0].img" class="img-fluid" alt="Imagen Principal" id="miniHouse">
-        <img [src]="'../../../../assets/images/properties' + property.images[0].img" class="img-fluid" alt="Imagen Principal" id="miniHouse">
+        <img *ngFor="let image of property.images.slice(1)" 
+             [src]="'../../../../assets/images/properties' + image.img" 
+             class="img-fluid thumbnail" 
+             alt="Imagen Principal" 
+             id="miniHouse"
+             (click)="changeMainImage(image.img)">
       </div>
     </div>
     <div id="datosDiv" class="container-fluid">
