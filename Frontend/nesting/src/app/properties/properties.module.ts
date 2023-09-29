@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 
 import { PropertiesRoutingModule } from './properties-routing.module';
 import { PropertyFormComponent } from './views/property-form/property-form.component';
@@ -16,8 +17,6 @@ import { ModalcontactComponent } from './components/modalcontact/modalcontact.co
 import { ContactBtnComponent } from './components/contactbtn/contactbtn.component';
 import { ImghomeComponent } from './components/imghome/imghome.component';
 import { HorizontalcardsComponent } from './components/horizontalcards/horizontalcards.component';
-import { AdminComponent } from './views/admin/admin.component';
-import { FormsModule } from '@angular/forms';
 import { PreviewbtnComponent } from './components/previewbtn/previewbtn.component';
 import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
 import { SaleRentComponent } from './components/sale-rent/sale-rent.component';
@@ -42,18 +41,19 @@ import { ReservemodalComponent } from './components/reservemodal/reservemodal.co
     ContactBtnComponent,
     ImghomeComponent,
     HorizontalcardsComponent,
-    AdminComponent,
     PreviewbtnComponent,
     SaleRentformComponent,
     SaleRentComponent,
     FileUploadComponent,
     ReservebtnComponent,
     ReservemodalComponent,
+   
 ],
   imports: [
     CommonModule,
     PropertiesRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class PropertiesModule { }

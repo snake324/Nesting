@@ -1,80 +1,71 @@
-<!-- <div class="modal fade" *ngIf="isVisible" tabindex="-1">
-
-  <div class="modal-body">
-    <img src="../../../../assets/img/nesting.png" alt="" class="img_house" />
-    <p class="owner">Propietario</p>
-
-    <div class="icons">
-      <p class="number">3</p>
-      <span class="iconify" data-icon="mingcute:bed-fill" data-width="30" data-height="30"
-        style="color: #006d7a"></span>
-      <p class="number">2</p>
-      <span class="iconify" data-icon="majesticons:bath-shower" style="color: #006d7a" data-width="30"
-        data-height="30"></span>
-      <p class="number">150 m2</p>
-      <span class="iconify" data-icon="gis:square-pt" style="color: #006d7a" data-width="25" data-height="25"></span>
-    </div>
-
-    <div class="price">
-      <p>12.666€</p>
-    </div>
-
-    <div class="textarea"><textarea cols="50" rows="20" placeholder="Hola! Estoy interesado."></textarea></div>
-
-  </div>
-  <div class="modal-footer"></div>
-  <button class="send">Enviar</button>
-
-  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()">
-    <i class="bi bi-x-lg"></i>
-  </button>
-
-</div> -->
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+ <div class="modal fade container-fluid" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div id="mainDialog" class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
+      <div id="headerDiv" class="modal-header">
         <div class="header">
 
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h2 id="tittle">Titulo de la propiedad</h2>
         </div>
       </div>
-      <div class="modal-body">
+        <div id="mainBody" class="modal-body container-fluid">
 
-        <div class="modal-body">
-          <img src="../../../../assets/img/nesting.png" alt="" class="img_house" />
-          <p class="owner">Propietario</p>
+          <div id="infoBody" class="modal-body">
+              <div class="container-fluid" id="imgDiv">
+                <img id="propertyImg" src="../../../../assets/images/properties/img1_prop1.jpg" alt="" class="img_house" />
+              </div>
+              <div class="container-fluid" id="propDiv">
+                <div class="container-fluid" id="pDiv"> 
+                  <p class="owner">Propietario</p>
+                </div>
+              </div>
+              <div id="iconsDiv" class="container-fluid">
+                    <div class="container-fluid" id="icondiv1">
+                      <div class="container-fluid" id="numberDiv"> 
+                        <p class="number">3</p>
+                      </div>
+                      <div class="container-fluid" id="iconifyDiv">
+                        <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bed.svg">
+                      </div>
+                      </div> 
+                  
+                    <div class="container-fluid" id="icondiv2">
+                      <div class="container-fluid" id="numberDiv">
+                        <p class="number">2</p>
+                      </div>
+                      <div class="container-fluid" id="iconifyDiv">
+                        <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bath.svg">
+                      </div>
+                      </div> 
+                  
+                  <div class="container-fluid" id="icondiv3">
+                    <div class="container-fluid" id="numberDiv3">
+                      <p class="number">150 m2</p>
+                    </div>
+                    <div class="container-fluid" id="iconifyDiv3">
+                      <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/wall.svg">
+                    </div>
+                    </div>
+                </div>
 
-          <div class="icons">
-            <p class="number">3</p>
-            <span class="iconify" data-icon="mingcute:bed-fill" data-width="30" data-height="30"
-              style="color: #006d7a"></span>
-            <p class="number">2</p>
-            <span class="iconify" data-icon="majesticons:bath-shower" style="color: #006d7a" data-width="30"
-              data-height="30"></span>
-            <p class="number">150 m2</p>
-            <span class="iconify" data-icon="gis:square-pt" style="color: #006d7a" data-width="25"
-              data-height="25"></span>
-          </div>
+                <div id="priceDiv" class="container-fluid">
+                  <p id="priceP">12.666€</p>
+                </div>
+              
 
-
-          <div class="price">
-            <p>12.666€</p>
-          </div>
-
-          <div class="textarea"><textarea cols="50" rows="20" placeholder="Hola! Estoy interesado."></textarea></div>
-
+              </div>
+            
+              <div class="container-fluid" id="descDiv">
+                <label for="exampleFormControlTextarea1" class="form-label" id="label">Escribe tu comentario...</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            
+            
 
         </div>
-        <div class="modal-footer"></div>
-        <button class="send">Enviar</button>
-
-      </div>
+      <div id="footerDiv" class="modal-footer"><button type="button" class="btn btn-primary" id="btn-reservar">  
+        Contactar
+      </button></div>
     </div>
   </div>
+</div>

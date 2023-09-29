@@ -16,23 +16,26 @@ import com.factoriaAltF4.Nesting.services.UserService;
 @RequestMapping("/register")
 public class RegisterController {
 
-    UserService service;
-    UserProfileService profileService;
+    private final UserService userService;
+    private final UserProfileService profileService;
 
-    public RegisterController(UserService service) {
-        this.service = service;
+    public RegisterController(UserService userService, UserProfileService profileService) {
+        this.userService = userService;
+        this.profileService = profileService;
     }
 
     @PostMapping
     public ResponseEntity<User> addUser(@RequestBody User user) throws Throwable {
+        User savedUser = userService.addUser(user);
 
-        User savedUser = service.addUser(user);
+        UserProfile userProfile = new UserProfile();
+        userProfile.setUser(savedUser);
+
+        UserProfile savedProfile = profileService.addProfile(userProfile);
+
+        savedUser.setUserProfile(savedProfile);
+        userService.updateUser(savedUser);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
-    }
-
-    @PostMapping("/profile")
-    public ResponseEntity<UserProfile> addProfile(@RequestBody UserProfile profile) throws Throwable {
-        UserProfile profileToSave = profileService.addProfile(profile);
-        return ResponseEntity.status(HttpStatus.CREATED).body(profileToSave);
     }
 }

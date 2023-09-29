@@ -2,20 +2,33 @@
 
 #card-h {
   display: flex;
+  padding: 2px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2em;
+  margin-top: 0em;
+  margin-top: 0em;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
   border: 4px solid #f4f4f2;
-  border-radius: 10px;
+  border-radius: 4px;
+  // border: 2px solid rgb(255, 0, 221);
+  height: 13em;
+  background-color: #f4f4f2;
 }
 
-img {
-  min-height: 200px;
+#carImg {
+  height: 12em;
+  border-radius: 4px;
+}
+
+.carousel {
+  // border: 2px solid rgb(162, 0, 255);
+
+
 }
 
 #textDiv {
   padding: 0px;
+  // border: 2px solid red;
 }
 
 #infoDiv {
@@ -25,26 +38,39 @@ img {
   padding-top: 0.5em;
   padding-left: 1em;
   padding-right: 1em;
+  // border: 2px solid rgb(162, 0, 255);
 }
 
 #infomaindiv {
   flex: 2;
   background-color: #f4f4f2;
+  // border: 2px solid rgb(0, 255, 242);
 }
 
 #mainDiv {
-  height: 44%;
+  height: 30%;
+  // border: 2px solid rgb(251, 255, 0);
 }
 
 #showDiv {
   height: 100%;
+  // border: 2px solid rgb(0, 4, 255);
 }
 
 #infoNav {
   background-color: #8cbfbc;
+  border-radius: 4px;
+  width: 98%;
+  margin-left: 1em;
+  
+  // border: 2px solid rgb(255, 0, 212);
 }
 
 #titletext {
+  color: white;
+}
+
+#titletext:hover {
   color: #055f5b;
 }
 
@@ -69,34 +95,94 @@ img {
   justify-content: space-evenly;
 }
 
-#btndiv {
-  margin: 1em;
-  height: 20%;
+
+#btnDescMain {
+  display: flex;
 }
+
+#descDiv {
+  // border: 2px solid rgb(30, 255, 0);
+}
+
+#description {
+  font-size: 1.1em;
+}
+
+#more {
+  font-weight: bold;
+}
+
+#more:hover {
+  color: #8cbfbc;
+}
+
+#btndiv {
+  // margin: 1em;
+  // height: 20%;
+  margin-top: 1em;
+  // border: 2px solid rgb(30, 255, 0);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#reserveDiv {
+  // border: 2px solid red;
+}
+
+#contactDiv {
+  // border: 2px solid red;
+  margin-left: 2em;
+}
+
 
 //Filterbox CSS
 
 #filterBox {
   background-color: #f5b665;
-  width: 100vh;
-  height: 15vh;
+  width: 50%;
   border-radius: 10px;
   z-index: 1;
   margin-top: -5em;
+  margin-bottom: 1em;
+  height: 14em;
+  // border: 2px solid blue
 }
 
 #filterSection {
-  height: 50%;
+  height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
+  // border: 2px solid greenyellow
+}
+
+#secFilters {
+  // border: 2px solid red;
+  display: flex;
+  height: 60%;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #dropfilterDiv {
   height: 50%;
+  width: 80%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  // border: 2px solid rgb(255, 0, 242);
+}
+
+#secBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 50%;
+  margin-bottom: 0.5em;
+  // border: 2px solid rgb(0, 225, 255);
 }
 
 #label {
@@ -107,19 +193,82 @@ img {
   border-radius: 10px;
 }
 
+#label:hover {
+  height: 40%;
+  font-size: 2em;
+  border: 0px;
+  color: white;
+  border-radius: 10px;
+  text-decoration: underline;
+}
+
 #dropbutton {
   background-color: #f4f4f2;
   color: #055f5b;
   border: 0px;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-left: 1em;
+  
 }
 
-#applyFiltersButton {
+#dropbutton:hover {
   background-color: #f4f4f2;
   color: #055f5b;
+  outline: 2px solid #8cbfbc;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-left: 1em;
+  
+}
+
+#applyFiltersAndShowImageButton {
+  background-color: #8cbfbc;
+  color: white;
   border: 0px;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-right: 2em;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
 }
+
+#resetFiltersButton {
+  background-color: #8cbfbc;
+  color: white;
+  border: 0px;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  height: 80%;
+  font-weight: bold;
+}
+
+#applyFiltersAndShowImageButton:hover {
+  background-color: #055f5b;
+  color: white;
+  border: 0px;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-right: 2em;
+  height: 80%;
+  margin-bottom: 4px;
+}
+
+#resetFiltersButton:hover {
+  background-color: #055f5b;
+  color: white;
+  border: 0px;
+  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
+  height: 80%;
+  margin-bottom: 4px;
+}
+
+
+#icon {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+
+
 
 #dropUl {
   background-color: #f4f4f2;
@@ -141,6 +290,30 @@ img {
   color: white;
 }
 
+
+//imghome
+
+#imgHomeDiv {
+  position: relative;
+  display: flex;
+  padding: 0px;
+}
+
+#imgHome {
+  min-width: 100%;
+  z-index: -2;
+}
+
+#aRouter {
+  color: #055f5b;
+}
+
+#aRouter:hover {
+  color: white;
+}
+
+
+
 //Variables de Bootstrap
 .btn-outline-primary {
   --bs-btn-focus-shadow-rgb: 13, 110, 253;
@@ -150,44 +323,48 @@ img {
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
-//Filterbox 2
+// Media Querys
 
-#filterBox2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+@media (max-width: 767px) {
+  #dropfilterDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #filterBox{
+    width: 100%;
+    height: 50%;
+    margin-top: -4em;
+  }
+
+  #secFilters {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    
+  }
+
+  #secBtn {
+    flex-direction: column-reverse;
+    align-items: space-between;
+  }
+
+  #dropbutton {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 90%;
+  }
+
+  #applyFiltersButton {
+    width: 8em;
+    height: 4em;
+    margin-right: 0em;
+    margin-top: 2em;
+  }
+
+  #resetFiltersButton {
+    width: 8em;
+    height: 4em;
+  }
 }
 
-#dropbutton2 {
-  background-color: #f4f4f2;
-  color: #055f5b;
-  border: 0px;
-  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-#applyFiltersButton2 {
-  background-color: #f4f4f2;
-  color: #055f5b;
-  border: 0px;
-  box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-#dropUl2 {
-  background-color: #f4f4f2;
-  color: #055f5b;
-}
-
-#dropLi2 {
-  background-color: #f4f4f2;
-  color: #055f5b;
-}
-
-#listitem2 {
-  background-color: #f4f4f2;
-  color: #055f5b;
-}
-
-#listitem2:hover {
-  background-color: #8cbfbc;
-  color: white;
-}

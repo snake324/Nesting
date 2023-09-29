@@ -1,48 +1,54 @@
 <!-- filterBox para la vista principal -->
-
-<div id="filterBox" class="container">
+<section class="container-fluid" *ngIf="showImgHomeDiv" id="imgHomeDiv">
+  <img id="imgHome" class="img-fluid" src="assets/img/Slider.png" alt="vista de edificio y cielo">
+</section>
+<div id="filterBox" class="container" [ngStyle]="showImgHomeDiv ? filterBoxStylesVisible : filterBoxStylesHidden">
   <div id="filterSection" class="container">
     <div
       class="btn-group"
       role="group"
       aria-label="Basic radio toggle button group"
     >
-      <input
-        type="radio"
-        class="btn-check"
-        name="propertyType"
-        id="all"
-        autocomplete="off"
-        [(ngModel)]="filters.propertyType"
-        value="Todos"
-      />
-      <label id="label" class="btn btn-outline-primary" for="all">Todos</label>
-
-      <input
-        type="radio"
-        class="btn-check"
-        name="propertyType"
-        id="buy"
-        autocomplete="off"
-        [(ngModel)]="filters.propertyType"
-        value="Venta"
-      />
-      <label id="label" class="btn btn-outline-primary" for="buy">Compra</label>
-
-      <input
-        type="radio"
-        class="btn-check"
-        name="propertyType"
-        id="rent"
-        autocomplete="off"
-        [(ngModel)]="filters.propertyType"
-        value="Alquiler"
-      />
-      <label id="label" class="btn btn-outline-primary" for="rent"
-        >Alquiler</label
-      >
+    <input
+    type="radio"
+    class="btn-check"
+    name="propertyType"
+    id="all"
+    autocomplete="off"
+    [(ngModel)]="filters.propertyType"
+    value="Todos"
+    (ngModelChange)="applyFilters()"
+  />
+  <label id="label" class="btn btn-outline-primary" for="all">Todos</label>
+  
+  <input
+    type="radio"
+    class="btn-check"
+    name="propertyType"
+    id="buy"
+    autocomplete="off"
+    [(ngModel)]="filters.propertyType"
+    value="Venta"
+    (ngModelChange)="applyFilters()"
+  />
+  <label id="label" class="btn btn-outline-primary" for="buy">Compra</label>
+  
+  <input
+    type="radio"
+    class="btn-check"
+    name="propertyType"
+    id="rent"
+    autocomplete="off"
+    [(ngModel)]="filters.propertyType"
+    value="Alquiler"
+    (ngModelChange)="applyFilters()"
+  />
+  <label id="label" class="btn btn-outline-primary" for="rent"
+    >Alquiler</label
+  >
     </div>
   </div>
+  <div class="container-fluid" id="secFilters">
   <div id="dropfilterDiv" class="container">
     <button
       id="dropbutton"
@@ -85,78 +91,7 @@
     </ul>
 
     <button
-      id="applyFiltersButton"
-      class="btn btn-primary"
-      (click)="applyFilters()"
-    >
-      Aplicar Filtros
-    </button>
-  </div>
-</div>
-
-<div id="filterBox2" class="container">
-  <button
-    id="dropbutton2"
-    class="btn btn-secondary dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    {{ selectedType }}
-  </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2" *ngFor="let type of propertyTypes">
-      <span
-        id="listitem2"
-        class="dropdown-item"
-        (click)="updateTypeFilter(type)"
-        >{{ type }}</span
-      >
-    </li>
-  </ul>
-
-  <button
-    id="dropbutton2"
-    class="btn btn-secondary dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    {{ selectedCity }}
-  </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2" *ngFor="let city of cities">
-      <span
-        id="listitem2"
-        class="dropdown-item"
-        (click)="updateCityFilter(city)"
-        >{{ city }}</span
-      >
-    </li>
-  </ul>
-
-  <button
-    id="dropbutton2"
-    class="btn btn-secondary dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    {{ selectedPostalCode }}
-  </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2" *ngFor="let postalCode of postalCodes">
-      <span
-        id="listitem2"
-        class="dropdown-item"
-        (click)="updatePostalCodeFilter(postalCode)"
-        >{{ postalCode }}</span
-      >
-    </li>
-  </ul>
-
-  <button
-    id="dropbutton2"
+    id="dropbutton"
     class="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
@@ -164,10 +99,10 @@
   >
     {{ selectedHouseType }}
   </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2" *ngFor="let houseType of houseTypes">
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi" *ngFor="let houseType of houseTypes">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updateHouseTypeFilter(houseType)"
         >{{ houseType }}</span
@@ -176,7 +111,7 @@
   </ul>
 
   <button
-    id="dropbutton2"
+    id="dropbutton"
     class="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
@@ -184,26 +119,26 @@
   >
     {{ selectedPrice }}
   </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2">
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updatePriceFilter(0, 100000)"
         >0 - 100000€</span
       >
     </li>
-    <li id="dropLi2">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updatePriceFilter(100000, 200000)"
         >100000 - 200000€</span
       >
     </li>
-    <li id="dropLi2">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updatePriceFilter(200000, 300000)"
         >200000 - 300000€</span
@@ -212,7 +147,7 @@
   </ul>
 
   <button
-    id="dropbutton2"
+    id="dropbutton"
     class="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
@@ -220,26 +155,26 @@
   >
     {{ selectedSize }}
   </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2">
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updateSizeFilter(0, 50)"
         >0 - 50 m²</span
       >
     </li>
-    <li id="dropLi2">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updateSizeFilter(50, 100)"
         >50 - 100 m²</span
       >
     </li>
-    <li id="dropLi2">
+    <li id="dropLi">
       <span
-        id="listitem2"
+        id="listitem"
         class="dropdown-item"
         (click)="updateSizeFilter(100, 150)"
         >100 - 150 m²</span
@@ -248,7 +183,7 @@
   </ul>
 
   <button
-    id="dropbutton2"
+    id="dropbutton"
     class="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
@@ -256,9 +191,9 @@
   >
     {{ selectedRooms }}
   </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2">
-      <span id="listitem2" class="dropdown-item" (click)="updateRoomsFilter(1)"
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateRoomsFilter(1)"
         >1 habitación</span
       >
     </li>
@@ -267,15 +202,15 @@
         >2 habitaciones</span
       >
     </li>
-    <li id="dropLi2">
-      <span id="listitem2" class="dropdown-item" (click)="updateRoomsFilter(3)"
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateRoomsFilter(3)"
         >3 habitaciones</span
       >
     </li>
   </ul>
 
   <button
-    id="dropbutton2"
+    id="dropbutton"
     class="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
@@ -283,32 +218,48 @@
   >
     {{ selectedBaths }}
   </button>
-  <ul id="dropUl2" class="dropdown-menu">
-    <li id="dropLi2">
-      <span id="listitem2" class="dropdown-item" (click)="updateBathsFilter(1)"
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateBathsFilter(1)"
         >1 baño</span
       >
     </li>
-    <li id="dropLi2">
-      <span id="listitem2" class="dropdown-item" (click)="updateBathsFilter(2)"
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateBathsFilter(2)"
         >2 baños</span
       >
     </li>
-    <li id="dropLi2">
-      <span id="listitem2" class="dropdown-item" (click)="updateBathsFilter(3)"
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateBathsFilter(3)"
         >3 baños</span
       >
     </li>
   </ul>
-
-  <button
-    id="applyFiltersButton2"
-    class="btn btn-primary"
-    (click)="applyFilters()"
-  >
-    Aplicar Filtros
-  </button>
 </div>
+
+<div class="container-fluid" id="secBtn">
+  <button
+  id="applyFiltersAndShowImageButton"
+  class="btn btn-primary"
+  (click)="applyFiltersAndShowImage()"
+>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M7.207 2.543a1 1 0 0 1 0 1.414L5.414 5.75h7.836a8 8 0 1 1-8 8a1 1 0 1 1 2 0a6 6 0 1 0 6-6H5.414l1.793 1.793a1 1 0 0 1-1.414 1.414l-3.5-3.5a1 1 0 0 1 0-1.414l3.5-3.5a1 1 0 0 1 1.414 0Z"/></svg>
+  Aplicar
+</button>
+
+    <button
+  id="resetFiltersButton"
+  class="btn btn-secondary"
+  (click)="resetFilters()"
+><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M7.207 2.543a1 1 0 0 1 0 1.414L5.414 5.75h7.836a8 8 0 1 1-8 8a1 1 0 1 1 2 0a6 6 0 1 0 6-6H5.414l1.793 1.793a1 1 0 0 1-1.414 1.414l-3.5-3.5a1 1 0 0 1 0-1.414l3.5-3.5a1 1 0 0 1 1.414 0Z"/></svg>
+  Restablecer
+</button>
+
+</div>
+  </div>
+</div>
+
+
 
 <div id="showDiv" class="container-fluid">
   <div
@@ -341,6 +292,18 @@
               data-bs-slide-to="2"
               aria-label="Slide 3"
             ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
           </div>
           <div class="carousel-inner">
             <div
@@ -349,8 +312,8 @@
               [class.active]="j === 0"
             >
               <a href="#detalles" target="_blank"
-                ><img
-                  [src]="'../assets/images/' + image.img"
+                ><img id="carImg"
+                  [src]="'../assets/images/properties' + image.img"
                   class="d-block w-100"
                   [alt]="'Image ' + (j + 1)"
               /></a>
@@ -378,17 +341,17 @@
       </div>
       <div id="infomaindiv" class="col-md-8" style="max-width: 100%">
         <div id="textDiv" class="card-body">
-          <nav id="infoNav" class="navbar navbar-custom">
-            <div class="container-fluid">
-              <span id="titletext" class="navbar-brand mb-0 h1">{{
-                property.title
-              }}</span>
-              <span id="titletext" class="navbar-brand mb-0 h1"
-                >{{ property.houseType }} en {{ property.postalCode }},
-                {{ property.city }}.</span
-              >
-            </div>
-          </nav>
+          <div id="textDiv" class="card-body">
+            <nav id="infoNav" class="navbar navbar-custom">
+              <div class="container-fluid">
+                <a id="aRouter" class="navbar-brand mb-0 h1" [routerLink]="['/properties/details', property.id, { images: property.images }]" [queryParamsHandling]="'preserve'" routerLinkActive="active">
+                  {{ property.title }} en {{ property.type }}
+                </a>
+                <span id="titletext" class="navbar-brand mb-0 h1">
+                  {{ property.houseType }} en {{ property.postalCode }}, {{ property.city }}.
+                </span>
+              </div>
+            </nav>
           <div id="infoDiv" class="container-fluid">
             <div id="pricediv" class="container-fluid">
               <h5 id="price" class="card-title">{{ property.price }}€</h5>
@@ -427,13 +390,22 @@
               </h5>
             </div>
           </div>
-          <p id="description" class="card-text">{{ property.description }}</p>
-        </div>
-        <div id="btndiv" class="container-fluid">
-          <app-contactbtn></app-contactbtn>
-          <app-reservebtn></app-reservebtn>
-          <app-reservemodal></app-reservemodal>
-        </div>
+          <div class="container-fluid" id="btnDescMain">
+            <div class="container-fluid" id="descDiv">
+              <p id="description" class="card-text">
+                {{ property.description.length > 165 ? property.description.slice(0, 165) + '...' : property.description }}
+                <a id="more" *ngIf="property.description.length > 165" (click)="leerMas(property.id)">Leer Más</a>
+              </p>
+            </div>
+            <div id="btndiv" class="container-fluid">
+              <div id="reserveDiv" *ngIf="property.type === 'Alquiler'"><app-reservebtn></app-reservebtn>
+                <app-reservemodal></app-reservemodal></div> 
+              <div id="contactDiv"><app-contactbtn></app-contactbtn></div> 
+              
+            </div>
+          </div>
+       
+      </div>
       </div>
     </div>
   </div>
