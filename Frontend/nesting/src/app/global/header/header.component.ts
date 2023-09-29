@@ -43,5 +43,9 @@ export class HeaderComponent {
       this.router.navigate(['/user-forms/login']);
     }
   }
+
+  redirectToSaleRentform() {
+    this.router.navigate(['/properties/sale_rentform']);
+  }
   
 }

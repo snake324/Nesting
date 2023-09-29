@@ -10,13 +10,13 @@ import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.compo
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent},
-  { path: 'details', component: DetailsComponent },
-  { path: 'buy', component: BuyComponent},
-  { path: 'rent', component: RentComponent},
-  { path: 'property-form', component: PropertyFormComponent},
-  { path: 'previsualization', component: PrevisualizationComponent},
-  { path: 'sale_rentform', component: SaleRentformComponent}
+  { path: 'home', component: HomeComponent },
+  { path: 'details/:id', component: DetailsComponent },
+  { path: 'buy', component: BuyComponent },
+  { path: 'rent', component: RentComponent },
+  { path: 'property-form', component: PropertyFormComponent },
+  { path: 'previsualization', component: PrevisualizationComponent },
+  { path: 'sale_rentform', component: SaleRentformComponent },
 ];
 
 @NgModule({
