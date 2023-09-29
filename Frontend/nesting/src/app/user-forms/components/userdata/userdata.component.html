@@ -26,6 +26,10 @@
                 <label for="lastname">Apellidos:</label>
                 <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="profile.lastname">
             </div>
+            <div class="form-group">
+                <label for="address">Dirección:</label>
+                <input type="text" class="form-control" id="address" name="address" [(ngModel)]="profile.address">
+            </div>
             <button type="button" class="btn btn-primary" (click)="saveProfile()">Guardar</button>
         </form>        
     </div>
