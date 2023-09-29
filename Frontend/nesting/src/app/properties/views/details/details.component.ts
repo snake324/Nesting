@@ -9,7 +9,6 @@ import { PropertiesService } from '../../service/properties.service';
 })
 export class DetailsComponent implements OnInit {
   property: any;
-  images: any[] | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,8 +27,11 @@ export class DetailsComponent implements OnInit {
           console.error('Error obteniendo detalles de la propiedad:', error);
         }
       );
-
-      this.images = params['images'];
     });
+  }
+
+  changeMainImage(newImage: string) {
+    // Cambiar la imagen principal
+    this.property.images[0].img = newImage;
   }
 }
