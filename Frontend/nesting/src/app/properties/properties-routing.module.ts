@@ -24,7 +24,6 @@ const routes: Routes = [
   { path: 'buy', component: BuyComponent},
   { path: 'rent', component: RentComponent},
   { path: 'property-form', component: PropertyFormComponent},
-  { path: 'previsualization', component: PrevisualizationComponent},
   { path: 'sale_rentform', component: SaleRentformComponent}
 ];
 

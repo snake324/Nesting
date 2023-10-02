@@ -25,6 +25,9 @@ import { ReservebtnComponent } from './components/reservebtn/reservebtn.componen
 import { ReservemodalComponent } from './components/reservemodal/reservemodal.component';
 import { GalleryuploadComponent } from './components/galleryupload/galleryupload.component';
 import { PublishBtnComponent } from './components/publish-btn/publish-btn.component';
+import { PriceFormatPipe } from './pipes/price-format.pipe';
+import { ModifybtnComponent } from './components/modifybtn/modifybtn.component';
+
 
 
 @NgModule({
@@ -50,7 +53,8 @@ import { PublishBtnComponent } from './components/publish-btn/publish-btn.compon
     ReservebtnComponent,
     ReservemodalComponent,
     PublishBtnComponent,
-
+    PriceFormatPipe,
+    ModifybtnComponent,
 ],
   imports: [
     CommonModule,

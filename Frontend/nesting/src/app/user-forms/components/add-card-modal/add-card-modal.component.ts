@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CardService } from '../../service/card.service';
 
 @Component({
@@ -6,33 +6,14 @@ import { CardService } from '../../service/card.service';
   templateUrl: './add-card-modal.component.html',
   styleUrls: ['./add-card-modal.component.scss']
 })
-export class AddCardModalComponent implements OnInit {
+export class AddCardModalComponent {
   name: string = '';
   surname: string = '';
   cardnumber: string = '';
   expiremonth: string = '';
   expireyear: string = '';
 
-  cardData: any = {};
-
   constructor(private cardService: CardService) {}
-
-  ngOnInit() {
-    this.cardService.cardSavedSuccessfully$.subscribe(() => {
-      this.cardData = {
-        name: this.name,
-        surname: this.surname,
-        cardnumber: this.cardnumber,
-        expiremonth: this.expiremonth,
-        expireyear: this.expireyear
-      };
-      this.name = '';
-      this.surname = '';
-      this.cardnumber = '';
-      this.expiremonth = '';
-      this.expireyear = '';
-    });
-  }
 
   onSaveCard() {
     const cardData = {
@@ -43,7 +24,7 @@ export class AddCardModalComponent implements OnInit {
       expireyear: this.expireyear
     };
     
-    console.log('Saving card data:', cardData);
     this.cardService.saveCardData(cardData);
   }
 }
+
