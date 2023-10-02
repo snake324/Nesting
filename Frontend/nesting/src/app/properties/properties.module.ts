@@ -24,6 +24,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { ReservebtnComponent } from './components/reservebtn/reservebtn.component';
 import { ReservemodalComponent } from './components/reservemodal/reservemodal.component';
 import { PriceFormatPipe } from './pipes/price-format.pipe';
+import { ModifybtnComponent } from './components/modifybtn/modifybtn.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { PriceFormatPipe } from './pipes/price-format.pipe';
     ReservebtnComponent,
     ReservemodalComponent,
     PriceFormatPipe,
+    ModifybtnComponent,
    
 ],
   imports: [
