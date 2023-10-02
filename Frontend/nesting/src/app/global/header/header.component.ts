@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user-forms/service/user.service';
 import { LogoutService } from '../service/logout.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-header',
@@ -13,12 +14,20 @@ export class HeaderComponent {
   constructor(
     private router: Router,
     private userService: UserService,
-    private logoutService: LogoutService
-    ) {}
+    private logoutService: LogoutService,
+    private cookieService: CookieService // Agrega el servicio de cookies
+  ) { }
 
-    ngOnInit() {
+  ngOnInit() {
+
+    // Verifica si la cookie JSESSIONID ya existe al cargar el componente
+    if (this.cookieService.check('JSESSIONID')) {
+      // La cookie existe, redirige al perfil
+      this.router.navigate(['/user-forms/profile']);
     }
-    
+
+  }
+
 
   isProfilePage(): boolean {
     return this.router.url.startsWith('/user-forms/profile/');
@@ -34,7 +43,7 @@ export class HeaderComponent {
       }
     );
   }
-  
+
   navigateToProfileOrLogin() {
     const user = this.userService.isUserAuthenticated();
     if (user) {
@@ -43,5 +52,9 @@ export class HeaderComponent {
       this.router.navigate(['/user-forms/login']);
     }
   }
-  
+
+  redirectToSaleRentform() {
+    this.router.navigate(['/properties/sale_rentform']);
+  }
+
 }

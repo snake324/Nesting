@@ -107,17 +107,6 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
       const result = typeCondition && propertyTypeCondition && cityCondition && postalCodeCondition &&
         houseTypeCondition && priceCondition && sizeCondition && roomsCondition && bathsCondition;
   
-      console.log('Type Condition:', typeCondition);
-      console.log('Property Type Condition:', propertyTypeCondition);
-      console.log('City Condition:', cityCondition);
-      console.log('Postal Code Condition:', postalCodeCondition);
-      console.log('House Type Condition:', houseTypeCondition);
-      console.log('Price Condition:', priceCondition);
-      console.log('Size Condition:', sizeCondition);
-      console.log('Rooms Condition:', roomsCondition);
-      console.log('Baths Condition:', bathsCondition);
-      console.log('Result:', result);
-  
       return result;
     });
   
@@ -255,5 +244,17 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
 
   showImage() {
     this.showImgHomeDiv = this.filteredPropertyData.length > 0;
+  }
+
+  getPriceRange(start: number, end: number, step: number): number[] {
+    const range = [];
+    for (let i = start; i <= end; i += step) {
+      range.push(i);
+    }
+    return range;
+  }
+
+  getMaxSafeInteger(): number {
+    return Number.MAX_SAFE_INTEGER;
   }
 }
