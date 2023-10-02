@@ -12,6 +12,16 @@ export class SaleRentComponent  {
   
   
   propertyForm: FormGroup;
+  propertyTypes: string[] = ['Tipo propiedad','Casa', 'Piso', 'Terreno', 'Solar'];
+  transactionTypes: string[] = ['Tipo transacción', 'Venta', 'Alquiler'];
+  bathroomsOptions: string[] = ['Baños', '1', '2', '3', '4', '5', '6'];
+  bedroomsOptions: string[] = ['Habitaciones', '1', '2', '3', '4', '5', '6', '7', '8'];
+  selectedPropertyType: string = 'Tipo propiedad';
+  selectedTransactionType: string = 'Tipo transacción';
+  selectedBathrooms: string = 'Baños';
+  selectedBedrooms: string = 'Habitaciones';
+  selectedCity: string='';
+  selectedPostalCode: string='';
 
   
   cities = [
@@ -24,6 +34,8 @@ export class SaleRentComponent  {
   filteredPostalCodes: string[] = [];
 
   constructor(private formBuilder: FormBuilder) {
+
+    this.selectedBedrooms = 'Habitaciones';
     
     this.propertyForm = this.formBuilder.group({
       propertyType: [''],
@@ -38,6 +50,57 @@ export class SaleRentComponent  {
     });
   }
 
+  selectPropertyType(index: number) {
+    this.propertyForm.patchValue({ propertyType: index });
+    this.selectedPropertyType = this.propertyTypes[index - 1];
+  }
+
+  selectTransactionType(transactionType: string) {
+    this.propertyForm.patchValue({ transactionType: transactionType });
+    this.selectedTransactionType = transactionType;
+  }
+
+  selectBathrooms(bathrooms: string) {
+    if (bathrooms === 'Baños' || bathrooms === this.selectedBathrooms) {
+      this.selectedBathrooms = 'Baños';
+      this.propertyForm.get('bathrooms')?.setValue('');
+    } else {
+      this.selectedBathrooms = bathrooms;
+      this.propertyForm.get('bathrooms')?.setValue(bathrooms);
+    }
+  }
+
+  selectBedrooms(bedrooms: string) {
+    if (bedrooms === 'Habitaciones' || bedrooms === this.selectedBedrooms) {
+      this.selectedBedrooms = 'Habitaciones';
+      this.propertyForm.get('bedrooms')?.setValue('');
+    } else {
+      this.selectedBedrooms = bedrooms;
+      this.propertyForm.get('bedrooms')?.setValue(bedrooms);
+    }
+  }
+
+  selectCity(city: string) {
+    this.propertyForm.patchValue({ city: city });
+    this.selectedCity = city;
+    this.propertyForm.get('postalCode')?.reset();
+    this.filteredPostalCodes = [];  
+  }
+  
+  selectPostalCode(postalCode: string) {
+    this.propertyForm.patchValue({ postalCode: postalCode });
+    this.selectedPostalCode = postalCode;
+  }
+  
+  getCityValue() {
+    return this.propertyForm.get('city')?.value || 'Selecciona una ciudad';
+  }
+
+  getPostalCodeValue() {
+    return this.propertyForm.get('postalCode')?.value || 'Código postal';
+  }
+
+
   
   onCitySelect() {
     console.log('onCitySelect called');
@@ -49,6 +112,19 @@ export class SaleRentComponent  {
     } else {
       this.filteredPostalCodes = [];
     }
+    
+  // if (selectedCity) {
+  //   const city = this.cities.find(c => c.name === selectedCity);
+  //   if (city) {
+  //     this.filteredPostalCodes = city.postalCodes;
+  //     console.log('Filtered Postal Codes:', this.filteredPostalCodes);
+  //   } else {
+  //     this.filteredPostalCodes = [];
+  //   }
+  // } else {
+  //   this.filteredPostalCodes = [];
+  // }
+
 
     const isDisabled = !selectedCity;
     console.log('Disabled:', isDisabled);
@@ -63,6 +139,8 @@ export class SaleRentComponent  {
     
   }
 
- 
 
+
+
+  
 }
