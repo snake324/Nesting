@@ -110,8 +110,7 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
       return result;
     });
   
-    // this.showImgHomeDiv = this.filteredPropertyData.length > 0;
-    // console.log('showImgHomeDiv:', this.showImgHomeDiv);
+
   }
 
   extractUniqueTypes() {
@@ -133,6 +132,8 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
 
   updateCityFilter(city: string) {
     this.selectedCity = city;
+    this.filters.city = city; 
+    this.applyFilters();
   }
 
   updatePostalCodeFilter(postalCode: string) {
@@ -140,12 +141,11 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   }
 
   extractUniqueCitiesAndPostalCodes() {
-    this.cities = [
-      ...new Set(this.propertyData.map((property) => property.city)),
-    ];
-    this.postalCodes = [
-      ...new Set(this.propertyData.map((property) => property.postalCode)),
-    ];
+    const uniqueCities = [...new Set(this.propertyData.map((property) => property.city))];
+    this.cities = uniqueCities.sort(); 
+  
+    const uniquePostalCodes = [...new Set(this.propertyData.map((property) => property.postalCode))];
+    this.postalCodes = uniquePostalCodes.sort(); 
   }
 
   updateTypeFilter(type: string) {
@@ -155,27 +155,27 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
 
   updateHouseTypeFilter(houseType: string) {
     this.selectedHouseType = houseType;
-    // this.applyFilters();
+    
   }
 
   updateSizeFilter(minSize: number, maxSize: number) {
     this.selectedSize = `${minSize} - ${maxSize} m²`;
-    // this.applyFilters();
+    
   }
 
   updateRoomsFilter(rooms: number) {
     this.selectedRooms = `${rooms} habitación${rooms > 1 ? 'es' : ''}`;
-    // this.applyFilters();
+    
   }
 
   updatePriceFilter(minPrice: number, maxPrice: number) {
     this.selectedPrice = `${minPrice} - ${maxPrice}€`;
-    // this.applyFilters();
+    
   }
 
   updateBathsFilter(baths: number) {
     this.selectedBaths = `${baths} baño${baths > 1 ? 's' : ''}`;
-    // this.applyFilters();
+   
   }
 
   isPriceInRange(price: number): boolean {
@@ -256,5 +256,17 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
 
   getMaxSafeInteger(): number {
     return Number.MAX_SAFE_INTEGER;
+  }
+
+  getPostalCodesForCity(city: string): string[] {
+    const filteredPostalCodes = this.propertyData
+      .filter((property) => city === 'Ciudad' || property.city === city)
+      .map((property) => property.postalCode);
+  
+   
+    const uniquePostalCodes = [...new Set(filteredPostalCodes)];
+  
+  
+    return uniquePostalCodes.sort((a, b) => (a > b ? 1 : -1));
   }
 }
