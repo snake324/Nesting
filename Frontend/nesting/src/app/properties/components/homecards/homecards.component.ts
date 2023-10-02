@@ -133,6 +133,8 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
 
   updateCityFilter(city: string) {
     this.selectedCity = city;
+    this.filters.city = city; // Agrega esta línea
+    this.applyFilters();
   }
 
   updatePostalCodeFilter(postalCode: string) {
@@ -256,5 +258,11 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
 
   getMaxSafeInteger(): number {
     return Number.MAX_SAFE_INTEGER;
+  }
+
+  getPostalCodesForCity(city: string): string[] {
+    return this.propertyData
+      .filter((property) => city === 'Ciudad' || property.city === city)
+      .map((property) => property.postalCode);
   }
 }

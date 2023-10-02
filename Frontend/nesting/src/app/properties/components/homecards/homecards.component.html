@@ -71,24 +71,24 @@
     </ul>
 
     <button
-      id="dropbutton"
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
+  id="dropbutton"
+  class="btn btn-secondary dropdown-toggle"
+  type="button"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
+>
+  {{ selectedPostalCode }}
+</button>
+<ul id="dropUl" class="dropdown-menu">
+  <li id="dropLi" *ngFor="let postalCode of getPostalCodesForCity(selectedCity)">
+    <span
+      id="listitem"
+      class="dropdown-item"
+      (click)="updatePostalCodeFilter(postalCode)"
+      >{{ postalCode }}</span
     >
-      {{ selectedPostalCode }}
-    </button>
-    <ul id="dropUl" class="dropdown-menu">
-      <li id="dropLi" *ngFor="let postalCode of postalCodes">
-        <span
-          id="listitem"
-          class="dropdown-item"
-          (click)="updatePostalCodeFilter(postalCode)"
-          >{{ postalCode }}</span
-        >
-      </li>
-    </ul>
+  </li>
+</ul>
 
     <button
     id="dropbutton"
