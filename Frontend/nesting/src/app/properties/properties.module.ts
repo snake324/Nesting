@@ -24,6 +24,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { ReservebtnComponent } from './components/reservebtn/reservebtn.component';
 import { ReservemodalComponent } from './components/reservemodal/reservemodal.component';
 import { GalleryuploadComponent } from './components/galleryupload/galleryupload.component';
+import { PublishBtnComponent } from './components/publish-btn/publish-btn.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { GalleryuploadComponent } from './components/galleryupload/galleryupload
     FileUploadComponent,
     ReservebtnComponent,
     ReservemodalComponent,
+    PublishBtnComponent,
 
 ],
   imports: [
