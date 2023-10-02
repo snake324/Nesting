@@ -6,7 +6,6 @@ import { BuyComponent } from './views/buy/buy.component';
 import { RentComponent } from './views/rent/rent.component';
 import { PropertyFormComponent } from './views/property-form/property-form.component';
 import { PrevisualizationComponent } from './views/previsualization/previsualization.component';
-import { AdminComponent } from './views/admin/admin.component';
 import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
 
 const routes: Routes = [
@@ -17,8 +16,8 @@ const routes: Routes = [
   { path: 'rent', component: RentComponent },
   { path: 'property-form', component: PropertyFormComponent },
   { path: 'previsualization', component: PrevisualizationComponent },
-  { path: 'sale_rentform', component: SaleRentformComponent },
-];
+  { path: 'sale_rentform', component: SaleRentformComponent }
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

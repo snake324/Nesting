@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../../user-forms/models/user.model';
-import { Post } from 'src/app/interfaces/post.interface';
 
 @Injectable({
   providedIn: 'root'
