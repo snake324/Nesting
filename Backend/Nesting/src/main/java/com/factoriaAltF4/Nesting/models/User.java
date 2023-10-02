@@ -3,7 +3,6 @@ package com.factoriaAltF4.Nesting.models;
 import java.sql.Timestamp;
 import java.util.Set;
 
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,8 +20,8 @@ import lombok.Data;
 @Entity
 @Table(name = "users")
 @Data
-public class User{
-    
+public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long iduser;
@@ -36,15 +35,14 @@ public class User{
     @Column(name = "status")
     public boolean status;
 
-    @Column(name="register_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "register_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     public Timestamp registerDate;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserProfile userProfile;
 
-    
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "roles_users", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="roles_id"))
+    @JoinTable(name = "roles_users", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "roles_id"))
     public Set<Role> roles;
-    
+
 }
