@@ -11,7 +11,7 @@ import { UserService } from 'src/app/user-forms/service/user.service';
   styleUrls: ['./user-table.component.scss']
 })
 export class UserTableComponent {
-  profile: any = { name: '', lastname: '', address: '' };
+  profile: any = { iduser: '', name: '', lastname: '', address: '' };
   user: User | undefined;
   showForm: boolean = false;
 

@@ -22,8 +22,9 @@
             </tr>
         </thead>
         <tbody>
-          <tr *ngIf="profile">
-            <th scope="row">{{ profile.id }}</th>
+            <ng-container *ngIf="profile">
+          <tr *ngFor=" let users of profile" >
+            <th scope="row">{{ profile.iduser }}</th>
             <td>{{ profile.name }}</td>
             <td>{{ profile.lastname }}</td>
             <td>{{ profile.address }}</td>
@@ -34,3 +35,5 @@
               </div>
              </td>
           </tr>
+        </ng-container>
+        </tbody>
