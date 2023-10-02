@@ -52,7 +52,7 @@
     </div>
       <div id="priceDiv" class="container-fluid">
         
-          <p id="priceP">{{ property.price }}€</p>
+        <p id="priceP">{{ property.price | priceFormat }}€</p>
           <app-modalcontact #contactmodal></app-modalcontact>
 <app-contactbtn (openModalEvent)="contactmodal.openModal()" id="contactbtn"></app-contactbtn>
       </div>

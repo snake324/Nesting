@@ -117,7 +117,7 @@
   data-bs-toggle="dropdown"
   aria-expanded="false"
 >
-  {{ selectedPrice }}
+  {{ selectedPrice | priceFormat }}
 </button>
 <ul id="dropUl" class="dropdown-menu">
   <li id="dropLi">
@@ -125,8 +125,7 @@
       id="listitem"
       class="dropdown-item"
       (click)="updatePriceFilter(0, 500)"
-    >0 - 500€</span
-    >
+    >0 - 500€</span>
   </li>
   <li id="dropLi">
     <span
@@ -134,8 +133,7 @@
       class="dropdown-item"
       *ngFor="let i of getPriceRange(500, 2000, 500)"
       (click)="updatePriceFilter(i, i + 500)"
-    >{{ i }} - {{ i + 500 }}€</span
-    >
+    >{{ i | priceFormat }} - {{ (i + 500) | priceFormat }}€</span>
   </li>
   <li id="dropLi">
     <span
@@ -143,8 +141,7 @@
       class="dropdown-item"
       *ngFor="let i of getPriceRange(0, 500000, 50000)"
       (click)="updatePriceFilter(i, i + 50000)"
-    >{{ i }} - {{ i + 50000 }}€</span
-    >
+    >{{ i | priceFormat }} - {{ (i + 50000) | priceFormat }}€</span>
   </li>
   <li id="dropLi">
     <span
@@ -363,7 +360,7 @@
             </nav>
           <div id="infoDiv" class="container-fluid">
             <div id="pricediv" class="container-fluid">
-              <h5 id="price" class="card-title">{{ property.price }}€</h5>
+              <h5 id="price" class="card-title">{{ property.price | priceFormat }}€</h5>
             </div>
             <div id="icondetails" class="container-fluid">
               <h5 id="icontext">
