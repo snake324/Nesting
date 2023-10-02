@@ -49,6 +49,11 @@ export class UserService {
     return this.httpClient.get<User>(url);
   }
 
+  getUsers(): Observable<User[]> {
+    const url = `${this.baseUrl}/users`;
+    return this.httpClient.get<User[]>(url);
+  }  
+
   getUserIdByEmail(mail: string) {
     const url = `${this.baseUrl}/users/getid?mail=${mail}`;
     return this.httpClient.get<number>(url);
