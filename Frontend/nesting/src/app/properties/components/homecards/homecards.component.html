@@ -111,40 +111,46 @@
   </ul>
 
   <button
-    id="dropbutton"
-    class="btn btn-secondary dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    {{ selectedPrice }}
-  </button>
-  <ul id="dropUl" class="dropdown-menu">
-    <li id="dropLi">
-      <span
-        id="listitem"
-        class="dropdown-item"
-        (click)="updatePriceFilter(0, 100000)"
-        >0 - 100000€</span
-      >
-    </li>
-    <li id="dropLi">
-      <span
-        id="listitem"
-        class="dropdown-item"
-        (click)="updatePriceFilter(100000, 200000)"
-        >100000 - 200000€</span
-      >
-    </li>
-    <li id="dropLi">
-      <span
-        id="listitem"
-        class="dropdown-item"
-        (click)="updatePriceFilter(200000, 300000)"
-        >200000 - 300000€</span
-      >
-    </li>
-  </ul>
+  id="dropbutton"
+  class="btn btn-secondary dropdown-toggle"
+  type="button"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
+>
+  {{ selectedPrice | priceFormat }}
+</button>
+<ul id="dropUl" class="dropdown-menu">
+  <li id="dropLi">
+    <span
+      id="listitem"
+      class="dropdown-item"
+      (click)="updatePriceFilter(0, 500)"
+    >0 - 500€</span>
+  </li>
+  <li id="dropLi">
+    <span
+      id="listitem"
+      class="dropdown-item"
+      *ngFor="let i of getPriceRange(500, 2000, 500)"
+      (click)="updatePriceFilter(i, i + 500)"
+    >{{ i | priceFormat }} - {{ (i + 500) | priceFormat }}€</span>
+  </li>
+  <li id="dropLi">
+    <span
+      id="listitem"
+      class="dropdown-item"
+      *ngFor="let i of getPriceRange(0, 500000, 50000)"
+      (click)="updatePriceFilter(i, i + 50000)"
+    >{{ i | priceFormat }} - {{ (i + 50000) | priceFormat }}€</span>
+  </li>
+  <li id="dropLi">
+    <span
+      id="listitem"
+      class="dropdown-item"
+      (click)="updatePriceFilter(500000, 10000000)"
+    >&gt; 500000€</span>
+  </li>
+</ul>
 
   <button
     id="dropbutton"
@@ -354,7 +360,7 @@
             </nav>
           <div id="infoDiv" class="container-fluid">
             <div id="pricediv" class="container-fluid">
-              <h5 id="price" class="card-title">{{ property.price }}€</h5>
+              <h5 id="price" class="card-title">{{ property.price | priceFormat }}€</h5>
             </div>
             <div id="icondetails" class="container-fluid">
               <h5 id="icontext">
