@@ -3,7 +3,6 @@ package com.factoriaAltF4.Nesting.models;
 import java.sql.Timestamp;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -46,7 +45,6 @@ public class User{
     
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "roles_users", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="roles_id"))
-    @JsonIgnore
     public Set<Role> roles;
     
 }
