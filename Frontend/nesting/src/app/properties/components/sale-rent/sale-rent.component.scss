@@ -5,7 +5,7 @@ h1 {
   margin-top: 2rem;
 }
 
-label{
+label {
   color: #F3A139;
 }
 
@@ -27,8 +27,8 @@ select.form-select:hover {
   color: #055f5b;
   outline: 2px solid #8cbfbc;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
-  margin-left: 1em;}
-
+  margin-left: 1em;
+}
 
 p {
   color: #F3A139;
@@ -38,8 +38,7 @@ p {
   margin-top: -25rem;
 }
 
-
-.d-flex{
+.d-flex {
   margin-left: 10rem;
   margin-bottom: 2rem;
 }
@@ -56,15 +55,12 @@ p {
   &:focus {
     border-color: #8cbfbc;
     box-shadow: 0 0 0 0.1rem #8cbfbc;
+  }
 
+  &::placeholder {
+    color: #006D7A;
   }
 }
-
-.custom-input::placeholder {
-  color: #006D7A;
-}
-
-
 
 textarea {
   resize: none;
@@ -74,57 +70,46 @@ textarea {
   color: #F3A139;
   margin-bottom: 2rem;
   margin-top: -2rem;
+
   &:focus {
     border-color: #8BBFBD;
   }
-
 }
 
 #description {
   background-color: #D0EAE9;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
   &:focus {
     border-color: #006D7A;
     box-shadow: 0 0 0 0.1rem #D0EAE9;
-
   }
-
 }
 
-
-.btupload{
+.btupload {
   margin-left: 41.5rem;
   margin-top: 4rem;
   margin-bottom: 14rem;
 }
 
-
-
-.btn{
-  background-color:#F3A139;
+.btn {
+  background-color: #D0EAE9;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin-left: 41.5rem;
-  color: #FFF;
+  margin-left: 1em; /* Cambiado para centrar a la izquierda */
+  color: #006D7A;
   font-family: 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 600;
-  width: 10.7rem;
+  width: 13.5rem;
   height: 2.1rem;
   border-radius: 5px;
 
- }
-
-
-
- .custom-select-for-cp.disabled {
-  background-color: #f8f9fa;
-  color: #006D7A;
-  pointer-events: none;
-  cursor: not-allowed;
+  &:hover {
+    background-color: #8BBFBD; /* Color al hacer hover */
+  }
 }
 
-
-form{
+form {
   margin-left: 8rem;
 }
 
