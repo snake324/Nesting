@@ -276,7 +276,7 @@
   >
     <div id="mainDiv" class="row g-0">
       <div class="col-md-4" style="max-width: 20%">
-        <div [id]="'carouselExampleIndicators' + i" class="carousel slide">
+        <div [id]="'carouselExampleIndicators' + i" class="carousel slide" data-bs-touch="false">
           <div class="carousel-indicators">
             <button
               type="button"
@@ -317,15 +317,17 @@
               *ngFor="let image of property.images; let j = index"
               [class.active]="j === 0"
             >
-              <a href="#detalles" target="_blank"
-                ><img id="carImg"
+              <a
+                [routerLink]="['/properties/details', property.id, { images: property.images }]"
+                ><img
+                  id="carImg"
                   [src]="'../assets/images/properties' + image.img"
                   class="d-block w-100"
                   [alt]="'Image ' + (j + 1)"
               /></a>
             </div>
           </div>
-          <button
+          <button id="nextBtn"
             class="carousel-control-prev"
             type="button"
             [attr.data-bs-target]="'#carouselExampleIndicators' + i"
@@ -334,7 +336,7 @@
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button
+          <button id="prevBtn"
             class="carousel-control-next"
             type="button"
             [attr.data-bs-target]="'#carouselExampleIndicators' + i"
