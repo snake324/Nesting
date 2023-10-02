@@ -1,1 +1,39 @@
-<p>user-table works!</p>
+<div class="search">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Buscar..." aria-label="default input example">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+<div  id="table-admin" class="table-responsive" clas="table-striped">
+        <table class="table table-bordered" >
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Email</th>
+              <th scope="col">Dirección</th>
+              <th>Habilitado/Deshabilitado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="profile">
+          <tr *ngFor=" let users of profile" >
+            <th scope="row">{{ profile.iduser }}</th>
+            <td>{{ profile.name }}</td>
+            <td>{{ profile.lastname }}</td>
+            <td>{{ profile.address }}</td>
+            <td *ngIf="user">{{ user.mail }}</td>
+            <td><div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault"></label>
+              </div>
+             </td>
+          </tr>
+        </ng-container>
+        </tbody>
