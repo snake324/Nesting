@@ -27,5 +27,5 @@ public class Card {
     @OneToOne
     @JoinColumn(name = "user_profile_id")
     @JsonIgnore
-    private UserProfile userProfile; 
+    private UserProfile userProfile;
 }

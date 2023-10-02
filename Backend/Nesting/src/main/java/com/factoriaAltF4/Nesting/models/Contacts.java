@@ -29,7 +29,7 @@ public class Contacts {
     @JoinColumn(name = "id_profile")
     private UserProfile profile;
 
-    @Column(name="contact_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "contact_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp contactDate;
 
 }
