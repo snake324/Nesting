@@ -245,4 +245,16 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   showImage() {
     this.showImgHomeDiv = this.filteredPropertyData.length > 0;
   }
+
+  getPriceRange(start: number, end: number, step: number): number[] {
+    const range = [];
+    for (let i = start; i <= end; i += step) {
+      range.push(i);
+    }
+    return range;
+  }
+
+  getMaxSafeInteger(): number {
+    return Number.MAX_SAFE_INTEGER;
+  }
 }
