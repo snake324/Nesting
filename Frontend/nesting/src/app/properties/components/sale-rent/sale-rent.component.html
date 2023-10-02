@@ -1,130 +1,118 @@
 <h1>Formulario de Venta/Alquiler</h1>
-<div class="d-flex flex-row">
-  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
-    <div class="form-floating">
-      <select
-        class="form-select"
-        id="propertyTypeSelect"
-        aria-label="Floating label select example"
-      >
-        <option selected>Tipo propiedad</option>
-        <option value="1">Casa</option>
-        <option value="2">Piso</option>
-        <option value="3">Terreno</option>
-        <option value="4">Solar</option>
-      </select>
-    </div>
-    <div class="form-floating">
-      <select
-        class="form-select"
-        id="transactionTypeSelect"
-        aria-label="Floating label select example"
-      >
-        <option selected>Tipo transacción</option>
-        <option value="1">Venta</option>
-        <option value="2">Alquiler</option>
-      </select>
-    </div>
-    <div class="form-floating">
-      <select
-        class="form-select"
-        id="bathroomsSelect"
-        aria-label="Floating label select example"
-      >
-        <option selected>Baños</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div>
-    <div class="form-floating">
-      <select
-        class="form-select"
-        id="bedroomsSelect"
-        aria-label="Floating label select example"
-      >
-        <option selected>Habitaciones</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-      </select>
-    </div>
 
-
-
-    <div class="form-floating">
-      <select
-        class="form-select"
-        id="citySelect"
-        aria-label="Ciudad"
-        formControlName="city"
-        (change)="onCitySelect()"
-
-      >
-        <option value>Selecciona una ciudad</option>
-        <option value="Madrid">Madrid</option>
-        <option value="Barcelona">Barcelona</option>
-        <option value="Valencia">Valencia</option>
-        <option value="Oviedo">Oviedo</option>
-        </select>
+<form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-12 col-lg-3">
+      <label for="propertyTypeSelect">Tipo de propiedad</label>
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="propertyTypeDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Tipo propiedad
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="propertyTypeDropdown">
+          <li><a class="dropdown-item" href="#" (click)="selectPropertyType('Casa')">Casa</a></li>
+          <li><a class="dropdown-item" href="#" (click)="selectPropertyType('Piso')">Piso</a></li>
+          <li><a class="dropdown-item" href="#" (click)="selectPropertyType('Terreno')">Terreno</a></li>
+          <li><a class="dropdown-item" href="#" (click)="selectPropertyType('Solar')">Solar</a></li>
+        </ul>
       </div>
-
-
-      <div class="form-floating">
-        <select
-        class="form-select custom-select-for-cp"
-          id="postalCodeSelect"
-          aria-label="Código Postal"
-          formControlName="postalCode"
-          [ngClass]="{'disabled': !propertyForm.get('city')?.value}"
-
-
-
+    </div>
+    <div class="col-12 col-lg-3">
+      <label for="transactionTypeSelect">Tipo de transacción</label>
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="transactionTypeDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
         >
-        <option value=""  [disabled]="!propertyForm.get('city')?.value">Código postal</option>
-        <option *ngFor="let code of filteredPostalCodes" [value]="code">{{ code }}</option>
-
-        </select>
-
+          Tipo transacción
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="transactionTypeDropdown">
+          <li><a class="dropdown-item" href="#" (click)="selectTransactionType('Venta')">Venta</a></li>
+          <li><a class="dropdown-item" href="#" (click)="selectTransactionType('Alquiler')">Alquiler</a></li>
+        </ul>
       </div>
-      <button type="submit" class="btn">Enviar</button>
-  </form >
+    </div>
+    <div class="col-12 col-lg-3">
+      <label for="citySelect">Seleccionar una ciudad</label>
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="cityDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Selecciona una ciudad
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="cityDropdown">
+          <li><a class="dropdown-item" href="#" (click)="selectCity('Madrid')">Madrid</a></li>
+          <li><a class="dropdown-item" href="#" (click)="selectCity('Barcelona')">Barcelona</a></li>
+          <li><a class="dropdown-item" href="#" (click)="selectCity('Valencia')">Valencia</a></li>
+          <li><a class="dropdown-item" href="#" (click)="selectCity('Oviedo')">Oviedo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-12 col-lg-3">
+      <label for="postalCodeSelect">Código Postal</label>
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="postalCodeDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          [class.disabled]="!propertyForm.get('city')?.value"
+        >
+          Código postal
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="postalCodeDropdown">
+          <li *ngFor="let code of filteredPostalCodes">
+            <a class="dropdown-item" href="#" (click)="selectPostalCode(code)">{{ code }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-12 col-lg-3">
+      <label for="superficieInput">Superficie</label>
+      <input
+        type="text"
+        class="form-control custom-input"
+        placeholder="Superficie"
+        id="superficieInput">
+    </div>
+
+    <div class="col-12 col-lg-3">
+      <label for="importeInput">Importe €</label>
+      <input
+        type="text"
+        class="form-control custom-input"
+        placeholder="Importe €"
+        id="importeInput">
+    </div>
+  </div>
+
   <div class="container-fluid">
-  <div class="form-floating">
-    <textarea
-      class="form-control"
-      placeholder="Superficie"
-      id="surfaceTextarea"
-    ></textarea>
-    <label for="floatingTextarea">Superficie</label>
+    <div class="btupload">
+      <app-file-upload></app-file-upload>
+    </div>
+    <div class="d-flex">
+      <app-previewbtn></app-previewbtn>
+    </div>
+    <button type="submit" class="btn">Enviar</button>
   </div>
-  <div class="form-floating">
-    <textarea
-      class="form-control"
-      placeholder="Importe €"
-      id="priceTextarea"
-    ></textarea>
-    <label for="floatingTextarea">Importe €</label>
-  </div>
-</div>
-  <div class="container">
-    <p><label for="description">Descripción:</label></p>
-    <textarea
-      id="description"
-      name="description"
-      rows="20"
-      cols="120"
-    ></textarea>
-    <div class="d-flex flex-row-reverse">
-    <app-previewbtn></app-previewbtn>
-    <app-file-upload></app-file-upload>
-  </div>
-  </div>
-</div>
+
+  <p><label for="description">Descripción:</label></p>
+  <textarea
+    id="description"
+    name="description"
+    rows="15"
+    cols="81"
+  ></textarea>
+</form>
