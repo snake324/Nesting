@@ -1,9 +1,11 @@
+import { Card } from "./card.model";
+
 export interface Profile {
   id: number;
   name: string;
   lastname: string;
   address: string;
-  card: string | null;
+  card: Card;
   propertiesPublished: {
     id: number;
     title: string;
