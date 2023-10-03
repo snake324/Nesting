@@ -103,3 +103,15 @@ INSERT INTO images (id, properties_id, img) VALUES
 (131, 27, '/img1_prop27.jpg'), (132, 27, '/img2_prop27.jpg'), (133, 27, '/img3_prop27.jpg'), (134, 27, '/img4_prop27.jpg'), (135, 27, '/img5_prop27.jpg'),
 (136, 28, '/img1_prop28.jpg'), (137, 28, '/img2_prop28.jpg'), (138, 28, '/img3_prop28.jpg'), (139, 28, '/img4_prop28.jpg'), (140, 28, '/img5_prop28.jpg'),
 (141, 29, '/img1_prop29.jpg'), (142, 29, '/img2_prop29.jpg'), (143, 29, '/img3_prop29.jpg'), (144, 29, '/img4_prop29.jpg'), (145, 29, '/img5_prop29.jpg');
+
+INSERT INTO cards (id, name, surname, number, expiremonth, expireyear, user_profile_id)
+VALUES
+(1, 'Juan', 'Pérez', '9876543210987654', '09', '24', 2),
+(2, 'Ana', 'García', '5678123434567890', '11', '23', 3),
+(3, 'Carlos', 'López', '4321876509876543', '05', '25', 4),
+(4, 'Marta', 'Sánchez', '7890234567890123', '03', '24', 5),
+(5, 'Pablo', 'Martín', '3456789012345678', '08', '23', 6),
+(6, 'Laura', 'Gómez', '2109876543210987', '02', '25', 7),
+(7, 'Sergio', 'Fernández', '6543210987654321', '07', '24', 8),
+(8, 'Clara', 'Díaz', '7890345601236789', '04', '23', 9),
+(9, 'Adrián', 'Ruiz', '2345678956781234', '10', '25', 10);

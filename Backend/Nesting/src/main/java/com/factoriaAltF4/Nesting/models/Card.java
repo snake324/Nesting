@@ -15,17 +15,23 @@ public class Card {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "owner")
+    @Column(name = "name")
     private String owner;
+
+    @Column(name = "surname")
+    private String surname;
 
     @Column(name = "number")
     private String number;
 
-    @Column(name = "expdate")
-    private String expdate;
+    @Column(name = "expiremonth")
+    private String expiremonth;
+
+    @Column(name = "expireyear")
+    private String expireyear;
 
     @OneToOne
     @JoinColumn(name = "user_profile_id")
     @JsonIgnore
-    private UserProfile userProfile; 
+    private UserProfile userProfile;
 }

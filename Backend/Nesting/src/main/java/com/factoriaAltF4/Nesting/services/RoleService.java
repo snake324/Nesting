@@ -11,19 +11,19 @@ import com.factoriaAltF4.Nesting.repositories.RoleRepository;
 
 @Service
 public class RoleService {
-    
+
     @Autowired
     RoleRepository repo;
 
-    public List<Role> getAllRoles(){
+    public List<Role> getAllRoles() {
         return repo.findAll();
     }
 
-    public Role getRoleById(Long id){
-         Optional<Role> opt = repo.findById(id);
-        if(opt.isPresent()){
+    public Role getRoleById(Long id) {
+        Optional<Role> opt = repo.findById(id);
+        if (opt.isPresent()) {
             return opt.get();
-        }else{
+        } else {
             return null;
         }
     }
