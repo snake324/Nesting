@@ -1,16 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
-
-
 @Component({
   selector: 'app-sale-rent',
   templateUrl: './sale-rent.component.html',
   styleUrls: ['./sale-rent.component.scss']
 })
 export class SaleRentComponent  {
-  
-  
   propertyForm: FormGroup;
   propertyTypes: string[] = ['Tipo propiedad','Casa', 'Piso', 'Terreno', 'Solar'];
   transactionTypes: string[] = ['Tipo transacción', 'Venta', 'Alquiler'];
@@ -22,22 +17,17 @@ export class SaleRentComponent  {
   selectedBedrooms: string = 'Habitaciones';
   selectedCity: string='';
   selectedPostalCode: string='';
-  
-
-  
   cities = [
     { name: 'Madrid', postalCodes: ['28001', '28002', '28003'] },
     { name: 'Barcelona', postalCodes: ['08001', '08002', '08003'] },
     { name: 'Valencia', postalCodes: ['46001', '46002', '46003'] },
     { name: 'Oviedo', postalCodes: ['33001', '33002', '33003'] }
   ];
-
   filteredPostalCodes: string[] = [];
-
   constructor(private formBuilder: FormBuilder) {
 
     this.selectedBedrooms = 'Habitaciones';
-    
+
     this.propertyForm = this.formBuilder.group({
       propertyType: [''],
       transactionType: [''],
@@ -50,17 +40,14 @@ export class SaleRentComponent  {
       description: ['']
     });
   }
-
   selectPropertyType(index: number) {
     this.propertyForm.patchValue({ propertyType: index });
     this.selectedPropertyType = this.propertyTypes[index - 1];
   }
-
   selectTransactionType(transactionType: string) {
     this.propertyForm.patchValue({ transactionType: transactionType });
     this.selectedTransactionType = transactionType;
   }
-
   selectBathrooms(bathrooms: string) {
     if (bathrooms === 'Baños' || bathrooms === this.selectedBathrooms) {
       this.selectedBathrooms = 'Baños';
@@ -70,7 +57,6 @@ export class SaleRentComponent  {
       this.propertyForm.get('bathrooms')?.setValue(bathrooms);
     }
   }
-
   selectBedrooms(bedrooms: string) {
     if (bedrooms === 'Habitaciones' || bedrooms === this.selectedBedrooms) {
       this.selectedBedrooms = 'Habitaciones';
@@ -80,12 +66,11 @@ export class SaleRentComponent  {
       this.propertyForm.get('bedrooms')?.setValue(bedrooms);
     }
   }
-
   selectCity(city: string) {
     this.propertyForm.patchValue({ city: city });
     this.selectedCity = city;
     this.propertyForm.get('postalCode')?.reset();
-    this.filteredPostalCodes = [];  
+    this.filteredPostalCodes = [];
     if (city) {
       const selectedCity = this.cities.find(c => c.name === city);
       if (selectedCity) {
@@ -94,12 +79,11 @@ export class SaleRentComponent  {
     }
     this.propertyForm.patchValue({ postalCode: '' });
   }
-  
   selectPostalCode(postalCode: string) {
     this.propertyForm.patchValue({ postalCode: postalCode });
     this.selectedPostalCode = postalCode;
   }
-  
+
   getCityValue() {
     return this.propertyForm.get('city')?.value || 'Selecciona una ciudad';
   }
@@ -109,11 +93,11 @@ export class SaleRentComponent  {
   }
 
 
-  
+
   onCitySelect() {
     console.log('onCitySelect called');
     const selectedCity = this.propertyForm.get('city')?.value;
-  
+
     if (selectedCity) {
       const city = this.cities.find(c => c.name === selectedCity);
       if (city) {
@@ -125,21 +109,18 @@ export class SaleRentComponent  {
     } else {
       this.filteredPostalCodes = [];
     }
-  
+
     const isDisabled = !selectedCity;
     console.log('Disabled:', isDisabled);
-  
+
     this.propertyForm.patchValue({ postalCode: '' });
   }
-
-  
   onSubmit() {
     const formData = this.propertyForm.value;
-    
   }
-
-
-
-
-  
 }
+
+
+
+
+

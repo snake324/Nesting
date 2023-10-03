@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PropertiesRoutingModule } from './properties-routing.module';
 import { PropertyFormComponent } from './views/property-form/property-form.component';
@@ -51,7 +51,7 @@ import { ModifybtnComponent } from './components/modifybtn/modifybtn.component';
     ReservemodalComponent,
     PriceFormatPipe,
     ModifybtnComponent,
-   
+
 ],
   imports: [
     CommonModule,
