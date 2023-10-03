@@ -14,6 +14,7 @@ export interface Properties {
     publishDate: string;
     modificationDate: string;
     images: Image[];
+    address: string;
   }
   
   interface Image {

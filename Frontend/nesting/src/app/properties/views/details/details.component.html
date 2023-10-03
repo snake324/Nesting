@@ -1,9 +1,20 @@
 
 <div id="showDiv" class="container-fluid">
 <div id="mainDiv" class="container-fluid" *ngIf="property">
+  <div id="backDiv" class="container-fluid">
+    <button id="backBtn" type="button" class="btn" (click)="goBack()">
+      <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/backw.svg"> Atrás
+    </button>
+  </div>
 
 <div id="titleDiv" class="container-fluid">
+  <div id="titleText" class="container-fluid">
   <h2 id="titleP">{{ property.title }}</h2>
+  <h3 id="addressP">{{ property.address }}</h3>
+</div>
+<div id="pDate" class="container-fluid">
+  <p id="dateP">Publicado: {{ property.publishDate }}</p>
+</div>
 </div>
 
 <div id="dataDiv" class="container-fluid">
@@ -61,7 +72,8 @@
 </div>
 
 <div id="textDiv" class="container-fluid">
-  <p id="description">{{ property.description }}
+  <p id="descriptionT">Descripción:</p>
+  <p id="description">{{ property.description }}</p>
 </div>
 
 
