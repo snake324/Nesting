@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'rent', component: RentComponent },
   { path: 'property-form', component: PropertyFormComponent },
   { path: 'previsualization', component: PrevisualizationComponent },
-  { path: 'sale_rentform', component: SaleRentformComponent },
-];
+  { path: 'sale_rentform', component: SaleRentformComponent }
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -26,9 +26,15 @@ export class UserService {
 
     return this.httpClient.post<any>(`${this.baseUrl}/register`, user);
   }
-  public loginUser(mail: string, password: string, headers: HttpHeaders): Observable<any> {
+  public loginUser(mail: string, password: string, headers: HttpHeaders | null = null): Observable<any> {
     this.isAuthenticated = true;
-    return this.httpClient.post<any>(`${this.baseUrl}/login`, {}, { headers, withCredentials: true  });
+
+    // Si se proporcionan encabezados, úsalos; de lo contrario, no los incluyas en la solicitud
+    if (headers) {
+      return this.httpClient.post<any>(`${this.baseUrl}/login`, {}, { headers, withCredentials: true });
+    } else {
+      return this.httpClient.post<any>(`${this.baseUrl}/login`, {}, { withCredentials: true });
+    }
   }
 
   public isUserAuthenticated(): User | null {
@@ -42,6 +48,11 @@ export class UserService {
     const url = `${this.baseUrl}/users/${userId}`; 
     return this.httpClient.get<User>(url);
   }
+
+  getUsers(): Observable<User[]> {
+    const url = `${this.baseUrl}/users`;
+    return this.httpClient.get<User[]>(url);
+  }  
 
   getUserIdByEmail(mail: string) {
     const url = `${this.baseUrl}/users/getid?mail=${mail}`;

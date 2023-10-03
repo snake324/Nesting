@@ -74,33 +74,6 @@ h1 {
     background-color: #D0EAE9;
     color: #F3A139;
 
-<<<<<<< HEAD
-
-    form{
-        justify-content: center;
-        align-items: center;
-        margin-top: 40px;
-        
-    }
-
-    .container{
-        float: right;
-    }
-
-    label{
-        color: #006D7A;
-    }
-
-
-   .container-fluid{
-    margin-top: 40px;
-   }
-
-   .btn{
-    background-color:#D0EAE9;
-   }
-
-=======
     &:focus {
       border-color: #8BBFBD;
     }
@@ -144,7 +117,6 @@ h1 {
   
   
   
->>>>>>> 9620a22c97ec53e522d17275220fc1a63f2d57cd
    .custom-select-for-cp.disabled {
     background-color: #f8f9fa;
     color: #006D7A;
@@ -198,5 +170,9 @@ h1 {
     width: 90%;
 }
 
- 
 
+option:hover {
+    background-color: #f8f9fa;
+    color: #055f5b;
+    border-radius: 4px;
+}

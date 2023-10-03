@@ -15,14 +15,14 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="roles")
+@Table(name = "roles")
 public class Role {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idrole;
 
-    @Column(name="role")
+    @Column(name = "role")
     private String role;
 
     @ManyToMany(mappedBy = "roles")

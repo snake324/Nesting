@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.factoriaAltF4.Nesting.models.Image;
-// import com.factoriaAltF4.Nesting.models.Property;
 import com.factoriaAltF4.Nesting.services.ImageService;
-// import com.factoriaAltF4.Nesting.services.PropertyService;
 
 @RestController
 @RequestMapping("/images")
@@ -36,11 +34,4 @@ public class ImageControler {
     public Image addImage(@RequestBody Image img){
         return imgService.addImage(img);
     }
-
-    // @GetMapping("/property/{id}")
-    // public List<Image> getImagesByPropId(@PathVariable Long id){
-    //     Property prop = propService.getPropertyById(id);
-    //     return imgService.getImagesByPropertyId(prop.getId());
-    // }
-
 }
