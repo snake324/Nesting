@@ -6,8 +6,16 @@
   width: 60%;
   background-color: #f4f4f2;
   padding: 2em;
+  padding-top: 0em;
   border-radius: 8px;
-  margin-top: 2em;
+  margin-top: 1em;
+}
+
+#backDiv {
+  padding: 0em;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+  
 }
 
 
@@ -17,10 +25,42 @@
   border-radius: 8px;
   padding: 1em;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#pDate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 #titleP {
   color: white;
+}
+
+#addressP {
+  color: #055f5b;
+}
+
+#dateP {
+  color: #055f5b;
+}
+
+#backBtn {
+  background-color: #8cbfbc;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-weight: bold;
+}
+
+#backBtn:hover {
+  background-color: #055f5b;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-weight: bold;
+  padding-left: 8px;
 }
 
 #dataDiv {
@@ -118,6 +158,11 @@
 #description {
   color: white;
   font-size: 1.5em;
+}
+
+#descriptionT {
+  color: #055f5b;
+  font-size: 2em;
 }
 
 
