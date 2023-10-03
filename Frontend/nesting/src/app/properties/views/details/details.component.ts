@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PropertiesService } from '../../service/properties.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -12,7 +13,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private propertiesService: PropertiesService
+    private propertiesService: PropertiesService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -33,5 +35,9 @@ export class DetailsComponent implements OnInit {
   changeMainImage(newImage: string) {
     // Cambiar la imagen principal
     this.property.images[0].img = newImage;
+  }
+
+  goBack() {
+    this.router.navigate(['../']);
   }
 }
