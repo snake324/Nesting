@@ -21,7 +21,11 @@
     "bootstrap": "^5.3.1",
     "bootstrap-icons": "^1.10.5",
     "jquery": "^3.7.1",
+<<<<<<< HEAD
+    "ngx-cookie-service": "^16.0.1",
+=======
     "ng2-search-filter": "^0.5.1",
+>>>>>>> 42efeaee74f4f0920f9ffe190bcb31eb5393c1cb
     "popper.js": "^1.16.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.6.2",
