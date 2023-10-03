@@ -32,6 +32,9 @@ public class Property {
     @Column(name = "postal_code")
     private String postalCode;
 
+    @Column(name = "address", nullable = true)
+    private String address;
+
     @Column(name = "rooms")
     private int rooms;
 
