@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent {
+uploadedImages: any;
+deleteImage: any;
 
 }

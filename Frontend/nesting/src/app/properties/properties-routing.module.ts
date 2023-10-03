@@ -9,6 +9,7 @@ import { PrevisualizationComponent } from './views/previsualization/previsualiza
 import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
 import { ReserveComponent } from './components/reserve/reserve.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { GalleryuploadComponent } from './components/galleryupload/galleryupload.component';
 
 
 const routes: Routes = [
@@ -21,11 +22,18 @@ const routes: Routes = [
   { path: 'rent', component: RentComponent },
   { path: 'property-form', component: PropertyFormComponent },
   { path: 'previsualization', component: PrevisualizationComponent },
-  { path: 'sale_rentform', component: SaleRentformComponent }
-  ];
+  { path: 'sale_rentform', component: SaleRentformComponent },
+  { path: 'galleryupload', component: GalleryuploadComponent },
+  { path: 'home', component: HomeComponent},
+  { path: 'details', component: DetailsComponent },
+  { path: 'buy', component: BuyComponent},
+  { path: 'rent', component: RentComponent},
+  { path: 'property-form', component: PropertyFormComponent},
+  { path: 'sale_rentform', component: SaleRentformComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PropertiesRoutingModule { }
+export class PropertiesRoutingModule {}

@@ -1,10 +1,8 @@
-<div class="container-fluid" id="formDiv">
-
 <h1>Formulario de Venta/Alquiler</h1>
-
-  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
-
-    <div class="dropdown">
+ <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+<div class="row">
+<div class="col-12 col-lg-3">
+  <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="propertyTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         {{ selectedPropertyType }}
       </button>
@@ -16,6 +14,8 @@
         <li><a class="dropdown-item" (click)="selectPropertyType(5)">Solar</a></li>
       </ul>
     </div>
+  </div>
+    <div class="col-12 col-lg-3">
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="transactionTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         {{ selectedTransactionType }}
@@ -26,22 +26,40 @@
         <li><a class="dropdown-item" (click)="selectTransactionType('Alquiler')">Alquiler</a></li>
       </ul>
     </div>
+  </div>
+     <div class="col-12 col-lg-3">
+       <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="cityDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+         {{ getCityValue() }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="cityDropdown">
+          <li>
+            <a class="dropdown-item" (click)="selectCity('')">Selecciona una ciudad</a>
+          </li>
+          <li *ngFor="let city of cities">
+            <a class="dropdown-item" (click)="selectCity(city.name)">{{ city.name }}</a>
+          </li>
+        </ul>
+      </div>
 
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="bathroomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ selectedBathrooms }}
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="bathroomsDropdown">
-        <li><a class="dropdown-item" (click)="selectBathrooms('1')">Baños</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('2')">1</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('3')">2</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('4')">3</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('5')">4</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('6')">5</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('7')">6</a></li>
-      </ul>
     </div>
-
+    <div class="col-12 col-lg-3">
+         <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="postalCodeDropdown" data-bs-toggle="dropdown" [disabled]="!propertyForm.get('city')?.value" aria-expanded="false">
+           {{ getPostalCodeValue() }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="postalCodeDropdown">
+          <li>
+            <a class="dropdown-item" (click)="selectPostalCode('')">Código postal</a>
+          </li>
+          <li *ngFor="let code of filteredPostalCodes">
+            <a class="dropdown-item" (click)="selectPostalCode(code)">{{ code }}</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+    <div class="row">
+    <div class="col-12 col-lg-3">
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="bedroomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         {{ selectedBedrooms }}
@@ -58,94 +76,64 @@
         <li><a class="dropdown-item" (click)="selectBedrooms('9')">8</a></li>
       </ul>
     </div>
-
- 
-
-   
-
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="cityDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-         {{ getCityValue() }}
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="cityDropdown">
-          <li>
-            <a class="dropdown-item" (click)="selectCity('')">Selecciona una ciudad</a>
-          </li>
-          <li *ngFor="let city of cities">
-            <a class="dropdown-item" (click)="selectCity(city.name)">{{ city.name }}</a>
-          </li>
-        </ul>
+  </div>
+<div class="col-12 col-lg-3">
+  <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="bathroomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ selectedBathrooms }}
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="bathroomsDropdown">
+        <li><a class="dropdown-item" (click)="selectBathrooms('1')">Baños</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('2')">1</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('3')">2</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('4')">3</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('5')">4</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('6')">5</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('7')">6</a></li>
+      </ul>
+    </div>
+</div>
+  <div class="col-12 col-lg-3">
+        <input
+          type="text"
+          class="form-control custom-input"
+          placeholder="Importe €"
+          id="importeInput">
       </div>
-
-
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="postalCodeDropdown" data-bs-toggle="dropdown" [disabled]="!propertyForm.get('city')?.value" aria-expanded="false">
-           {{ getPostalCodeValue() }}
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="postalCodeDropdown">
-          <li>
-            <a class="dropdown-item" (click)="selectPostalCode('')">Código postal</a>
-          </li>
-          <li *ngFor="let code of filteredPostalCodes">
-            <a class="dropdown-item" (click)="selectPostalCode(code)">{{ code }}</a>
-          </li>
-        </ul>
+        <div class="col-12 col-lg-3">
+        <input
+          type="text"
+          class="form-control custom-input"
+          placeholder="Superficie"
+          id="superficieInput">
       </div>
-      <button type="submit" class="btn">Enviar</button>
-  </form >
+    </div>
+
+  <div class="col-12 col-lg-3">
+       <input type="text"
+       class="custom-input move-left"
+       placeholder="Dirección">
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" aria-label="Checkbox for following text input">
+<label class="form-check-label" for="invalidCheck2">
+    Publicar dirección
+  </label>
+</div>
+  </div>
   <div class="container-fluid">
-  <div class="form-floating">
-    <textarea
-      class="form-control"
-      placeholder="Superficie"
-      id="surfaceTextarea"
-    ></textarea>
-    <label for="floatingTextarea">Superficie</label>
+  <div class="btupload">
+    <app-file-upload></app-file-upload></div>
+    <div class="d-flex">
+      <app-previewbtn></app-previewbtn>
+    </div>
+    <button type="submit" class="save">Guardar</button>
   </div>
 
-  <div class="form-floating">
-    <textarea
-      class="form-control"
-      placeholder="Importe €"
-      id="priceTextarea"
-    ></textarea>
-    <label for="floatingTextarea">Importe €</label>
-  </div>
-</div>
-
-<div class="form-floating">
-  <textarea
-    class="form-control"
-    placeholder="Dirección(opcional)"
-    id="priceTextarea"
-  ></textarea>
-  <label for="floatingTextarea">Dirección(opcional)</label>
-</div>
-
-
-  <div class="container">
-    <p><label for="description">Descripción:</label></p>
-
-    <textarea
-      id="description"
-      name="description"
-      rows="20"
-      cols="120"
-    ></textarea>
-    <div class="d-flex flex-row-reverse">
-    <app-previewbtn></app-previewbtn>
-    
-    <app-file-upload></app-file-upload>
-  </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
+</form>
+<p>Descripcón</p>
+<textarea id="description" name="description" rows="19" cols="97">
+  Descripción...
+</textarea>
 
 
