@@ -1,0 +1,79 @@
+
+<div id="showDiv" class="container-fluid">
+    <div id="mainDiv" class="container-fluid" *ngIf="property">
+      <div id="backDiv" class="container-fluid">
+        <button id="backBtn" type="button" class="btn" (click)="goBack()">
+          <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/backw.svg"> Atrás
+        </button>
+      </div>
+    
+    <div id="titleDiv" class="container-fluid">
+      <div id="titleText" class="container-fluid">
+      <h2 id="titleP">{{ property.title }}</h2>
+      <h3 id="addressP">{{ property.address }}</h3>
+    </div>
+    <div id="pDate" class="container-fluid">
+      <p id="dateP">Publicado: {{ property.publishDate }}</p>
+    </div>
+    </div>
+    
+    <div id="dataDiv" class="container-fluid">
+      <div id="mainImg" class="container-fluid">
+        <img [src]="'../../../../assets/images/properties' + property.images[0].img" class="img-fluid" alt="Imagen Principal" id="house">
+      </div>
+      <div id="mainData" class="container-fluid">
+        <div id="gridImg" class="container-fluid">
+            <div class="container-fluid" id="descDiv">
+                <label for="exampleFormControlTextarea1" class="form-label" id="label">Escribe tu comentario...</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+        </div>
+        <div id="datosDiv" class="container-fluid">
+          <div id="iconsDiv" class="container-fluid">
+            <div class="container-fluid" id="icondiv">
+              <div class="container-fluid" id="numberDiv"> 
+                <p class="number">3</p>
+              </div>
+              <div class="container-fluid" id="iconifyDiv">
+                <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bed.svg">
+              </div>
+              </div> 
+          
+            <div class="container-fluid" id="icondiv">
+              <div class="container-fluid" id="numberDiv">
+                <p class="number">2</p>
+              </div>
+              <div class="container-fluid" id="iconifyDiv">
+                <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bath.svg">
+              </div>
+              </div> 
+          
+          <div class="container-fluid" id="icondiv2">
+            <div class="container-fluid" id="numberDiv">
+              <p class="number">150 m2</p>
+            </div>
+            <div class="container-fluid" id="iconifyDiv">
+              <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/wall.svg">
+            </div>
+            </div>
+        </div>
+          <div id="priceDiv" class="container-fluid">
+            
+            <p id="priceP">{{ property.price | priceFormat }}€</p>
+              <app-modalcontact #contactmodal></app-modalcontact>
+    <app-contactbtn (openModalEvent)="contactmodal.openModal()" id="contactbtn"></app-contactbtn>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="textDiv" class="container-fluid">
+      <p id="descriptionT">Descripción:</p>
+      <p id="description">{{ property.description }}</p>
+    </div>
+    
+    
+    
+    
+    </div>
+    </div>

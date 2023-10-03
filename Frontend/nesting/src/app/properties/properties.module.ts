@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PropertiesRoutingModule } from './properties-routing.module';
 import { PropertyFormComponent } from './views/property-form/property-form.component';
@@ -25,6 +25,8 @@ import { ReservebtnComponent } from './components/reservebtn/reservebtn.componen
 import { ReservemodalComponent } from './components/reservemodal/reservemodal.component';
 import { PriceFormatPipe } from './pipes/price-format.pipe';
 import { ModifybtnComponent } from './components/modifybtn/modifybtn.component';
+import { ReserveComponent } from './components/reserve/reserve.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 @NgModule({
@@ -51,7 +53,12 @@ import { ModifybtnComponent } from './components/modifybtn/modifybtn.component';
     ReservemodalComponent,
     PriceFormatPipe,
     ModifybtnComponent,
+    ReserveComponent,
+    ContactComponent,
    
+
+
+
 ],
   imports: [
     CommonModule,
