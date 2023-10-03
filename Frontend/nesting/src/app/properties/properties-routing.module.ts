@@ -7,11 +7,14 @@ import { RentComponent } from './views/rent/rent.component';
 import { PropertyFormComponent } from './views/property-form/property-form.component';
 import { PrevisualizationComponent } from './views/previsualization/previsualization.component';
 import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
+import { ReserveComponent } from './components/reserve/reserve.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'details/:id', component: DetailsComponent },
+  { path: 'reserve/:id', component: ReserveComponent },
   { path: 'buy', component: BuyComponent },
   { path: 'rent', component: RentComponent },
   { path: 'property-form', component: PropertyFormComponent },
