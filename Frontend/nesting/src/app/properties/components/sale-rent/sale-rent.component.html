@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 <h1>Formulario de Venta/Alquiler</h1>
 <div class="d-flex flex-row">
-=======
-<div class="container-fluid" id="formDiv">
-
-<h1>Formulario de Venta/Alquiler</h1>
-
->>>>>>> 0afb811168208a6db73ad522edad2845c5a4210f
   <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="col-12 col-lg-3">
@@ -19,12 +12,7 @@
         <option value="4">Solar</option>
       </select>
     </div>
-<<<<<<< HEAD
     <div class="form-floating">
-=======
-    <div class="col-12 col-lg-3">
-      <label for="transactionTypeSelect">Tipo de transacción</label>
->>>>>>> 0afb811168208a6db73ad522edad2845c5a4210f
       <select
         class="form-select"
         id="transactionTypeSelect"
@@ -34,7 +22,6 @@
         <option value="2">Alquiler</option>
       </select>
     </div>
-<<<<<<< HEAD
     <div class="form-floating">
       <select
         class="form-select"
@@ -50,26 +37,6 @@
       </select>
     </div>
     <div class="form-floating">
-=======
-      <div class="col-12 col-lg-3">
-        <label for="citySelect">Seleccionar una ciudad</label>
-        <select
-          class="form-select"
-          id="citySelect"
-          aria-label="Ciudad"
-          formControlName="city"
-          (change)="onCitySelect()">
-          <option value>Selecciona una ciudad</option>
-          <option value="Madrid">Madrid</option>
-          <option value="Barcelona">Barcelona</option>
-          <option value="Valencia">Valencia</option>
-          <option value="Oviedo">Oviedo</option>
-          </select>
-    </div>
-
-    <div class="col-12 col-lg-3">
-      <label for="postalCodeSelect">Código Postal</label>
->>>>>>> 0afb811168208a6db73ad522edad2845c5a4210f
       <select
       class="form-select custom-select-for-cp"
         id="postalCodeSelect"
@@ -136,7 +103,6 @@
       <label for="exampleFormControlTextarea1" class="form-label" id="label">Escribe la descripcion...</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripcion......"></textarea>
     </div>
-<<<<<<< HEAD
 
 
 
@@ -176,7 +142,7 @@
 
       </div>
       <button type="submit" class="btn">Enviar</button>
-  </form >
+  
   <div class="container-fluid">
   <div class="form-floating">
     <textarea
@@ -205,10 +171,6 @@
     ></textarea>
     <div class="d-flex flex-row-reverse">
     <app-previewbtn></app-previewbtn>
-=======
-  <div id="btnDiv" class="container-fluid">
-    <div id="btnAlign" class="btupload">
->>>>>>> 0afb811168208a6db73ad522edad2845c5a4210f
     <app-file-upload></app-file-upload>
     </div>
     <div id="btnAlign" class="d-flex">
@@ -218,8 +180,8 @@
     <button type="submit" class="btn">Enviar</button>
   </div>
   </div>
-    
-</div>
-  </form>
 
 </div>
+
+
+
