@@ -105,30 +105,21 @@ export class SaleRentComponent  {
   onCitySelect() {
     console.log('onCitySelect called');
     const selectedCity = this.propertyForm.get('city')?.value;
-    const city = this.cities.find(c => c.name === selectedCity);
-
-    if (city) {
-      this.filteredPostalCodes = city.postalCodes;
+  
+    if (selectedCity) {
+      const city = this.cities.find(c => c.name === selectedCity);
+      if (city) {
+        this.filteredPostalCodes = city.postalCodes;
+        console.log('Filtered Postal Codes:', this.filteredPostalCodes);
+      } else {
+        this.filteredPostalCodes = [];
+      }
     } else {
       this.filteredPostalCodes = [];
     }
-    
-  // if (selectedCity) {
-  //   const city = this.cities.find(c => c.name === selectedCity);
-  //   if (city) {
-  //     this.filteredPostalCodes = city.postalCodes;
-  //     console.log('Filtered Postal Codes:', this.filteredPostalCodes);
-  //   } else {
-  //     this.filteredPostalCodes = [];
-  //   }
-  // } else {
-  //   this.filteredPostalCodes = [];
-  // }
-
-
+  
     const isDisabled = !selectedCity;
     console.log('Disabled:', isDisabled);
-
   
     this.propertyForm.patchValue({ postalCode: '' });
   }

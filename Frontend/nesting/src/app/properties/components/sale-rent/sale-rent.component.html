@@ -1,19 +1,6 @@
 <h1>Formulario de venta/alquiler</h1>
 <div class="d-flex flex-row">
   <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
-    <!-- <div class="form-floating">
-      <select
-        class="form-select"
-        id="propertyTypeSelect"
-        aria-label="Floating label select example"
-      >
-        <option selected>Tipo propiedad</option>
-        <option value="1">Casa</option>
-        <option value="2">Piso</option>
-        <option value="3">Terreno</option>
-        <option value="4">Solar</option>
-      </select>
-    </div> -->
 
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="propertyTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -27,21 +14,6 @@
         <li><a class="dropdown-item" (click)="selectPropertyType(5)">Solar</a></li>
       </ul>
     </div>
-
-
-
-    <!-- <div class="form-floating">
-      <select
-        class="form-select"
-        id="transactionTypeSelect"
-        aria-label="Floating label select example"
-      >
-        <option selected>Tipo transacción</option>
-        <option value="1">Venta</option>
-        <option value="2">Alquiler</option>
-      </select>
-    </div> -->
-
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="transactionTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         {{ selectedTransactionType }}
@@ -52,21 +24,6 @@
         <li><a class="dropdown-item" (click)="selectTransactionType('Alquiler')">Alquiler</a></li>
       </ul>
     </div>
-
-    <!-- <div class="form-floating">
-      <select
-        class="form-select"
-        id="bathroomsSelect"
-        aria-label="Floating label select example"
-      >
-        <option selected>Baños</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div> -->
 
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="bathroomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -82,25 +39,6 @@
         <li><a class="dropdown-item" (click)="selectBathrooms('7')">6</a></li>
       </ul>
     </div>
-
-    <!-- <div class="form-floating">
-      <select
-        class="form-select"
-        id="bedroomsSelect"
-        aria-label="Floating label select example"
-      >
-        <option selected>Habitaciones</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-      </select>
-    </div> -->
-
 
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="bedroomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
