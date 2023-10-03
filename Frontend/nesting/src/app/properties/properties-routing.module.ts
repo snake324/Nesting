@@ -8,6 +8,7 @@ import { PropertyFormComponent } from './views/property-form/property-form.compo
 import { PrevisualizationComponent } from './views/previsualization/previsualization.component';
 import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
 import { ReserveComponent } from './components/reserve/reserve.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'details/:id', component: DetailsComponent },
   { path: 'reserve/:id', component: ReserveComponent },
+  { path: 'contact/:id', component: ContactComponent },
   { path: 'buy', component: BuyComponent },
   { path: 'rent', component: RentComponent },
   { path: 'property-form', component: PropertyFormComponent },

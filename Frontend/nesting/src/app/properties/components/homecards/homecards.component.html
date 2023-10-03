@@ -406,7 +406,11 @@
                 [queryParamsHandling]="'preserve'" routerLinkActive="active">
                 Reservar
              </button></div> 
-              <div id="contactDiv"><button type="button" class="btn btn-primary">Contactar</button></div> 
+              <div id="contactDiv"><button id="contactBtn" type="button" class="btn btn-primary" 
+                [routerLink]="['/properties/contact', property.id, { images: property.images }]" 
+                [queryParamsHandling]="'preserve'" routerLinkActive="active">
+                Contactar
+             </button></div> 
               
             </div>
           </div>

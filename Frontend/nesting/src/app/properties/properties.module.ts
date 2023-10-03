@@ -26,6 +26,7 @@ import { ReservemodalComponent } from './components/reservemodal/reservemodal.co
 import { PriceFormatPipe } from './pipes/price-format.pipe';
 import { ModifybtnComponent } from './components/modifybtn/modifybtn.component';
 import { ReserveComponent } from './components/reserve/reserve.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { ReserveComponent } from './components/reserve/reserve.component';
     PriceFormatPipe,
     ModifybtnComponent,
     ReserveComponent,
+    ContactComponent,
    
 ],
   imports: [

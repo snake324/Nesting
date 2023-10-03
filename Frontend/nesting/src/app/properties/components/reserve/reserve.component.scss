@@ -1,193 +1,98 @@
-#iconSvg {
-    width: 2em;
-  }
-  
-  #mainDiv {
-    width: 60%;
-    background-color: #f4f4f2;
-    padding: 2em;
-    padding-top: 0em;
-    border-radius: 8px;
-    margin-top: 1em;
-  }
-  
-  #backDiv {
-    padding: 0em;
-    padding-top: 0.5em;
-    padding-bottom: 1em;
-    
-  }
-  
-  
-  
-  #titleDiv {
-    background-color: #8cbfbc;
-    border-radius: 8px;
-    padding: 1em;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  #pDate {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
-  #titleP {
-    color: white;
-  }
-  
-  #addressP {
-    color: #055f5b;
-  }
-  
-  #dateP {
-    color: #055f5b;
-  }
-  
-  #backBtn {
-    background-color: #8cbfbc;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: white;
-    font-weight: bold;
-  }
-  
-  #backBtn:hover {
-    background-color: #055f5b;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: white;
-    font-weight: bold;
-    padding-left: 8px;
-  }
-  
-  #dataDiv {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  #mainImg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #mainData {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  #gridImg {
-    height: 80%;
-  }
-  
-  
-  #iconsDiv {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  #icondiv {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    
-  }
-  
-  #icondiv2 {
-    display: flex;
-    flex-direction: row;
-    flex: 1.5;
-    
-  }
-  
-  .number {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #055f5b;
-  }
-  
-  #priceDiv {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 1em;
-  }
-  
-  #priceP {
-    font-size: 2.5em;
-    font-weight: bold;
-    margin-top: 12px;
-    color: #febb34;
-  }
-  
-  #textDiv {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    background-color: #8cbfbc;
-    border-radius: 8px;
-    padding: 1em;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  }
-  
-  #row {
-    padding-top: 1em;
-    padding-bottom: 1em;
-  }
-  
-  #miniHouse {
-    width: 40%;
-    border-radius: 4px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin: 1em;
-  }
-  
-  #miniHouse:hover {
-    outline: 4px solid #8cbfbc;
-  }
-  
-  #house {
-    border-radius: 8px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  }
-  
-  #description {
-    color: white;
-    font-size: 1.5em;
-  }
-  
-  #descriptionT {
-    color: #055f5b;
-    font-size: 2em;
-  }
-  
-  
-  #showDiv {
-     width: 100%;
-     height: 100vh;
-     
-  }
 
-  #descDiv {
-    // border: 2px solid red;
-    width: 100%;
-    padding: 0px;
+
+.modal-dialog {
+    position: relative;
+    display: table; /* This is important */
+    overflow-y: auto;
+    overflow-x: auto;
+    width: auto;
+    min-width: 800px;
   }
   
-  #exampleFormControlTextarea1 {
-    background-color: #8cbfbc;
-    height: 90% !important;
-    padding: 0em;
-    color: white;
-    box-shadow: #055f5b;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    border-color: #8cbfbc;
+  .modal {
+    margin-top: 50px;
   }
   
-  #label {
-    color: #055f5b;
+  .btn-close {
+    position: absolute;
+    right: 30px;
+  }
+  
+  .header {
+    display: block;
+  
+    color: var(--colores-fuente, #006d7a);
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  #title1 {
+    font-size: 16px;
+  }
+  
+  #title2 {
+    font-size: 20px;
+  }
+  
+  input {
+    border-radius: 5px;
+    border: none;
+    background: #8bbfbd;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+  }
+  
+  .nametxt {
+    margin-left: 60px;
+    height: 43.984px;
+  }
+  
+  .surnametxt {
+    display: inline-block;
+    margin-left: 50px;
+    width: 225px;
+    height: 43.984px;
+  }
+  
+  .cardntxt {
+    display: block;
+    margin-left: 60px;
+    margin-top: 30px;
+    width: 425px;
+    height: 43.984px;
+    flex-shrink: 0;
+  }
+  
+  .cvvtxt {
+    position: absolute;
+    right: 95px;
+    top: 90px;
+    height: 43.984px;
+  }
+  
+  
+  
+  .expiredate-input {
+    margin-top: 30px;
+    margin-left: 60px;
+    height: 43.984px;
+    color: #ffff;
+    
+  }
+  
+  
+  
+  #btn-reservar {
+    background-color: #f3a139;
+    color: #ffff;
+    margin-right: 350px;
+    padding-left: 10px;
+  }
+  
+  
+  ::placeholder {
+    color: #ffff;
+    opacity: 1; 
   }
