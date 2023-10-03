@@ -59,26 +59,11 @@
 
  
 
-    <!-- <div class="form-floating">
-      <select
-        class="form-select"
-        id="citySelect"
-        aria-label="Ciudad"
-        formControlName="city"
-        (change)="onCitySelect()"
-       
-      >
-        <option value>Selecciona una ciudad</option>
-        <option value="Madrid">Madrid</option>
-        <option value="Barcelona">Barcelona</option>
-        <option value="Balencia">Valencia</option>
-        <option value="Oviedo">Oviedo</option>
-        </select>
-      </div> -->
+   
 
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="cityDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-          <!-- {{ propertyForm.get('city')?.value ? propertyForm.get('city')?.value : 'Selecciona una ciudad' }} -->{{ getCityValue() }}
+         {{ getCityValue() }}
         </button>
         <ul class="dropdown-menu" aria-labelledby="cityDropdown">
           <li>
@@ -90,27 +75,10 @@
         </ul>
       </div>
 
-<!-- 
-      <div class="form-floating">
-        <select
-        class="form-select custom-select-for-cp"
-          id="postalCodeSelect"
-          aria-label="Código Postal"
-          formControlName="postalCode"
-          [ngClass]="{'disabled': !propertyForm.get('city')?.value}"
 
-          
-          
-        >
-        <option value=""  [disabled]="!propertyForm.get('city')?.value">Código postal</option>
-        <option *ngFor="let code of filteredPostalCodes" [value]="code">{{ code }}</option>
-        
-        </select>
-        
-      </div> -->
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="postalCodeDropdown" data-bs-toggle="dropdown" [disabled]="!propertyForm.get('city')?.value" aria-expanded="false">
-          <!-- {{ propertyForm.get('postalCode')?.value ? propertyForm.get('postalCode')?.value : 'Código postal' }} --> {{ getPostalCodeValue() }}
+           {{ getPostalCodeValue() }}
         </button>
         <ul class="dropdown-menu" aria-labelledby="postalCodeDropdown">
           <li>
@@ -142,6 +110,16 @@
     <label for="floatingTextarea">Importe €</label>
   </div>
 </div>
+
+<div class="form-floating">
+  <textarea
+    class="form-control"
+    placeholder="Dirección(opcional)"
+    id="priceTextarea"
+  ></textarea>
+  <label for="floatingTextarea">Dirección(opcional)</label>
+</div>
+
 
   <div class="container">
     <p><label for="description">Descripción:</label></p>

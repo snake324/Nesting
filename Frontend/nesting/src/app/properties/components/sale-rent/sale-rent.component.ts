@@ -22,6 +22,7 @@ export class SaleRentComponent  {
   selectedBedrooms: string = 'Habitaciones';
   selectedCity: string='';
   selectedPostalCode: string='';
+  
 
   
   cities = [
@@ -85,6 +86,13 @@ export class SaleRentComponent  {
     this.selectedCity = city;
     this.propertyForm.get('postalCode')?.reset();
     this.filteredPostalCodes = [];  
+    if (city) {
+      const selectedCity = this.cities.find(c => c.name === city);
+      if (selectedCity) {
+        this.filteredPostalCodes = selectedCity.postalCodes;
+      }
+    }
+    this.propertyForm.patchValue({ postalCode: '' });
   }
   
   selectPostalCode(postalCode: string) {
