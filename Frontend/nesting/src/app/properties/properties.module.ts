@@ -23,12 +23,8 @@ import { SaleRentComponent } from './components/sale-rent/sale-rent.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { ReservebtnComponent } from './components/reservebtn/reservebtn.component';
 import { ReservemodalComponent } from './components/reservemodal/reservemodal.component';
-<<<<<<< HEAD
-import { GalleryuploadComponent } from './components/galleryupload/galleryupload.component';
-=======
 import { PriceFormatPipe } from './pipes/price-format.pipe';
 import { ModifybtnComponent } from './components/modifybtn/modifybtn.component';
->>>>>>> 0afb811168208a6db73ad522edad2845c5a4210f
 
 
 @NgModule({
@@ -53,13 +49,9 @@ import { ModifybtnComponent } from './components/modifybtn/modifybtn.component';
     FileUploadComponent,
     ReservebtnComponent,
     ReservemodalComponent,
-<<<<<<< HEAD
-
-=======
     PriceFormatPipe,
     ModifybtnComponent,
-   
->>>>>>> 0afb811168208a6db73ad522edad2845c5a4210f
+
 ],
   imports: [
     CommonModule,
