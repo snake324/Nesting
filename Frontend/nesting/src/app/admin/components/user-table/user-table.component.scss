@@ -5,6 +5,13 @@ input {
     margin-bottom: 3%;
 }
 
+#searchbtn {
+    background-color: #006D7A;
+    max-height: 40px;
+    margin-top: 3%;
+    color: #F5B665;
+   }
+
 #table-admin {
     display: flex;
     justify-content: center;
@@ -12,6 +19,7 @@ input {
 table {
     max-width: 80%;
     border: #006D7A;
+    margin-bottom: 32%;
 }
 
 th {
@@ -32,3 +40,4 @@ td {
 #flexCheckDefault  {
 background-color: #F5B665;
 }
+
