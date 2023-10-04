@@ -16,7 +16,7 @@
   
   <div id="dataDiv" class="container-fluid">
     <div id="mainImg" class="container-fluid">
-      <div id="textDiv" class="container-fluid">
+      <div id="textDiv2" class="container-fluid">
         <p id="descriptionT">{{ property.title }}</p>
         <p id="description">{{ property.address }}</p>
       </div>
@@ -104,8 +104,7 @@
       <div id="priceDiv" class="container-fluid">
         
         <p id="priceP">{{ (property.price * 0.2) | priceFormat }}€</p>
-          <app-modalcontact #contactmodal></app-modalcontact>
-<app-contactbtn (openModalEvent)="contactmodal.openModal()" id="contactbtn"></app-contactbtn>
+        <button id="payBtn" type="button" class="btn btn-primary">Proceder al pago</button>
       </div>
       <div id="textDiv" class="container-fluid">
         <p id="condiciones"> CONDICIONES GENERALES: Al reservar una propiedad, el inquilino acuerda realizar un pago de reserva equivalente al 20% de la renta mensual para asegurar la prioridad en el proceso de alquiler. Este pago se procesará a través de una pasarela de pago segura que admite Visa y MasterCard. La validez de la reserva está condicionada al éxito del pago, y en caso de retirarse antes de la firma del contrato, el monto de reserva no es reembolsable. El importe de la reserva se descontará del primer pago de alquiler al formalizar el contrato. El inquilino será redirigido a la página de pago después de seleccionar la propiedad, donde completará un formulario seguro para ingresar los detalles de la tarjeta de crédito. Una vez completado el pago, se generará un recibo de reserva para el inquilino. Se recomienda consultar con profesionales legales y de pago al implementar este proceso para garantizar el cumplimiento normativo y la seguridad de la información financiera, así como cumplir con las regulaciones de protección de datos aplicables.</p>
