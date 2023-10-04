@@ -80,4 +80,7 @@ public class Property {
     @JsonIgnore
     public UserProfile profilePublished;
 
+    @Column(name = "owner_mail")
+    private String ownermail;
+
 }
