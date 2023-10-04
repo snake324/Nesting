@@ -16,7 +16,7 @@ public class Card {
     private Long id;
 
     @Column(name = "name")
-    private String owner;
+    private String name;
 
     @Column(name = "surname")
     private String surname;
