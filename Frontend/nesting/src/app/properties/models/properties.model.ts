@@ -15,6 +15,7 @@ export interface Properties {
     modificationDate: string;
     images: Image[];
     address: string;
+    ownermail: string;
   }
   
   interface Image {
