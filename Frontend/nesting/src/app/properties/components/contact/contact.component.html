@@ -1,5 +1,100 @@
 
 <div id="showDiv" class="container-fluid">
+  <div id="mainDiv" class="container-fluid" *ngIf="property">
+    <div id="backDiv" class="container-fluid">
+      <button id="backBtn" type="button" class="btn" (click)="goBack()">
+        <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/backw.svg"> Atrás
+      </button>
+    </div>
+  
+  <div id="titleDiv" class="container-fluid">
+    <div id="titleText" class="container-fluid">
+    <h2 id="titleP">Contacta con el propietario</h2>
+    <h4 id="addressP">Muestra tu interes contactando directamente con el propietario.</h4>
+  </div>
+  </div>
+  
+  <div id="dataDiv" class="container-fluid">
+    <div id="mainImg" class="container-fluid">
+      <div id="textDiv2" class="container-fluid">
+        <p id="descriptionT">{{ property.title }}</p>
+        <p id="description">{{ property.address }}</p>
+      </div>
+      <div id="imgDiv" class="container-fluid"> <img [src]="'../../../../assets/images/properties' + property.images[0].img" class="img-fluid" alt="Imagen Principal" id="house"></div>
+      <div id="iconsDiv" class="container-fluid">
+        <div class="container-fluid" id="icondiv">
+          <div class="container-fluid" id="numberDiv"> 
+            <p class="number">3</p>
+          </div>
+          <div class="container-fluid" id="iconifyDiv">
+            <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bed.svg">
+          </div>
+          </div> 
+      
+        <div class="container-fluid" id="icondiv">
+          <div class="container-fluid" id="numberDiv">
+            <p class="number">2</p>
+          </div>
+          <div class="container-fluid" id="iconifyDiv">
+            <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bath.svg">
+          </div>
+          </div> 
+      
+      <div class="container-fluid" id="icondiv2">
+        <div class="container-fluid" id="numberDiv">
+          <p class="number">150 m2</p>
+        </div>
+        <div class="container-fluid" id="iconifyDiv">
+          <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/wall.svg">
+        </div>
+        </div>
+    </div>
+      <div id="priceDiv" class="container-fluid">
+        
+        <p id="priceP">{{ property.price | priceFormat }}€ al Mes</p>
+          
+      </div>
+    </div>
+    <div id="mainData" class="container-fluid">
+      <div id="gridImg" class="container-fluid">
+          <div class="container-fluid" id="descDiv">
+            <div id="payTit" class="container-fluid">
+              <div id="payText" class="container-fluid"> 
+                <h3 id="pagoH">Formulario de contacto</h3>
+              </div>     
+              <div id="cardIcons" class="container-fluid">
+              <div class="container-fluid" id="cardD">
+                
+                
+                  <img class="img-fluid" id="cardIcon" src="../../../../assets/icons/mailg.svg">
+                
+                </div> 
+        </div>
+      </div>
+      <div class="container-fluid" id="descDiv">
+        <label for="exampleFormControlTextarea1" class="form-label" id="label">Escribe tu comentario...</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <div id="priceDiv" class="container-fluid">
+        <p id="owner">Owner</p>
+        <button id="payBtn" type="button" class="btn btn-primary">Enviar</button>
+      </div>
+      <div id="textDiv" class="container-fluid">
+        <p id="condiciones"> CONDICIONES GENERALES: Al reservar una propiedad, el inquilino acuerda realizar un pago de reserva equivalente al 20% de la renta mensual para asegurar la prioridad en el proceso de alquiler. Este pago se procesará a través de una pasarela de pago segura que admite Visa y MasterCard. La validez de la reserva está condicionada al éxito del pago, y en caso de retirarse antes de la firma del contrato, el monto de reserva no es reembolsable. El importe de la reserva se descontará del primer pago de alquiler al formalizar el contrato. El inquilino será redirigido a la página de pago después de seleccionar la propiedad, donde completará un formulario seguro para ingresar los detalles de la tarjeta de crédito. Una vez completado el pago, se generará un recibo de reserva para el inquilino. Se recomienda consultar con profesionales legales y de pago al implementar este proceso para garantizar el cumplimiento normativo y la seguridad de la información financiera, así como cumplir con las regulaciones de protección de datos aplicables.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  
+  
+  
+  
+  </div>
+  </div>
+  
+  <!-- 
+<div id="showDiv" class="container-fluid">
     <div id="mainDiv" class="container-fluid" *ngIf="property">
       <div id="backDiv" class="container-fluid">
         <button id="backBtn" type="button" class="btn" (click)="goBack()">
@@ -76,4 +171,4 @@
     
     
     </div>
-    </div>
+    </div> -->
