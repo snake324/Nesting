@@ -12,6 +12,7 @@ import { RentcardsComponent } from './properties/components/rentcards/rentcards.
 import { HeaderComponent } from './global/header/header.component';
 import { FooterComponent } from './global/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+// import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    // FilterPipe
     
   ],
   imports: [
