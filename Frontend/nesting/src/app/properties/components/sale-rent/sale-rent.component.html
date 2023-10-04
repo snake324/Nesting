@@ -1,127 +1,139 @@
-<div class="container-fluid" id="formDiv">
-
 <h1>Formulario de Venta/Alquiler</h1>
-
-  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
-  <div class="row">
-    <div class="col-12 col-lg-3">
-      <label for="propertyTypeSelect">Tipo de propiedad</label>
-      <select class="form-select" id="propertyTypeSelect" aria-label="Floating label select example">
-        <option selected>Tipo propiedad</option>
-        <option value="1">Casa</option>
-        <option value="2">Piso</option>
-        <option value="3">Terreno</option>
-        <option value="4">Solar</option>
-      </select>
-    </div>
-    <div class="col-12 col-lg-3">
-      <label for="transactionTypeSelect">Tipo de transacción</label>
-      <select
-        class="form-select"
-        id="transactionTypeSelect"
-        aria-label="Floating label select example">
-        <option selected>Tipo transacción</option>
-        <option value="1">Venta</option>
-        <option value="2">Alquiler</option>
-      </select>
-    </div>
-      <div class="col-12 col-lg-3">
-        <label for="citySelect">Seleccionar una ciudad</label>
-        <select
-          class="form-select"
-          id="citySelect"
-          aria-label="Ciudad"
-          formControlName="city"
-          (change)="onCitySelect()">
-          <option value>Selecciona una ciudad</option>
-          <option value="Madrid">Madrid</option>
-          <option value="Barcelona">Barcelona</option>
-          <option value="Valencia">Valencia</option>
-          <option value="Oviedo">Oviedo</option>
-          </select>
-    </div>
-
-    <div class="col-12 col-lg-3">
-      <label for="postalCodeSelect">Código Postal</label>
-      <select
-      class="form-select custom-select-for-cp"
-        id="postalCodeSelect"
-        aria-label="Código Postal"
-        formControlName="postalCode"
-        [ngClass]="{'disabled': !propertyForm.get('city')?.value}">
-      <option value=""  [disabled]="!propertyForm.get('city')?.value">Código postal</option>
-      <option *ngFor="let code of filteredPostalCodes" [value]="code">{{ code }}</option>
-      </select>
+ <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+<div class="row">
+<div class="col-12 col-lg-3">
+  <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="propertyTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ selectedPropertyType }}
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="propertyTypeDropdown">
+        <li><a class="dropdown-item" (click)="selectPropertyType(1)">Tipo propiedad</a></li>
+        <li><a class="dropdown-item" (click)="selectPropertyType(2)">Casa</a></li>
+        <li><a class="dropdown-item" (click)="selectPropertyType(3)">Piso</a></li>
+        <li><a class="dropdown-item" (click)="selectPropertyType(4)">Terreno</a></li>
+        <li><a class="dropdown-item" (click)="selectPropertyType(5)">Solar</a></li>
+      </ul>
     </div>
   </div>
+    <div class="col-12 col-lg-3">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="transactionTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ selectedTransactionType }}
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="transactionTypeDropdown">
+        <li><a class="dropdown-item" (click)="selectTransactionType('Tipo transacción')">Tipo transacción</a></li>
+        <li><a class="dropdown-item" (click)="selectTransactionType('Venta')">Venta</a></li>
+        <li><a class="dropdown-item" (click)="selectTransactionType('Alquiler')">Alquiler</a></li>
+      </ul>
+    </div>
+  </div>
+     <div class="col-12 col-lg-3">
+       <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="cityDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+         {{ getCityValue() }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="cityDropdown">
+          <li>
+            <a class="dropdown-item" (click)="selectCity('')">Selecciona una ciudad</a>
+          </li>
+          <li *ngFor="let city of cities">
+            <a class="dropdown-item" (click)="selectCity(city.name)">{{ city.name }}</a>
+          </li>
+        </ul>
+      </div>
 
+    </div>
+    <div class="col-12 col-lg-3">
+         <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="postalCodeDropdown" data-bs-toggle="dropdown" [disabled]="!propertyForm.get('city')?.value" aria-expanded="false">
+           {{ getPostalCodeValue() }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="postalCodeDropdown">
+          <li>
+            <a class="dropdown-item" (click)="selectPostalCode('')">Código postal</a>
+          </li>
+          <li *ngFor="let code of filteredPostalCodes">
+            <a class="dropdown-item" (click)="selectPostalCode(code)">{{ code }}</a>
+          </li>
+        </ul>
+      </div>
+  </div>
     <div class="row">
-      <div class="col-12 col-lg-3">
-        <label for="bedroomsSelect">Habitaciones</label>
-        <select
-        class="form-select"
-        id="bedroomsSelect"
-        aria-label="Floating label select example"
-      >
-        <option selected>Habitaciones</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        </select>
-      </div>
-
-        <div class="col-12 col-lg-3">
-          <label for="bathroomsSelect">Baños</label>
-          <select class="form-select" id="bathroomsSelect" aria-label="Baños">
-            <option selected>Baños</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-      </div>
-      <div class="col-12 col-lg-3">
-        <label for="superficieInput">Superficie</label>
-        <input
-          type="text"
-          class="form-control custom-input"
-          placeholder="Superficie"
-          id="superficieInput">
-      </div>
-
-      <div class="col-12 col-lg-3">
-        <label for="importeInput">Importe €</label>
+    <div class="col-12 col-lg-3">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="bedroomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ selectedBedrooms }}
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="bedroomsDropdown">
+        <li><a class="dropdown-item" (click)="selectBedrooms('0')">Habitaciones</a></li>
+        <li><a class="dropdown-item" (click)="selectBedrooms('1')">1</a></li>
+        <li><a class="dropdown-item" (click)="selectBedrooms('2')">2</a></li>
+        <li><a class="dropdown-item" (click)="selectBedrooms('3')">3</a></li>
+        <li><a class="dropdown-item" (click)="selectBedrooms('4')">4</a></li>
+        <li><a class="dropdown-item" (click)="selectBedrooms('5')">5</a></li>
+        <li><a class="dropdown-item" (click)="selectBedrooms('6')">6</a></li>
+        <li><a class="dropdown-item" (click)="selectBedrooms('7')">7</a></li>
+        <li><a class="dropdown-item" (click)="selectBedrooms('8')">8</a></li>
+      </ul>
+    </div>
+  </div>
+<div class="col-12 col-lg-3">
+  <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="bathroomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ selectedBathrooms }}
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="bathroomsDropdown">
+        <li><a class="dropdown-item" (click)="selectBathrooms('0')">Baños</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('1')">1</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('2')">2</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('3')">3</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('4')">4</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('5')">5</a></li>
+        <li><a class="dropdown-item" (click)="selectBathrooms('6')">6</a></li>
+      </ul>
+    </div>
+</div>
+  <div class="col-12 col-lg-3">
         <input
           type="text"
           class="form-control custom-input"
           placeholder="Importe €"
           id="importeInput">
       </div>
-   </div>
-   <div class="container-fluid" id="endDiv">
-    <div class="container-fluid" id="descDiv">
-      <label for="exampleFormControlTextarea1" class="form-label" id="label">Escribe la descripcion...</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripcion......"></textarea>
+        <div class="col-12 col-lg-3">
+        <input
+          type="text"
+          class="form-control custom-input"
+          placeholder="Superficie"
+          id="superficieInput">
+      </div>
     </div>
-  <div id="btnDiv" class="container-fluid">
-    <div id="btnAlign" class="btupload">
-    <app-file-upload></app-file-upload>
-    </div>
-    <div id="btnAlign" class="d-flex">
+
+  <div class="col-12 col-lg-3">
+       <input type="text"
+       class="custom-input move-left"
+       placeholder="Dirección">
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" aria-label="Checkbox for following text input">
+<label class="form-check-label" for="invalidCheck2">
+    Publicar dirección
+  </label>
+</div>
+  </div>
+  <div class="container-fluid">
+  <div class="btupload">
+    <app-file-upload></app-file-upload></div>
+    <div class="d-flex">
       <app-previewbtn></app-previewbtn>
     </div>
-    <div id="btnAlign" class="btupload">
-    <button type="submit" class="btn">Enviar</button>
+    <button type="submit" class="save">Guardar</button>
   </div>
-  </div>
-    
-</div>
-  </form>
 
-</div>
+</form>
+<p>Descripcón</p>
+<textarea id="description" name="description" rows="19" cols="97">
+  Descripción...
+</textarea>
+
+

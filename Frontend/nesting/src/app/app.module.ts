@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { FilterPipe } from './pipes/filter.pipe';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
         
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

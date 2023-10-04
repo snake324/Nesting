@@ -4,11 +4,11 @@ import { PropertiesService } from '../../service/properties.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  selector: 'app-reserve',
+  templateUrl: './reserve.component.html',
+  styleUrls: ['./reserve.component.scss']
 })
-export class DetailsComponent implements OnInit {
+export class ReserveComponent implements OnInit {
   property: any;
 
   constructor(
@@ -30,11 +30,6 @@ export class DetailsComponent implements OnInit {
         }
       );
     });
-  }
-
-  changeMainImage(newImage: string) {
-    // Cambiar la imagen principal
-    this.property.images[0].img = newImage;
   }
 
   goBack() {

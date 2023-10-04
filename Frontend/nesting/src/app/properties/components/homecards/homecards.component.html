@@ -401,9 +401,16 @@
               </p>
             </div>
             <div id="btndiv" class="container-fluid">
-              <div id="reserveDiv" *ngIf="property.type === 'Alquiler'"><app-reservebtn></app-reservebtn>
-                <app-reservemodal></app-reservemodal></div> 
-              <div id="contactDiv"><app-contactbtn></app-contactbtn></div> 
+              <div id="reserveDiv" *ngIf="property.type === 'Alquiler'"><button id="reserveBtn" type="button" class="btn btn-primary" 
+                [routerLink]="['/properties/reserve', property.id, { images: property.images }]" 
+                [queryParamsHandling]="'preserve'" routerLinkActive="active">
+                Reservar
+             </button></div> 
+              <div id="contactDiv"><button id="contactBtn" type="button" class="btn btn-primary" 
+                [routerLink]="['/properties/contact', property.id, { images: property.images }]" 
+                [queryParamsHandling]="'preserve'" routerLinkActive="active">
+                Contactar
+             </button></div> 
               
             </div>
           </div>

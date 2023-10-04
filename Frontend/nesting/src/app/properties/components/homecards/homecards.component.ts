@@ -269,4 +269,12 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   
     return uniquePostalCodes.sort((a, b) => (a > b ? 1 : -1));
   }
+
+  navigateToReserve() {
+    const firstFilteredProperty = this.filteredPropertyData[0];
+    if (firstFilteredProperty) {
+      const propertyId = firstFilteredProperty.id;
+      this.router.navigate(['/properties/reserve', propertyId]);
+    }
+  }
 }
