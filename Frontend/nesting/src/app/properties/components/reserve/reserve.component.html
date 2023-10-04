@@ -16,6 +16,10 @@
   
   <div id="dataDiv" class="container-fluid">
     <div id="mainImg" class="container-fluid">
+      <div id="textDiv" class="container-fluid">
+        <p id="descriptionT">{{ property.title }}</p>
+        <p id="description">{{ property.address }}</p>
+      </div>
       <div id="imgDiv" class="container-fluid"> <img [src]="'../../../../assets/images/properties' + property.images[0].img" class="img-fluid" alt="Imagen Principal" id="house"></div>
       <div id="iconsDiv" class="container-fluid">
         <div class="container-fluid" id="icondiv">
@@ -47,28 +51,69 @@
     </div>
       <div id="priceDiv" class="container-fluid">
         
-        <p id="priceP">{{ property.price | priceFormat }}€</p>
-          <app-modalcontact #contactmodal></app-modalcontact>
-<app-contactbtn (openModalEvent)="contactmodal.openModal()" id="contactbtn"></app-contactbtn>
+        <p id="priceP">{{ property.price | priceFormat }}€ al Mes</p>
+          
       </div>
     </div>
     <div id="mainData" class="container-fluid">
       <div id="gridImg" class="container-fluid">
           <div class="container-fluid" id="descDiv">
-              <label for="exampleFormControlTextarea1" class="form-label" id="label">Escribe tu comentario...</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <div id="payTit" class="container-fluid">
+              <div id="payText" class="container-fluid"> 
+                <h3 id="pagoH">Pago con tarjeta</h3>
+              </div>     
+              <div id="cardIcons" class="container-fluid">
+              <div class="container-fluid" id="cardD">
+                
+                
+                  <img class="img-fluid" id="cardIcon" src="../../../../assets/icons/visag.svg">
+                
+                </div> 
+            
+              <div class="container-fluid" id="cardD">
+                
+               
+                
+                  <img class="img-fluid" id="cardIcon" src="../../../../assets/icons/masterg.svg">
+                
+                </div> 
+            
+            <div class="container-fluid" id="cardD">
+             
+                <img class="img-fluid" id="cardIcon" src="../../../../assets/icons/amerg.svg">
+              
+              </div>
+        </div>
+      </div>
+        <div id="datosDiv" class="container-fluid">
+            <div class="input-group mb-3">
+              <span id="cardSpan" class="input-group-text" >Nombre y apellidos</span>
+              <input id="cardInp" type="text" class="form-control" placeholder="Manuel Garcia.." aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <span id="cardSpan" class="input-group-text">Numero de tarjeta</span>
+              <input id="cardInp" type="text" class="form-control" placeholder="**** - **** - **** - ****" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input id="cardInp" type="text" class="form-control" placeholder="Mes" aria-label="Username">
+              <span id="cardSpan" class="input-group-text">Caducidad</span>
+              <input id="cardInp" type="text" class="form-control" placeholder="Ano" aria-label="Server">
+            </div>  
             </div>
       </div>
-      <div id="datosDiv" class="container-fluid">
-      
+      <div id="priceDiv" class="container-fluid">
+        
+        <p id="priceP">{{ (property.price * 0.2) | priceFormat }}€</p>
+          <app-modalcontact #contactmodal></app-modalcontact>
+<app-contactbtn (openModalEvent)="contactmodal.openModal()" id="contactbtn"></app-contactbtn>
+      </div>
+      <div id="textDiv" class="container-fluid">
+        <p id="condiciones"> CONDICIONES GENERALES: Al reservar una propiedad, el inquilino acuerda realizar un pago de reserva equivalente al 20% de la renta mensual para asegurar la prioridad en el proceso de alquiler. Este pago se procesará a través de una pasarela de pago segura que admite Visa y MasterCard. La validez de la reserva está condicionada al éxito del pago, y en caso de retirarse antes de la firma del contrato, el monto de reserva no es reembolsable. El importe de la reserva se descontará del primer pago de alquiler al formalizar el contrato. El inquilino será redirigido a la página de pago después de seleccionar la propiedad, donde completará un formulario seguro para ingresar los detalles de la tarjeta de crédito. Una vez completado el pago, se generará un recibo de reserva para el inquilino. Se recomienda consultar con profesionales legales y de pago al implementar este proceso para garantizar el cumplimiento normativo y la seguridad de la información financiera, así como cumplir con las regulaciones de protección de datos aplicables.</p>
+      </div>
       </div>
     </div>
   </div>
-  
-  <div id="textDiv" class="container-fluid">
-    <p id="descriptionT">Descripción:</p>
-    <p id="description">{{ property.description }}</p>
-  </div>
+
   
   
   
