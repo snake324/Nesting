@@ -27,6 +27,10 @@ import { PriceFormatPipe } from './pipes/price-format.pipe';
 import { ModifybtnComponent } from './components/modifybtn/modifybtn.component';
 import { ReserveComponent } from './components/reserve/reserve.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { GalleryuploadComponent } from './components/galleryupload/galleryupload.component';
+import { PublishBtnComponent } from './components/publish-btn/publish-btn.component';
+
+
 
 
 @NgModule({
@@ -55,8 +59,7 @@ import { ContactComponent } from './components/contact/contact.component';
     ModifybtnComponent,
     ReserveComponent,
     ContactComponent,
-   
-
+    PublishBtnComponent,
 
 
 ],
