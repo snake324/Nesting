@@ -9,7 +9,7 @@ import { CardService } from '../../service/card.service';
 export class AddCardModalComponent {
   name: string = '';
   surname: string = '';
-  cardnumber: string = '';
+  number: string = '';
   expiremonth: string = '';
   expireyear: string = '';
 
@@ -19,7 +19,7 @@ export class AddCardModalComponent {
     const cardData = {
       name: this.name,
       surname: this.surname,
-      cardnumber: this.cardnumber,
+      number: this.number,
       expiremonth: this.expiremonth,
       expireyear: this.expireyear
     };

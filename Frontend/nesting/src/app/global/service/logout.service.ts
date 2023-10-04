@@ -11,7 +11,7 @@ export class LogoutService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public logout(): Observable<any> {
-    return this.httpClient.post<any>(`${this.baseUrl}/logout`, null);
+  logout(): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl}/logout`, {withCredentials: true});
   }  
 }

@@ -1,6 +1,7 @@
 export interface Card {
     id: number,
-    owner: string,
+    name: string,
+    surname: string,
     number: string,
     expiremonth: string,
     expireyear: string

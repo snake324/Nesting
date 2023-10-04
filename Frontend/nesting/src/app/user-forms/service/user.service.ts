@@ -29,7 +29,6 @@ export class UserService {
   public loginUser(mail: string, password: string, headers: HttpHeaders | null = null): Observable<any> {
     this.isAuthenticated = true;
 
-    // Si se proporcionan encabezados, úsalos; de lo contrario, no los incluyas en la solicitud
     if (headers) {
       return this.httpClient.post<any>(`${this.baseUrl}/login`, {}, { headers, withCredentials: true });
     } else {

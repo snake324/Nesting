@@ -21,16 +21,17 @@ export class CardAddedComponent implements OnInit {
   }
   
   formatCardNumber(cardNumber: string): string {
-    // Elimina espacios en blanco y caracteres no numéricos
+    if (!cardNumber) {
+      return '';
+    }
+
     const cleanedNumber = cardNumber.replace(/\D/g, '');
     
-    // Divide el número en grupos de 4 cifras
     const parts = [];
     for (let i = 0; i < cleanedNumber.length; i += 4) {
       parts.push(cleanedNumber.substring(i, i + 4));
     }
     
-    // Une los grupos con espacios
     return parts.join(' ');
   }
   
