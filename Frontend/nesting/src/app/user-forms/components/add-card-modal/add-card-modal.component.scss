@@ -1,0 +1,38 @@
+.btn-close {
+  position: absolute;
+  right: 1vh;
+}
+
+.header {
+  color: var(--colores-fuente, #006d7a);
+}
+
+#title1 {
+  font-size: x-large;
+}
+
+input {
+  border: none;
+  background: #8bbfbd;
+  box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+  color: #ffff;
+  font-weight: bold;
+}
+
+#btn-addcard {
+  background-color: #f3a139;
+  color: #ffff;
+  box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+  border: none;
+}
+
+::placeholder {
+  color: #ffff;
+  font-weight: bold;
+  opacity: 1; 
+}
+
+.form-control:focus {
+  border-color: #8cbfbc !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #8cbfbc !important;
+}

@@ -1,0 +1,43 @@
+u
+<div id="searchDiv" class="container-fluid">
+  <form id="form" (submit)="searchClients()">
+    <div id="inputnavdiv" class="input-group mb-3"><input type="text" class="form-control" placeholder="Search by word"
+        [(ngModel)]="searchTerm" name="searchTerm" /><button id="searchbtn" class="btn btn-outline-secondary"
+        type="submit">Search</button></div>
+  </form>
+</div>
+<div id="table-admin" class="table-responsive table-striped">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Email</th>
+        <th scope="col">Dirección</th>
+        <th>Habilitado/Deshabilitado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ user.userProfile.name }}</td>
+        <td>{{ user.userProfile.lastname }}</td>
+        <td>{{ user.mail }}</td>
+        <td>{{ user.userProfile.address }}</td>
+        <td>
+          <div class="form-check">
+            <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [checked]="user.status"
+                  (change)="toggleUserStatus(user)"
+                  id="flexCheckDefault{{ i }}"
+                />
+                <label class="form-check-label" for="flexCheckDefault{{ i }}"></label>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

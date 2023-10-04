@@ -1,0 +1,45 @@
+.card{
+    background-color: rgba(208, 234, 233, 0.5);
+    color: #F5B665;
+    padding: 20%;
+    margin-bottom: 26%;
+    box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+    border: none ;
+
+    .card-header, .card-footer {
+        background: transparent;
+    }
+
+    .card-body .form-group {
+        margin-bottom: 15px;
+    }
+
+    #login-btn {
+        background-color: #F5B665; 
+        border: none;
+        box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+    }
+    
+    
+    .form-control{
+        background-color: #8BBFBD;
+        box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+        border: none ;
+    }
+
+    .form-control::placeholder {
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .card-footer a {
+        color: #8BBFBD; 
+    }
+    
+
+}
+
+#mainDiv {
+    min-height: 100vh; 
+    min-width: 100vh;
+}

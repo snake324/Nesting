@@ -1,0 +1,49 @@
+#header {
+  display: flex;
+  background-color: #8bbfbd;
+}
+
+.navbar-brand {
+  height: 6vh;
+  display: flex;
+}
+
+
+.navbar-login {
+  .bi {
+    color: #006d7a;
+  }
+}
+
+#navbarFlex {
+
+
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+#mainNav {
+  display: flex;
+
+  width: 100%;
+}
+
+#svg-login {
+  margin-right: 2em;
+  margin-left: 8em;
+}
+
+#puBtn {
+  background: none;
+  font-size: 1.5em;
+  border: 2px solid #f4f4f2;
+}
+
+#puBtn:hover {
+  background-color: #006d7a;
+  color: white;
+  font-size: 1.5em;
+  border: 2px solid #006d7a;
+  margin-bottom: 4px;
+}

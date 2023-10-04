@@ -1,0 +1,325 @@
+#iconSvg {
+  width: 2em;
+}
+
+#mainDiv {
+  width: 60%;
+  background-color: #f4f4f2;
+  padding: 2em;
+  padding-top: 0em;
+  border-radius: 8px;
+  margin-top: 1em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+#backDiv {
+  padding: 0em;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+
+#gridImg {
+  margin-top: 1em;
+}
+
+
+#titleDiv {
+  background-color: #8cbfbc;
+  border-radius: 8px;
+  padding: 1em;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#pDate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#titleP {
+  color: white;
+}
+
+#addressP {
+  color: #055f5b;
+}
+
+#dateP {
+  color: #055f5b;
+}
+
+#backBtn {
+  background-color: #8cbfbc;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-weight: bold;
+}
+
+#backBtn:hover {
+  background-color: #055f5b;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-weight: bold;
+  padding-left: 8px;
+}
+
+#dataDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+#payBtn {
+  background-color: #febb34;
+  border-color: #febb34;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 1.5em;
+}
+
+#payBtn:hover {
+  background-color: #b98825;
+  border-color: #b98825;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 1.5em;
+  margin-bottom: 4px;
+}
+
+#mainImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 0.2em;
+  margin-top: 1em;
+  border: 4px solid #8cbfbc;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#imgDiv {
+  width: 24em;
+}
+
+#mainData {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+#iconsDiv {
+  display: flex;
+  flex-direction: row;
+  padding-top: 1em;
+}
+
+#icondiv {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  
+}
+
+#icondiv2 {
+  display: flex;
+  flex-direction: row;
+  flex: 1.5;
+  
+}
+
+.number {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #055f5b;
+}
+
+#priceDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+  
+}
+
+#sendDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  margin: 0px;
+}
+
+#ownerD {
+}
+
+#ownerT {
+  color: #055f5b;
+}
+
+#owner {
+  color: #055f5b;
+}
+
+#payD {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#priceP {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-top: 12px;
+  color: #febb34;
+}
+
+#textDiv {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: #8cbfbc;
+  border-radius: 8px;
+  padding: 1em;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#row {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+#miniHouse {
+  width: 40%;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin: 1em;
+}
+
+#miniHouse:hover {
+  outline: 4px solid #8cbfbc;
+}
+
+#house {
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#description {
+  color: #8cbfbc;
+  font-size: 1.5em;
+}
+
+#descriptionT {
+  color: #055f5b;
+  font-size: 2em;
+}
+
+
+#showDiv {
+   width: 100%;
+   height: 100vh;
+   
+   
+}
+
+#descDiv {
+  
+  width: 100%;
+  padding: 0px;
+  height: 60%;
+}
+
+#areaDiv {
+ 
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+#exampleFormControlTextarea1 {
+  background-color: #8cbfbc;
+  height: 20em !important;
+  padding: 0em;
+  color: white;
+  box-shadow: #055f5b;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  border-color: #8cbfbc;
+}
+
+#label {
+  color: #055f5b;
+}
+
+
+#cardSpan {
+  background-color: #8cbfbc;
+  color: white;
+  border-color: #8cbfbc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  border: 4px;
+}
+
+#cardInp {
+  color: #055f5b;
+  border-color: #8cbfbc;
+  border: 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+#cardIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+#cardD {
+  width: 4em;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 0.2em;
+}
+
+#payTit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  
+
+}
+
+#payText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pagoH {
+  color: #055f5b;
+}
+
+#condiciones {
+  color: white;
+  font-size: 0.8em;
+}
+
+#owner {
+  font-size: 1.5em;
+}
+
+
+
+
+.form-control:focus {
+  border-color: #febb34 !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #febb34 !important;
+}

@@ -1,0 +1,422 @@
+<!-- filterBox para la vista principal -->
+<section class="container-fluid" *ngIf="showImgHomeDiv" id="imgHomeDiv">
+  <img id="imgHome" class="img-fluid" src="assets/img/Slider.png" alt="vista de edificio y cielo">
+</section>
+<div id="filterBox" class="container" [ngStyle]="showImgHomeDiv ? filterBoxStylesVisible : filterBoxStylesHidden">
+  <div id="filterSection" class="container">
+    <div
+      class="btn-group"
+      role="group"
+      aria-label="Basic radio toggle button group"
+    >
+    <input
+    type="radio"
+    class="btn-check"
+    name="propertyType"
+    id="all"
+    autocomplete="off"
+    [(ngModel)]="filters.propertyType"
+    value="Todos"
+    (ngModelChange)="applyFilters()"
+  />
+  <label id="label" class="btn btn-outline-primary" for="all">Todos</label>
+  
+  <input
+    type="radio"
+    class="btn-check"
+    name="propertyType"
+    id="buy"
+    autocomplete="off"
+    [(ngModel)]="filters.propertyType"
+    value="Venta"
+    (ngModelChange)="applyFilters()"
+  />
+  <label id="label" class="btn btn-outline-primary" for="buy">Compra</label>
+  
+  <input
+    type="radio"
+    class="btn-check"
+    name="propertyType"
+    id="rent"
+    autocomplete="off"
+    [(ngModel)]="filters.propertyType"
+    value="Alquiler"
+    (ngModelChange)="applyFilters()"
+  />
+  <label id="label" class="btn btn-outline-primary" for="rent"
+    >Alquiler</label
+  >
+    </div>
+  </div>
+  <div class="container-fluid" id="secFilters">
+  <div id="dropfilterDiv" class="container">
+    <button
+      id="dropbutton"
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      {{ selectedCity }}
+    </button>
+    <ul id="dropUl" class="dropdown-menu">
+      <li id="dropLi" *ngFor="let city of cities">
+        <span
+          id="listitem"
+          class="dropdown-item"
+          (click)="updateCityFilter(city)"
+          >{{ city }}</span
+        >
+      </li>
+    </ul>
+
+    <button
+  id="dropbutton"
+  class="btn btn-secondary dropdown-toggle"
+  type="button"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
+>
+  {{ selectedPostalCode }}
+</button>
+<ul id="dropUl" class="dropdown-menu">
+  <li id="dropLi" *ngFor="let postalCode of getPostalCodesForCity(selectedCity)">
+    <span
+      id="listitem"
+      class="dropdown-item"
+      (click)="updatePostalCodeFilter(postalCode)"
+      >{{ postalCode }}</span
+    >
+  </li>
+</ul>
+
+    <button
+    id="dropbutton"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedHouseType }}
+  </button>
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi" *ngFor="let houseType of houseTypes">
+      <span
+        id="listitem"
+        class="dropdown-item"
+        (click)="updateHouseTypeFilter(houseType)"
+        >{{ houseType }}</span
+      >
+    </li>
+  </ul>
+
+  <button
+  id="dropbutton"
+  class="btn btn-secondary dropdown-toggle"
+  type="button"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
+>
+  {{ selectedPrice | priceFormat }}
+</button>
+<ul id="dropUl" class="dropdown-menu">
+  <li id="dropLi">
+    <span
+      id="listitem"
+      class="dropdown-item"
+      (click)="updatePriceFilter(0, 500)"
+    >0 - 500€</span>
+  </li>
+  <li id="dropLi">
+    <span
+      id="listitem"
+      class="dropdown-item"
+      *ngFor="let i of getPriceRange(500, 2000, 500)"
+      (click)="updatePriceFilter(i, i + 500)"
+    >{{ i | priceFormat }} - {{ (i + 500) | priceFormat }}€</span>
+  </li>
+  <li id="dropLi">
+    <span
+      id="listitem"
+      class="dropdown-item"
+      *ngFor="let i of getPriceRange(0, 500000, 50000)"
+      (click)="updatePriceFilter(i, i + 50000)"
+    >{{ i | priceFormat }} - {{ (i + 50000) | priceFormat }}€</span>
+  </li>
+  <li id="dropLi">
+    <span
+      id="listitem"
+      class="dropdown-item"
+      (click)="updatePriceFilter(500000, 10000000)"
+    >&gt; 500000€</span>
+  </li>
+</ul>
+
+  <button
+    id="dropbutton"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedSize }}
+  </button>
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi">
+      <span
+        id="listitem"
+        class="dropdown-item"
+        (click)="updateSizeFilter(0, 50)"
+        >0 - 50 m²</span
+      >
+    </li>
+    <li id="dropLi">
+      <span
+        id="listitem"
+        class="dropdown-item"
+        (click)="updateSizeFilter(50, 100)"
+        >50 - 100 m²</span
+      >
+    </li>
+    <li id="dropLi">
+      <span
+        id="listitem"
+        class="dropdown-item"
+        (click)="updateSizeFilter(100, 150)"
+        >100 - 150 m²</span
+      >
+    </li>
+  </ul>
+
+  <button
+    id="dropbutton"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedRooms }}
+  </button>
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateRoomsFilter(1)"
+        >1 habitación</span
+      >
+    </li>
+    <li id="dropLi2">
+      <span id="listitem2" class="dropdown-item" (click)="updateRoomsFilter(2)"
+        >2 habitaciones</span
+      >
+    </li>
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateRoomsFilter(3)"
+        >3 habitaciones</span
+      >
+    </li>
+  </ul>
+
+  <button
+    id="dropbutton"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ selectedBaths }}
+  </button>
+  <ul id="dropUl" class="dropdown-menu">
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateBathsFilter(1)"
+        >1 baño</span
+      >
+    </li>
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateBathsFilter(2)"
+        >2 baños</span
+      >
+    </li>
+    <li id="dropLi">
+      <span id="listitem" class="dropdown-item" (click)="updateBathsFilter(3)"
+        >3 baños</span
+      >
+    </li>
+  </ul>
+</div>
+
+<div class="container-fluid" id="secBtn">
+  <button
+  id="applyFiltersAndShowImageButton"
+  class="btn btn-primary"
+  (click)="applyFiltersAndShowImage()"
+>
+<img class="img-fluid" id="iconSvg" src="../../../../assets/icons/enter.svg">
+  Aplicar
+</button>
+
+    <button
+  id="resetFiltersButton"
+  class="btn btn-secondary"
+  (click)="resetFilters()"
+><img class="img-fluid" id="iconSvg" src="../../../../assets/icons/refresh.svg">
+  Restablecer
+</button>
+
+</div>
+  </div>
+</div>
+
+
+
+<div id="showDiv" class="container-fluid">
+  <div
+    id="card-h"
+    class="card mb-3"
+    style="max-width: 60%"
+    *ngFor="let property of filteredPropertyData; let i = index"
+  >
+    <div id="mainDiv" class="row g-0">
+      <div class="col-md-4" style="max-width: 20%">
+        <div [id]="'carouselExampleIndicators' + i" class="carousel slide" data-bs-touch="false">
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div
+              class="carousel-item"
+              *ngFor="let image of property.images; let j = index"
+              [class.active]="j === 0"
+            >
+              <a
+                [routerLink]="['/properties/details', property.id, { images: property.images }]"
+                ><img
+                  id="carImg"
+                  [src]="'../assets/images/properties' + image.img"
+                  class="d-block w-100"
+                  [alt]="'Image ' + (j + 1)"
+              /></a>
+            </div>
+          </div>
+          <button id="nextBtn"
+            class="carousel-control-prev"
+            type="button"
+            [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button id="prevBtn"
+            class="carousel-control-next"
+            type="button"
+            [attr.data-bs-target]="'#carouselExampleIndicators' + i"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div id="infomaindiv" class="col-md-8" style="max-width: 100%">
+        <div id="textDiv" class="card-body">
+          <div id="textDiv" class="card-body">
+            <nav id="infoNav" class="navbar navbar-custom">
+              <div class="container-fluid">
+                <a id="aRouter" class="navbar-brand mb-0 h1" [routerLink]="['/properties/details', property.id, { images: property.images }]" [queryParamsHandling]="'preserve'" routerLinkActive="active">
+                  <h4 id="tittleMain"> {{ property.title }} en {{ property.type }}</h4>
+                </a>
+                <span id="titletext" class="navbar-brand mb-0 h1">
+                  {{ property.houseType }} en {{ property.postalCode }}, {{ property.city }}.
+                </span>
+              </div>
+            </nav>
+          <div id="infoDiv" class="container-fluid">
+            <div id="pricediv" class="container-fluid">
+              <h5 id="price" class="card-title">{{ property.price | priceFormat }}€</h5>
+            </div>
+            <div id="icondetails" class="container-fluid">
+              <div class="container-fluid" id="iconDiv">
+                <div class="container-fluid" id="numberDiv"> 
+                  <p class="number">3</p>
+                </div>
+                <div class="container-fluid" id="icondiv">
+                  <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bed.svg">
+                </div>
+                </div> 
+            
+              <div class="container-fluid" id="iconDiv">
+                <div class="container-fluid" id="numberDiv">
+                  <p class="number">2</p>
+                </div>
+                <div class="container-fluid" id="icondiv">
+                  <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bath.svg">
+                </div>
+                </div> 
+            
+            <div class="container-fluid" id="iconDiv2">
+              <div class="container-fluid" id="numberDiv">
+                <p class="number">150 m²</p>
+              </div>
+              <div class="container-fluid" id="icondiv">
+                <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/wall.svg">
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid" id="btnDescMain">
+            <div class="container-fluid" id="descDiv">
+              <p id="description" class="card-text">
+                {{ property.description.length > 165 ? property.description.slice(0, 165) + '...' : property.description }}
+                <a id="more" *ngIf="property.description.length > 165" [routerLink]="['/properties/details', property.id, { images: property.images }]" [queryParamsHandling]="'preserve'" routerLinkActive="active">Leer Más</a>
+              </p>
+            </div>
+            <div id="btndiv" class="container-fluid">
+              <div id="reserveDiv" *ngIf="property.type === 'Alquiler'"><button id="reserveBtn" type="button" class="btn btn-primary" 
+                [routerLink]="['/properties/reserve', property.id, { images: property.images }]" 
+                [queryParamsHandling]="'preserve'" routerLinkActive="active">
+                Reservar
+             </button></div> 
+              <div id="contactDiv"><button id="contactBtn" type="button" class="btn btn-primary" 
+                [routerLink]="['/properties/contact', property.id, { images: property.images }]" 
+                [queryParamsHandling]="'preserve'" routerLinkActive="active">
+                Contactar
+             </button></div> 
+              
+            </div>
+          </div>
+       
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+.container{
+    h4{
+        color: #F5B665;
+    }
+
+    .label {
+        width: 10vh;
+        display: inline-block;
+        font-weight: bold;
+        color: var(--colores-fuente, #006d7a);
+    }
+
+    .value {
+        display: inline-block;
+        color: #8bbfbd;
+        font-weight: bold;
+    }
+
+    .list-group-item {
+        margin-bottom: 1vh;
+        border: none;
+        background-color: rgba(208, 234, 233, 0.5);
+        box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+    }
+
+    .form-control{
+        color: #8bbfbd;
+        font-weight: bold;
+        margin-bottom: 1vh;
+        border: none;
+        background-color: rgba(208, 234, 233, 0.5);
+        box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+    }
+
+    label{
+        color: var(--colores-fuente, #006d7a);
+        font-weight: bold;
+    }
+    
+}

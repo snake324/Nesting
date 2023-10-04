@@ -1,0 +1,174 @@
+
+<div id="showDiv" class="container-fluid">
+<div id="mainDiv" class="container-fluid" *ngIf="property">
+  <div id="backDiv" class="container-fluid">
+    <button id="backBtn" type="button" class="btn" (click)="goBack()">
+      <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/backw.svg"> Atrás
+    </button>
+  </div>
+
+<div id="titleDiv" class="container-fluid">
+  <div id="titleText" class="container-fluid">
+  <h2 id="titleP">{{ property.title }}</h2>
+  <h3 id="addressP">{{ property.address }}</h3>
+</div>
+<div id="pDate" class="container-fluid">
+  <p id="dateP">Publicado: {{ property.publishDate }}</p>
+</div>
+</div>
+
+<div id="dataDiv" class="container-fluid">
+  <div id="mainImg" class="container-fluid">
+    <img [src]="'../../../../assets/images/properties' + property.images[0].img" class="img-fluid" alt="Imagen Principal" id="house">
+  </div>
+  <div id="mainData" class="container-fluid">
+    <div id="gridImg" class="container-fluid">
+      <div id="row" class="container-fluid">
+        <img *ngFor="let image of property.images.slice(1)" 
+             [src]="'../../../../assets/images/properties' + image.img" 
+             class="img-fluid thumbnail" 
+             alt="Imagen Principal" 
+             id="miniHouse"
+             (click)="changeMainImage(image.img)">
+      </div>
+    </div>
+    <div id="datosDiv" class="container-fluid">
+      <div id="iconsDiv" class="container-fluid">
+        <div class="container-fluid" id="icondiv">
+          <div class="container-fluid" id="numberDiv"> 
+            <p class="number">3</p>
+          </div>
+          <div class="container-fluid" id="iconifyDiv">
+            <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bed.svg">
+          </div>
+          </div> 
+      
+        <div class="container-fluid" id="icondiv">
+          <div class="container-fluid" id="numberDiv">
+            <p class="number">2</p>
+          </div>
+          <div class="container-fluid" id="iconifyDiv">
+            <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bath.svg">
+          </div>
+          </div> 
+      
+      <div class="container-fluid" id="icondiv2">
+        <div class="container-fluid" id="numberDiv">
+          <p class="number">150 m2</p>
+        </div>
+        <div class="container-fluid" id="iconifyDiv">
+          <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/wall.svg">
+        </div>
+        </div>
+    </div>
+      <div id="priceDiv" class="container-fluid">
+        
+        <p id="priceP">{{ property.price | priceFormat }}€</p>
+          <app-modalcontact #contactmodal></app-modalcontact>
+<app-contactbtn (openModalEvent)="contactmodal.openModal()" id="contactbtn"></app-contactbtn>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="textDiv" class="container-fluid">
+  <p id="descriptionT">Descripción:</p>
+  <p id="description">{{ property.description }}</p>
+</div>
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="container-fluid" id="mainDiv">
+
+  <div class="container mt-5" *ngIf="property">
+    <div class="row">
+      <div class="col-md-6">
+        <img [src]="'../../../../assets/images/properties' + property.images[0].img" class="img-fluid" alt="Imagen Principal" id="house">
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-6 mb-2" *ngFor="let image of property.images.slice(1, 5)">
+            <img id="gridImg" [src]="'../../../../assets/images/properties' + image.img" class="img-fluid thumbnail" [alt]="'Imagen ' + image.id">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 mb-2" *ngFor="let image of property.images.slice(5, 9)">
+            <img id="gridImg" [src]="'../../../../assets/images/properties' + image.img" class="img-fluid thumbnail" [alt]="'Imagen ' + image.id">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="icons">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div id="iconsDiv" class="icons mx-auto">
+
+                <p>{{ property.rooms }}</p>
+                <span class="iconify" data-icon="mingcute:bed-fill" style="color: #006d7a;" data-width="39"
+                    data-height="41"></span>
+                <p>{{ property.baths }}</p>
+                <span class="iconify" data-icon="fa:bathtub" style="color: #006d7a;" data-width="36"
+                    data-height="33"></span>
+                <p>{{ property.size }} m²</p>
+                <span class="iconify" data-icon="gis:square-pt" style="color: #006d7a;" data-width="35"
+                    data-height="40"></span>
+            </div>
+        </div>
+    </div>
+</div>
+  
+<div id="priceDiv">
+  <p id="price">{{ property.price }}€</p>
+</div>
+
+
+<p id="description">{{ property.description }}
+</p>
+
+<app-modalcontact #contactmodal></app-modalcontact>
+<app-contactbtn (openModalEvent)="contactmodal.openModal()" id="contactbtn"></app-contactbtn>
+</div> -->

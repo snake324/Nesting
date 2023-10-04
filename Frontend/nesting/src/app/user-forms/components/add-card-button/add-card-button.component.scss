@@ -1,0 +1,19 @@
+#btn-addcard {
+    width: 160px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: none;
+    background: var(--colores-hover, #F5B665);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  
+    margin-left: 10px;
+  
+    color: #FFF;
+    font-family: 'Inter', sans-serif;
+    font-size: small;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  
