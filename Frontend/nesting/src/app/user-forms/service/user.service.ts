@@ -13,7 +13,7 @@ export class UserService {
 
   private isAuthenticated: boolean = false;
   private actualUser: User | null = null;
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   public registerUser(mail: string, password: string): Observable<any> {
     const status = true;
@@ -45,18 +45,36 @@ export class UserService {
     this.actualUser = user;
   }
   getUser(userId: string): Observable<User> {
-    const url = `${this.baseUrl}/users/${userId}`; 
+    const url = `${this.baseUrl}/users/${userId}`;
     return this.httpClient.get<User>(url);
   }
 
   getUsers(): Observable<User[]> {
     const url = `${this.baseUrl}/users`;
     return this.httpClient.get<User[]>(url);
-  }  
+  }
 
   getUserIdByEmail(mail: string) {
     const url = `${this.baseUrl}/users/getid?mail=${mail}`;
     return this.httpClient.get<number>(url);
+  }
+
+  public isLogged() {
+    const jsessionId = localStorage.getItem("JSESSIONID");
+    if (jsessionId) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public navigateId() {
+    if (this.isLogged()) {
+      const userId = localStorage.getItem("userId");
+      return userId;
+    } else {
+      return null;
+    }
   }
 
 }
