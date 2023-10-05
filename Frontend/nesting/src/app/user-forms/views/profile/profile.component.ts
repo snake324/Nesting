@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardService } from '../../service/card.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,9 @@ export class ProfileComponent implements OnInit {
   showCardAdded: boolean = false;
   cards: any[] = [];
 
-  constructor(private cardService: CardService) {}
+  constructor(private cardService: CardService, 
+    private route: ActivatedRoute,
+    private router: Router,) {}
 
   ngOnInit() {
     this.cardService.cardSavedSuccessfully$.subscribe(() => {
@@ -22,5 +25,9 @@ export class ProfileComponent implements OnInit {
 
   hideCardAdded() {
     this.showCardAdded = false;
+  }
+
+  goBack() {
+    this.router.navigate(['../']);
   }
 }
