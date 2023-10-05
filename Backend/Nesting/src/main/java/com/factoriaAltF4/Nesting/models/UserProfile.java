@@ -32,11 +32,8 @@ public class UserProfile {
     @JsonIgnore
     private User user;
 
-    @OneToOne(mappedBy = "userProfile")
+    @OneToOne(mappedBy = "userProfile", cascade = CascadeType.ALL)
     public Card card;
-
-    // @ManyToMany(mappedBy = "userProfiles")
-    // public List<Property> propertiesContact;
 
     @OneToMany(mappedBy = "profile")
     public Set<Contacts> profilContacts;

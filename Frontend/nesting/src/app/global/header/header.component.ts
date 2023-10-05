@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user-forms/service/user.service';
 import { LogoutService } from '../service/logout.service';
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-header',
@@ -15,16 +14,11 @@ export class HeaderComponent {
     private router: Router,
     private userService: UserService,
     private logoutService: LogoutService,
-    private cookieService: CookieService // Agrega el servicio de cookies
   ) { }
 
   ngOnInit() {
 
-    // Verifica si la cookie JSESSIONID ya existe al cargar el componente
-    if (this.cookieService.check('JSESSIONID')) {
-      // La cookie existe, redirige al perfil
-      this.router.navigate(['/user-forms/profile']);
-    }
+    
 
   }
 
@@ -33,23 +27,22 @@ export class HeaderComponent {
     return this.router.url.startsWith('/user-forms/profile/');
   }
 
-  logout() {
-    this.logoutService.logout().subscribe(
-      () => {
-        this.router.navigate(['/properties/home']);
-      },
-      (error) => {
-        console.error('Error durante el logout:', error);
-      }
-    );
+  logout(){
+    this.logoutService.logout()
+    this.router.navigate(['/properties/home'])
   }
 
   navigateToProfileOrLogin() {
-    const user = this.userService.isUserAuthenticated();
-    if (user) {
-      this.router.navigate(['/user-forms/profile', user.iduser]);
-    } else {
-      this.router.navigate(['/user-forms/login']);
+    const jsessionId = localStorage.getItem('JSESSIONID');
+    if (jsessionId) {
+      // Verificar si también existe la ID del usuario
+      const userId = localStorage.getItem('userId');
+      if (userId) {
+        // Redirigir al perfil del usuario con la ID específica
+        this.router.navigate(['/user-forms/profile', userId]);
+      }
+    }else{
+      this.router.navigate(['/user-forms/login'])
     }
   }
 

@@ -62,13 +62,6 @@ public class Property {
     @Column(name = "modification_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp modificationDate;
 
-    // @JsonIgnore
-    // @ManyToMany(fetch = FetchType.EAGER)
-    // @JoinTable(name = "contacts", joinColumns = @JoinColumn(name =
-    // "property_id"), inverseJoinColumns = @JoinColumn(name = "profile_id"))
-    // public List<UserProfile> userProfiles;
-    // TODO contact_date as field of the generated table.
-
     @OneToMany(mappedBy = "property", cascade = CascadeType.REMOVE)
     public List<Image> images;
 
