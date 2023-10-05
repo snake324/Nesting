@@ -35,9 +35,6 @@ public class UserProfile {
     @OneToOne(mappedBy = "userProfile", cascade = CascadeType.ALL)
     public Card card;
 
-    // @ManyToMany(mappedBy = "userProfiles")
-    // public List<Property> propertiesContact;
-
     @OneToMany(mappedBy = "profile")
     public Set<Contacts> profilContacts;
 

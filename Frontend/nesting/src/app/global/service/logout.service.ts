@@ -11,7 +11,8 @@ export class LogoutService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public logout(): Observable<any> {
-    return this.httpClient.post<any>(`${this.baseUrl}/logout`, null);
+  public logout(){
+    return localStorage.removeItem('JSESSIONID');
+    // return this.httpClient.post<any>(`${this.baseUrl}/logout`, null);
   }  
 }
