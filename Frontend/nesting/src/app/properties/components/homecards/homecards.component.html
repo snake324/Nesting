@@ -51,14 +51,15 @@
   <div class="container-fluid" id="secFilters">
   <div id="dropfilterDiv" class="container">
     <button
-      id="dropbutton"
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      {{ selectedCity }}
-    </button>
+    id="dropbutton"
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+    [ngClass]="selectedCityColor"
+  >
+    {{ selectedCity }}
+  </button>
     <ul id="dropUl" class="dropdown-menu">
       <li id="dropLi" *ngFor="let city of cities">
         <span
@@ -76,6 +77,7 @@
   type="button"
   data-bs-toggle="dropdown"
   aria-expanded="false"
+  [ngClass]="selectedCityColor2"
 >
   {{ selectedPostalCode }}
 </button>
@@ -96,6 +98,7 @@
     type="button"
     data-bs-toggle="dropdown"
     aria-expanded="false"
+    [ngClass]="selectedCityColor3"
   >
     {{ selectedHouseType }}
   </button>
@@ -116,6 +119,7 @@
   type="button"
   data-bs-toggle="dropdown"
   aria-expanded="false"
+  [ngClass]="selectedCityColor4"
 >
   {{ selectedPrice | priceFormat }}
 </button>
@@ -158,6 +162,7 @@
     type="button"
     data-bs-toggle="dropdown"
     aria-expanded="false"
+    [ngClass]="selectedCityColor5"
   >
     {{ selectedSize }}
   </button>
@@ -194,6 +199,7 @@
     type="button"
     data-bs-toggle="dropdown"
     aria-expanded="false"
+    [ngClass]="selectedCityColor6"
   >
     {{ selectedRooms }}
   </button>
@@ -221,6 +227,7 @@
     type="button"
     data-bs-toggle="dropdown"
     aria-expanded="false"
+    [ngClass]="selectedCityColor7"
   >
     {{ selectedBaths }}
   </button>

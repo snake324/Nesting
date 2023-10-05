@@ -268,8 +268,8 @@
 }
 
 #dropbutton {
-  background-color: #f4f4f2;
-  color: #055f5b;
+  // background-color: #f4f4f2;
+  // color: #055f5b;
   border: 0px;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
   margin-left: 1em;
@@ -277,8 +277,8 @@
 }
 
 #dropbutton:hover {
-  background-color: #f4f4f2;
-  color: #055f5b;
+  // background-color: #f4f4f2;
+  // color: #055f5b;
   outline: 2px solid #8cbfbc;
   box-shadow: 15px 16px 15px -3px rgba(0, 0, 0, 0.1);
   margin-left: 1em;
@@ -379,6 +379,16 @@
 
 #prevBtn {
   color: #055f5b;
+}
+
+.default-color {
+  background-color: #f4f4f2;
+  color:#055f5b;
+}
+
+.selected-color {
+  background-color: #8cbfbc;
+  color: white;
 }
 
 
