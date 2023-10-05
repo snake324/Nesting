@@ -53,13 +53,20 @@ export class ContactComponent implements OnInit {
     const backendUrl = 'http://localhost:4000/sendmail';
     const url = `${backendUrl}?to=${ownerEmail}&body=${emailContent.body}`;
   
-    this.http.post(url, {}) // Empty body, as parameters are in the URL
+    this.http.post<EmailResponse>(url, {}) // Specify the type for the response
       .subscribe(
         (response) => {
           console.log('Email sent successfully:', response);
+  
+          // Display alert and navigate back on success
+          window.alert(response.message);
+          this.goBack();
         },
         (error) => {
           console.error('Error sending email:', error);
+  
+          // Display alert on error
+          window.alert('Error sending email. Please try again.');
         }
       );
   }
