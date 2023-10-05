@@ -4,6 +4,10 @@ import { PropertiesService } from '../../service/properties.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+interface EmailResponse {
+  message: string;
+}
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -12,6 +16,8 @@ import { HttpClient } from '@angular/common/http';
 export class ContactComponent implements OnInit {
   property: any;
   comment: string = ''; 
+
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -35,20 +41,27 @@ export class ContactComponent implements OnInit {
     });
   }
 
+  
+
   sendEmail() {
     const emailContent = {
       subject: 'Nuevo comentario sobre la propiedad',
       body: this.comment
     };
-    
+  
     const ownerEmail = this.property.ownermail;
-    const backendUrl = 'http://localhost:4000';
-    
-    const url = `${backendUrl}/sendmail?to=${ownerEmail}&body=${this.comment}`;
-    
-    this.http.post(url, emailContent).subscribe((response: any) => {
-      console.log(response);
-    });
+    const backendUrl = 'http://localhost:4000/sendmail';
+    const url = `${backendUrl}?to=${ownerEmail}&body=${emailContent.body}`;
+  
+    this.http.post(url, {}) // Empty body, as parameters are in the URL
+      .subscribe(
+        (response) => {
+          console.log('Email sent successfully:', response);
+        },
+        (error) => {
+          console.error('Error sending email:', error);
+        }
+      );
   }
 
   goBack() {
