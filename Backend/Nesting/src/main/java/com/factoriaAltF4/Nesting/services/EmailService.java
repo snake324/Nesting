@@ -18,8 +18,8 @@ public class EmailService {
     public void sendTestEmail(String to, String body) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
-        message.setSubject("Prueba de correo electrónico");
-        message.setText(body); // Usar el cuerpo proporcionado
+        message.setSubject("Una persona esta interesada en tu nido - Nesting");
+        message.setText(body); 
 
         javaMailSender.send(message);
     }

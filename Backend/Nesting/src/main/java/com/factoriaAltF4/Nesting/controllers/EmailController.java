@@ -21,7 +21,7 @@ public class EmailController {
 
     @PostMapping("/sendmail")
     public ResponseEntity<EmailResponse> sendTestEmail(@RequestParam String to, @RequestParam String body) {
-        emailService.sendTestEmail(to, body); // Proporciona ambos parámetros
+        emailService.sendTestEmail(to, body); 
         return ResponseEntity.status(HttpStatus.OK).body(new EmailResponse("Correo enviado exitosamente"));
     }
 }

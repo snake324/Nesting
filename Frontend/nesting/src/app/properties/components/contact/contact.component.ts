@@ -46,26 +46,26 @@ export class ContactComponent implements OnInit {
   sendEmail() {
     const emailContent = {
       subject: 'Nuevo comentario sobre la propiedad',
-      body: this.comment
+      body: `El usuario se ha interesado por tu propiedad y te ha dejado el siguiente mensaje:\n\n${this.comment}`
     };
   
     const ownerEmail = this.property.ownermail;
     const backendUrl = 'http://localhost:4000/sendmail';
     const url = `${backendUrl}?to=${ownerEmail}&body=${emailContent.body}`;
   
-    this.http.post<EmailResponse>(url, {}) // Specify the type for the response
+    this.http.post<EmailResponse>(url, {}) 
       .subscribe(
         (response) => {
           console.log('Email sent successfully:', response);
   
-          // Display alert and navigate back on success
+      
           window.alert(response.message);
           this.goBack();
         },
         (error) => {
           console.error('Error sending email:', error);
   
-          // Display alert on error
+          
           window.alert('Error sending email. Please try again.');
         }
       );
