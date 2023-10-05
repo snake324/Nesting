@@ -18,7 +18,7 @@ export class HeaderComponent {
 
   ngOnInit() {
 
-    
+
 
   }
 
@@ -27,21 +27,18 @@ export class HeaderComponent {
     return this.router.url.startsWith('/user-forms/profile/');
   }
 
-  logout(){
+  logout() {
     this.logoutService.logout()
     this.router.navigate(['/properties/home'])
   }
 
   navigateToProfileOrLogin() {
-    const jsessionId = localStorage.getItem('JSESSIONID');
-    if (jsessionId) {
-      // Verificar si también existe la ID del usuario
-      const userId = localStorage.getItem('userId');
-      if (userId) {
-        // Redirigir al perfil del usuario con la ID específica
-        this.router.navigate(['/user-forms/profile', userId]);
+    if (this.userService.isLogged()) {
+      if (this.userService.navigateId() != null) {
+        this.router.navigate(['/user-forms/profile', this.userService.navigateId()])
       }
-    }else{
+    }
+    else {
       this.router.navigate(['/user-forms/login'])
     }
   }
