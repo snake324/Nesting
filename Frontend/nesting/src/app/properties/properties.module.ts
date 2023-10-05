@@ -29,6 +29,7 @@ import { ReserveComponent } from './components/reserve/reserve.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { GalleryuploadComponent } from './components/galleryupload/galleryupload.component';
 import { PublishBtnComponent } from './components/publish-btn/publish-btn.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -68,6 +69,7 @@ import { PublishBtnComponent } from './components/publish-btn/publish-btn.compon
     PropertiesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class PropertiesModule { }
