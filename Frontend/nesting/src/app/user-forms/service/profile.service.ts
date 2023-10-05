@@ -28,4 +28,5 @@ export class ProfileService {
   deleteProfile(profileId: string): Observable<Profile> {
     return this.http.delete<Profile>(`${this.apiUrl}/delete/${profileId}`);
   }
+  
 }

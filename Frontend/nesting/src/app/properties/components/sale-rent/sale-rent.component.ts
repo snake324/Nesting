@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PropertiesService } from '../../service/properties.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sale-rent',
@@ -8,6 +9,7 @@ import { PropertiesService } from '../../service/properties.service';
   styleUrls: ['./sale-rent.component.scss'],
 })
 export class SaleRentComponent  {
+  showAlert: boolean = false; 
   propertyForm: FormGroup;
   houseTypes: string[] = ['Casa', 'Piso', 'Terreno', 'Solar'];
   types: string[] = ['Venta', 'Alquiler'];
@@ -28,7 +30,8 @@ export class SaleRentComponent  {
   filteredPostalCodes: string[] = [];
   constructor(
     private formBuilder: FormBuilder,
-    private propertiesService: PropertiesService
+    private propertiesService: PropertiesService,
+    private router: Router
     ) {
 
     this.selectedBedrooms = 'Habitaciones';
@@ -81,7 +84,7 @@ export class SaleRentComponent  {
   
   selectBedrooms(rooms: string) {
     this.selectedBedrooms = rooms;
-    this.propertyForm.get('bedrooms')?.setValue(rooms);
+    this.propertyForm.get('rooms')?.setValue(rooms);
   }
   
   selectCity(city: string) {
@@ -133,15 +136,20 @@ export class SaleRentComponent  {
     this.propertyForm.patchValue({ postalCode: '' });
   }
   onSubmit() {
-      const propertyData = this.propertyForm.value;
+    const propertyData = this.propertyForm.value;
   
-      this.propertiesService.saveProperty(propertyData).subscribe(
-        (response) => {
-          console.log('Propiedad guardada con éxito', response);
-        },
-        (error) => {
-          console.error('Error al guardar la propiedad', error);
+    this.propertiesService.saveProperty(propertyData).subscribe(
+      (response) => {
+        window.alert('Propiedad publicada con éxito');
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+          this.router.navigate(['/user-forms/profile', userId]);
         }
-      );
+      },
+      (error) => {
+        console.error('Error al guardar la propiedad', error);
+      }
+    );
   }  
+  
 }
