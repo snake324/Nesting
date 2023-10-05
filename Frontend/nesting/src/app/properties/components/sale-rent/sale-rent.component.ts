@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PropertiesService } from '../../service/properties.service';
 
 @Component({
   selector: 'app-sale-rent',
@@ -8,8 +9,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class SaleRentComponent  {
   propertyForm: FormGroup;
-  propertyTypes: string[] = ['Tipo propiedad','Casa', 'Piso', 'Terreno', 'Solar'];
-  transactionTypes: string[] = ['Tipo transacción', 'Venta', 'Alquiler'];
+  houseTypes: string[] = ['Casa', 'Piso', 'Terreno', 'Solar'];
+  types: string[] = ['Venta', 'Alquiler'];
   bathroomsOptions: string[] = ['Baños', '1', '2', '3', '4', '5', '6'];
   bedroomsOptions: string[] = ['Habitaciones', '1', '2', '3', '4', '5', '6', '7', '8'];
   selectedPropertyType: string = 'Tipo propiedad';
@@ -25,48 +26,64 @@ export class SaleRentComponent  {
     { name: 'Oviedo', postalCodes: ['33001', '33002', '33003'] },
   ];
   filteredPostalCodes: string[] = [];
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private propertiesService: PropertiesService
+    ) {
 
     this.selectedBedrooms = 'Habitaciones';
 
     this.propertyForm = this.formBuilder.group({
-      propertyType: [''],
-      transactionType: [''],
-      bathrooms: [''],
-      bedrooms: [''],
-      city: [''],
-      postalCode: [''],
-      surface: [''],
-      price: [''],
-      description: [''],
+      title: '',
+      description: '',
+      city: '',
+      postalCode: '',
+      rooms: '',
+      baths: '',
+      size: '',
+      price: '',
+      type: '',
+      status: true,
+      houseType: '',
+      address: ''
     });
   }
-  selectPropertyType(index: number) {
-    this.propertyForm.patchValue({ propertyType: index });
-    this.selectedPropertyType = this.propertyTypes[index - 1];
+
+  ngOnInit() {
+    this.propertyForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      city: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      rooms: ['', Validators.required],
+      baths: ['', Validators.required],
+      size: ['', Validators.required],
+      price: ['', Validators.required],
+      type: ['', Validators.required],
+      status: [true],
+      houseType: [''],
+      address: [''],
+    });
   }
-  selectTransactionType(transactionType: string) {
-    this.propertyForm.patchValue({ transactionType: transactionType });
-    this.selectedTransactionType = transactionType;
+
+  selectPropertyType(houseType: string) {
+    this.propertyForm.get('houseType')?.setValue(houseType);
+    this.selectedPropertyType = houseType;
   }
-  selectBathrooms(bathrooms: string) {
-    if (bathrooms === 'Baños' || bathrooms === this.selectedBathrooms) {
-      this.selectedBathrooms = 'Baños';
-      this.propertyForm.get('bathrooms')?.setValue('');
-    } else {
-      this.selectedBathrooms = bathrooms;
-      this.propertyForm.get('bathrooms')?.setValue(bathrooms);
-    }
+  selectTransactionType(type: string) {
+    this.propertyForm.get('type')?.setValue(type);
+    this.selectedTransactionType = type;
   }
-  selectBedrooms(bedrooms: string) {
-    if (bedrooms === 'Habitaciones' || bedrooms === this.selectedBedrooms) {
-      this.selectedBedrooms = 'Habitaciones';
-      this.propertyForm.get('bedrooms')?.setValue('');
-    } else {
-      this.selectedBedrooms = bedrooms;
-      this.propertyForm.get('bedrooms')?.setValue(bedrooms);
-    }
+  selectBathrooms(baths: string) {
+    this.selectedBathrooms = baths;
+    this.propertyForm.get('baths')?.setValue(baths);
   }
+  
+  selectBedrooms(rooms: string) {
+    this.selectedBedrooms = rooms;
+    this.propertyForm.get('bedrooms')?.setValue(rooms);
+  }
+  
   selectCity(city: string) {
     this.propertyForm.patchValue({ city: city });
     this.selectedCity = city;
@@ -116,11 +133,15 @@ export class SaleRentComponent  {
     this.propertyForm.patchValue({ postalCode: '' });
   }
   onSubmit() {
-    const formData = this.propertyForm.value;
-  }
+      const propertyData = this.propertyForm.value;
+  
+      this.propertiesService.saveProperty(propertyData).subscribe(
+        (response) => {
+          console.log('Propiedad guardada con éxito', response);
+        },
+        (error) => {
+          console.error('Error al guardar la propiedad', error);
+        }
+      );
+  }  
 }
-
-
-
-
-

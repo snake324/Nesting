@@ -1,139 +1,229 @@
 <h1>Formulario de Venta/Alquiler</h1>
- <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
-<div class="row">
-<div class="col-12 col-lg-3">
-  <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="propertyTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ selectedPropertyType }}
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="propertyTypeDropdown">
-        <li><a class="dropdown-item" (click)="selectPropertyType(1)">Tipo propiedad</a></li>
-        <li><a class="dropdown-item" (click)="selectPropertyType(2)">Casa</a></li>
-        <li><a class="dropdown-item" (click)="selectPropertyType(3)">Piso</a></li>
-        <li><a class="dropdown-item" (click)="selectPropertyType(4)">Terreno</a></li>
-        <li><a class="dropdown-item" (click)="selectPropertyType(5)">Solar</a></li>
-      </ul>
-    </div>
-  </div>
+<form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+  <div class="row">
     <div class="col-12 col-lg-3">
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="transactionTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ selectedTransactionType }}
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="transactionTypeDropdown">
-        <li><a class="dropdown-item" (click)="selectTransactionType('Tipo transacción')">Tipo transacción</a></li>
-        <li><a class="dropdown-item" (click)="selectTransactionType('Venta')">Venta</a></li>
-        <li><a class="dropdown-item" (click)="selectTransactionType('Alquiler')">Alquiler</a></li>
-      </ul>
-    </div>
-  </div>
-     <div class="col-12 col-lg-3">
-       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="cityDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-         {{ getCityValue() }}
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="propertyTypeDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{ selectedPropertyType }}
         </button>
-        <ul class="dropdown-menu" aria-labelledby="cityDropdown">
-          <li>
-            <a class="dropdown-item" (click)="selectCity('')">Selecciona una ciudad</a>
-          </li>
-          <li *ngFor="let city of cities">
-            <a class="dropdown-item" (click)="selectCity(city.name)">{{ city.name }}</a>
+        <ul class="dropdown-menu" aria-labelledby="propertyTypeDropdown">
+          <li *ngFor="let housetype of houseTypes">
+            <a class="dropdown-item" (click)="selectPropertyType(housetype)">{{ housetype }}</a>
           </li>
         </ul>
       </div>
-
+    </div>    
+    <div class="col-12 col-lg-3">
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="transactionTypeDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{ selectedTransactionType }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="transactionTypeDropdown">
+          <li *ngFor="let type of types">
+            <a class="dropdown-item" (click)="selectTransactionType(type)">{{ type }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>    
     </div>
     <div class="col-12 col-lg-3">
-         <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="postalCodeDropdown" data-bs-toggle="dropdown" [disabled]="!propertyForm.get('city')?.value" aria-expanded="false">
-           {{ getPostalCodeValue() }}
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="cityDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{ getCityValue() }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="cityDropdown">
+          <li *ngFor="let city of cities">
+            <a class="dropdown-item" (click)="selectCity(city.name)">{{
+              city.name
+            }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-12 col-lg-3">
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="postalCodeDropdown"
+          data-bs-toggle="dropdown"
+          [disabled]="!propertyForm.get('city')?.value"
+          aria-expanded="false"
+        >
+          {{ getPostalCodeValue() }}
         </button>
         <ul class="dropdown-menu" aria-labelledby="postalCodeDropdown">
           <li>
-            <a class="dropdown-item" (click)="selectPostalCode('')">Código postal</a>
+            <a class="dropdown-item" (click)="selectPostalCode('')"
+              >Código postal</a
+            >
           </li>
           <li *ngFor="let code of filteredPostalCodes">
-            <a class="dropdown-item" (click)="selectPostalCode(code)">{{ code }}</a>
+            <a class="dropdown-item" (click)="selectPostalCode(code)">{{
+              code
+            }}</a>
           </li>
         </ul>
       </div>
-  </div>
+    </div>
     <div class="row">
-    <div class="col-12 col-lg-3">
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="bedroomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ selectedBedrooms }}
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="bedroomsDropdown">
-        <li><a class="dropdown-item" (click)="selectBedrooms('0')">Habitaciones</a></li>
-        <li><a class="dropdown-item" (click)="selectBedrooms('1')">1</a></li>
-        <li><a class="dropdown-item" (click)="selectBedrooms('2')">2</a></li>
-        <li><a class="dropdown-item" (click)="selectBedrooms('3')">3</a></li>
-        <li><a class="dropdown-item" (click)="selectBedrooms('4')">4</a></li>
-        <li><a class="dropdown-item" (click)="selectBedrooms('5')">5</a></li>
-        <li><a class="dropdown-item" (click)="selectBedrooms('6')">6</a></li>
-        <li><a class="dropdown-item" (click)="selectBedrooms('7')">7</a></li>
-        <li><a class="dropdown-item" (click)="selectBedrooms('8')">8</a></li>
-      </ul>
-    </div>
-  </div>
-<div class="col-12 col-lg-3">
-  <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="bathroomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ selectedBathrooms }}
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="bathroomsDropdown">
-        <li><a class="dropdown-item" (click)="selectBathrooms('0')">Baños</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('1')">1</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('2')">2</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('3')">3</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('4')">4</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('5')">5</a></li>
-        <li><a class="dropdown-item" (click)="selectBathrooms('6')">6</a></li>
-      </ul>
-    </div>
-</div>
-  <div class="col-12 col-lg-3">
+      <div class="col-12 col-lg-3">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="bedroomsDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            formControlName="rooms"
+          >
+            {{ selectedBedrooms }}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="bedroomsDropdown">
+            <li>
+              <a class="dropdown-item" (click)="selectBedrooms('0')"
+                >Habitaciones</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBedrooms('1')">1</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBedrooms('2')">2</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBedrooms('3')">3</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBedrooms('4')">4</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBedrooms('5')">5</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBedrooms('6')">6</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBedrooms('7')">7</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBedrooms('8')">8</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="bathroomsDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            formControlName="baths"
+          >
+            {{ selectedBathrooms }}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="bathroomsDropdown">
+            <li>
+              <a class="dropdown-item" (click)="selectBathrooms('0')">Baños</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBathrooms('1')">1</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBathrooms('2')">2</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBathrooms('3')">3</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBathrooms('4')">4</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBathrooms('5')">5</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="selectBathrooms('6')">6</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3">
         <input
           type="text"
           class="form-control custom-input"
           placeholder="Importe €"
-          id="importeInput">
+          id="importeInput"
+          formControlName="price"
+        />
       </div>
-        <div class="col-12 col-lg-3">
+      <div class="col-12 col-lg-3">
         <input
           type="text"
           class="form-control custom-input"
           placeholder="Superficie"
-          id="superficieInput">
+          id="superficieInput"
+          formControlName="size"
+        />
       </div>
     </div>
 
+    <div class="col-12 col-lg-3">
+      <input
+        type="text"
+        class="custom-input move-left"
+        placeholder="Dirección"
+        formControlName="address"
+      />
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        aria-label="Checkbox for following text input"
+      />
+      <label class="form-check-label" for="invalidCheck2">
+        Publicar dirección
+      </label>
+    </div>
   <div class="col-12 col-lg-3">
-       <input type="text"
-       class="custom-input move-left"
-       placeholder="Dirección">
-</div>
-<div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" aria-label="Checkbox for following text input">
-<label class="form-check-label" for="invalidCheck2">
-    Publicar dirección
-  </label>
-</div>
+    <label for="description">Descripción</label>
+    <textarea
+      id="description"
+      name="description"
+      rows="19" 
+      cols="97" 
+      formControlName="description"
+    >
+    </textarea>
   </div>
   <div class="container-fluid">
-  <div class="btupload">
-    <app-file-upload></app-file-upload></div>
+    <div class="btupload">
+      <app-file-upload></app-file-upload>
+    </div>
     <div class="d-flex">
       <app-previewbtn></app-previewbtn>
     </div>
     <button type="submit" class="save">Guardar</button>
   </div>
-
 </form>
-<p>Descripcón</p>
-<textarea id="description" name="description" rows="19" cols="97">
-  Descripción...
-</textarea>
-
-
