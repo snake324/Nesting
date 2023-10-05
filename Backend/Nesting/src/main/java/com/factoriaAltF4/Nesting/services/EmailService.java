@@ -13,11 +13,11 @@ public class EmailService {
         this.javaMailSender = javaMailSender;
     }
 
-    public void sendTestEmail(String to) {
+    public void sendTestEmail(String to, String body) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
-        message.setSubject("Prueba de correo electrónico");
-        message.setText("Este es un correo electrónico de prueba desde Spring Boot.");
+        message.setSubject("Nuevo comentario sobre la propiedad");
+        message.setText(body); // Use the comment as the email body
 
         javaMailSender.send(message);
     }

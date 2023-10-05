@@ -17,7 +17,7 @@ public class EmailController {
     }
 
     @PostMapping("/sendmail")
-    public void sendTestEmail(@RequestParam String to) {
-        emailService.sendTestEmail(to);
+    public void sendTestEmail(@RequestParam String to, @RequestParam String body) {
+        emailService.sendTestEmail(to, body);
     }
 }

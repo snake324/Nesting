@@ -40,12 +40,12 @@ export class ContactComponent implements OnInit {
       subject: 'Nuevo comentario sobre la propiedad',
       body: this.comment
     };
-  
+    
     const ownerEmail = this.property.ownermail;
     const backendUrl = 'http://localhost:4000';
-  
-    const url = `${backendUrl}/sendmail?to=${ownerEmail}`;
-  
+    
+    const url = `${backendUrl}/sendmail?to=${ownerEmail}&body=${this.comment}`;
+    
     this.http.post(url, emailContent).subscribe((response: any) => {
       console.log(response);
     });
