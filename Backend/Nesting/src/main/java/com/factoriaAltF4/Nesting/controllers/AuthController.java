@@ -10,11 +10,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.servlet.http.HttpSession;
+
 @RestController
 public class AuthController {
 
     @PostMapping(path = "/login")
-    public ResponseEntity<Map<String, String>> login() {
+    public ResponseEntity<Map<String, String>> login(HttpSession session) {
         System.out.println("Received login request"); // Agregar este registro
         SecurityContext contextHolder = SecurityContextHolder.getContext();
         Authentication auth = contextHolder.getAuthentication();
@@ -22,6 +24,7 @@ public class AuthController {
         json.put("message", "Logged");
         json.put("username", auth.getName());
         json.put("roles", auth.getAuthorities().iterator().next().toString());
+        json.put("jsessionid", session.getId());
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(json);
     }
 }
