@@ -44,7 +44,12 @@ export class HeaderComponent {
   }
 
   redirectToSaleRentform() {
-    this.router.navigate(['/properties/sale_rentform']);
+    if (this.userService.isLogged()) {
+      this.router.navigate(['/properties/sale_rentform']);
+    }else{
+      this.router.navigate(['/user-forms/login'])
+    }
+
   }
 
 }

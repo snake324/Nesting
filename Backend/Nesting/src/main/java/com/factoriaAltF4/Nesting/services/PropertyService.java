@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.factoriaAltF4.Nesting.models.Image;
 import com.factoriaAltF4.Nesting.models.Property;
+import com.factoriaAltF4.Nesting.models.UserProfile;
 import com.factoriaAltF4.Nesting.repositories.PropertyRepository;
 
 @Service
@@ -15,6 +16,9 @@ public class PropertyService {
 
     @Autowired
     PropertyRepository repo;
+
+    @Autowired
+    UserProfileService service;
 
     public List<Property> getAllProperties() {
         return repo.findAll();
@@ -29,7 +33,11 @@ public class PropertyService {
         }
     }
 
-    public Property addProperty(Property property) {
+    public Property addProperty(Property property, Long id) {
+        UserProfile profile = service.getProfileById(id);
+        List<Property> propertiesPubl = profile.getPropertiesPublished();
+        propertiesPubl.add(property);
+        property.setProfilePublished(profile);
         return repo.save(property);
     }
 
