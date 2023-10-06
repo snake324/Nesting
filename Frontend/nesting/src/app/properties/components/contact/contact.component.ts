@@ -56,7 +56,7 @@ export class ContactComponent implements OnInit {
     this.http.post<EmailResponse>(url, {}) 
       .subscribe(
         (response) => {
-          console.log('Email sent successfully:', response);
+          
   
       
           window.alert(response.message);

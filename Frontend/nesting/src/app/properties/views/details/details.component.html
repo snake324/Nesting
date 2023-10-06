@@ -64,6 +64,11 @@
       <div id="priceDiv" class="container-fluid">
         
         <p id="priceP">{{ property.price | priceFormat }}€</p>
+        <div id="reserveDiv" *ngIf="property.type === 'Alquiler'"><button id="reserveBtn" type="button" class="btn btn-primary" 
+          [routerLink]="['/properties/reserve', property.id, { images: property.images }]" 
+          [queryParamsHandling]="'preserve'" routerLinkActive="active">
+          Reservar
+       </button></div>
         <button id="contactBtn" type="button" class="btn btn-primary" 
         [routerLink]="['/properties/contact', property.id, { images: property.images }]" 
         [queryParamsHandling]="'preserve'" routerLinkActive="active">
