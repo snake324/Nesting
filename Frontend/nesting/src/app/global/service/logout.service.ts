@@ -13,6 +13,5 @@ export class LogoutService {
 
   public logout(){
     return localStorage.removeItem('JSESSIONID');
-    // return this.httpClient.post<any>(`${this.baseUrl}/logout`, null);
   }  
 }
