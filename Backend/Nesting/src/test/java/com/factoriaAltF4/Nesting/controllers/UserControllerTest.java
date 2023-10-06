@@ -2,8 +2,6 @@ package com.factoriaAltF4.Nesting.controllers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
-
-import com.factoriaAltF4.Nesting.controllers.UserController;
 import com.factoriaAltF4.Nesting.models.User;
 import com.factoriaAltF4.Nesting.services.UserService;
 import java.util.ArrayList;
@@ -25,7 +23,7 @@ class UserControllerTest {
 
   @BeforeEach
   void init() {
-    MockitoAnnotations.initMocks(this);
+    MockitoAnnotations.openMocks(this);
   }
 
   @Test

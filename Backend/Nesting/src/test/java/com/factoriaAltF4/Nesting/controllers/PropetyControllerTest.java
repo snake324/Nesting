@@ -3,8 +3,6 @@ package com.factoriaAltF4.Nesting.controllers;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-
-import com.factoriaAltF4.Nesting.controllers.PropertyController;
 import com.factoriaAltF4.Nesting.models.Image;
 import com.factoriaAltF4.Nesting.models.Property;
 import com.factoriaAltF4.Nesting.services.ImageService;
@@ -32,7 +30,7 @@ class PropetyControllerTest {
 
   @BeforeEach
   void init() {
-    MockitoAnnotations.initMocks(this);
+    MockitoAnnotations.openMocks(this);
   }
 
   @Test

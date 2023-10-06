@@ -2,8 +2,6 @@ package com.factoriaAltF4.Nesting.controllers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
-
-import com.factoriaAltF4.Nesting.controllers.EmailController;
 import com.factoriaAltF4.Nesting.models.EmailResponse;
 import com.factoriaAltF4.Nesting.services.EmailService;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,7 +22,7 @@ class EmailControllerTest {
 
   @BeforeEach
   void init() {
-    MockitoAnnotations.initMocks(this);
+    MockitoAnnotations.openMocks(this);
   }
 
   @Test

@@ -3,8 +3,6 @@ package com.factoriaAltF4.Nesting.controllers;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-
-import com.factoriaAltF4.Nesting.controllers.RegisterController;
 import com.factoriaAltF4.Nesting.models.User;
 import com.factoriaAltF4.Nesting.models.UserProfile;
 import com.factoriaAltF4.Nesting.services.UserProfileService;
@@ -30,7 +28,7 @@ class RegisterControllerTest {
 
   @BeforeEach
   void init() {
-    MockitoAnnotations.initMocks(this);
+    MockitoAnnotations.openMocks(this);
   }
 
   @Test

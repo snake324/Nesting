@@ -1,6 +1,4 @@
 package com.factoriaAltF4.Nesting.controllers;
-
-import com.factoriaAltF4.Nesting.controllers.RoleController;
 import com.factoriaAltF4.Nesting.models.Role;
 import com.factoriaAltF4.Nesting.services.RoleService;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +23,7 @@ class RoleControllerTest {
 
     @BeforeEach
     void init() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
