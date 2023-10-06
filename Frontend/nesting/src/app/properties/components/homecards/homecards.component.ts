@@ -29,6 +29,14 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   selectedRooms: string = 'Habitaciones';
   selectedSize: string = 'Tamaño';
   selectedBaths: string = 'Baños';
+  selectedCityColor: string = 'default-color';
+  selectedCityColor1: string = 'default-color';
+  selectedCityColor2: string = 'default-color';
+  selectedCityColor3: string = 'default-color';
+  selectedCityColor4: string = 'default-color';
+  selectedCityColor5: string = 'default-color';
+  selectedCityColor6: string = 'default-color';
+  selectedCityColor7: string = 'default-color';
 
   showImgHomeDiv: boolean = true;
 
@@ -83,7 +91,7 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
         this.applyFilters();
       },
       (error) => {
-        console.log('Error fetching properties data: ', error);
+        
       },
       () => {
         this.applyFilters();
@@ -92,7 +100,7 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   }
 
   applyFilters() {
-    console.log('applyFilters() llamado');
+    
     this.filteredPropertyData = this.propertyData.filter((property) => {
       const typeCondition = this.selectedType === 'Tipo' || property.type === this.selectedType;
       const propertyTypeCondition = this.filters.propertyType === 'Todos' || property.type === this.filters.propertyType;
@@ -128,16 +136,20 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   updatePropertyTypeFilter(type: string) {
     this.filters.propertyType = type;
     this.applyFilters();
+    this.selectedCityColor = 'selected-color';
+    
   }
 
   updateCityFilter(city: string) {
     this.selectedCity = city;
     this.filters.city = city; 
     this.applyFilters();
+    this.selectedCityColor = 'selected-color';
   }
 
   updatePostalCodeFilter(postalCode: string) {
     this.selectedPostalCode = postalCode;
+    this.selectedCityColor2 = 'selected-color';
   }
 
   extractUniqueCitiesAndPostalCodes() {
@@ -151,30 +163,36 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   updateTypeFilter(type: string) {
     this.selectedType = type;
     this.applyFilters();
+    
   }
 
   updateHouseTypeFilter(houseType: string) {
     this.selectedHouseType = houseType;
+    this.selectedCityColor3 = 'selected-color';
     
   }
 
   updateSizeFilter(minSize: number, maxSize: number) {
     this.selectedSize = `${minSize} - ${maxSize} m²`;
+    this.selectedCityColor5 = 'selected-color';
     
   }
 
   updateRoomsFilter(rooms: number) {
     this.selectedRooms = `${rooms} habitación${rooms > 1 ? 'es' : ''}`;
+    this.selectedCityColor6 = 'selected-color';
     
   }
 
   updatePriceFilter(minPrice: number, maxPrice: number) {
     this.selectedPrice = `${minPrice} - ${maxPrice}€`;
+    this.selectedCityColor4 = 'selected-color';
     
   }
 
   updateBathsFilter(baths: number) {
     this.selectedBaths = `${baths} baño${baths > 1 ? 's' : ''}`;
+    this.selectedCityColor7 = 'selected-color';
    
   }
 
@@ -206,7 +224,14 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
     this.selectedRooms = 'Habitaciones';
     this.selectedBaths = 'Baños';
     this.applyFilters();
-    this.showImgHomeDiv = false; 
+    this.showImgHomeDiv = false;
+    this.selectedCityColor = 'default-color';
+    this.selectedCityColor2 = 'default-color';
+    this.selectedCityColor3 = 'default-color';
+    this.selectedCityColor4 = 'default-color';
+    this.selectedCityColor5 = 'default-color';
+    this.selectedCityColor6 = 'default-color';
+    this.selectedCityColor7 = 'default-color';
   }
 
   leerMas(propertyId: number) {
@@ -239,7 +264,7 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
       };
     }
   
-    console.log('showImgHomeDiv:', this.showImgHomeDiv);
+    
   }
 
   showImage() {
