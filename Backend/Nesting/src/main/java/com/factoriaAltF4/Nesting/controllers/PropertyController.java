@@ -40,9 +40,9 @@ public class PropertyController {
         return service.getPropertyById(id);
     }
     
-    @PostMapping("/create")
-    public ResponseEntity<Property> addProperty(@RequestBody Property property){
-        Property savedProperty = service.addProperty(property);
+    @PostMapping("/create/{id}")
+    public ResponseEntity<Property> addProperty(@RequestBody Property property, @PathVariable Long id){
+        Property savedProperty = service.addProperty(property, id);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedProperty);
     }
 

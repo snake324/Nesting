@@ -38,6 +38,6 @@ public class UserProfile {
     @OneToMany(mappedBy = "profile")
     public Set<Contacts> profilContacts;
 
-    @OneToMany(mappedBy = "profilePublished")
+    @OneToMany(mappedBy = "profilePublished", cascade = CascadeType.ALL)
     public List<Property> propertiesPublished;
 }
