@@ -137,12 +137,13 @@ export class SaleRentComponent  {
   }
   onSubmit() {
     const propertyData = this.propertyForm.value;
-  
-    this.propertiesService.saveProperty(propertyData).subscribe(
+    const userId = localStorage.getItem('userId');
+    this.propertiesService.saveProperty(propertyData, userId).subscribe(
       (response) => {
         window.alert('Propiedad publicada con éxito');
         const userId = localStorage.getItem('userId');
         if (userId) {
+
           this.router.navigate(['/user-forms/profile', userId]);
         }
       },
