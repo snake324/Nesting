@@ -1,5 +1,5 @@
 
-<div id="showDiv" class="container-fluid">
+<div id="showDiv" class="container-fluid" >
   <div id="mainDiv" class="container-fluid" *ngIf="property">
     <div id="backDiv" class="container-fluid">
       <button id="backBtn" type="button" class="btn" (click)="goBack()">
@@ -82,7 +82,7 @@
           <p id="owner">{{ property.ownermail ? property.ownermail.split('@')[0] : '' }}</p>
         </div>
         <div id="payD" class="container-fluid">
-          <button id="payBtn" type="button" class="btn btn-primary" (click)="sendEmail()">Enviar</button>
+          <button id="liveAlertBtn" type="button" class="btn btn-primary" (click)="sendEmail()">Enviar</button>
         </div>
       </div>
       <div id="textDiv" class="container-fluid">
@@ -98,3 +98,10 @@
   
   </div>
   </div>
+  
+  <div id="liveAlertPlaceholder">
+    <div *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible" role="alert">
+      <div>{{ alertMessage }}</div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>

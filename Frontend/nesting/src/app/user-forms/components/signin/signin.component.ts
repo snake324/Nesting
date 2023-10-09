@@ -14,6 +14,9 @@ export class SigninComponent {
   submitted = false;
   loading = false;
   errorMessage: string | null = null;
+  showAlert: boolean = false; 
+  alertMessage: string = '';
+  alertType: string = '';
 
   constructor(
     private usersService: UserService,
@@ -43,7 +46,6 @@ export class SigninComponent {
 
     this.usersService.loginUser(username, password, headers).subscribe(
       (data) => {
-        console.log(data);
 
         const jsessionId = data['jsessionid'];
         if (jsessionId) {
@@ -62,8 +64,15 @@ export class SigninComponent {
       (error) => {
         console.error('Login error:', error);
         if (error.status === 401) {
+
           this.errorMessage =
             'Credenciales incorrectas. Por favor, verifica tus datos.';
+
+          this.alertMessage = 'Credenciales incorrectas. Por favor, verifica tus datos.';
+          this.alertType = 'danger';
+          this.formlogin.reset();
+          this.errorMessage = 'Credenciales incorrectas. Por favor, verifica tus datos.';
+
         } else {
           this.errorMessage =
             'Hubo un error en el inicio de sesión. Por favor, intenta de nuevo más tarde.';
@@ -75,4 +84,8 @@ export class SigninComponent {
   getUserIdByEmail(mail: string) {
     return this.usersService.getUserIdByEmail(mail);
   }
+
 }
+
+}
+

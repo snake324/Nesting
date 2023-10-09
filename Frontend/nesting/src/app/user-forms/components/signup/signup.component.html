@@ -15,10 +15,16 @@
                             <label for="contrasena" class="form-label">Contraseña:</label>
                             <input type="password" class="form-control" formControlName="password" id="password" name="password" placeholder="Ingrese una contraseña">
                         </div>
-                        <button type="submit" class="btn btn-primary" id="register-btn">Registrarse</button>
+                        <button type="submit" class="btn btn-primary" id="liveAlertBtn">Registrarse</button>
                     </form>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div id="liveAlertPlaceholder">
+    <div *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible" role="alert">
+      <div>{{ alertMessage }}</div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 </div>
