@@ -16,7 +16,9 @@ interface EmailResponse {
 export class ContactComponent implements OnInit {
   property: any;
   comment: string = ''; 
-
+  showAlert: boolean = false; 
+  alertMessage: string = '';
+  alertType: string = '';
   
 
   constructor(
@@ -57,10 +59,15 @@ export class ContactComponent implements OnInit {
       .subscribe(
         (response) => {
           
-  
-      
-          window.alert(response.message);
-          this.goBack();
+        this.alertMessage = 'Correo electrónico enviado con éxito.';
+        this.alertType = 'success';
+
+        this.comment = '';
+
+        setTimeout(() => {
+          this.router.navigate(['../']);
+        }, 3000);
+
         },
         (error) => {
           console.error('Error sending email:', error);

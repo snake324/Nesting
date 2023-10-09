@@ -26,8 +26,18 @@
     text-align: center;
 }
 
-#register-btn {
+#liveAlertBtn {
     background-color: #F5B665; 
     border: none;
     box-shadow: 15px 16px 15px -3px rgba(0,0,0,0.1);
+}
+
+#liveAlertPlaceholder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.container {
+    min-height: 80vh; 
 }

@@ -153,3 +153,13 @@ textarea {
     background-color: #D0EAE9;
   }
 }
+
+#liveAlertPlaceholder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mainDiv {
+  min-height: 100vh; 
+}
