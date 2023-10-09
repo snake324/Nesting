@@ -13,6 +13,8 @@ import { PropertiesPublishedListComponent } from './components/properties-publis
 import { AddCardButtonComponent } from './components/add-card-button/add-card-button.component';
 import { AddCardModalComponent } from './components/add-card-modal/add-card-modal.component';
 import { CardAddedComponent } from './components/card-added/card-added.component';
+import { PropertyEditComponent } from './components/property-edit/property-edit.component';
+import { EditPropertiesComponent } from './views/edit-properties/edit-properties.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { CardAddedComponent } from './components/card-added/card-added.component
     PropertiesPublishedListComponent,
     AddCardButtonComponent,
     AddCardModalComponent,
-    CardAddedComponent
+    CardAddedComponent,
+    PropertyEditComponent,
+    EditPropertiesComponent
   ],
   imports: [
     CommonModule,
