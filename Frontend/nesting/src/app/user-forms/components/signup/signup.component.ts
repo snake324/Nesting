@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
+  errorMessage(errorMessage: any) {
+    throw new Error('Method not implemented.');
+  }
   formregister!: FormGroup;
 
   constructor(

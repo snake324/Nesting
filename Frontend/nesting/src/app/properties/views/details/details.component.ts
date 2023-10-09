@@ -33,7 +33,6 @@ export class DetailsComponent implements OnInit {
   }
 
   changeMainImage(newImage: string) {
-    // Cambiar la imagen principal
     this.property.images[0].img = newImage;
   }
 

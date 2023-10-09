@@ -12,7 +12,7 @@ export class FileUploadComponent {
 
   selectedImages: File[] = [];
 
-  constructor(private imageService: ImageService) {}
+  constructor(public imageService: ImageService) {}
 
   onFileImageClick(): void {
     const fileInput: HTMLInputElement | null = this.imageInputRef?.nativeElement;
