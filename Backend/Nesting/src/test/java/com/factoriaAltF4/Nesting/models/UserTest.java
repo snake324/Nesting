@@ -1,75 +1,97 @@
-// package com.factoriaAltF4.Nesting.models;
+package com.factoriaAltF4.Nesting.models;
 
 
-// import com.factoriaAltF4.Nesting.models.User;
-// import com.factoriaAltF4.Nesting.models.UserProfile;
-// import com.factoriaAltF4.Nesting.models.Role;
-// import org.junit.jupiter.api.BeforeEach;
-// import org.junit.jupiter.api.Test;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-// import java.sql.Timestamp;
-// import java.util.HashSet;
-// import java.util.Set;
+import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
-// import static org.junit.jupiter.api.Assertions.assertEquals;
-// import static org.junit.jupiter.api.Assertions.assertNotNull;
-// import static org.junit.jupiter.api.Assertions.assertTrue;
-// import static org.mockito.Mockito.mock;
+import static org.junit.jupiter.api.Assertions.*;
 
-// public class UserTest {
+public class UserTest {
 
-//     private User user;
-//     private UserProfile userProfile;
-//     private Set<Role> roles;
+    private User user;
 
-//     @BeforeEach
-//     public void setUp() {
-//         // Crear un objeto UserProfile
-//         userProfile = new UserProfile();
-//         userProfile.setName("John");
-//         // userProfile.setLastName("Doe");
+    @BeforeEach
+    void setUp() {
+        user = new User();
+    }
 
-//         // Crear un conjunto de roles
-//         roles = new HashSet<>();
-//         Role role1 = new Role();
-//         role1.setIdrole(1L);
-//         role1.setRole("ROLE_USER");
+    @Test
+    void testGettersAndSetters() {
+        user.setIduser(1L);
+        user.setMail("user@example.com");
+        user.setPassword("password");
+        user.setStatus(true);
+        user.setRegisterDate(new Timestamp(System.currentTimeMillis()));
+        user.setUserProfile(new UserProfile());
+        user.setRoles(new HashSet<>());
 
-//         Role role2 = new Role();
-//         role2.setIdrole(2L);
-//         role2.setRole("ROLE_ADMIN");
+        assertEquals(1L, user.getIduser());
+        assertEquals("user@example.com", user.getMail());
+        assertEquals("password", user.getPassword());
+        assertTrue(user.isStatus());
+        assertNotNull(user.getRegisterDate());
+        assertNotNull(user.getUserProfile());
+        assertNotNull(user.getRoles());
+    }
 
-//         roles.add(role1);
-//         roles.add(role2);
+    @Test
+    void testEqualsAndHashCode() {
+        user.setIduser(1L);
+        user.setMail("user@example.com");
+        user.setPassword("password");
+        user.setStatus(true);
+        user.setRegisterDate(new Timestamp(System.currentTimeMillis()));
+        user.setUserProfile(new UserProfile());
+        user.setRoles(new HashSet<>());
 
-//         // Crear un objeto User
-//         user = new User();
-//         user.setIduser(1L);
-//         user.setMail("test@example.com");
-//         user.setPassword("password");
-//         user.setStatus(true);
-//         user.setRegisterDate(new Timestamp(System.currentTimeMillis()));
-//         user.setUserProfile(userProfile);
-//         user.setRoles(roles);
-//     }
+        User sameUser = new User();
+        sameUser.setIduser(1L);
+        sameUser.setMail("user@example.com");
+        sameUser.setPassword("password");
+        sameUser.setStatus(true);
+        sameUser.setRegisterDate(new Timestamp(System.currentTimeMillis()));
+        sameUser.setUserProfile(new UserProfile());
+        sameUser.setRoles(new HashSet<>());
 
-//     @Test
-//     public void testUserModel() {
-//         // Verificar que los atributos se hayan configurado correctamente
-//         assertEquals(1L, user.getIduser());
-//         assertEquals("test@example.com", user.getMail());
-//         assertEquals("password", user.getPassword());
-//         assertTrue(user.isStatus());
-//         assertNotNull(user.getRegisterDate());
-//         assertEquals(userProfile, user.getUserProfile());
-//         assertEquals(roles, user.getRoles());
-//     }
+        assertEquals(user, sameUser);
+        assertEquals(user.hashCode(), sameUser.hashCode());
+    }
 
-//     @Test
-//     public void testPasswordEncryption() {
-//         // Verificar que la contraseña se haya encriptado correctamente
-//         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-//         assertTrue(passwordEncoder.matches("password", user.getPassword()));
-//     }
-// }
+    @Test
+    void testNotEqualsWithDifferentId() {
+        user.setIduser(1L);
+        user.setMail("user@example.com");
+        user.setPassword("password");
+        user.setStatus(true);
+        user.setRegisterDate(new Timestamp(System.currentTimeMillis()));
+        user.setUserProfile(new UserProfile());
+        user.setRoles(new HashSet<>());
+
+        User differentId = new User();
+        differentId.setIduser(2L); 
+
+        assertNotEquals(user, differentId);
+    }
+
+    @Test
+    void testNotEqualsWithDifferentMail() {
+        user.setIduser(1L);
+        user.setMail("user@example.com");
+        user.setPassword("password");
+        user.setStatus(true);
+        user.setRegisterDate(new Timestamp(System.currentTimeMillis()));
+        user.setUserProfile(new UserProfile());
+        user.setRoles(new HashSet<>());
+
+        User differentMail = new User();
+        differentMail.setIduser(1L);
+        differentMail.setMail("otheruser@example.com");
+
+        assertNotEquals(user, differentMail);
+    }
+
+}
