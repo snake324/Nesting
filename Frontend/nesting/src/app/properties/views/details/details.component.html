@@ -64,8 +64,16 @@
       <div id="priceDiv" class="container-fluid">
         
         <p id="priceP">{{ property.price | priceFormat }}€</p>
-          <app-modalcontact #contactmodal></app-modalcontact>
-<app-contactbtn (openModalEvent)="contactmodal.openModal()" id="contactbtn"></app-contactbtn>
+        <div id="reserveDiv" *ngIf="property.type === 'Alquiler'"><button id="reserveBtn" type="button" class="btn btn-primary" 
+          [routerLink]="['/properties/reserve', property.id, { images: property.images }]" 
+          [queryParamsHandling]="'preserve'" routerLinkActive="active">
+          Reservar
+       </button></div>
+        <button id="contactBtn" type="button" class="btn btn-primary" 
+        [routerLink]="['/properties/contact', property.id, { images: property.images }]" 
+        [queryParamsHandling]="'preserve'" routerLinkActive="active">
+        Contactar
+     </button>
       </div>
     </div>
   </div>

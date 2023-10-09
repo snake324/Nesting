@@ -91,7 +91,7 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
         this.applyFilters();
       },
       (error) => {
-        console.log('Error fetching properties data: ', error);
+        
       },
       () => {
         this.applyFilters();
@@ -100,7 +100,7 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
   }
 
   applyFilters() {
-    console.log('applyFilters() llamado');
+    
     this.filteredPropertyData = this.propertyData.filter((property) => {
       const typeCondition = this.selectedType === 'Tipo' || property.type === this.selectedType;
       const propertyTypeCondition = this.filters.propertyType === 'Todos' || property.type === this.filters.propertyType;
@@ -264,7 +264,7 @@ export class HomecardsComponent implements OnInit, AfterViewInit {
       };
     }
   
-    console.log('showImgHomeDiv:', this.showImgHomeDiv);
+    
   }
 
   showImage() {
