@@ -23,25 +23,25 @@ public class ImageTest {
     public void setUp() {
 
         Property property = new Property();
-        property.setTitle("Mi propiedad de prueba");
-        property.setCity("Ciudad de prueba");
+        property.setTitle("Encantador Piso en el Centro Histórico");
+        property.setCity("Madrid");
         propertyRepository.save(property);
 
         Image image = new Image();
-        image.setImg("imagen_de_prueba.jpg");
+        image.setImg("/img1_prop1.jpg");
         image.setProperty(property);
         imageRepository.save(image);
     }
 
-//     @Test
-//     public void testImagePersistence() {
+    @Test
+    public void testImagePersistence() {
 
-//         Image savedImage = imageRepository.findById(1L).orElse(null);
+        Image savedImage = imageRepository.findById(1L).orElse(null);
 
-//         assertNotNull(savedImage);
-//         assertEquals("imagen_de_prueba.jpg", savedImage.getImg());
+        assertNotNull(savedImage);
+        assertEquals("/img1_prop1.jpg", savedImage.getImg());
 
-//         assertNotNull(savedImage.getProperty());
-//         assertEquals("Mi propiedad de prueba", savedImage.getProperty().getTitle());
-//     }
+        assertNotNull(savedImage.getProperty());
+        assertEquals("Encantador Piso en el Centro Histórico", savedImage.getProperty().getTitle());
+    }
 }

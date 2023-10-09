@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class AdminService {
 
-  private apiUrl = environment.apiUrl; 
+  public apiUrl = environment.apiUrl; 
 
   constructor(private httpClient: HttpClient) { }
 

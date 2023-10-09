@@ -13,6 +13,7 @@ import { PropertiesPublishedListComponent } from './components/properties-publis
 import { AddCardButtonComponent } from './components/add-card-button/add-card-button.component';
 import { AddCardModalComponent } from './components/add-card-modal/add-card-modal.component';
 import { CardAddedComponent } from './components/card-added/card-added.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { CardAddedComponent } from './components/card-added/card-added.component
     CommonModule,
     UserFormsRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class UserFormsModule { }
