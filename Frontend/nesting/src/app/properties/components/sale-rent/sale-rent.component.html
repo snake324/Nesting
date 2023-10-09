@@ -1,5 +1,5 @@
 <h1>Formulario de Venta/Alquiler</h1>
-<form [formGroup]="propertyForm" (ngSubmit)="onSubmit()" >
+<form [formGroup]="propertyForm" (ngSubmit)="onSubmit()" *ngIf="showForm">
   <div class="row">
     <div class="col-12 col-lg-3">
       <input
@@ -196,7 +196,14 @@
       <div class="d-flex">
         <app-previewbtn></app-previewbtn>
       </div>
-      <button type="submit" class="save">Guardar</button>
+      <button type="submit" class="save" id="liveAlertBtn" (click)="onSubmit()">Guardar</button>      
     </div>
   </div>
 </form>
+
+<div id="liveAlertPlaceholder">
+  <div *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible" role="alert">
+    <div>{{ alertMessage }}</div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>
