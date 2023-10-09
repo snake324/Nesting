@@ -14,6 +14,12 @@ import { RentcardsComponent } from './properties/components/rentcards/rentcards.
 import { HeaderComponent } from './global/header/header.component';
 import { FooterComponent } from './global/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+
+
 
 
 @NgModule({
@@ -21,13 +27,17 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    MatIconModule,
+    MatButtonModule,
+    FormsModule,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

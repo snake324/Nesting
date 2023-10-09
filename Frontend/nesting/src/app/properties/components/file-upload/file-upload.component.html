@@ -1,12 +1,11 @@
-<div class="mb-3">
-  <label for="formFileMultiple" class="form-label"><br/></label>
-  <input class="form-control" type="file" id="formFileMultiple" multiple />
+<button mat-raised-button (click)="fileInput.click()">Adjuntar Fotos</button>
+<input #fileInput type="file" (change)="onFileChange($event)" multiple style="display: none;">
+
+<div *ngFor="let file of selectedFiles; let i = index">
+  <mat-icon (click)="deleteFile(i)">delete</mat-icon>
+  <span>{{ file.name }}</span>
 </div>
 
-<div *ngFor="let image of uploadedImages">
-  <img [src]="image.url" alt="Imagen" />
-  <button (click)="deleteImage(image.id)">Borrar</button>
-</div>
 
 
 
