@@ -34,7 +34,7 @@ export class UserTableComponent implements OnInit {
     this.adminService
       .toggleUserStatus(user.iduser, user.status)
       .subscribe((response) => {
-        console.log('Estado actualizado en el servidor:', response);
+        
       });
   }
 
@@ -42,6 +42,6 @@ export class UserTableComponent implements OnInit {
     this.filteredUsers = this.users.filter((user) =>
       user.mail.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
-    console.log('Searching for clients with term:', this.searchTerm);
+    
   }
 }

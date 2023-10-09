@@ -22,8 +22,8 @@ export class PropertiesService {
     return this.http.get<Properties>(url);
   }
 
-  saveProperty(propertyData: Properties): Observable<Properties> {
-    return this.http.post<Properties>(`${this.apiUrl}/create`, propertyData);
+  saveProperty(propertyData: Properties, userId: string | null): Observable<Properties> {
+    return this.http.post<Properties>(`${this.apiUrl}/create/${userId}`, propertyData);
   }
 
   deleteProperty(propertyId: number): Observable<void> {

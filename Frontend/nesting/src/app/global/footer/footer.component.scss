@@ -1,11 +1,11 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Mínimo 100% del alto de la ventana */
+    min-height: 100vh; 
   }
   
   main {
-    flex: 1;     /* Esto empuja el contenido hacia abajo, ocupando el espacio restante */
+    flex: 1;
   }
   
   footer {
@@ -30,8 +30,8 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: auto; /* Ajusta el margen izquierdo automáticamente */
-    margin-right: 20px; /* Un pequeño margen derecho para evitar el desbordamiento en pantallas más pequeñas */
+    margin-left: auto; 
+    margin-right: 20px; 
   }
   
   img {
