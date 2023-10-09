@@ -7,10 +7,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent {
-
   formlogin!: FormGroup;
   submitted = false;
   loading = false;
@@ -23,12 +22,12 @@ export class SigninComponent {
     private usersService: UserService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.formlogin = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(4)]]
+      password: ['', [Validators.required, Validators.minLength(4)]],
     });
   }
 
@@ -43,7 +42,7 @@ export class SigninComponent {
     const password = this.formlogin.value.password;
 
     const authHeader = 'Basic ' + btoa(username + ':' + password);
-    const headers = new HttpHeaders({ 'Authorization': authHeader });
+    const headers = new HttpHeaders({ Authorization: authHeader });
 
     this.usersService.loginUser(username, password, headers).subscribe(
       (data) => {
@@ -52,7 +51,9 @@ export class SigninComponent {
         if (jsessionId) {
           localStorage.setItem('JSESSIONID', jsessionId);
         } else {
-          console.error('JSESSIONID no encontrado en la respuesta del servidor.');
+          console.error(
+            'JSESSIONID no encontrado en la respuesta del servidor.'
+          );
         }
 
         this.getUserIdByEmail(username).subscribe((userId) => {
@@ -63,12 +64,18 @@ export class SigninComponent {
       (error) => {
         console.error('Login error:', error);
         if (error.status === 401) {
+
+          this.errorMessage =
+            'Credenciales incorrectas. Por favor, verifica tus datos.';
+
           this.alertMessage = 'Credenciales incorrectas. Por favor, verifica tus datos.';
           this.alertType = 'danger';
           this.formlogin.reset();
           this.errorMessage = 'Credenciales incorrectas. Por favor, verifica tus datos.';
+
         } else {
-          this.errorMessage = 'Hubo un error en el inicio de sesión. Por favor, intenta de nuevo más tarde.';
+          this.errorMessage =
+            'Hubo un error en el inicio de sesión. Por favor, intenta de nuevo más tarde.';
         }
       }
     );
@@ -77,4 +84,8 @@ export class SigninComponent {
   getUserIdByEmail(mail: string) {
     return this.usersService.getUserIdByEmail(mail);
   }
+
 }
+
+}
+

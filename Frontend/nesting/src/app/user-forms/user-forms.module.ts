@@ -15,6 +15,7 @@ import { AddCardModalComponent } from './components/add-card-modal/add-card-moda
 import { CardAddedComponent } from './components/card-added/card-added.component';
 import { PropertyEditComponent } from './components/property-edit/property-edit.component';
 import { EditPropertiesComponent } from './views/edit-properties/edit-properties.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { EditPropertiesComponent } from './views/edit-properties/edit-properties
     CommonModule,
     UserFormsRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class UserFormsModule { }

@@ -6,7 +6,15 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent {
+
+  @ViewChild('imageInput', { static: false }) imageInputRef: ElementRef | undefined;
+
+  selectedImages: File[] = [];
+
+  constructor(public imageService: ImageService) {}
+
   selectedImages: string[] = [];
+
 
   @ViewChild('imageInput', { static: false }) imageInputRef: ElementRef | undefined;
 

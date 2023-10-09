@@ -1,78 +1,166 @@
-// package com.factoriaAltF4.Nesting.models;
+package com.factoriaAltF4.Nesting.models;
 
-// import com.factoriaAltF4.Nesting.repositories.PropertyRepository;
-// import org.junit.jupiter.api.BeforeEach;
-// import org.junit.jupiter.api.Test;
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.boot.test.context.SpringBootTest;
-// import org.springframework.transaction.annotation.Transactional;
-// import java.sql.Timestamp;
-// import java.time.LocalDate;
-// import java.util.ArrayList;
-// import java.util.List;
-// import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
-// @SpringBootTest // Anotación para cargar la aplicación Spring para pruebas
-// @Transactional // Anotación para habilitar transacciones en las pruebas
-// public class PropertyTest {
+import static org.junit.jupiter.api.Assertions.*;
 
-//     @Autowired
-//     private PropertyRepository propertyRepository;
+public class PropertyTest {
 
-//     @Autowired
-//     // private ImageRepository imageRepository;
+    private Property property;
 
-//     @BeforeEach
-//     public void setUp() {
-//         // Crear una propiedad con imágenes para probar
-//         Property property = new Property();
-//         property.setTitle("Mi propiedad de prueba");
-//         property.setCity("Ciudad de prueba");
-//         property.setRooms(3);
-//         property.setBaths(2);
-//         property.setPrice(200000.0);
-//         property.setStatus(true);
-//         property.setPublishDate(LocalDate.now());
-//         property.setModificationDate(new Timestamp(System.currentTimeMillis()));
+    @BeforeEach
+    void setUp() {
+        property = new Property();
+    }
 
-//         // Crear imágenes asociadas a la propiedad
-//         List<Image> images = new ArrayList<>();
-//         Image image1 = new Image();
-//         image1.setImg("imagen1.jpg");
-//         image1.setProperty(property);
-//         images.add(image1);
+    @Test
+    void testGettersAndSetters() {
+        property.setTitle("Test Property");
+        property.setDescription("Test Description");
+        property.setCity("Test City");
+        property.setPostalCode("12345");
+        property.setAddress("Test Address");
+        property.setRooms(3);
+        property.setBaths(2);
+        property.setSize(150.5);
+        property.setPrice(200000.0);
+        property.setType("House");
+        property.setStatus(true);
+        property.setHouseType("Detached");
+        property.setPublishDate(LocalDate.now());
+        property.setModificationDate(new Timestamp(System.currentTimeMillis()));
+        property.setImages(new ArrayList<>());
+        property.setPropertiesContact(new HashSet<>());
+        property.setProfilePublished(new UserProfile());
+        property.setOwnermail("owner@example.com");
 
-//         Image image2 = new Image();
-//         image2.setImg("imagen2.jpg");
-//         image2.setProperty(property);
-//         images.add(image2);
+        assertEquals("Test Property", property.getTitle());
+        assertEquals("Test Description", property.getDescription());
+        assertEquals("Test City", property.getCity());
+        assertEquals("12345", property.getPostalCode());
+        assertEquals("Test Address", property.getAddress());
+        assertEquals(3, property.getRooms());
+        assertEquals(2, property.getBaths());
+        assertEquals(150.5, property.getSize());
+        assertEquals(200000.0, property.getPrice());
+        assertEquals("House", property.getType());
+        assertTrue(property.isStatus());
+        assertEquals("Detached", property.getHouseType());
+        assertEquals(LocalDate.now(), property.getPublishDate());
+        assertNotNull(property.getModificationDate());
+        assertNotNull(property.getImages());
+        assertNotNull(property.getPropertiesContact());
+        assertNotNull(property.getProfilePublished());
+        assertEquals("owner@example.com", property.getOwnermail());
+    }
 
-//         property.setImages(images);
+    @Test
+    void testEqualsAndHashCode() {
+        property.setId(1L);
+        property.setTitle("Test Property");
+        property.setDescription("Test Description");
+        property.setCity("Test City");
+        property.setPostalCode("12345");
+        property.setAddress("Test Address");
+        property.setRooms(3);
+        property.setBaths(2);
+        property.setSize(150.5);
+        property.setPrice(200000.0);
+        property.setType("House");
+        property.setStatus(true);
+        property.setHouseType("Detached");
+        property.setPublishDate(LocalDate.now());
+        property.setModificationDate(new Timestamp(System.currentTimeMillis()));
+        property.setImages(new ArrayList<>());
+        property.setPropertiesContact(new HashSet<>());
+        property.setProfilePublished(new UserProfile());
+        property.setOwnermail("owner@example.com");
 
-//         propertyRepository.save(property);
-//     }
+        Property sameProperty = new Property();
+        sameProperty.setId(1L);
+        sameProperty.setTitle("Test Property");
+        sameProperty.setDescription("Test Description");
+        sameProperty.setCity("Test City");
+        sameProperty.setPostalCode("12345");
+        sameProperty.setAddress("Test Address");
+        sameProperty.setRooms(3);
+        sameProperty.setBaths(2);
+        sameProperty.setSize(150.5);
+        sameProperty.setPrice(200000.0);
+        sameProperty.setType("House");
+        sameProperty.setStatus(true);
+        sameProperty.setHouseType("Detached");
+        sameProperty.setPublishDate(LocalDate.now());
+        sameProperty.setModificationDate(new Timestamp(System.currentTimeMillis()));
+        sameProperty.setImages(new ArrayList<>());
+        sameProperty.setPropertiesContact(new HashSet<>());
+        sameProperty.setProfilePublished(new UserProfile());
+        sameProperty.setOwnermail("owner@example.com");
 
-//     @Test
-//     public void testPropertyPersistence() {
-//         // Obtener la propiedad de la base de datos
-//         Property savedProperty = propertyRepository.findById(1L).orElse(null);
+        assertEquals(property, sameProperty);
+        assertEquals(property.hashCode(), sameProperty.hashCode());
+    }
 
-//         // Verificar que la propiedad se haya guardado correctamente
-//         assertNotNull(savedProperty);
-//         assertEquals("Mi propiedad de prueba", savedProperty.getTitle());
-//         assertEquals("Ciudad de prueba", savedProperty.getCity());
-//         assertEquals(3, savedProperty.getRooms());
-//         assertEquals(2, savedProperty.getBaths());
-//         assertEquals(200000.0, savedProperty.getPrice());
-//         assertTrue(savedProperty.isStatus());
-//         assertNotNull(savedProperty.getPublishDate());
-//         assertNotNull(savedProperty.getModificationDate());
+    @Test
+    void testNotEqualsWithDifferentId() {
+        property.setId(1L);
+        property.setTitle("Test Property");
+        property.setDescription("Test Description");
+        property.setCity("Test City");
+        property.setPostalCode("12345");
+        property.setAddress("Test Address");
+        property.setRooms(3);
+        property.setBaths(2);
+        property.setSize(150.5);
+        property.setPrice(200000.0);
+        property.setType("House");
+        property.setStatus(true);
+        property.setHouseType("Detached");
+        property.setPublishDate(LocalDate.now());
+        property.setModificationDate(new Timestamp(System.currentTimeMillis()));
+        property.setImages(new ArrayList<>());
+        property.setPropertiesContact(new HashSet<>());
+        property.setProfilePublished(new UserProfile());
+        property.setOwnermail("owner@example.com");
 
-//         // Verificar que la propiedad tenga imágenes asociadas
-//         assertNotNull(savedProperty.getImages());
-//         assertFalse(savedProperty.getImages().isEmpty());
-//         assertEquals(2, savedProperty.getImages().size());
-//         assertEquals("imagen1.jpg", savedProperty.getImages().get(0).getImg());
-//         assertEquals("imagen2.jpg", savedProperty.getImages().get(1).getImg());
-//     }
-// }
+        Property differentId = new Property();
+        differentId.setId(2L);
+
+        assertNotEquals(property, differentId);
+    }
+
+    @Test
+    void testNotEqualsWithDifferentType() {
+        property.setId(1L);
+        property.setTitle("Test Property");
+        property.setDescription("Test Description");
+        property.setCity("Test City");
+        property.setPostalCode("12345");
+        property.setAddress("Test Address");
+        property.setRooms(3);
+        property.setBaths(2);
+        property.setSize(150.5);
+        property.setPrice(200000.0);
+        property.setType("House");
+        property.setStatus(true);
+        property.setHouseType("Detached");
+        property.setPublishDate(LocalDate.now());
+        property.setModificationDate(new Timestamp(System.currentTimeMillis()));
+        property.setImages(new ArrayList<>());
+        property.setPropertiesContact(new HashSet<>());
+        property.setProfilePublished(new UserProfile());
+        property.setOwnermail("owner@example.com");
+
+        Property differentType = new Property();
+        differentType.setId(1L);
+        differentType.setType("Apartment"); 
+
+        assertNotEquals(property, differentType);
+    }
+}

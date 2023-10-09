@@ -12,6 +12,9 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
+  errorMessage(errorMessage: any) {
+    throw new Error('Method not implemented.');
+  }
   formregister!: FormGroup;
   errorMessage: string | null = null;
   showAlert: boolean = false; 
