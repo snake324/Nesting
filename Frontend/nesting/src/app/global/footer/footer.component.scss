@@ -1,7 +1,6 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
   }
   
   main {
@@ -16,6 +15,7 @@ body {
     height: 100px;
     color: white;
     flex: 0 0 auto;
+    margin-top: 80vh;
   }
   
   .container {

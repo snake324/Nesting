@@ -1,84 +1,81 @@
 package com.factoriaAltF4.Nesting.services;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
 import com.factoriaAltF4.Nesting.models.UserProfile;
 import com.factoriaAltF4.Nesting.repositories.UserProfileRepository;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 public class UserProfileServiceTest {
 
-    @Mock
-    private UserProfileRepository userProfileRepository;
+  @Mock
+  private UserProfileRepository userProfileRepository;
 
-    @InjectMocks
-    private UserProfileService userProfileService;
+  @InjectMocks
+  private UserProfileService userProfileService;
 
-    @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
+  @BeforeEach
+  public void setUp() {
+    MockitoAnnotations.openMocks(this);
+  }
 
-    @Test
-    public void testGetAllProfiles() {
+  @Test
+  public void testGetAllProfiles() {
+    List<UserProfile> mockProfiles = new ArrayList<>();
+    when(userProfileRepository.findAll()).thenReturn(mockProfiles);
 
-        List<UserProfile> mockProfiles = new ArrayList<>();
-        when(userProfileRepository.findAll()).thenReturn(mockProfiles);
+    List<UserProfile> result = userProfileService.getAllProfiles();
 
-        List<UserProfile> result = userProfileService.getAllProfiles();
+    assertEquals(mockProfiles, result);
+  }
 
-        assertEquals(mockProfiles, result);
-    }
+  @Test
+  public void testGetProfileById() {
+    Long profileId = 1L;
+    UserProfile mockProfile = new UserProfile();
+    mockProfile.setId(profileId);
+    when(userProfileRepository.findById(profileId))
+      .thenReturn(Optional.of(mockProfile));
 
-    @Test
-    public void testGetProfileById() {
+    UserProfile result = userProfileService.getProfileById(profileId);
 
-        Long profileId = 1L;
-        UserProfile mockProfile = new UserProfile();
-        mockProfile.setId(profileId);
-        when(userProfileRepository.findById(profileId)).thenReturn(Optional.of(mockProfile));
+    assertEquals(profileId, result.getId());
+  }
 
-        UserProfile result = userProfileService.getProfileById(profileId);
+  @Test
+  public void testAddProfile() {
+    UserProfile mockProfile = new UserProfile();
+    when(userProfileRepository.save(mockProfile)).thenReturn(mockProfile);
 
-        assertEquals(profileId, result.getId());
-    }
+    UserProfile addedProfile = userProfileService.addProfile(mockProfile);
 
-    @Test
-    public void testAddProfile() {
+    assertEquals(mockProfile, addedProfile);
+  }
 
-        UserProfile mockProfile = new UserProfile();
-        when(userProfileRepository.save(mockProfile)).thenReturn(mockProfile);
+  @Test
+  public void testUpdateProfile() {
+    UserProfile mockProfile = new UserProfile();
+    when(userProfileRepository.save(mockProfile)).thenReturn(mockProfile);
 
-        UserProfile addedProfile = userProfileService.addProfile(mockProfile);
+    UserProfile updatedProfile = userProfileService.updateProfile(mockProfile);
 
-        assertEquals(mockProfile, addedProfile);
-    }
+    assertEquals(mockProfile, updatedProfile);
+  }
 
-    @Test
-    public void testUpdateProfile() {
+  @Test
+  public void testDeleteProfile() {
+    UserProfile mockProfile = new UserProfile();
 
-        UserProfile mockProfile = new UserProfile();
-        when(userProfileRepository.save(mockProfile)).thenReturn(mockProfile);
+    userProfileService.deleteProfile(mockProfile);
 
-        UserProfile updatedProfile = userProfileService.updateProfile(mockProfile);
-
-        assertEquals(mockProfile, updatedProfile);
-    }
-
-    @Test
-    public void testDeleteProfile() {
-
-        UserProfile mockProfile = new UserProfile();
-
-        userProfileService.deleteProfile(mockProfile);
-
-        verify(userProfileRepository, times(1)).delete(mockProfile);
-    }
+    verify(userProfileRepository, times(1)).delete(mockProfile);
+  }
 }

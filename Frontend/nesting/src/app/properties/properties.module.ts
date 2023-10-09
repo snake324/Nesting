@@ -21,19 +21,14 @@ import { ContactComponent } from './components/contact/contact.component';
 import { PublishBtnComponent } from './components/publish-btn/publish-btn.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
-
-
 @NgModule({
   declarations: [
-    
     PrevisualizationComponent,
     BuyComponent,
     DetailsComponent,
     HomeComponent,
 
     HomecardsComponent,
-
 
     PreviewbtnComponent,
     SaleRentformComponent,
@@ -45,15 +40,13 @@ import { HttpClientModule } from '@angular/common/http';
     ReserveComponent,
     ContactComponent,
     PublishBtnComponent,
-
-
-],
+  ],
   imports: [
     CommonModule,
     PropertiesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
-  ]
+    HttpClientModule,
+  ],
 })
-export class PropertiesModule { }
+export class PropertiesModule {}

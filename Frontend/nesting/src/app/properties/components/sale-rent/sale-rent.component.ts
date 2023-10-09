@@ -9,7 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./sale-rent.component.scss'],
 })
 export class SaleRentComponent  {
+  showForm: boolean = true;
   showAlert: boolean = false; 
+  alertMessage: string = '';
+  alertType: string = '';
   propertyForm: FormGroup;
   houseTypes: string[] = ['Casa', 'Piso', 'Terreno', 'Solar'];
   types: string[] = ['Venta', 'Alquiler'];
@@ -135,22 +138,32 @@ export class SaleRentComponent  {
 
     this.propertyForm.patchValue({ postalCode: '' });
   }
-  onSubmit() {
+
+  onSubmit(): void {
     const propertyData = this.propertyForm.value;
     const userId = localStorage.getItem('userId');
-    this.propertiesService.saveProperty(propertyData, userId).subscribe(
-      (response) => {
-        window.alert('Propiedad publicada con éxito');
-        const userId = localStorage.getItem('userId');
-        if (userId) {
-
-          this.router.navigate(['/user-forms/profile', userId]);
+  
+    if (userId) {
+      this.propertiesService.saveProperty(propertyData, userId).subscribe(
+        (response) => {
+          this.alertMessage = 'Propiedad guardada con éxito.';
+          this.alertType = 'success';
+          this.showForm = false;
+  
+          setTimeout(() => {
+            this.router.navigate(['/user-forms/profile', userId]);
+          }, 3000);
+        },
+        (error) => {
+          this.alertMessage = 'Error al guardar la propiedad.';
+          this.alertType = 'danger';
+  
+          console.error('Error al guardar la propiedad', error);
         }
-      },
-      (error) => {
-        console.error('Error al guardar la propiedad', error);
-      }
-    );
-  }  
+      );
+    } else {
+      console.error('El userId no está presente en el almacenamiento local');
+    }
+  }
   
 }
