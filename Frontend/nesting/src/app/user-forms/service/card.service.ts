@@ -1,12 +1,14 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
-  private apiUrl = 'http://localhost:4000/cards';
+  
+  private apiUrl = environment.apiUrl; 
 
   cardSavedSuccessfully$: EventEmitter<void> = new EventEmitter<void>();
   cards: any[] = [];
@@ -22,7 +24,7 @@ export class CardService {
   saveCardData(data: any) {
     console.log('Sending card data to backend:', data);
 
-    this.http.post(`${this.apiUrl}/create`, data).subscribe(
+    this.http.post(`${this.apiUrl}/cards/create`, data).subscribe(
       (response) => {
         console.log('Card saved successfully in the backend:', response);
         this.cardSavedSuccessfully();
@@ -34,14 +36,14 @@ export class CardService {
   }
 
   getAllCards(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.apiUrl}/cards`);
   }
 
   getCardById(cardId: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${cardId}`);
+    return this.http.get(`${this.apiUrl}/cards/${cardId}`);
   }
 
   deleteCard(cardId: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/delete/${cardId}`);
+    return this.http.delete(`${this.apiUrl}/cards/delete/${cardId}`);
   }
 }

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
-  private baseUrl = 'http://localhost:4000/images';
+  private apiUrl = environment.apiUrl; 
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +17,6 @@ export class ImageService {
       formData.append('images', images[i]);
     }
 
-    return this.http.post<any>(`${this.baseUrl}/addimg`, formData);
+    return this.http.post<any>(`${this.apiUrl}/images/addimg`, formData);
   }
 }
