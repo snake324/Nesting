@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
-import { User } from '../../models/user.model';
-import { map, toArray } from 'rxjs';
+import { map } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -12,9 +11,6 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
-  errorMessage(errorMessage: any) {
-    throw new Error('Method not implemented.');
-  }
   formregister!: FormGroup;
   errorMessage: string | null = null;
   showAlert: boolean = false; 
