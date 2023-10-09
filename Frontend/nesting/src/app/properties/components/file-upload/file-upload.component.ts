@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ImageService } from '../../service/image.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -6,10 +7,6 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent {
-
-  @ViewChild('imageInput', { static: false }) imageInputRef: ElementRef | undefined;
-
-  selectedImages: File[] = [];
 
   constructor(public imageService: ImageService) {}
 

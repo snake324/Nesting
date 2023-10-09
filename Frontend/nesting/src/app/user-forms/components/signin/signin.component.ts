@@ -65,9 +65,6 @@ export class SigninComponent {
         console.error('Login error:', error);
         if (error.status === 401) {
 
-          this.errorMessage =
-            'Credenciales incorrectas. Por favor, verifica tus datos.';
-
           this.alertMessage = 'Credenciales incorrectas. Por favor, verifica tus datos.';
           this.alertType = 'danger';
           this.formlogin.reset();
@@ -86,6 +83,3 @@ export class SigninComponent {
   }
 
 }
-
-}
-
