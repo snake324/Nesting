@@ -1,12 +1,17 @@
 <button mat-raised-button (click)="fileInput.click()">Adjuntar Fotos</button>
 <input #fileInput type="file" (change)="onFileChange($event)" multiple style="display: none;">
 
-<div *ngFor="let file of selectedFiles; let i = index">
-  <mat-icon (click)="deleteFile(i)">delete</mat-icon>
-  <span>{{ file.name }}</span>
+<div class="photo-grid">
+  <div *ngFor="let fileObj of selectedFiles; let i = index" class="photo-item">
+    <mat-icon (click)="deleteFile(i)">delete</mat-icon>
+    <img [src]="fileObj.url" alt="Vista previa de la foto">
+  </div>
 </div>
 
-
-
-
+<!-- <div *ngFor="let file of selectedFiles; let i = index" class="photo-item">
+  <div class="photo-container">
+    <img [src]="file.url" alt="Foto" />
+    <mat-icon class="delete-icon" (click)="deleteFile(i)">delete</mat-icon>
+  </div>
+</div> -->
 

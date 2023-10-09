@@ -1,28 +1,67 @@
-h1 {
-  color: #F3A139;
-  text-align: center;
-  margin-bottom: 3rem;
-  margin-top: 2rem;
+// Variables
+$primary-color: #F3A139;
+$secondary-color: #006D7A;
+$background-color: #D0EAE9;
+$border-color: #8BBFBD;
+$white: #ffffff;
+
+// Mixin para box-shadow
+@mixin box-shadow {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+
+h1 {
+  color: $primary-color;
+  text-align: center;
+  margin: 2rem 0 3rem;
+}
+
+.form-check {
+  .form-check-input {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 2rem 4.1rem;
+    background-color: $white;
+    border: 2px solid $secondary-color;
+    border-radius: 2.5px;
+
+    &:checked {
+      background-color: $primary-color;
+      border: 1px solid $secondary-color;
+    }
+  }
+
+  .form-check-label {
+    color: $primary-color;
+    margin-bottom: 2.5rem;
+  }
+}
+
+// Resto del código
+
 
 .dropdown {
   button {
-    border-color:transparent;
+    border-color: transparent;
     margin-bottom: 2rem;
     color: #006D7A;
   }
+
   ul.dropdown-menu {
     background-color: #D0EAE9;
-    border-color:#8BBFBD;
+    border-color: #8BBFBD;
     // color: #006D7A;
     outline: 0.5px solid #8cbfbc;
-     .dropdown-item {
-      color:#006D7A;
+
+    .dropdown-item {
+      color: #006D7A;
 
     }
-     .dropdown-item:hover {
-       background-color: #8BBFBD;
-       color: #D0EAE9;
+
+    .dropdown-item:hover {
+      background-color: #8BBFBD;
+      color: #D0EAE9;
     }
   }
 }
@@ -47,7 +86,7 @@ h1 {
 
   &::placeholder {
     color: #006D7A;
-    font-weight:600;
+    font-weight: 600;
 
   }
 }
@@ -55,69 +94,79 @@ h1 {
 .move-left {
   margin-left: 5rem;
   margin-top: 2rem;
-  width: 36.5rem;
+  width: 26.5rem;
   height: 2.5rem;
-  text-align: center;
   outline: none;
-
 }
 
-  .form-check-input {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
+.move-right {
+  // margin-left: 28rem;
   margin-top: 2rem;
-  margin-left: 4.5rem;
-  background-color: white;
-  border: 2px solid #006D7A;
-  border-radius: 2.5px;
-
-      &:checked {
-        background-color: #F3A139;
-        border: 1px solid #006D7A;
-      }
-        &:focus {
-    box-shadow: none;
-  }
-   &:checked + .form-check-label {
-    text-decoration: underline;
-
-  }
-    }
-
-
-
-label {
-  color:#F3A139;
-  margin-left: 1rem;
-  margin-top: 1.7rem;
-
+  width: 26.5rem;
+  height: 2.5rem;
+  outline: none;
+  flex: 1;
 }
-
 
 textarea {
-  resize: none;
+  height: 19rem;
+  width: 36.7rem;
   border-color: #D0EAE9;
   border-radius: 5px;
   background-color: #D0EAE9;
   color: #F3A139;
   margin-bottom: 2rem;
-  margin-top: -7rem;
-  margin-left: 4.8rem;
+  margin-top: 1.7rem;
+  margin-left: 6rem;
 
   &:focus {
     border-color: #8BBFBD;
   }
 }
 
-p {
-  color: #ffffff;
-  margin-bottom: 2.5rem;
-  font-weight: bold;
-  font-size: large;
-  margin-top: -25rem;
+.btupload{
   margin-left: 5rem;
+  
 }
+
+// .form-check-input {
+//   display: inline-block;
+//   width: 15px;
+//   height: 15px;
+//   margin-top: 2rem;
+//   vertical-align: middle;
+//   margin-bottom: 2.5rem;
+//   margin-left: 4.5rem;
+//   background-color: white;
+//   border: 2px solid #006D7A;
+//   border-radius: 2.5px;
+
+//   &:checked {
+//     background-color: #F3A139;
+//     border: 1px solid #006D7A;
+//   }
+
+//   &:focus {
+//     box-shadow: none;
+//   }
+
+//   &:checked+.form-check-label {
+//     text-decoration: underline;
+
+//   }
+// }
+
+
+
+label {
+  color: #F3A139;
+  margin-left: 1rem;
+  margin-top: 1.7rem;
+
+}
+
+
+
 
 #description {
   background-color: #D0EAE9;
@@ -130,29 +179,21 @@ p {
   }
 }
 
-.btupload {
-  margin-left: 52rem;
-  margin-top: 5rem;
-  margin-bottom: 17.5rem;
-  font-weight:600;
-}
-.d-flex {
-  margin-left: 20.4rem;
-  margin-bottom: 2rem;
 
-}
-.save{
+.save {
   background-color: #F3A139;
-  border-color:transparent;
+  border-color: transparent;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin-left: 52em;
+  margin-left: 5rem;
   color: #ffffff;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   width: 11rem;
   height: 2.3rem;
   border-radius: 5px;
+  margin-bottom: 2.9rem;
 }
+
 .btn {
   background-color: #D0EAE9;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -170,12 +211,18 @@ p {
   }
 }
 
-
-// form {
-//   margin-left: 8rem;
+// .left-section {
+//   flex: 3; // Ajusta como desees
 // }
 
+// .right-section {
+//   flex: 1; // Ajusta como desees
+// }
 
+// #Titulo {
+//   margin-top: 5rem;
+//   margin-left: -1rem;
+//   width: 36.5rem;
+//   height: 2.5rem;
 
-
-
+// }

@@ -24,6 +24,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { ReservebtnComponent } from './components/reservebtn/reservebtn.component';
 import { ReservemodalComponent } from './components/reservemodal/reservemodal.component';
 import { GalleryuploadComponent } from './components/galleryupload/galleryupload.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -49,12 +50,14 @@ import { GalleryuploadComponent } from './components/galleryupload/galleryupload
     ReservebtnComponent,
     ReservemodalComponent,
 
+
 ],
   imports: [
     CommonModule,
     PropertiesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatIconModule
   ]
 })
 export class PropertiesModule { }
