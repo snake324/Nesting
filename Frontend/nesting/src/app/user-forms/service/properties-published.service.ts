@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class PropertiesPublishedService {
-  private apiUrl = environment.apiUrl;
+  public apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 

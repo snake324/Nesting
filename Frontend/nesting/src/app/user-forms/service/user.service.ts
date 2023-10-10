@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class UserService {
 
-  private apiUrl = environment.apiUrl;
+  public apiUrl = environment.apiUrl;
 
   private isAuthenticated: boolean = false;
   private actualUser: User | null = null;

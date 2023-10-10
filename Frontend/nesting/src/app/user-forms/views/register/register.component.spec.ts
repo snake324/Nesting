@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { RegisterComponent } from './register.component';
+import { SignupComponent } from '../../components/signup/signup.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';  
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -8,14 +9,18 @@ describe('RegisterComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RegisterComponent]
+      declarations: [
+        RegisterComponent,
+        SignupComponent,
+      ],
+      imports: [HttpClientTestingModule],  
     });
+
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -5,6 +5,7 @@ import { of, throwError } from 'rxjs';
 import { SignupComponent } from './signup.component';
 import { UserService } from '../../service/user.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { fakeAsync, tick } from '@angular/core/testing';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;
@@ -13,12 +14,15 @@ describe('SignupComponent', () => {
   let router: jasmine.SpyObj<Router>;
 
   beforeEach(() => {
+    
+    const userServiceSpy = jasmine.createSpyObj('UserService', ['registerUser', 'getUsers', 'loginUser', 'getUserIdByEmail']);
+
     TestBed.configureTestingModule({
       declarations: [SignupComponent],
       imports: [ReactiveFormsModule, HttpClientTestingModule],
       providers: [
         FormBuilder,
-        { provide: UserService, useValue: jasmine.createSpyObj('UserService', ['registerUser']) },
+        { provide: UserService, useValue: userServiceSpy },
         { provide: Router, useValue: jasmine.createSpyObj('Router', ['navigate']) },
       ],
     });
@@ -28,7 +32,7 @@ describe('SignupComponent', () => {
     userService = TestBed.inject(UserService) as jasmine.SpyObj<UserService>;
     router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
 
-    // Llamamos a ngOnInit para simular el ciclo de vida del componente
+    
     component.ngOnInit();
   });
 
@@ -36,19 +40,24 @@ describe('SignupComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should register user successfully', () => {
+  it('should register user successfully', fakeAsync(() => {
     const mail = 'test@example.com';
     const password = 'password';
-
+  
     component.formregister.setValue({ mail, password });
-
+  
+    userService.getUsers.and.returnValue(of([]));
     userService.registerUser.and.returnValue(of({ message: 'User registered successfully' }));
-
+  
     component.registerUser();
-
+  
+    expect(userService.getUsers).toHaveBeenCalled();
     expect(userService.registerUser).toHaveBeenCalledWith(mail, password);
     expect(router.navigate).toHaveBeenCalledWith(['/user-forms/login']);
-  });
+  
+   
+    tick();
+  }));
 
   it('should handle registration error', () => {
     const mail = 'test@example.com';
@@ -57,10 +66,12 @@ describe('SignupComponent', () => {
     component.formregister.setValue({ mail, password });
 
     const errorMessage = 'Registration failed';
+    userService.getUsers.and.returnValue(of([])); 
     userService.registerUser.and.returnValue(throwError(errorMessage));
 
     component.registerUser();
 
+    expect(userService.getUsers).toHaveBeenCalled(); 
     expect(userService.registerUser).toHaveBeenCalledWith(mail, password);
     expect(component.errorMessage).toBe(errorMessage);
   });
