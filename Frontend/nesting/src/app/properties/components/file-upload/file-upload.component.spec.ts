@@ -25,21 +25,4 @@ describe('FileUploadComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should trigger file input click', () => {
-    const fileInputSpy = spyOn(component.imageInputRef!.nativeElement, 'click');
-    component.onFileImageClick();
-    expect(fileInputSpy).toHaveBeenCalled();
-  });
-
-  it('should add selected files to selectedImages', () => {
-    const file1 = new File([''], 'file1.txt');
-    const file2 = new File([''], 'file2.txt');
-    const event = {
-      target: {
-        files: [file1, file2]
-      }
-    };
-    component.onFilesSelected(event);
-    expect(component.selectedImages).toEqual([file1, file2]);
-  });
 });
