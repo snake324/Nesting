@@ -5,7 +5,7 @@
 <h2>Project Screenshots:</h2>
 
 <img src="https://i.imgur.com/giG5hWR.png" alt="project-screenshot" width="600" height="400/">
-
+<img src=  alt="project-screenshot" width="600" height="400/">
   
   
 <h2>🧐 Features</h2>
@@ -34,6 +34,9 @@ Technologies used in the project:
 *   Typescript V5.1.0
 *   Java V17
 *   Karma-Jasmine V5.1.0
+
+<h2>Dependencies</h2>
+
 
 
 <h2>💻 Team</h2>
