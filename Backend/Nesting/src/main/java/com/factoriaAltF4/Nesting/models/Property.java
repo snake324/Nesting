@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+// import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "properties")
@@ -70,7 +70,6 @@ public class Property {
 
     @ManyToOne
     @JoinColumn(name = "fk_user_profile_published")
-    @JsonIgnore
     public UserProfile profilePublished;
 
     @Column(name = "owner_mail")
