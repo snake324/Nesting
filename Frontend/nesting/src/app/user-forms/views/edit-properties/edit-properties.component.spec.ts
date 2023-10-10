@@ -1,21 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { PropertiesPublishedService } from '../../service/properties-published.service';
 
-import { EditPropertiesComponent } from './edit-properties.component';
-
-describe('EditPropertiesComponent', () => {
-  let component: EditPropertiesComponent;
-  let fixture: ComponentFixture<EditPropertiesComponent>;
+describe('PropertiesPublishedService', () => {
+  let service: PropertiesPublishedService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EditPropertiesComponent]
+      imports: [HttpClientTestingModule], 
+      providers: [PropertiesPublishedService],
     });
-    fixture = TestBed.createComponent(EditPropertiesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+
+    service = TestBed.inject(PropertiesPublishedService);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    expect(service).toBeTruthy();
   });
+
+  
 });

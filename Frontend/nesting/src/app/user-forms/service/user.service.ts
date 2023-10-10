@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class UserService {
 
-  private apiUrl = environment.apiUrl;
+  public apiUrl = environment.apiUrl;
 
   private isAuthenticated: boolean = false;
   private actualUser: User | null = null;
@@ -71,6 +71,15 @@ export class UserService {
     if (this.isLogged()) {
       const userId = localStorage.getItem("userId");
       return userId;
+    } else {
+      return null;
+    }
+  }
+
+  public getUserRoles(): string | null {
+    if (this.isLogged()) {
+      const userRoles = localStorage.getItem("roles");
+      return userRoles;
     } else {
       return null;
     }

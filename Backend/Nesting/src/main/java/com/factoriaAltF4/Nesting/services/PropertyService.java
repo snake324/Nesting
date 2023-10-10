@@ -62,7 +62,7 @@ public class PropertyService {
             existingProperty.setStatus(true);
             existingProperty.setTitle(property.getTitle());
             existingProperty.setType(property.getType());
-            existingProperty.setProfilePublished(property.getProfilePublished());
+            existingProperty.setProfilePublished(service.getProfileById(property.getProfilePublished().getId()));
             return repo.save(existingProperty);
         } else {
             return null;

@@ -12,12 +12,15 @@ export class UserTableComponent implements OnInit {
   users: User[] = [];
   searchTerm: string = '';
   filteredUsers: any[] = [];
+  alertMessage: string = '';
+  alertType: string = '';
+
   constructor(
     private userService: UserService,
     private adminService: AdminService
   ) {}
 
-    ngOnInit(): void {
+  ngOnInit(): void {
     this.getUsersData();
   }
 
@@ -31,17 +34,45 @@ export class UserTableComponent implements OnInit {
   toggleUserStatus(user: User): void {
     user.status = !user.status;
 
-    this.adminService
-      .toggleUserStatus(user.iduser, user.status)
-      .subscribe((response) => {
-        
-      });
+    this.adminService.toggleUserStatus(user.iduser, user.status).subscribe(
+      (response) => {
+        if (!user.status) {
+          this.alertMessage = 'Usuario deshabilitado con éxito.';
+          this.alertType = 'danger';
+        } else {
+          this.alertMessage = 'Usuario habilitado con éxito.';
+          this.alertType = 'success';
+        }
+
+        this.showAlert(this.alertMessage, this.alertType);
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   searchClients() {
     this.filteredUsers = this.users.filter((user) =>
       user.mail.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+  }
+
+  hideAlert(): void {
+    this.alertMessage = '';
+    this.alertType = '';
+  }
+
+  showAlert(message: string, type: string): void {
+    this.alertMessage = message;
+    this.alertType = type;
     
+    setTimeout(() => {
+      this.hideAlert();
+    }, 3000);
   }
 }

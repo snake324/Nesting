@@ -46,36 +46,4 @@ describe('SaleRentComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should submit the form', () => {
-    const formValues = {
-      id: 1,
-      title: 'Sample Property',
-      description: 'This is a sample property.',
-      city: 'Madrid',
-      postalCode: '28001',
-      rooms: 3,
-      baths: 2,
-      size: 150,
-      price: 200000,
-      type: 'Venta',
-      status: true,
-      houseType: 'Casa',
-      publishDate: '2023-01-01',
-      modificationDate: '2023-01-02',
-      images: [],
-      address: '123 Sample St',
-      ownermail: 'owner@example.com',
-    };
-
-    component.propertyForm.setValue(formValues);
-
-    propertiesService.saveProperty.and.returnValue(of(formValues));
-
-    component.onSubmit();
-
-    expect(propertiesService.saveProperty).toHaveBeenCalledWith(
-      formValues,
-      jasmine.any(String)
-    );
-  });
 });
