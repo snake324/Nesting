@@ -1,21 +1,57 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { ProfileComponent } from './profile.component';
+import { CardService } from '../../service/card.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { HttpClientTestingModule } from '@angular/common/http/testing'; // Agrega esta importación
+import { UserdataComponent } from '../../components/userdata/userdata.component';
+import { AddCardModalComponent } from '../../components/add-card-modal/add-card-modal.component';
+import { PropertiesPublishedListComponent } from '../../components/properties-published-list/properties-published-list.component';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
+  let cardService: CardService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ProfileComponent]
+      imports: [HttpClientTestingModule], // Agrega HttpClientTestingModule aquí
+      declarations: [ProfileComponent, UserdataComponent, AddCardModalComponent, PropertiesPublishedListComponent],
+      providers: [
+        {
+          provide: CardService,
+          useValue: {
+            cardSavedSuccessfully$: new BehaviorSubject<void>(undefined),
+            cards: [],
+          },
+        },
+        {
+          provide: ActivatedRoute,
+          useValue: { snapshot: { paramMap: { get: () => 'someId' } } },
+        },
+        { provide: Router, useValue: {} },
+      ],
     });
     fixture = TestBed.createComponent(ProfileComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    cardService = TestBed.inject(CardService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should handle cardSavedSuccessfully event', fakeAsync(() => {
+    cardService.cardSavedSuccessfully$.next();
+    tick();
+    expect(component.showCardAdded).toBe(false);
+  }));
+
+  it('should hide cardAdded on hideCardAdded', () => {
+    component.showCardAdded = true;
+    component.hideCardAdded();
+    expect(component.showCardAdded).toBe(false);
+  });
+
+  // Puedes agregar más pruebas según las interacciones del usuario y otros casos de uso
 });
