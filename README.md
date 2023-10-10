@@ -26,11 +26,14 @@ Here're some of the project's best features:
 
 Technologies used in the project:
 
-*   SpringBoot
-*   Angular
-*   Postman
-*   Bootstrap
-*   MySQL
+*   SpringBoot V3.1.4
+*   Angular V16.2.3
+*   Postman V10.18
+*   Bootstrap V5.3.2
+*   MySQL V8.0 Community Edition
+*   Typescript V5.1.0
+*   Java V17
+*   Karma-Jasmine V5.1.0
 
 
 <h2>💻 Team</h2>
