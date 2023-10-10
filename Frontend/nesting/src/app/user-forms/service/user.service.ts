@@ -76,4 +76,13 @@ export class UserService {
     }
   }
 
+  public getUserRoles(): string | null {
+    if (this.isLogged()) {
+      const userRoles = localStorage.getItem("roles");
+      return userRoles;
+    } else {
+      return null;
+    }
+  }
+
 }

@@ -14,7 +14,7 @@ export class SigninComponent {
   submitted = false;
   loading = false;
   errorMessage: string | null = null;
-  showAlert: boolean = false; 
+  showAlert: boolean = false;
   alertMessage: string = '';
   alertType: string = '';
 
@@ -46,30 +46,32 @@ export class SigninComponent {
 
     this.usersService.loginUser(username, password, headers).subscribe(
       (data) => {
-
         const jsessionId = data['jsessionid'];
+        const userRoles = data['roles'];
+
         if (jsessionId) {
           localStorage.setItem('JSESSIONID', jsessionId);
         } else {
-          console.error(
-            'JSESSIONID no encontrado en la respuesta del servidor.'
-          );
+          console.error('JSESSIONID no encontrado en la respuesta del servidor.');
         }
 
         this.getUserIdByEmail(username).subscribe((userId) => {
           localStorage.setItem('userId', userId.toString());
-          this.router.navigate(['/user-forms/profile', userId]);
+          localStorage.setItem('roles', userRoles.toString());
+          if (userRoles.includes('ROLE_ADMIN')) {
+            this.router.navigate(['/admin/admin']);
+          } else if (userRoles.includes('ROLE_USER')) {
+            this.router.navigate(['/user-forms/profile', userId]);
+          }
         });
       },
       (error) => {
         console.error('Login error:', error);
         if (error.status === 401) {
-
           this.alertMessage = 'Credenciales incorrectas. Por favor, verifica tus datos.';
           this.alertType = 'danger';
           this.formlogin.reset();
           this.errorMessage = 'Credenciales incorrectas. Por favor, verifica tus datos.';
-
         } else {
           this.errorMessage =
             'Hubo un error en el inicio de sesión. Por favor, intenta de nuevo más tarde.';
@@ -81,5 +83,4 @@ export class SigninComponent {
   getUserIdByEmail(mail: string) {
     return this.usersService.getUserIdByEmail(mail);
   }
-
 }
