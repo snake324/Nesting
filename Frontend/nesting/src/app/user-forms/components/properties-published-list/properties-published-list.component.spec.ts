@@ -27,7 +27,7 @@ describe('PropertiesPublishedListComponent', () => {
           provide: ActivatedRoute,
           useValue: {
             paramMap: of({
-              get: (param: string) => '123', // Assuming a profile ID of '123'
+              get: (param: string) => '123', 
             }),
           },
         },

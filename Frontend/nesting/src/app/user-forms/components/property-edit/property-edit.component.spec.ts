@@ -9,10 +9,10 @@ describe('PropertyEditComponent', () => {
   let component: PropertyEditComponent;
   let fixture: ComponentFixture<PropertyEditComponent>;
 
-  // Modificamos el mock de ActivatedRoute para proporcionar valores específicos
+  
   const activatedRouteMock = {
     snapshot: {
-      paramMap: convertToParamMap({ id: '1' }),  // Proporciona los parámetros necesarios
+      paramMap: convertToParamMap({ id: '1' }),  
       queryParamMap: convertToParamMap({}),
     },
   };

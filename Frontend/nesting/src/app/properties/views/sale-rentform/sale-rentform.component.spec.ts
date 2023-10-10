@@ -1,14 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';  
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
-import { PropertyEditComponent } from 'src/app/user-forms/components/property-edit/property-edit.component';
+import { SaleRentformComponent } from './sale-rentform.component';
+import { SaleRentComponent } from '../../components/sale-rent/sale-rent.component';
+import { HttpClientModule } from '@angular/common/http';  
+import { FileUploadComponent } from '../../components/file-upload/file-upload.component';
+import { PreviewbtnComponent } from '../../components/previewbtn/previewbtn.component';
 
-describe('PropertyEditComponent', () => {
-  let component: PropertyEditComponent;
-  let fixture: ComponentFixture<PropertyEditComponent>;
+describe('SaleRentFormComponent', () => {
+  let component: SaleRentformComponent;
+  let fixture: ComponentFixture<SaleRentformComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PropertyEditComponent],
+      declarations: [SaleRentformComponent, SaleRentComponent, FileUploadComponent, PreviewbtnComponent],
+      imports: [HttpClientModule, ReactiveFormsModule],  
       providers: [
         {
           provide: ActivatedRoute,
@@ -19,7 +25,7 @@ describe('PropertyEditComponent', () => {
       ],
     });
 
-    fixture = TestBed.createComponent(PropertyEditComponent);
+    fixture = TestBed.createComponent(SaleRentformComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

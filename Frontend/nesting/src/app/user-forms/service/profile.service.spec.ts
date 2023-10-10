@@ -80,7 +80,7 @@ describe('ProfileService', () => {
       name: 'John',
       lastname: 'Doe',
       address: '123 Main St',
-      card: mockCard,  // Use a single Card, not an array
+      card: mockCard,  
       propertiesPublished: [],
     };
   
@@ -96,7 +96,7 @@ describe('ProfileService', () => {
   it('should delete a profile', () => {
     const profileId = '1';
   
-    // Define mockCard
+    
     const mockCard: Card = {
       id: 1,
       owner: 'John Doe',
