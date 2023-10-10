@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ImageService } from '../../service/image.service';
 
 interface FileWithPreview {
   file: File;
@@ -11,26 +12,26 @@ interface FileWithPreview {
   styleUrls: ['./file-upload.component.scss'],
 })
 export class FileUploadComponent {
-  selectedFiles: FileWithPreview[] = [];
+deleteImage(arg0: any) {
+throw new Error('Method not implemented.');
+}
+uploadedImages: any;
 
-  onFileChange(event: any) {
-    for (let i = 0; i < event.target.files.length; i++) {
-      const file = event.target.files[i];
-      const reader = new FileReader();
+  constructor(public imageService: ImageService) {}
 
-      reader.onload = (e: any) => {
-        this.selectedFiles.push({
-          file: file,
-          url: e.target.result
-        });
-      };
+  selectedImages: string[] = [];
 
-      reader.readAsDataURL(file);
+
+  @ViewChild('imageInput', { static: false }) imageInputRef: ElementRef | undefined;
+
+  onFilesSelected(event: any) {
+    const files: FileList | null = event.target.files;
+    if (files && files.length > 0) {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const imageUrl = URL.createObjectURL(file);
+        this.selectedImages.push(imageUrl);
+      }
     }
   }
-
-  deleteFile(index: number) {
-    this.selectedFiles.splice(index, 1);
-  }
 }
-

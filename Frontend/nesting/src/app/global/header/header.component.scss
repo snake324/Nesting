@@ -1,8 +1,6 @@
 #header {
   display: flex;
   background-color: #8bbfbd;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .navbar-brand {
@@ -10,18 +8,51 @@
   display: flex;
 }
 
-.nav-link {
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  font-size: x-large;
-  position: relative;
-  margin-left: 140vh;
-}
 
-#svg-login {
-  margin-left: 8vh;
+.navbar-login {
   .bi {
     color: #006d7a;
   }
+}
+
+#navbarFlex {
+
+
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+#mainNav {
+  display: flex;
+
+  width: 100%;
+}
+
+#svg-login {
+  margin-right: 2em;
+  margin-left: 8em;
+}
+
+#puBtn {
+  background: none;
+  font-size: 1.5em;
+  border: 2px solid #f4f4f2;
+}
+
+#puBtn:hover {
+  background-color: #006d7a;
+  color: white;
+  font-size: 1.5em;
+  border: 2px solid #006d7a;
+  margin-bottom: 4px;
+}
+
+
+#logout {
+  color: white;
+  background-color: #f5b665;
+  border-color: #f5b665;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 1.5em;
 }

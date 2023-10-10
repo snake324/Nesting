@@ -3,28 +3,28 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { DetailsComponent } from './views/details/details.component';
 import { BuyComponent } from './views/buy/buy.component';
-import { RentComponent } from './views/rent/rent.component';
-import { PropertyFormComponent } from './views/property-form/property-form.component';
+
 import { PrevisualizationComponent } from './views/previsualization/previsualization.component';
 import { SaleRentformComponent } from './views/sale-rentform/sale-rentform.component';
-import { GalleryuploadComponent } from './components/galleryupload/galleryupload.component';
+import { ReserveComponent } from './components/reserve/reserve.component';
+import { ContactComponent } from './components/contact/contact.component';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'details/:id', component: DetailsComponent },
+  { path: 'reserve/:id', component: ReserveComponent },
+  { path: 'contact/:id', component: ContactComponent },
   { path: 'buy', component: BuyComponent },
-  { path: 'rent', component: RentComponent },
-  { path: 'property-form', component: PropertyFormComponent },
+
   { path: 'previsualization', component: PrevisualizationComponent },
   { path: 'sale_rentform', component: SaleRentformComponent },
-  { path: 'galleryupload', component: GalleryuploadComponent },
   { path: 'home', component: HomeComponent},
   { path: 'details', component: DetailsComponent },
   { path: 'buy', component: BuyComponent},
-  { path: 'rent', component: RentComponent},
-  { path: 'property-form', component: PropertyFormComponent},
-  { path: 'previsualization', component: PrevisualizationComponent},
+
   { path: 'sale_rentform', component: SaleRentformComponent}
 ];
 

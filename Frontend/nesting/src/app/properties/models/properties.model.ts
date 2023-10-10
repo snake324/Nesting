@@ -1,3 +1,5 @@
+import { Image } from "./image.model";
+
 export interface Properties {
     id: number;
     title: string;
@@ -14,9 +16,6 @@ export interface Properties {
     publishDate: string;
     modificationDate: string;
     images: Image[];
-  }
-  
-  interface Image {
-    id: number;
-    img: string;
+    address: string;
+    ownermail: string;
   }

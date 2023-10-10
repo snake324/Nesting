@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PropertiesService } from '../../service/properties.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-sale-rent',
   templateUrl: './sale-rent.component.html',
-  styleUrls: ['./sale-rent.component.scss']
+  styleUrls: ['./sale-rent.component.scss'],
 })
 export class SaleRentComponent  {
+  showForm: boolean = true;
+  showAlert: boolean = false; 
+  alertMessage: string = '';
+  alertType: string = '';
   propertyForm: FormGroup;
-  propertyTypes: string[] = ['Tipo propiedad','Casa', 'Piso', 'Terreno', 'Solar'];
-  transactionTypes: string[] = ['Tipo transacción', 'Venta', 'Alquiler'];
+  houseTypes: string[] = ['Casa', 'Piso', 'Terreno', 'Solar'];
+  types: string[] = ['Venta', 'Alquiler'];
   bathroomsOptions: string[] = ['Baños', '1', '2', '3', '4', '5', '6'];
   bedroomsOptions: string[] = ['Habitaciones', '1', '2', '3', '4', '5', '6', '7', '8'];
   selectedPropertyType: string = 'Tipo propiedad';
@@ -21,49 +28,68 @@ export class SaleRentComponent  {
     { name: 'Madrid', postalCodes: ['28001', '28002', '28003'] },
     { name: 'Barcelona', postalCodes: ['08001', '08002', '08003'] },
     { name: 'Valencia', postalCodes: ['46001', '46002', '46003'] },
-    { name: 'Oviedo', postalCodes: ['33001', '33002', '33003'] }
+    { name: 'Oviedo', postalCodes: ['33001', '33002', '33003'] },
   ];
   filteredPostalCodes: string[] = [];
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private propertiesService: PropertiesService,
+    private router: Router
+    ) {
+
     this.selectedBedrooms = 'Habitaciones';
+
     this.propertyForm = this.formBuilder.group({
-      propertyType: [''],
-      transactionType: [''],
-      bathrooms: [''],
-      bedrooms: [''],
-      city: [''],
-      postalCode: [''],
-      surface: [''],
-      price: [''],
-      description: ['']
+      title: '',
+      description: '',
+      city: '',
+      postalCode: '',
+      rooms: '',
+      baths: '',
+      size: '',
+      price: '',
+      type: '',
+      status: true,
+      houseType: '',
+      address: ''
     });
   }
-  selectPropertyType(index: number) {
-    this.propertyForm.patchValue({ propertyType: index });
-    this.selectedPropertyType = this.propertyTypes[index - 1];
+
+  ngOnInit() {
+    this.propertyForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      city: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      rooms: ['', Validators.required],
+      baths: ['', Validators.required],
+      size: ['', Validators.required],
+      price: ['', Validators.required],
+      type: ['', Validators.required],
+      status: [true],
+      houseType: [''],
+      address: [''],
+    });
   }
-  selectTransactionType(transactionType: string) {
-    this.propertyForm.patchValue({ transactionType: transactionType });
-    this.selectedTransactionType = transactionType;
+
+  selectPropertyType(houseType: string) {
+    this.propertyForm.get('houseType')?.setValue(houseType);
+    this.selectedPropertyType = houseType;
   }
-  selectBathrooms(bathrooms: string) {
-    if (bathrooms === 'Baños' || bathrooms === this.selectedBathrooms) {
-      this.selectedBathrooms = 'Baños';
-      this.propertyForm.get('bathrooms')?.setValue('');
-    } else {
-      this.selectedBathrooms = bathrooms;
-      this.propertyForm.get('bathrooms')?.setValue(bathrooms);
-    }
+  selectTransactionType(type: string) {
+    this.propertyForm.get('type')?.setValue(type);
+    this.selectedTransactionType = type;
   }
-  selectBedrooms(bedrooms: string) {
-    if (bedrooms === 'Habitaciones' || bedrooms === this.selectedBedrooms) {
-      this.selectedBedrooms = 'Habitaciones';
-      this.propertyForm.get('bedrooms')?.setValue('');
-    } else {
-      this.selectedBedrooms = bedrooms;
-      this.propertyForm.get('bedrooms')?.setValue(bedrooms);
-    }
+  selectBathrooms(baths: string) {
+    this.selectedBathrooms = baths;
+    this.propertyForm.get('baths')?.setValue(baths);
   }
+  
+  selectBedrooms(rooms: string) {
+    this.selectedBedrooms = rooms;
+    this.propertyForm.get('rooms')?.setValue(rooms);
+  }
+  
   selectCity(city: string) {
     this.propertyForm.patchValue({ city: city });
     this.selectedCity = city;
@@ -81,15 +107,20 @@ export class SaleRentComponent  {
     this.propertyForm.patchValue({ postalCode: postalCode });
     this.selectedPostalCode = postalCode;
   }
+
   getCityValue() {
     return this.propertyForm.get('city')?.value || 'Selecciona una ciudad';
   }
+
   getPostalCodeValue() {
     return this.propertyForm.get('postalCode')?.value || 'Código postal';
   }
+
+
+
   onCitySelect() {
-    console.log('onCitySelect called');
     const selectedCity = this.propertyForm.get('city')?.value;
+
     if (selectedCity) {
       const city = this.cities.find(c => c.name === selectedCity);
       if (city) {
@@ -101,16 +132,38 @@ export class SaleRentComponent  {
     } else {
       this.filteredPostalCodes = [];
     }
+
     const isDisabled = !selectedCity;
     console.log('Disabled:', isDisabled);
+
     this.propertyForm.patchValue({ postalCode: '' });
   }
-  onSubmit() {
-    const formData = this.propertyForm.value;
+
+  onSubmit(): void {
+    const propertyData = this.propertyForm.value;
+    const userId = localStorage.getItem('userId');
+  
+    if (userId) {
+      this.propertiesService.saveProperty(propertyData, userId).subscribe(
+        (response) => {
+          this.alertMessage = 'Propiedad guardada con éxito.';
+          this.alertType = 'success';
+          this.showForm = false;
+  
+          setTimeout(() => {
+            this.router.navigate(['/user-forms/profile', userId]);
+          }, 3000);
+        },
+        (error) => {
+          this.alertMessage = 'Error al guardar la propiedad.';
+          this.alertType = 'danger';
+  
+          console.error('Error al guardar la propiedad', error);
+        }
+      );
+    } else {
+      console.error('El userId no está presente en el almacenamiento local');
+    }
   }
+  
 }
-
-
-
-
-

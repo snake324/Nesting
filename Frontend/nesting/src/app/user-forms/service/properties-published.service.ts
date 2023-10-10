@@ -2,17 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError} from 'rxjs/operators';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PropertiesPublishedService {
-  private apiUrl = 'http://localhost:4000/properties';
+  public apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
   getProperties(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl).pipe(
+    return this.http.get<any[]>(`${this.apiUrl}/properties`).pipe(
       catchError((error: any) => {
         return [];
       })
@@ -20,7 +21,7 @@ export class PropertiesPublishedService {
   }
 
   getPropertyById(propertyId: string): Observable<any> {
-    const url = `${this.apiUrl}/${propertyId}`;
+    const url = `${this.apiUrl}/properties/${propertyId}`;
     return this.http.get(url).pipe(
       catchError((error: any) => {
         return error;
@@ -29,7 +30,7 @@ export class PropertiesPublishedService {
   }
 
   createProperty(propertyData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/create`, propertyData).pipe(
+    return this.http.post(`${this.apiUrl}/properties/create`, propertyData).pipe(
       catchError((error: any) => {
         return error;
       })
@@ -37,7 +38,7 @@ export class PropertiesPublishedService {
   }
 
   updateProperty(propertyId: string, propertyData: any): Observable<any> {
-    const url = `${this.apiUrl}/update/${propertyId}`;
+    const url = `${this.apiUrl}/properties/update/${propertyId}`;
     return this.http.put(url, propertyData).pipe(
       catchError((error: any) => {
         return error;
@@ -46,7 +47,7 @@ export class PropertiesPublishedService {
   }
 
   deleteProperty(propertyId: string): Observable<any> {
-    const url = `${this.apiUrl}/delete/${propertyId}`;
+    const url = `${this.apiUrl}/properties/delete/${propertyId}`;
     return this.http.delete(url).pipe(
       catchError((error: any) => {
         return error;
@@ -55,7 +56,7 @@ export class PropertiesPublishedService {
   }
 
   updatePropertyStatus(propertyId: string, newStatus: boolean): Observable<any> {
-    const url = `${this.apiUrl}/updateStatus/${propertyId}?newStatus=${newStatus}`;
+    const url = `${this.apiUrl}/properties/updateStatus/${propertyId}?newStatus=${newStatus}`;
     return this.http.put(url, {}).pipe(
       catchError((error: any) => {
         return error;

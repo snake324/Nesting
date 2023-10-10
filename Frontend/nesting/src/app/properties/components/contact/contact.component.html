@@ -1,0 +1,102 @@
+
+<div id="showDiv" class="container-fluid" >
+  <div id="mainDiv" class="container-fluid" *ngIf="property">
+    <div id="backDiv" class="container-fluid">
+      <button id="backBtn" type="button" class="btn" (click)="goBack()">
+        <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/backw.svg"> Atrás
+      </button>
+    </div>
+
+  <div id="titleDiv" class="container-fluid">
+    <div id="titleText" class="container-fluid">
+    <h2 id="titleP">Contacta con el propietario</h2>
+    <h4 id="addressP">Muestra tu interes contactando directamente con el propietario.</h4>
+  </div>
+  </div>
+
+  <div id="dataDiv" class="container-fluid">
+    <div id="mainImg" class="container-fluid">
+      <div id="textDiv2" class="container-fluid">
+        <p id="descriptionT">{{ property.title }}</p>
+        <p id="description">{{ property.address }}</p>
+      </div>
+      <div id="imgDiv" class="container-fluid"> <img [src]="'../../../../assets/images/properties' + property.images[0].img" class="img-fluid" alt="Imagen Principal" id="house"></div>
+      <div id="iconsDiv" class="container-fluid">
+        <div class="container-fluid" id="icondiv">
+          <div class="container-fluid" id="numberDiv">
+            <p class="number">3</p>
+          </div>
+          <div class="container-fluid" id="iconifyDiv">
+            <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bed.svg">
+          </div>
+          </div>
+
+        <div class="container-fluid" id="icondiv">
+          <div class="container-fluid" id="numberDiv">
+            <p class="number">2</p>
+          </div>
+          <div class="container-fluid" id="iconifyDiv">
+            <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/bath.svg">
+          </div>
+          </div>
+
+      <div class="container-fluid" id="icondiv2">
+        <div class="container-fluid" id="numberDiv">
+          <p class="number">150 m2</p>
+        </div>
+        <div class="container-fluid" id="iconifyDiv">
+          <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/wall.svg">
+        </div>
+        </div>
+    </div>
+      <div id="priceDiv" class="container-fluid">
+
+        <p id="priceP">{{ property.price | priceFormat }}€ al Mes</p>
+
+      </div>
+    </div>
+    <div id="mainData" class="container-fluid">
+      <div id="gridImg" class="container-fluid">
+          <div class="container-fluid" id="descDiv">
+            <div id="payTit" class="container-fluid">
+              <div id="payText" class="container-fluid">
+                <h3 id="pagoH">Formulario de contacto</h3>
+              </div>
+              <div id="cardIcons" class="container-fluid">
+              <div class="container-fluid" id="cardD">
+
+
+                  <img class="img-fluid" id="cardIcon" src="../../../../assets/icons/mailg.svg">
+
+                </div>
+        </div>
+      </div>
+      <div class="container-fluid" id="areaDiv">
+        <label for="exampleFormControlTextarea1" class="form-label" id="label">Escribe tu comentario...</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="comment"></textarea>
+      </div>
+
+      <div id="sendDiv" class="container-fluid">
+        <div id="ownerD" class="container-fluid">
+          <p id="ownerT">Propietario</p>
+          <p id="owner">{{ property.ownermail ? property.ownermail.split('@')[0] : '' }}</p>
+        </div>
+        <div id="payD" class="container-fluid">
+          <button id="liveAlertBtn" type="button" class="btn btn-primary" (click)="sendEmail()">Enviar</button>
+        </div>
+      </div>
+      <div id="textDiv" class="container-fluid">
+        <p id="condiciones"> CONDICIONES GENERALES: Al contactar al propietario por correo electrónico para expresar interés en una propiedad, ten en cuenta que la respuesta puede no ser inmediata. La comunicación por correo electrónico no establece un acuerdo contractual, y cualquier transacción o acuerdo adicional debe formalizarse por escrito. Se aconseja precaución al compartir información financiera, y se recomienda buscar asesoramiento legal y financiero antes de comprometerse en cualquier transacción.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <div id="liveAlertPlaceholder">
+    <div *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible" role="alert">
+      <div>{{ alertMessage }}</div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>

@@ -16,9 +16,6 @@ public class ImageService {
     @Autowired
     ImageRepository imgRepo;
 
-    @Autowired
-    PropertyService propService;
-
     public List<Image> getAllImages(){
         return imgRepo.findAll();
     }
@@ -32,21 +29,8 @@ public class ImageService {
         }
     }
 
-    // public List<Image> getImagesByPropertyId(Long id){
-    //     return imgRepo.findByPropertyId(id);
-    // }
-
     public Image addImage(Image img){
         return imgRepo.save(img);
     }
-
-    // public Image addImageToProp(String img, Long id){
-    //     Property prop = propService.getPropertyById(id);
-    //     Image image = new Image();
-    //     image.setImg(img);
-    //     image.setProperty(prop);
-
-    //     return imgRepo.save(image);
-    // }
 
 }

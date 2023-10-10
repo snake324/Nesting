@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FileUploadComponent } from './file-upload.component';
+import { of } from 'rxjs';
+import { HttpClientTestingModule } from '@angular/common/http/testing';  
+import { ImageService } from '../../service/image.service';
 
 describe('FileUploadComponent', () => {
   let component: FileUploadComponent;
@@ -8,7 +10,11 @@ describe('FileUploadComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FileUploadComponent]
+      declarations: [FileUploadComponent],
+      imports: [HttpClientTestingModule],  
+      providers: [
+        ImageService,  
+      ],
     });
     fixture = TestBed.createComponent(FileUploadComponent);
     component = fixture.componentInstance;
@@ -18,4 +24,5 @@ describe('FileUploadComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

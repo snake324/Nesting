@@ -1,11 +1,11 @@
-// Variables
+
 $primary-color: #F3A139;
 $secondary-color: #006D7A;
 $background-color: #D0EAE9;
 $border-color: #8BBFBD;
 $white: #ffffff;
 
-// Mixin para box-shadow
+
 @mixin box-shadow {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -38,25 +38,20 @@ h1 {
   }
 }
 
-// Resto del código
-
-
 .dropdown {
   button {
-    border-color: transparent;
+    height: 2.3rem;
+    border-color:transparent;
     margin-bottom: 2rem;
     color: #006D7A;
   }
 
   ul.dropdown-menu {
     background-color: #D0EAE9;
-    border-color: #8BBFBD;
-    // color: #006D7A;
+    border-color:#8BBFBD;
     outline: 0.5px solid #8cbfbc;
-
-    .dropdown-item {
-      color: #006D7A;
-
+     .dropdown-item {
+      color:#006D7A;
     }
 
     .dropdown-item:hover {
@@ -70,13 +65,13 @@ h1 {
   width: 13.5rem;
   border: 0px solid #D0EAE9;
   border-radius: 5px;
-  margin-top: 0.3rem;
+
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background-color: #D0EAE9;
-  margin-left: 0.5rem;
+
   cursor: pointer;
   text-align: center;
-  margin-left: 6rem;
+  margin-left: 5rem;
 
 
   &:focus {
@@ -94,7 +89,7 @@ h1 {
 .move-left {
   margin-left: 5rem;
   margin-top: 2rem;
-  width: 26.5rem;
+  width: 40.6rem;
   height: 2.5rem;
   outline: none;
 }
@@ -112,21 +107,13 @@ textarea {
   height: 19rem;
   width: 36.7rem;
   border-color: #D0EAE9;
-  border-radius: 5px;
   background-color: #D0EAE9;
   color: #F3A139;
-  margin-bottom: 2rem;
-  margin-top: 1.7rem;
-  margin-left: 6rem;
+  margin-left: 4.8rem;
 
   &:focus {
     border-color: #8BBFBD;
   }
-}
-
-.btupload {
-  margin-left: 5rem;
-
 }
 
 #description {
@@ -140,19 +127,24 @@ textarea {
   }
 }
 
+.btupload {
+  margin-left: 5rem;
+
+  margin-bottom: 5rem;
+  font-weight:600;
+}
 
 .save {
   background-color: #F3A139;
   border-color: transparent;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin-left: 5rem;
   color: #ffffff;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   width: 11rem;
   height: 2.3rem;
   border-radius: 5px;
-  margin-bottom: 2.9rem;
+  margin-left: 18.8em;
 }
 
 .btn {
@@ -160,11 +152,10 @@ textarea {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: #006D7A;
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: large;
   font-weight: 600;
   width: 13.5rem;
   height: 2.1rem;
-  border-radius: 5px;
   margin-left: 5rem;
 
   &:hover {
@@ -172,9 +163,8 @@ textarea {
   }
 }
 
-label {
-  color: #F3A139;
-  margin-left: 1rem;
-  margin-top: 1.7rem;
-
+#liveAlertPlaceholder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

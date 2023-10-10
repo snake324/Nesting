@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProfileService } from '../../service/profile.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Profile } from '../../models/profile.model';
 import { PropertiesPublishedService } from '../../service/properties-published.service';
 
@@ -16,7 +16,8 @@ export class PropertiesPublishedListComponent {
   constructor(
     private profileService: ProfileService,
     private propertiesPublishedService: PropertiesPublishedService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -37,6 +38,7 @@ export class PropertiesPublishedListComponent {
   editProperty(index: number): void {
     if (this.profile && this.profile.propertiesPublished && this.profile.propertiesPublished[index]) {
       const propertyId = this.profile.propertiesPublished[index].id;
+      this.router.navigate(['/edit-properties', propertyId]);
     }
   }
 
@@ -54,6 +56,6 @@ export class PropertiesPublishedListComponent {
         }
       );
     }
-  }
+  }  
   
 }
