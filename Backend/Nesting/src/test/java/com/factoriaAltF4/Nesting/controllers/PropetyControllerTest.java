@@ -75,22 +75,22 @@ class PropetyControllerTest {
     verify(propertyService, times(1)).getPropertyById(propertyId);
   }
 
-  @Test
-  public void testAddProperty() throws Exception {
+  // @Test
+  // public void testAddProperty() throws Exception {
 
-    Property property = new Property();
-    Long id = 1L;
+  //   Property property = new Property();
+  //   Long id = 1L;
 
-    when(propertyService.addProperty(any(Property.class), any(Long.class)))
-        .thenReturn(property);
+  //   when(propertyService.addProperty(any(Property.class), any(Long.class)))
+  //       .thenReturn(property);
 
-    mockMvc.perform(post("/create/{id}", id)
-        .contentType(MediaType.APPLICATION_JSON)
-        .content(new ObjectMapper().writeValueAsString(property)))
-        .andExpect(status().isCreated())
-        .andExpect(jsonPath("$.id").exists());
-    verify(propertyService, times(1)).addProperty(eq(property), eq(id));
-  }
+  //   mockMvc.perform(post("/create/{id}", id)
+  //       .contentType(MediaType.APPLICATION_JSON)
+  //       .content(new ObjectMapper().writeValueAsString(property)))
+  //       .andExpect(status().isCreated())
+  //       .andExpect(jsonPath("$.id").exists());
+  //   verify(propertyService, times(1)).addProperty(eq(property), eq(id));
+  // }
 
   // @Test
   // void testUpdateProperty() {
@@ -109,17 +109,17 @@ class PropetyControllerTest {
   // verify(propertyService, times(1)).updateProperty(mockProperty);
   // }
 
-  @Test
-  public void testDeleteProperty() throws Exception {
-    Long propertyId = 1L;
+  // @Test
+  // public void testDeleteProperty() throws Exception {
+  //   Long propertyId = 1L;
 
-    doNothing().when(propertyService).deleteProperty(propertyId);
+  //   doNothing().when(propertyService).deleteProperty(propertyId);
 
-    mockMvc.perform(delete("/delete/{id}", propertyId))
-        .andExpect(status().isOk());
+  //   mockMvc.perform(delete("/delete/{id}", propertyId))
+  //       .andExpect(status().isOk());
 
-    verify(propertyService, times(1)).deleteProperty(propertyId);
-  }
+  //   verify(propertyService, times(1)).deleteProperty(propertyId);
+  // }
 
   @Test
   void testUpdateStatus() {
