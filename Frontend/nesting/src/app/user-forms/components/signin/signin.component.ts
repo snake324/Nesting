@@ -57,7 +57,7 @@ export class SigninComponent {
 
         this.getUserIdByEmail(username).subscribe((userId) => {
           localStorage.setItem('userId', userId.toString());
-
+          localStorage.setItem('roles', userRoles.toString());
           if (userRoles.includes('ROLE_ADMIN')) {
             this.router.navigate(['/admin/admin']);
           } else if (userRoles.includes('ROLE_USER')) {

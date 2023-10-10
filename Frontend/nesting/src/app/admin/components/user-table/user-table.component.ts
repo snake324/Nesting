@@ -12,8 +12,8 @@ export class UserTableComponent implements OnInit {
   users: User[] = [];
   searchTerm: string = '';
   filteredUsers: any[] = [];
-  alertMessage: string = ''; // Mensaje de alerta
-  alertType: string = ''; // Tipo de alerta (danger o success)
+  alertMessage: string = '';
+  alertType: string = '';
 
   constructor(
     private userService: UserService,

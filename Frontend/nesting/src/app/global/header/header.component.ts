@@ -22,9 +22,16 @@ export class HeaderComponent {
 
   }
 
+  isLogged() {
+    return this.userService.isLogged();
+  }
 
   isProfilePage(): boolean {
     return this.router.url.startsWith('/user-forms/profile/');
+  }
+
+  isAdminPage(): boolean {
+    return this.router.url.startsWith('/admin/admin');
   }
 
   logout() {
@@ -34,8 +41,12 @@ export class HeaderComponent {
 
   navigateToProfileOrLogin() {
     if (this.userService.isLogged()) {
-      if (this.userService.navigateId() != null) {
-        this.router.navigate(['/user-forms/profile', this.userService.navigateId()])
+      if (this.userService.getUserRoles()?.includes('ROLE_ADMIN')) {
+        this.router.navigate(['/admin/admin'])
+      }else{
+        if (this.userService.navigateId() != null) {
+          this.router.navigate(['/user-forms/profile', this.userService.navigateId()])
+        }
       }
     }
     else {
