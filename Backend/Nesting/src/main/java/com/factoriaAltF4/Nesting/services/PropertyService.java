@@ -70,8 +70,8 @@ public class PropertyService {
 
     }
 
-    public void deleteProperty(Property property, Long id) {
-        property = getPropertyById(id);
+    public void deleteProperty(Long id) {
+        Property property = getPropertyById(id);
         repo.delete(property);
     }
 

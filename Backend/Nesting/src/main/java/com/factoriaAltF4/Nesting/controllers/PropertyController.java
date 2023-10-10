@@ -23,7 +23,7 @@ import com.factoriaAltF4.Nesting.services.PropertyService;
 @RestController
 @RequestMapping("/properties")
 public class PropertyController {
-    
+
     @Autowired
     PropertyService service;
 
@@ -31,40 +31,40 @@ public class PropertyController {
     ImageService imgService;
 
     @GetMapping
-    public List<Property> getAllProperties(){
+    public List<Property> getAllProperties() {
         return service.getAllProperties();
     }
 
     @GetMapping("/{id}")
-    public Property getPropertyById(@PathVariable Long id){
+    public Property getPropertyById(@PathVariable Long id) {
         return service.getPropertyById(id);
     }
-    
+
     @PostMapping("/create/{id}")
-    public ResponseEntity<Property> addProperty(@RequestBody Property property, @PathVariable Long id){
+    public ResponseEntity<Property> addProperty(@RequestBody Property property, @PathVariable Long id) {
         Property savedProperty = service.addProperty(property, id);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedProperty);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Property> updateProperty(@RequestBody Property property, @PathVariable Long id){
+    public ResponseEntity<Property> updateProperty(@RequestBody Property property, @PathVariable Long id) {
         service.updateProperty(property, id);
         return ResponseEntity.ok(property);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteProperty(Property property, @PathVariable Long id){
-        service.deleteProperty(property, id);
+    public void deleteProperty(@PathVariable Long id) {
+        service.deleteProperty(id);
     }
 
     @PutMapping("/updateStatus/{id}")
-    public ResponseEntity<Property> updateStatus(@PathVariable Long id, @RequestParam boolean newStatus){
+    public ResponseEntity<Property> updateStatus(@PathVariable Long id, @RequestParam boolean newStatus) {
         Property updatedProp = service.updateStatus(id, newStatus);
         return ResponseEntity.ok(updatedProp);
     }
 
     @PostMapping("/{id}/addimage")
-    public Property addImageToPorperty(@PathVariable Long id, @RequestParam String img, @RequestBody Image image){
+    public Property addImageToPorperty(@PathVariable Long id, @RequestParam String img, @RequestBody Image image) {
         imgService.addImage(image);
         return service.addImageToProp(img, id, image);
     }

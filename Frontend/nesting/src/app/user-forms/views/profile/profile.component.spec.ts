@@ -3,7 +3,7 @@ import { ProfileComponent } from './profile.component';
 import { CardService } from '../../service/card.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { HttpClientTestingModule } from '@angular/common/http/testing'; // Agrega esta importación
+import { HttpClientTestingModule } from '@angular/common/http/testing'; 
 import { UserdataComponent } from '../../components/userdata/userdata.component';
 import { AddCardModalComponent } from '../../components/add-card-modal/add-card-modal.component';
 import { PropertiesPublishedListComponent } from '../../components/properties-published-list/properties-published-list.component';
@@ -15,7 +15,7 @@ describe('ProfileComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule], // Agrega HttpClientTestingModule aquí
+      imports: [HttpClientTestingModule], 
       declarations: [ProfileComponent, UserdataComponent, AddCardModalComponent, PropertiesPublishedListComponent],
       providers: [
         {
@@ -53,5 +53,5 @@ describe('ProfileComponent', () => {
     expect(component.showCardAdded).toBe(false);
   });
 
-  // Puedes agregar más pruebas según las interacciones del usuario y otros casos de uso
+  
 });
