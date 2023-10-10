@@ -42,6 +42,6 @@ public class ImageTest {
         assertEquals("/img1_prop1.jpg", savedImage.getImg());
 
         assertNotNull(savedImage.getProperty());
-        assertEquals("Encantador Piso en el Centro Histórico", savedImage.getProperty().getTitle());
+        assertEquals("Encantador Piso en el Centro HistÃ³rico", savedImage.getProperty().getTitle());
     }
 }
