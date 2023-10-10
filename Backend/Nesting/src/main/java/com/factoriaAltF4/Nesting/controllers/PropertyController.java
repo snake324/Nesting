@@ -48,9 +48,8 @@ public class PropertyController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Property> updateProperty(@RequestBody Property property, @PathVariable Long id){
-        Property propToUpdate = service.getPropertyById(id);
-        service.updateProperty(propToUpdate);
-        return ResponseEntity.ok(propToUpdate);
+        service.updateProperty(property, id);
+        return ResponseEntity.ok(property);
     }
 
     @DeleteMapping("/delete/{id}")

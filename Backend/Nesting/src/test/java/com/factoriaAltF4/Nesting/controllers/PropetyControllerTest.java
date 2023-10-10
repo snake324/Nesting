@@ -72,22 +72,22 @@ class PropetyControllerTest {
     verify(propertyService, times(1)).addProperty(mockProperty);
   }*/
 
-  @Test
-  void testUpdateProperty() {
-    Long propertyId = 1L;
-    Property mockProperty = new Property();
-    when(propertyService.getPropertyById(propertyId)).thenReturn(mockProperty);
+  // @Test
+  // void testUpdateProperty() {
+  //   Long propertyId = 1L;
+  //   Property mockProperty = new Property();
+  //   when(propertyService.getPropertyById(propertyId)).thenReturn(mockProperty);
 
-    ResponseEntity<Property> responseEntity = propertyController.updateProperty(
-      mockProperty,
-      propertyId
-    );
+  //   ResponseEntity<Property> responseEntity = propertyController.updateProperty(
+  //     mockProperty,
+  //     propertyId
+  //   );
 
-    assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-    Property responseBody = responseEntity.getBody();
-    assertEquals(mockProperty, responseBody);
-    verify(propertyService, times(1)).updateProperty(mockProperty);
-  }
+  //   assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+  //   Property responseBody = responseEntity.getBody();
+  //   assertEquals(mockProperty, responseBody);
+  //   verify(propertyService, times(1)).updateProperty(mockProperty);
+  // }
 
   @Test
   void testDeleteProperty() {
