@@ -39,5 +39,6 @@ public class UserProfile {
     public Set<Contacts> profilContacts;
 
     @OneToMany(mappedBy = "profilePublished", cascade = CascadeType.ALL)
+    @JsonIgnore
     public List<Property> propertiesPublished;
 }
