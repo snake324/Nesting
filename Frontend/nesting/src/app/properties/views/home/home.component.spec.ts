@@ -11,12 +11,12 @@ describe('HomeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent, HomecardsComponent, PriceFormatPipe],  // Agrega PriceFormatPipe a las declaraciones
+      declarations: [HomeComponent, HomecardsComponent, PriceFormatPipe],  
       imports: [HttpClientTestingModule],
     });
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
-    // fixture.detectChanges(); // No es necesario en este caso
+    
   });
 
   it('should create', () => {

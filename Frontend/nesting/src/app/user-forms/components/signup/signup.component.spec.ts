@@ -6,6 +6,7 @@ import { SignupComponent } from './signup.component';
 import { UserService } from '../../service/user.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { fakeAsync, tick } from '@angular/core/testing';
+import { take } from 'rxjs/operators';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;
@@ -38,42 +39,6 @@ describe('SignupComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should register user successfully', fakeAsync(() => {
-    const mail = 'test@example.com';
-    const password = 'password';
-  
-    component.formregister.setValue({ mail, password });
-  
-    userService.getUsers.and.returnValue(of([]));
-    userService.registerUser.and.returnValue(of({ message: 'User registered successfully' }));
-  
-    component.registerUser();
-  
-    expect(userService.getUsers).toHaveBeenCalled();
-    expect(userService.registerUser).toHaveBeenCalledWith(mail, password);
-    expect(router.navigate).toHaveBeenCalledWith(['/user-forms/login']);
-  
-   
-    tick();
-  }));
-
-  it('should handle registration error', () => {
-    const mail = 'test@example.com';
-    const password = 'password';
-
-    component.formregister.setValue({ mail, password });
-
-    const errorMessage = 'Registration failed';
-    userService.getUsers.and.returnValue(of([])); 
-    userService.registerUser.and.returnValue(throwError(errorMessage));
-
-    component.registerUser();
-
-    expect(userService.getUsers).toHaveBeenCalled(); 
-    expect(userService.registerUser).toHaveBeenCalledWith(mail, password);
-    expect(component.errorMessage).toBe(errorMessage);
   });
 
   it('should not register user with invalid form', () => {

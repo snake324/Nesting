@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FileUploadComponent } from './file-upload.component';
 import { of } from 'rxjs';
-import { HttpClientTestingModule } from '@angular/common/http/testing';  // Importa HttpClientTestingModule
+import { HttpClientTestingModule } from '@angular/common/http/testing';  
 import { ImageService } from '../../service/image.service';
 
 describe('FileUploadComponent', () => {
@@ -11,9 +11,9 @@ describe('FileUploadComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [FileUploadComponent],
-      imports: [HttpClientTestingModule],  // Agrega HttpClientTestingModule a los imports
+      imports: [HttpClientTestingModule],  
       providers: [
-        ImageService,  // Proporciona ImageService
+        ImageService,  
       ],
     });
     fixture = TestBed.createComponent(FileUploadComponent);

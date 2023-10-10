@@ -29,7 +29,7 @@ describe('CardAddedComponent', () => {
     const cardNumber = '1234567812345678';
     const formattedNumber = component.formatCardNumber(cardNumber);
 
-    // Replace non-digit characters and add spaces every 4 digits
+    
     const expectedFormattedNumber = '1234 5678 1234 5678';
 
     expect(formattedNumber).toEqual(expectedFormattedNumber);
