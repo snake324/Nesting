@@ -12,15 +12,13 @@ interface FileWithPreview {
   styleUrls: ['./file-upload.component.scss'],
 })
 export class FileUploadComponent {
-deleteImage(arg0: any) {
-throw new Error('Method not implemented.');
-}
-uploadedImages: any;
+  selectedFiles: FileWithPreview[] = [];
 
   constructor(public imageService: ImageService) {}
 
-  selectedImages: string[] = [];
-
+  deleteFile(index: number) {
+    this.selectedFiles.splice(index, 1);
+  }
 
   @ViewChild('imageInput', { static: false }) imageInputRef: ElementRef | undefined;
 
@@ -30,7 +28,7 @@ uploadedImages: any;
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const imageUrl = URL.createObjectURL(file);
-        this.selectedImages.push(imageUrl);
+        this.selectedFiles.push({ file, url: imageUrl });
       }
     }
   }
