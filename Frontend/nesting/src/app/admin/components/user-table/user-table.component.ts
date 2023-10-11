@@ -5,6 +5,8 @@ import { AdminService } from 'src/app/admin/service/admin.service';
 import { PropertiesPublishedService } from 'src/app/user-forms/service/properties-published.service';
 import { Profile } from 'src/app/user-forms/models/profile.model';
 import { ProfileService } from 'src/app/user-forms/service/profile.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-table',
@@ -22,8 +24,10 @@ export class UserTableComponent implements OnInit {
   constructor(
     private userService: UserService,
     private adminService: AdminService,
-    private propertiesPublishedService: PropertiesPublishedService,
-    private profileService: ProfileService
+    private router: Router,
+    private route: ActivatedRoute,
+    private profileService: ProfileService,
+    private propertiesPublishedService: PropertiesPublishedService
   ) {}
 
   ngOnInit(): void {
@@ -107,5 +111,9 @@ export class UserTableComponent implements OnInit {
     setTimeout(() => {
       this.hideAlert();
     }, 3000);
+  }
+
+  goBack() {
+    this.router.navigate(['../']);
   }
 }
