@@ -3,7 +3,7 @@
   <label for="formFileMultiple"></label>
 
   <div class="photo-grid row">
-    <div *ngFor="let fileObj of selectedFiles; let i = index" class="col-3">
+    <div *ngFor="let fileObj of selectedFiles; let i = index" class="custom-col">
       <img [src]="fileObj.url" alt="Vista previa de la foto" class="img">
       <span class="text-danger cursor-pointer" (click)="deleteFile(i)">
         <i class="bi bi-trash"></i>
