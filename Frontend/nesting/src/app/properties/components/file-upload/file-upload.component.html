@@ -1,14 +1,18 @@
-<div class="mb-3">
-  <div class="form-group fs-3 d-flex flex-column">
-    <label class="mb-3 px-3">Imágenes de la propiedad</label>
-    <div ngbDropdown class="cursor-pointer">
-      <div ngbDropdownMenu aria-labelledby="dropdownButton">
-        <input class="custom-input" type="file" #imageInput (change)="onFilesSelected($event)" multiple>
-      </div>
-    </div>
-    <br>
-    <div *ngFor="let image of selectedImages">
-      <img class="border border-success w-100 h-25" [src]="image">
+<div class="photo-upload-container">
+  <input type="file" id="formFileMultiple" multiple (change)="onFilesSelected($event)">
+  <label for="formFileMultiple"></label>
+
+  <div class="photo-grid row">
+    <div *ngFor="let fileObj of selectedFiles; let i = index" class="custom-col">
+      <img [src]="fileObj.url" alt="Vista previa de la foto" class="img">
+      <span class="text-danger cursor-pointer" (click)="deleteFile(i)">
+        <i class="bi bi-trash"></i>
+      </span>
     </div>
   </div>
 </div>
+
+
+
+
+
