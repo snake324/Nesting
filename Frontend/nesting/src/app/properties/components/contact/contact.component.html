@@ -100,8 +100,9 @@
   </div>
   
   <div id="liveAlertPlaceholder">
-    <div *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible" role="alert">
-      <div>{{ alertMessage }}</div>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div id="alertDiv" *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible fadeInOut" role="alert">
+      <img class="img-fluid" id="gif" src="../../../../assets/icons/mailg.gif">
+      <div><p id="alertP"> {{ alertMessage }}</p></div>
     </div>
 </div>
+<div id="darkOverlay"></div>

@@ -22,12 +22,12 @@
                     <p class="mb-0">¿No tienes una cuenta? <a href="/user-forms/register">Regístrate</a></p>
                 </div>
             </div>
+            <div id="liveAlertPlaceholder">
+                <div id="alertDiv" *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible fadeInOut" role="alert">
+                  <img class="img-fluid" id="gif" src="../../../../assets/icons/yes.gif">
+                  <div><p id="alertP"> {{ alertMessage }}</p></div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<div id="liveAlertPlaceholder">
-    <div *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible" role="alert">
-      <div>{{ alertMessage }}</div>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 </div>
