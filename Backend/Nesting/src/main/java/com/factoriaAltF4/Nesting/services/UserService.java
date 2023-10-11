@@ -77,12 +77,14 @@ public class UserService {
     }
 
     public boolean getUserStatus(String mail) {
-        User user = repo.findByMail(mail).orElse(null);
-
-        if (user != null) {
+        Optional<User> userOptional = repo.findByMail(mail);
+    
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
             return user.isStatus();
+        } else {
+            return false;
         }
-
-        return false;
     }
+    
 }
