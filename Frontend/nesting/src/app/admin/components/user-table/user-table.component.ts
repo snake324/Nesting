@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/user-forms/models/user.model';
 import { UserService } from 'src/app/user-forms/service/user.service';
 import { AdminService } from 'src/app/admin/service/admin.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-table',
@@ -17,7 +19,9 @@ export class UserTableComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -74,5 +78,9 @@ export class UserTableComponent implements OnInit {
     setTimeout(() => {
       this.hideAlert();
     }, 3000);
+  }
+
+  goBack() {
+    this.router.navigate(['../']);
   }
 }

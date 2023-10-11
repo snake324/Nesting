@@ -45,6 +45,8 @@ export class ContactComponent implements OnInit {
 
   
 
+  
+
   sendEmail() {
     const emailContent = {
       subject: 'Nuevo comentario sobre la propiedad',
