@@ -4,10 +4,9 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://i.imgur.com/CRQ3YYs.png" alt="project-screenshot-home" width="800" height="400/"><br><br>
-
-
-<br><br><img src="https://i.imgur.com/1IhasQm.png" alt="project-screenshot-Filter" width="800" height="400/">
+<img src="https://i.imgur.com/CRQ3YYs.png" alt="project-screenshot-home" width="800" height="400/">
+<br><br>
+<img src="https://i.imgur.com/1IhasQm.png" alt="project-screenshot-Filter" width="800" height="400/">
   
   
 <h2>🧐 Features</h2>
