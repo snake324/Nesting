@@ -15,8 +15,11 @@ body {
     height: 100px;
     color: white;
     flex: 0 0 auto;
-    margin-top: 80vh;
+    // margin-top: 80vh;
+    bottom: 0;
   }
+
+  
   
   .container {
     display: flex;

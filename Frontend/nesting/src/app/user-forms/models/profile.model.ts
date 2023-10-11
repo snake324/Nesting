@@ -1,11 +1,19 @@
 import { Card } from "./card.model";
 
 export interface Profile {
+  userProfile: any;
   id: number;
   name: string;
   lastname: string;
   address: string;
-  card: Card;
+  card: {
+    id: number;
+    owner: string;
+    surname: string;
+    number: string;
+    expiremonth: string;
+    expireyear: string;
+  };
   propertiesPublished: {
     id: number;
     title: string;
