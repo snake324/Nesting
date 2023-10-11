@@ -12,17 +12,9 @@
   <h4 id="addressP">Administra tus datos y tus propiedades.</h4>
 </div>
 </div>
-    <div class="row">
-      <div class="col-md-6">
+    
         <app-userdata></app-userdata>
-      </div>
-      <div class="col-md-6">
-        <div class="d-flex align-items-center justify-content-center">
-          <app-add-card-button *ngIf="!showCardAdded"></app-add-card-button>
-          <app-card-added *ngIf="showCardAdded" (close)="hideCardAdded()" [cards]="cards"></app-card-added>
-        </div>
-      </div>
-    </div>
+      
   </div>
   <app-add-card-modal></app-add-card-modal>
   <app-properties-published-list></app-properties-published-list>

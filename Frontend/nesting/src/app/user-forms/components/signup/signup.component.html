@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div id="mainDiv" class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
@@ -18,13 +18,15 @@
                         <button type="submit" class="btn btn-primary" id="liveAlertBtn">Registrarse</button>
                     </form>
                 </div>
+                <div id="liveAlertPlaceholder">
+                    <div id="alertDiv" *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible fadeInOut" role="alert">
+                      <img class="img-fluid" id="gif" src="../../../../assets/icons/error.gif">
+                      <div><p id="alertP"> {{ alertMessage }}</p></div>
+                    </div>
+                </div>
+               
             </div>
+            
         </div>
-    </div>
-</div>
-<div id="liveAlertPlaceholder">
-    <div *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible" role="alert">
-      <div>{{ alertMessage }}</div>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 </div>
