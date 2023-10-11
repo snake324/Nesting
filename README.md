@@ -9,6 +9,7 @@
 <h3>after applying the filters</h3>
 <img src="https://i.imgur.com/1IhasQm.png" alt="project-screenshot-Filter" width="800" height="400/">
   
+
   
 <h2>🧐 Features</h2>
 
