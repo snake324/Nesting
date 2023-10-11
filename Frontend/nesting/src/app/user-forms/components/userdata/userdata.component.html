@@ -1,28 +1,31 @@
-<div class="container mt-5">
-    <h4>Mis Datos</h4>
-    <div *ngIf="profile">
-        <ul class="list-group">
-            <li class="list-group-item">
+<div id="mainData" class="container mt-5">
+    <div id="mainUserData" class="container-fluid">
+    
+    <div id="userDatos" *ngIf="profile">
+        <h4 id="title">Mis Datos</h4>
+        <ul id="userUl" class="list-group">
+            <li id="userLi" class="list-group-item">
                 <span class="label">Nombre:</span>
-                <span class="value">{{ profile.name }}</span>
+                <span class="value">  {{ profile.name }}</span>
             </li>
-            <li class="list-group-item">
+            <li id="userLi" class="list-group-item">
                 <span class="label">Apellidos:</span>
-                <span class="value">{{ profile.lastname }}</span>
+                <span class="value">  {{ profile.lastname }}</span>
             </li>
-            <li class="list-group-item">
+            <li id="userLi" class="list-group-item">
                 <span class="label">Dirección:</span>
-                <span class="value">{{ profile.address }}</span>
+                <span class="value">  {{ profile.address }}</span>
             </li>
-            <li class="list-group-item" *ngIf="user">
+            <li id="userLi" class="list-group-item" *ngIf="user">
                 <span class="label">E-mail:</span>
-                <span class="value">{{ user.mail }}</span>
+                <span class="value">  {{ user.mail }}</span>
             </li>
         </ul>
     </div>
-    <div *ngIf="showForm">
+
+    <div id="formDiv" *ngIf="showForm">
         <form #profileForm>
-            <h4>Completa tus datos</h4>
+            <h4 id="title">Completa tus datos</h4>
             <div class="form-group">
                 <label for="name">Nombre:</label>
                 <input type="text" class="form-control" id="name" name="name" [(ngModel)]="profile.name">
@@ -35,7 +38,21 @@
                 <label for="address">Dirección:</label>
                 <input type="text" class="form-control" id="address" name="address" [(ngModel)]="profile.address">
             </div>
-            <button type="button" class="btn btn-primary" (click)="saveProfile()">Guardar</button>
+            <button id="saveBtn" type="button" class="btn btn-primary" (click)="saveProfile()">Guardar</button>
         </form>        
     </div>
 </div>
+
+
+    
+    <div id="cardMain" class="container-fluid" *ngIf="card">
+        <h4 id="title">Tarjeta del Usuario</h4>
+        <div id="cardBody" class="container-fluid">
+            <div id="cardT" class="container-fluid"><p id="cardP">Visa Gold</p> <img class="img-fluid" id="cardIcon" src="../../../../assets/icons/visaw.svg"></div>
+            <div id="cardN" class="container-fluid"><p id="numP">{{ formatCardNumber(card.number) }}</p></div>
+            <div id="cardE" class="container-fluid"><p id="expP">{{ card.expiremonth }} / {{ card.expireyear }}</p></div>
+            <div id="cardN" class="container-fluid"><p id="ownP"> {{ card.owner }} {{ card.surname }}</p></div>
+        </div>
+    </div>
+</div>
+
