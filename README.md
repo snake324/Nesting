@@ -4,7 +4,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://i.imgur.com/giG5hWR.png" alt="project-screenshot" width="600" height="400/">
+<img src="https:/" width="600" height="400/">
 <img src=  alt="project-screenshot" width="600" height="400/">
   
   
@@ -35,8 +35,29 @@ Technologies used in the project:
 *   Java V17
 *   Karma-Jasmine V5.1.0
 
-<h2>Dependencies</h2>
+<h2>💻 Dependencies</h2>
 
+Angular
+*  Bootstrap
+*  Bootstrap-icons
+*  JQuery
+*  Popper.js
+*  RxJs
+*  Ngx-cookie
+Springboot
+*  Starter-data-Jpa
+*  Starter-Mail
+*  Starter-Security
+*  Starter-Web
+*  Devtools
+*  mysql-connector-j
+*  Starter-Test
+*  Lombok
+*  security Test
+*  Maven Plugin
+Java
+*  Hamcrest
+*  JUnit
 
 
 <h2>💻 Team</h2>
