@@ -1,9 +1,14 @@
-<div class="photo-grid row">
-  <div *ngFor="let fileObj of selectedFiles; let i = index" class="col-3">
-    <span class="text-danger cursor-pointer" (click)="deleteFile(i)">
-      <i class="fa fa-trash"></i>
-    </span>
-    <img [src]="fileObj.url" alt="Vista previa de la foto" class="img-fluid">
+<div class="photo-upload-container">
+  <input type="file" id="formFileMultiple" multiple (change)="onFilesSelected($event)">
+  <label for="formFileMultiple"></label>
+
+  <div class="photo-grid row">
+    <div *ngFor="let fileObj of selectedFiles; let i = index" class="col-3">
+      <img [src]="fileObj.url" alt="Vista previa de la foto" class="img">
+      <span class="text-danger cursor-pointer" (click)="deleteFile(i)">
+        <i class="bi bi-trash"></i>
+      </span>
+    </div>
   </div>
 </div>
 
