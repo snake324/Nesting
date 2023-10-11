@@ -33,28 +33,34 @@ export class SigninComponent {
 
   login() {
     this.errorMessage = null;
-
+  
     if (this.formlogin.invalid) {
       return;
     }
-
+  
     const username = this.formlogin.value.username;
     const password = this.formlogin.value.password;
-
+  
     const authHeader = 'Basic ' + btoa(username + ':' + password);
     const headers = new HttpHeaders({ Authorization: authHeader });
-
+  
     this.usersService.loginUser(username, password, headers).subscribe(
       (data) => {
         const jsessionId = data['jsessionid'];
         const userRoles = data['roles'];
-
+        const status = data['status'];
+  
         if (jsessionId) {
           localStorage.setItem('JSESSIONID', jsessionId);
         } else {
           console.error('JSESSIONID no encontrado en la respuesta del servidor.');
         }
-
+  
+        if (status === false) {
+          this.errorMessage = 'Tu cuenta está desactivada. No puedes iniciar sesión.';
+          return; 
+        }
+  
         this.getUserIdByEmail(username).subscribe((userId) => {
           localStorage.setItem('userId', userId.toString());
           localStorage.setItem('roles', userRoles.toString());
@@ -79,7 +85,7 @@ export class SigninComponent {
       }
     );
   }
-
+  
   getUserIdByEmail(mail: string) {
     return this.usersService.getUserIdByEmail(mail);
   }
