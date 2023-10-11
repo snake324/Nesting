@@ -4,8 +4,8 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="(https://github.com/FactoriALT-F4/Nesting/assets/133370569/6c0f5751-daa2-4567-8839-4749fee7d469.jpg)" alt="project-screenshot-home" width="600" height="400/">
-<img src="(https://github.com/FactoriALT-F4/Nesting/assets/133370569/0ea98356-d7a5-4601-a7c3-57abb6abf014)" alt="project-screenshot-Filter" width="600" height="400/">
+<img src="https://i.imgur.com/CRQ3YYs.png" alt="project-screenshot-home" width="600" height="400/">
+<img src="https://i.imgur.com/1IhasQm.png" alt="project-screenshot-Filter" width="600" height="400/">
   
   
 <h2>🧐 Features</h2>
