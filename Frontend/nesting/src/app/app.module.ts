@@ -14,17 +14,17 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     FooterComponent
-
-
+   
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
+        
   ],
   providers: [],
   bootstrap: [AppComponent],
-
+  
 })
 export class AppModule { }

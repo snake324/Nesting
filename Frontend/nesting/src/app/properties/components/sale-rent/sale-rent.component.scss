@@ -1,92 +1,42 @@
-$primary-color: #F3A139;
-$secondary-color: #006D7A;
-$background-color: #D0EAE9;
-$border-color: #8BBFBD;
-$white: #ffffff;
-
-
-@mixin box-shadow {
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
 h1 {
-  color: $primary-color;
+  color: #F3A139;
   text-align: center;
-  margin: 2rem 0 3rem;
-  font-weight: bold;
-}
-
-#mainDiv {
-  width: 80%;
-  height: 90%;
-  background-color: #f4f4f2;
-  padding: 2em;
-  padding-top: 5em;
-  padding-left: 4.5rem;
-  border-radius: 8px;
-  margin-top: 1em;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  margin-left: 10rem;
-}
-
-.form-check {
-  .form-check-input {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-top: 2rem;
-    background-color: $white;
-    border: 2px solid $secondary-color;
-    border-radius: 2.5px;
-
-    &:checked {
-      background-color: $primary-color;
-      border: 1px solid $secondary-color;
-    }
-  }
-
-  .form-check-label {
-    color: $primary-color;
-    margin-bottom: 2.5rem;
-    margin-top: 2rem;
-  }
+  margin-bottom: 3rem;
+  margin-top: 2rem;
 }
 
 .dropdown {
   button {
     height: 2.3rem;
-    border-color: transparent;
+    border-color:transparent;
     margin-bottom: 2rem;
     color: #006D7A;
   }
-
   ul.dropdown-menu {
     background-color: #D0EAE9;
-    border-color: #8BBFBD;
+    border-color:#8BBFBD;
     outline: 0.5px solid #8cbfbc;
-
-    .dropdown-item {
-      color: #006D7A;
+     .dropdown-item {
+      color:#006D7A;
     }
-
-    .dropdown-item:hover {
-      background-color: #8BBFBD;
-      color: #D0EAE9;
+     .dropdown-item:hover {
+       background-color: #8BBFBD;
+       color: #D0EAE9;
     }
   }
 }
 
 .custom-input {
-  width: 15.5rem;
+  width: 13.5rem;
   border: 0px solid #D0EAE9;
   border-radius: 5px;
-
+ 
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background-color: #D0EAE9;
 
   cursor: pointer;
   text-align: center;
-  // margin-left: 5rem;
+  margin-left: 5rem;
 
 
   &:focus {
@@ -96,55 +46,63 @@ h1 {
 
   &::placeholder {
     color: #006D7A;
-    font-weight: 500;
-    font-size: large;
+    font-weight:600;
 
   }
 }
 
 .move-left {
+  margin-left: 5rem;
   margin-top: 2rem;
-  width: 30.5rem;
+  width: 40.6rem;
   height: 2.5rem;
+  text-align: center;
   outline: none;
+
 }
 
-.move-right {
+  .form-check-input {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
   margin-top: 2rem;
-  width: 30.5rem;
-  height: 2.5rem;
-  outline: none;
-  margin-bottom: 1.5rem;
+  margin-left: 20rem;
+  background-color: white;
+  border: 2px solid #006D7A;
+  border-radius: 2.5px;
+
+      &:checked {
+        background-color: #F3A139;
+        border: 1px solid #006D7A;
+      }
+        &:focus {
+    box-shadow: none;
+  }
+   &:checked + .form-check-label {
+    text-decoration: underline;
+
+  }
+    }
+
+label {
+  color:#F3A139;
+  margin-left: 5rem;
+  margin-top: 1.7rem;
+  margin-bottom: 2rem;
 }
+
 
 textarea {
-  height: 19rem;
-  width: 36.7rem;
+  resize: none;
   border-color: #D0EAE9;
   background-color: #D0EAE9;
   color: #F3A139;
-  // margin-left: 4.8rem;
+  margin-left: 4.8rem;
 
   &:focus {
     border-color: #8BBFBD;
   }
 }
-
-.save {
-  width: 11rem;
-  height: 2.3rem;
-  border-radius: 5px;
-  border: none;
-  background-color: #F3A139;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-
-  color: #FFF;
-  font-weight: 500;
-  margin-top: 2.4rem;
-  // margin-left: 5rem;
-}
-
 
 #description {
   background-color: #D0EAE9;
@@ -157,7 +115,29 @@ textarea {
   }
 }
 
+.btupload {
+  margin-left: 5rem;
 
+  margin-bottom: 5rem;
+  font-weight:600;
+}
+.d-flex {
+
+  margin-bottom: 2rem;
+
+}
+.save{
+  background-color: #F3A139;
+  border-color:transparent;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  width: 11rem;
+  height: 2.3rem;
+  border-radius: 5px;
+  margin-left: 18.8em;
+}
 .btn {
   background-color: #D0EAE9;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -165,16 +145,16 @@ textarea {
   font-family: 'Inter', sans-serif;
   font-size: large;
   font-weight: 600;
-  width: 15.5rem;
+  width: 13.5rem;
   height: 2.1rem;
-  // margin-left: 5rem;
+  margin-left: 5rem;
 
   &:hover {
     background-color: #D0EAE9;
   }
 }
 
-#liveAlertPlaceholder {
+#liveAlertPlaceholder{
   display: flex;
   justify-content: center;
   align-items: center;

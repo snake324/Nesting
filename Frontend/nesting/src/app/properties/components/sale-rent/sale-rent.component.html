@@ -1,12 +1,23 @@
 <h1>Formulario de Venta/Alquiler</h1>
-
-<div id="mainDiv">
 <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()" *ngIf="showForm">
   <div class="row">
     <div class="col-12 col-lg-3">
+      <input
+        type="text"
+        class="form-control custom-input"
+        placeholder="Título propiedad"
+        formControlName="title"
+      />
+    </div>
+    <div class="col-12 col-lg-3">
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="propertyTypeDropdown"
-          data-bs-toggle="dropdown" aria-expanded="false">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="propertyTypeDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
           {{ selectedPropertyType }}
         </button>
         <ul class="dropdown-menu" aria-labelledby="propertyTypeDropdown">
@@ -20,34 +31,56 @@
     </div>
     <div class="col-12 col-lg-3">
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="transactionTypeDropdown"
-          data-bs-toggle="dropdown" aria-expanded="false">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="transactionTypeDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
           {{ selectedTransactionType }}
         </button>
         <ul class="dropdown-menu" aria-labelledby="transactionTypeDropdown">
           <li *ngFor="let type of types">
-            <a class="dropdown-item" (click)="selectTransactionType(type)">{{ type }}</a>
+            <a class="dropdown-item" (click)="selectTransactionType(type)">{{
+              type
+            }}</a>
           </li>
         </ul>
       </div>
     </div>
+  </div>
+  <div class="row">
     <div class="col-12 col-lg-3">
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="cityDropdown" data-bs-toggle="dropdown"
-          aria-expanded="false">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="cityDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
           {{ getCityValue() }}
         </button>
         <ul class="dropdown-menu" aria-labelledby="cityDropdown">
           <li *ngFor="let city of cities">
-            <a class="dropdown-item" (click)="selectCity(city.name)">{{ city.name }}</a>
+            <a class="dropdown-item" (click)="selectCity(city.name)">{{
+              city.name
+            }}</a>
           </li>
         </ul>
       </div>
     </div>
     <div class="col-12 col-lg-3">
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="postalCodeDropdown"
-          data-bs-toggle="dropdown" [disabled]="!propertyForm.get('city')?.value" aria-expanded="false">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="postalCodeDropdown"
+          data-bs-toggle="dropdown"
+          [disabled]="!propertyForm.get('city')?.value"
+          aria-expanded="false"
+        >
           {{ getPostalCodeValue() }}
         </button>
         <ul class="dropdown-menu" aria-labelledby="postalCodeDropdown">
@@ -121,26 +154,52 @@
       />
     </div>
   </div>
-<div class="row">
-  <div class="col-12 col-lg-6">
-    <input type="text" class="custom-input move-left" placeholder="Dirección">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" aria-label="Checkbox for following text input">
-      <label class="form-check-label" for="invalidCheck2">Publicar dirección</label>
+  <div class="row">
+    <div class="col-12 col-lg-3">
+      <input
+        type="text"
+        class="custom-input move-left"
+        placeholder="Dirección"
+        formControlName="address"
+      />
     </div>
-    <div class="btupload">
-      <app-file-upload></app-file-upload>
+    <div class="col-12 col-lg-3">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          aria-label="Checkbox for following text input"
+        />
+        <label class="form-check-label" for="invalidCheck2">
+          Publicar dirección
+        </label>
+      </div>
     </div>
   </div>
-  <div class="col-12 col-lg-6">
-    <input type="text" class="custom-input move-right" placeholder="Titulo" id="tituloInput">
-    <textarea id="description" name="description" rows="2" class="form-control" placeholder="Descripción..."></textarea>
-    <button type="submit" class="save" id="liveAlertBtn" (click)="onSubmit()">Guardar</button>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <label for="description">Descripción</label>
+      <textarea
+        id="description"
+        name="description"
+        rows="6"
+        formControlName="description"
+        class="form-control"
+        placeholder="Descripción de la propiedad..."
+      ></textarea>
+      <div class="col-12 col-lg-6 btupload">
+        <app-file-upload></app-file-upload>
+      </div>
+    </div>
+    <div class="col-12 col-lg-3" >
+      <div class="d-flex">
+        <app-previewbtn></app-previewbtn>
+      </div>
+      <button type="submit" class="save" id="liveAlertBtn" (click)="onSubmit()">Guardar</button>      
+    </div>
   </div>
-  </div>
-
-
-
+</form>
 
 <div id="liveAlertPlaceholder">
   <div *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible" role="alert">
@@ -148,4 +207,3 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 </div>
-
