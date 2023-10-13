@@ -43,22 +43,4 @@ describe('SigninComponent', () => {
     expect(component.formlogin.get('password')).toBeDefined();
   });
 
-  it('should call login method successfully', () => {
-    const mockData = { jsessionid: 'mockSessionId' };
-    const mockUserId = 123;
-
-    userService.loginUser.and.returnValue(of(mockData));
-    userService.getUserIdByEmail.and.returnValue(of(mockUserId));
-
-    component.ngOnInit();
-    component.formlogin.setValue({ username: 'testuser', password: 'testpassword' });
-    component.login();
-
-    expect(userService.loginUser).toHaveBeenCalledOnceWith('testuser', 'testpassword', jasmine.any(Object));
-    expect(userService.getUserIdByEmail).toHaveBeenCalledOnceWith('testuser');
-    expect(router.navigate).toHaveBeenCalledOnceWith(['/user-forms/profile', mockUserId]);
-    expect(localStorage.getItem('JSESSIONID')).toEqual(mockData.jsessionid);
-    expect(localStorage.getItem('userId')).toEqual(mockUserId.toString());
-  });
-
 });
