@@ -68,31 +68,31 @@ Java
 Requisitos Previos 
 
 Antes de comenzar, asegúrate de que tu sistema cumple con los requisitos previos necesarios para desarrollar y ejecutar el proyecto. Esto podría incluir:
-•	Sistema Operativo: El proyecto se ha desarrollado y probado en sistemas operativos compatibles, como Windows, macOS o Linux. Asegúrate de tener uno de estos sistemas.
-•	Herramientas de Desarrollo: Asegúrate de tener las siguientes herramientas instaladas en tu sistema:
-•	Java: Asegúrate de tener Java 17 o una versión compatible instalada. Puedes descargar Java desde el sitio web oficial de Oracle o utilizar una distribución OpenJDK.
-•	Node.js y npm: Instala Node.js, que también incluye npm (Node Package Manager). Puedes descargarlo desde el sitio web oficial de Node.js.
-•	Angular CLI: Instala Angular CLI globalmente usando npm:
-npm install -g @angular/cli 
-•	MySQL: Asegúrate de tener una instancia de MySQL 8.0 Community Edition instalada y configurada. Debes conocer el nombre de usuario y la contraseña de MySQL.
-•	Spring Boot: Asegúrate de tener Spring Boot 3.1.4 configurado en tu entorno de desarrollo.
-Configuración del Proyecto
-1.	Clonar el Repositorio:
-Clona el repositorio del proyecto desde un sistema de control de versiones como Git. Utiliza el siguiente comando en tu terminal:
-git clone <URL del repositorio> 
-2.	Backend (Spring Boot):
-•	Abre el proyecto Spring Boot en tu IDE de desarrollo.
-•	Asegúrate de que las dependencias del proyecto se han descargado correctamente.
-•	Configura las propiedades de la base de datos en application.properties o application.yml. Asegúrate de especificar la URL, nombre de usuario y contraseña de la base de datos MySQL.
-•	Inicia la aplicación Spring Boot.
-3.	Frontend (Angular):
-•	Abre una terminal y navega hasta el directorio de frontend del proyecto.
-•	Ejecuta el siguiente comando para instalar las dependencias de Angular:
-npm install 
-•	Configura la URL de la API del backend en el archivo de configuración de Angular.
-•	Inicia la aplicación de Angular con el siguiente comando:
-ng serve 
-•	La aplicación de Angular estará disponible en http://localhost:4200/.
+•	Sistema Operativo: El proyecto se ha desarrollado y probado en sistemas operativos compatibles, como Windows, macOS o Linux. Asegúrate de tener uno de estos sistemas.<br>
+•	Herramientas de Desarrollo: Asegúrate de tener las siguientes herramientas instaladas en tu sistema:<br>
+•	Java: Asegúrate de tener Java 17 o una versión compatible instalada. Puedes descargar Java desde el sitio web oficial de Oracle o utilizar una distribución OpenJDK.<br>
+•	Node.js y npm: Instala Node.js, que también incluye npm (Node Package Manager). Puedes descargarlo desde el sitio web oficial de Node.js.<br>
+•	Angular CLI: Instala Angular CLI globalmente usando npm:<br>
+npm install -g @angular/cli <br>
+•	MySQL: Asegúrate de tener una instancia de MySQL 8.0 Community Edition instalada y configurada. Debes conocer el nombre de usuario y la contraseña de MySQL.<br>
+•	Spring Boot: Asegúrate de tener Spring Boot 3.1.4 configurado en tu entorno de desarrollo.<br>
+Configuración del Proyecto<br>
+1.	Clonar el Repositorio:<br>
+Clona el repositorio del proyecto desde un sistema de control de versiones como Git. Utiliza el siguiente comando en tu terminal:<br>
+git clone <URL del repositorio><br> 
+2.	Backend (Spring Boot):<br>
+•	Abre el proyecto Spring Boot en tu IDE de desarrollo.<br>
+•	Asegúrate de que las dependencias del proyecto se han descargado correctamente.<br>
+•	Configura las propiedades de la base de datos en application.properties o application.yml. Asegúrate de especificar la URL, nombre de usuario y contraseña de la base de datos MySQL.<br>
+•	Inicia la aplicación Spring Boot.<br>
+3.	Frontend (Angular):<br>
+•	Abre una terminal y navega hasta el directorio de frontend del proyecto.<br>
+•	Ejecuta el siguiente comando para instalar las dependencias de Angular:<br>
+npm install <br>
+•	Configura la URL de la API del backend en el archivo de configuración de Angular.<br>
+•	Inicia la aplicación de Angular con el siguiente comando:<br>
+ng serve<br> 
+•	La aplicación de Angular estará disponible en http://localhost:4200/.<br>
 
 
 <h2>💻 Team</h2>
