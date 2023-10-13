@@ -148,7 +148,6 @@ export class SaleRentComponent  {
         (response) => {
           this.alertMessage = 'Propiedad guardada con éxito.';
           this.alertType = 'success';
-          this.showForm = false;
   
           setTimeout(() => {
             this.router.navigate(['/user-forms/profile', userId]);
@@ -164,6 +163,10 @@ export class SaleRentComponent  {
     } else {
       console.error('El userId no está presente en el almacenamiento local');
     }
+  }
+
+  goBack() {
+    this.router.navigate(['../']);
   }
   
 }
