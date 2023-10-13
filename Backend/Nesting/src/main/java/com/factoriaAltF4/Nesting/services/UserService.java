@@ -75,4 +75,14 @@ public class UserService {
         u.setStatus(newStatus);
         return updateUser(u);
     }
+
+    public boolean getUserStatus(String mail) {
+        User user = repo.findByMail(mail).orElse(null);
+
+        if (user != null) {
+            return user.isStatus();
+        }
+
+        return false;
+    }
 }

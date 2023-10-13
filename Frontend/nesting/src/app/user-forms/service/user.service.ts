@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../../user-forms/models/user.model';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:4000/login';
-  private baseUrl = 'http://localhost:4000';
+  public apiUrl = environment.apiUrl;
 
   private isAuthenticated: boolean = false;
   private actualUser: User | null = null;
@@ -24,16 +24,15 @@ export class UserService {
       status: status
     };
 
-    return this.httpClient.post<any>(`${this.baseUrl}/register`, user);
+    return this.httpClient.post<any>(`${this.apiUrl}/register`, user);
   }
   public loginUser(mail: string, password: string, headers: HttpHeaders | null = null): Observable<any> {
     this.isAuthenticated = true;
 
-    // Si se proporcionan encabezados, úsalos; de lo contrario, no los incluyas en la solicitud
     if (headers) {
-      return this.httpClient.post<any>(`${this.baseUrl}/login`, {}, { headers, withCredentials: true });
+      return this.httpClient.post<any>(`${this.apiUrl}/login`, {}, { headers, withCredentials: true });
     } else {
-      return this.httpClient.post<any>(`${this.baseUrl}/login`, {}, { withCredentials: true });
+      return this.httpClient.post<any>(`${this.apiUrl}/login`, {}, { withCredentials: true });
     }
   }
 
@@ -45,17 +44,17 @@ export class UserService {
     this.actualUser = user;
   }
   getUser(userId: string): Observable<User> {
-    const url = `${this.baseUrl}/users/${userId}`;
+    const url = `${this.apiUrl}/users/${userId}`;
     return this.httpClient.get<User>(url);
   }
 
   getUsers(): Observable<User[]> {
-    const url = `${this.baseUrl}/users`;
+    const url = `${this.apiUrl}/users`;
     return this.httpClient.get<User[]>(url);
   }
 
   getUserIdByEmail(mail: string) {
-    const url = `${this.baseUrl}/users/getid?mail=${mail}`;
+    const url = `${this.apiUrl}/users/getid?mail=${mail}`;
     return this.httpClient.get<number>(url);
   }
 
@@ -72,6 +71,15 @@ export class UserService {
     if (this.isLogged()) {
       const userId = localStorage.getItem("userId");
       return userId;
+    } else {
+      return null;
+    }
+  }
+
+  public getUserRoles(): string | null {
+    if (this.isLogged()) {
+      const userRoles = localStorage.getItem("roles");
+      return userRoles;
     } else {
       return null;
     }

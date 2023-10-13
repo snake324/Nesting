@@ -1,9 +1,14 @@
 <div class="mb-3">
-  <label for="formFileMultiple" class="form-label"><br/></label>
-  <input class="form-control" type="file" id="formFileMultiple" multiple />
+  <div class="form-group fs-3 d-flex flex-column">
+    <label class="mb-3 px-3">Imágenes de la propiedad</label>
+    <div ngbDropdown class="cursor-pointer">
+      <div ngbDropdownMenu aria-labelledby="dropdownButton">
+        <input class="custom-input" type="file" #imageInput (change)="onFilesSelected($event)" multiple>
+      </div>
+    </div>
+    <br>
+    <div *ngFor="let image of selectedImages">
+      <img class="border border-success w-100 h-25" [src]="image">
+    </div>
+  </div>
 </div>
-
-<!-- <div *ngFor="let image of uploadedImages">
-  <img [src]="image.url" alt="Imagen" />
-  <button (click)="deleteImage(image.id)">Borrar</button>
-</div> -->

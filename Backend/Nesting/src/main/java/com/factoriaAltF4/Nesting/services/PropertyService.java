@@ -41,19 +41,44 @@ public class PropertyService {
         return repo.save(property);
     }
 
-    public Property updateProperty(Property property) {
-        return repo.save(property);
+    public Property updateProperty(Property property, Long id) {
+        Property existingProperty = getPropertyById(id);
+        if (existingProperty != null) {
+            existingProperty.setAddress(property.getAddress());
+            existingProperty.setBaths(property.getBaths());
+            existingProperty.setType(property.getType());
+            existingProperty.setCity(property.getCity());
+            existingProperty.setDescription(property.getDescription());
+            existingProperty.setHouseType(property.getHouseType());
+            existingProperty.setImages(property.getImages());
+            existingProperty.setModificationDate(property.getModificationDate());
+            existingProperty.setOwnermail(property.getOwnermail());
+            existingProperty.setPostalCode(property.getPostalCode());
+            existingProperty.setPrice(property.getPrice());
+            existingProperty.setPublishDate(property.getPublishDate());
+            existingProperty.setPropertiesContact(property.getPropertiesContact());
+            existingProperty.setRooms(property.getRooms());
+            existingProperty.setSize(property.getSize());
+            existingProperty.setStatus(true);
+            existingProperty.setTitle(property.getTitle());
+            existingProperty.setType(property.getType());
+            existingProperty.setProfilePublished(service.getProfileById(property.getProfilePublished().getId()));
+            return repo.save(existingProperty);
+        } else {
+            return null;
+        }
+
     }
 
-    public void deleteProperty(Property property, Long id) {
-        property = getPropertyById(id);
+    public void deleteProperty(Long id) {
+        Property property = getPropertyById(id);
         repo.delete(property);
     }
 
     public Property updateStatus(Long id, boolean newStatus) {
         Property prop = getPropertyById(id);
         prop.setStatus(newStatus);
-        return updateProperty(prop);
+        return updateProperty(prop, id);
     }
 
     public Optional<List<Property>> getPropertyByType(String type) {

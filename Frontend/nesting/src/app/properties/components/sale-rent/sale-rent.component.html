@@ -1,5 +1,13 @@
+<div id="mainDiv" class="container-fluid">
+  <div id="backDiv" class="container-fluid">
+    <button id="backBtn" type="button" class="btn" (click)="goBack()">
+      <img class="img-fluid" id="iconSvg" src="../../../../assets/icons/backw.svg"> Atrás
+    </button>
+  </div>
+
+
 <h1>Formulario de Venta/Alquiler</h1>
-<form [formGroup]="propertyForm" (ngSubmit)="onSubmit()" >
+<form [formGroup]="propertyForm" (ngSubmit)="onSubmit()" *ngIf="showForm">
   <div class="row">
     <div class="col-12 col-lg-3">
       <input
@@ -7,6 +15,7 @@
         class="form-control custom-input"
         placeholder="Título propiedad"
         formControlName="title"
+        id="dropdowI"
       />
     </div>
     <div class="col-12 col-lg-3">
@@ -14,7 +23,7 @@
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
-          id="propertyTypeDropdown"
+          id="dropdowI"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -34,7 +43,7 @@
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
-          id="transactionTypeDropdown"
+          id="dropdowI"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -56,7 +65,7 @@
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
-          id="cityDropdown"
+          id="dropdowI"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -76,7 +85,7 @@
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
-          id="postalCodeDropdown"
+          id="dropdowI"
           data-bs-toggle="dropdown"
           [disabled]="!propertyForm.get('city')?.value"
           aria-expanded="false"
@@ -100,7 +109,7 @@
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
-          id="bedroomsDropdown"
+          id="dropdowI"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -121,7 +130,7 @@
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
-          id="bathroomsDropdown"
+          id="dropdowI"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -143,6 +152,7 @@
         class="form-control custom-input"
         placeholder="Superficie"
         formControlName="size"
+        id="inputB"
       />
     </div>
     <div class="col-12 col-lg-3">
@@ -151,6 +161,7 @@
         class="form-control custom-input"
         placeholder="Importe €"
         formControlName="price"
+        id="inputB"
       />
     </div>
   </div>
@@ -158,9 +169,10 @@
     <div class="col-12 col-lg-3">
       <input
         type="text"
-        class="custom-input move-left"
-        placeholder="Dirección"
+        class="form-control custom-input"
+        placeholder="Direccion"
         formControlName="address"
+        id="inputB"
       />
     </div>
     <div class="col-12 col-lg-3">
@@ -170,10 +182,17 @@
           type="checkbox"
           value=""
           aria-label="Checkbox for following text input"
+          id="inputB"
         />
-        <label class="form-check-label" for="invalidCheck2">
+        <label id="address" class="form-check-label" for="invalidCheck2">
           Publicar dirección
         </label>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div id="imgInp" class="input-group mb-3">
+        <label id="imgLabel" class="input-group-text" for="inputGroupFile01">Upload</label>
+        <input id="imgForm" type="file" class="form-control" id="inputGroupFile01">
       </div>
     </div>
   </div>
@@ -188,15 +207,18 @@
         class="form-control"
         placeholder="Descripción de la propiedad..."
       ></textarea>
-      <div class="col-12 col-lg-6 btupload">
-        <app-file-upload></app-file-upload>
-      </div>
     </div>
-    <div class="col-12 col-lg-3" >
-      <div class="d-flex">
-        <app-previewbtn></app-previewbtn>
-      </div>
-      <button type="submit" class="save">Guardar</button>
+    <div id="btnDiv" class="col-12 col-lg-3" >
+      <button type="submit" class="save btn btn-primary" id="liveAlertBtn">Publicar</button>      
     </div>
   </div>
+  
 </form>
+
+<div id="liveAlertPlaceholder">
+  <div id="alertDiv" *ngIf="alertMessage" class="alert alert-{{ alertType }} alert-dismissible fadeInOut" role="alert">
+    <img class="img-fluid" id="gif" src="../../../../assets/icons/yes.gif">
+    <div><p id="alertP"> {{ alertMessage }}</p></div>
+  </div>
+</div>
+</div>
