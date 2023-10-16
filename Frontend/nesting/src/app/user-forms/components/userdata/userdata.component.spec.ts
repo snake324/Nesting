@@ -51,36 +51,27 @@ describe('UserdataComponent', () => {
     const mockCard: Card = {
       id: 1,
       owner: 'John Doe',
+      surname: 'Doe',
       number: '1234 5678 9012 3456',
       expiremonth: '12',
       expireyear: '2023',
     };
 
     const mockProfile: Profile = {
+      userProfile: {}, 
       id: 1,
       name: 'John',
       lastname: 'Doe',
       address: '123 Main St',
-      card: mockCard,
-      propertiesPublished: [
-        {
-          id: 1,
-          title: 'Property 1',
-          description: 'Description 1',
-          city: 'City 1',
-          postalCode: '12345',
-          rooms: 3,
-          baths: 2,
-          size: 150,
-          price: 200000,
-          type: 'Sale',
-          status: true,
-          houseType: 'Apartment',
-          publishDate: '2023-10-05',
-          modificationDate: '2023-10-05',
-          images: [{ id: 1, img: 'image1.jpg' }],
-        },
-      ],
+      card: {
+        id: 1,
+        owner: 'John Doe',
+        surname: 'Doe',
+        number: '1234 5678 9012 3456',
+        expiremonth: '12',
+        expireyear: '2023',
+      },
+      propertiesPublished: [],
     };
 
     const mockUser: User = {
@@ -110,17 +101,26 @@ describe('UserdataComponent', () => {
     const mockCard: Card = {
       id: 1,
       owner: 'John Doe',
+      surname: 'Doe',
       number: '1234 5678 9012 3456',
       expiremonth: '12',
       expireyear: '2023',
     };
 
     const mockProfile: Profile = {
+      userProfile: {}, 
       id: 1,
       name: 'John',
       lastname: 'Doe',
       address: '123 Main St',
-      card: mockCard,
+      card: {
+        id: 1,
+        owner: 'John Doe',
+        surname: 'Doe',
+        number: '1234 5678 9012 3456',
+        expiremonth: '12',
+        expireyear: '2023',
+      },
       propertiesPublished: [],
     };
 

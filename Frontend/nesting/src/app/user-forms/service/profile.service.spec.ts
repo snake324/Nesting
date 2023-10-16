@@ -44,16 +44,27 @@ describe('ProfileService', () => {
     const mockCard: Card = {
       id: 1,
       owner: 'John Doe',
+      surname: 'Doe',
       number: '1234 5678 9012 3456',
       expiremonth: '12',
       expireyear: '2023',
     };
-    const mockProfile: Profile = {id: 1,
+    const mockProfile: Profile = {
+      userProfile: {}, 
+      id: 1,
       name: 'John',
       lastname: 'Doe',
       address: '123 Main St',
-      card: mockCard,
-      propertiesPublished: [],};
+      card: {
+        id: 1,
+        owner: 'John Doe',
+        surname: 'Doe',
+        number: '1234 5678 9012 3456',
+        expiremonth: '12',
+        expireyear: '2023',
+      },
+      propertiesPublished: [],
+    };
 
     
 
@@ -70,17 +81,26 @@ describe('ProfileService', () => {
     const mockCard: Card = {
       id: 1,
       owner: 'John Doe',
+      surname: 'Doe',
       number: '1234 5678 9012 3456',
       expiremonth: '12',
       expireyear: '2023',
     };
   
     const mockProfile: Profile = {
+      userProfile: {}, 
       id: 1,
       name: 'John',
       lastname: 'Doe',
       address: '123 Main St',
-      card: mockCard,  
+      card: {
+        id: 1,
+        owner: 'John Doe',
+        surname: 'Doe',
+        number: '1234 5678 9012 3456',
+        expiremonth: '12',
+        expireyear: '2023',
+      },
       propertiesPublished: [],
     };
   
@@ -100,18 +120,27 @@ describe('ProfileService', () => {
     const mockCard: Card = {
       id: 1,
       owner: 'John Doe',
+      surname: 'Doe',
       number: '1234 5678 9012 3456',
       expiremonth: '12',
       expireyear: '2023',
     };
   
     const mockDeletedProfile: Profile = {
-      id: 0,
-      name: '',
-      lastname: '',
-      address: '',
-      card: mockCard,
-      propertiesPublished: []
+      userProfile: {}, 
+      id: 1,
+      name: 'John',
+      lastname: 'Doe',
+      address: '123 Main St',
+      card: {
+        id: 1,
+        owner: 'John Doe',
+        surname: 'Doe',
+        number: '1234 5678 9012 3456',
+        expiremonth: '12',
+        expireyear: '2023',
+      },
+      propertiesPublished: [],
     };
   
     service.deleteProfile(profileId).subscribe((deletedProfile) => {
